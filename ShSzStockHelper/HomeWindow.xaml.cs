@@ -1,10 +1,10 @@
 ﻿/*
  * @Description: the back-end code of the home window
- * @Version: 1.0.6.20200722
+ * @Version: 1.0.7.20200723
  * @Author: Arvin Zhao
  * @Date: 2020-07-08 10:17:48
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2020-07-22 14:12:09
+ * @LastEditTime: 2020-07-23 14:12:09
  */
 
 using Microsoft.Win32;
@@ -215,19 +215,27 @@ namespace ShSzStockHelper
             // Display a dialogue that allows the user to specify a filename to save an Excel file as.
             if (saveFileDialog.ShowDialog() == true)
             {
-                using (Stream stream = saveFileDialog.OpenFile())
+                // TODO: This is just a temporary solution to the exception System.EntryPointNotFoundException: 'Unable to find an entry point named 'CopyMemory' in DLL 'kernel32.dll'.'
+                try
                 {
-                    Encoding.RegisterProvider(CodePagesEncodingProvider.Instance); // Avoid throwing the exception "System.NotSupportedException: No data is available for encoding 437".
-
-                    workbook.Version = saveFileDialog.FilterIndex switch
+                    using (Stream stream = saveFileDialog.OpenFile())
                     {
-                        1 => ExcelVersion.Excel97to2003, // TODO: System.EntryPointNotFoundException: 'Unable to find an entry point named 'CopyMemory' in DLL 'kernel32.dll'.'
-                        _ => ExcelVersion.Excel2010,
-                    };
-                    workbook.SaveAs(stream);
-                } // end using
+                        Encoding.RegisterProvider(CodePagesEncodingProvider.Instance); // Avoid throwing the exception "System.NotSupportedException: No data is available for encoding 437".
 
-                Process.Start("Explorer.exe", "/select," + saveFileDialog.FileName); // Start File Explorer and locate the created Excel file.
+                        workbook.Version = saveFileDialog.FilterIndex switch
+                        {
+                            1 => ExcelVersion.Excel97to2003,
+                            _ => ExcelVersion.Excel2010,
+                        };
+                        workbook.SaveAs(stream);
+                    } // end using
+
+                    Process.Start("Explorer.exe", "/select," + saveFileDialog.FileName); // Start File Explorer and locate the created Excel file.
+                }
+                catch (EntryPointNotFoundException)
+                {
+                    MessageBox.Show("导出失败！\n无法导出成低版本Excel文件（.xls)是已知问题，将在更新版本中修复。给您带来的不便敬请谅解。如果可以，请选择导出成高版本Excel文件（.xlsx）。", Properties.Resources.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
+                } // end try...catch
             } // end if
         } // end method ButtonExportToExcel_Click
 
