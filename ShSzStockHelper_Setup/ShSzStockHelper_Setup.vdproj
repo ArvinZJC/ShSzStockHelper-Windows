@@ -63,18 +63,13 @@
         "InstallerBootstrapper" = "3:2"
             "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
             {
-            "Enabled" = "11:TRUE"
+            "Enabled" = "11:FALSE"
             "PromptEnabled" = "11:TRUE"
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
                 "Items"
                 {
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
-                    {
-                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
-                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
-                    }
                 }
             }
         }
@@ -100,6 +95,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -299,24 +302,24 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:沪深股票助手 0.2.0-alpha"
-        "ProductCode" = "8:{315D9B13-2F7D-4146-8C6C-76AAA849786D}"
-        "PackageCode" = "8:{2A56F3B0-5133-42A2-95B9-4A5C933AA37E}"
+        "ProductName" = "8:沪深股票助手 0.2.2-alpha"
+        "ProductCode" = "8:{61CB541F-0128-4A90-ADB7-65FA60F301FF}"
+        "PackageCode" = "8:{B06EEAA0-ED52-4A92-B23A-90B22F8B6BA6}"
         "UpgradeCode" = "8:{4084B82C-5409-4911-AC68-75382B3725C1}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:0.2.0"
+        "ProductVersion" = "8:0.2.2"
         "Manufacturer" = "8:Arvin Zhao"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:沪深股票助手 0.2.0-alpha 安装向导"
+        "Title" = "8:沪深股票助手 0.2.2-alpha 安装向导"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Arvin Zhao"
         "Keywords" = "8:"
-        "ARPCOMMENTS" = "8:双击启动安装向导安装 沪深股票助手 0.2.0-alpha"
+        "ARPCOMMENTS" = "8:双击启动安装向导安装 沪深股票助手 0.2.2-alpha"
         "ARPURLINFOABOUT" = "8:"
         "ARPPRODUCTICON" = "8:_DC34E5B9BC5C41588210F3AE85FDCBA8"
         "ARPIconIndex" = "3:0"
@@ -424,7 +427,7 @@
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_310F76F7DD184104A3D19916234FB34D"
             {
             "Name" = "8:卸载 沪深股票助手"
-            "Arguments" = "8:/x {315D9B13-2F7D-4146-8C6C-76AAA849786D}"
+            "Arguments" = "8:/x [ProductCode]"
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"

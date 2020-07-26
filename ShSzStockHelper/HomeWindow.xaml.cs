@@ -1,10 +1,10 @@
 ﻿/*
  * @Description: the back-end code of the home window
- * @Version: 1.0.7.20200723
+ * @Version: 1.0.9.20200726
  * @Author: Arvin Zhao
  * @Date: 2020-07-08 10:17:48
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2020-07-23 14:12:09
+ * @LastEditTime: 2020-07-26 14:12:09
  */
 
 using Microsoft.Win32;
@@ -62,14 +62,16 @@ namespace ShSzStockHelper
 
         private void DatePickerStartDate_ValueChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
-            _strikePrice_VolumeDataProcessor.StartDate = e.NewValue.ToDateTime();
+            DateTime startDateTime = e.NewValue.ToDateTime();
+            _strikePrice_VolumeDataProcessor.StartDate = new DateTime(startDateTime.Year, startDateTime.Month, startDateTime.Day);
             ChangeDatePickerForeground();
             ChangeButtonSearchStatus();
         } // end method DatePickerStartDate_ValueChanged
 
         private void DatePickerEndDate_ValueChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
-            _strikePrice_VolumeDataProcessor.EndDate = e.NewValue.ToDateTime();
+            DateTime endDateTime = e.NewValue.ToDateTime();
+            _strikePrice_VolumeDataProcessor.EndDate = new DateTime(endDateTime.Year, endDateTime.Month, endDateTime.Day);
             ChangeDatePickerForeground();
             ChangeButtonSearchStatus();
         } // end method DatePickerEndDate_ValueChanged
@@ -127,9 +129,10 @@ namespace ShSzStockHelper
                         {
                             HeaderText = _strikePrice_VolumeDataProcessor.StartDate.AddDays(dayVolumeColumnCount).ToString("yyyy-M-d"),
                             MappingName = dayVolumeColumnMappingName,
-                            TextAlignment = TextAlignment.Right,
+                            MaximumWidth = 300,
                             MinimumWidth = 50,
-                            MaximumWidth = 400
+                            ShowHeaderToolTip = true,
+                            TextAlignment = TextAlignment.Right
                         });
                         stackedHeaderRowDayVolumeChildColumns += dayVolumeColumnMappingName + ",";
                     } // end for
@@ -140,7 +143,7 @@ namespace ShSzStockHelper
                     {
                         ChildColumns = stackedHeaderRowDayVolumeChildColumns,
                         HeaderText = Properties.Resources.DayVolumeColumnHeader,
-                        MappingName = "DayVolume",
+                        MappingName = "DayVolume"
                     });
                     dataGridStrikePrice_VolumeTable.StackedHeaderRows.Add(stackedHeaderRowDayVolume);
 
@@ -153,10 +156,12 @@ namespace ShSzStockHelper
                         {
                             var strikePrice = Convert.ToDecimal(e.Record.GetType().GetProperty("StrikePrice").GetValue(e.Record));
 
+                            // Keep 2 decimal places for each volume value which is not null. According to the formula "每日成交量：1手 = 100股", values do not need rounding.
                             for (int nodeCount = 0; nodeCount < nodeTotalCount; nodeCount++)
                                 if (strikePrice_VolumeRows[nodeCount, 0] == strikePrice)
                                 {
-                                    e.Value = strikePrice_VolumeRows[nodeCount, 2 + Convert.ToInt32(e.Column.MappingName)];
+                                    decimal? dayVolume = strikePrice_VolumeRows[nodeCount, 2 + Convert.ToInt32(e.Column.MappingName)];
+                                    e.Value = dayVolume == null ? null : (decimal?) decimal.Parse(((decimal) dayVolume).ToString("#0.00"));
                                     break;
                                 } // end if
                         } // end if

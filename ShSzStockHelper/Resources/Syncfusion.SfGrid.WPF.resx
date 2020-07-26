@@ -306,11 +306,11 @@
     <comment>Text For NotEquals</comment>
   </data>
   <data name="NotNull" xml:space="preserve">
-    <value>Not Null</value>
+    <value>非空</value>
     <comment>Text for NotNull</comment>
   </data>
   <data name="Null" xml:space="preserve">
-    <value>Null</value>
+    <value>空</value>
     <comment>Text for Null</comment>
   </data>
   <data name="NumberFilters" xml:space="preserve">
