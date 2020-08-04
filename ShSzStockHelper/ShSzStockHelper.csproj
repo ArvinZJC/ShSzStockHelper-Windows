@@ -5,7 +5,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>AppIcon.ico</ApplicationIcon>
-    <Version>0.2.2-alpha</Version>
+    <Version>0.2.6</Version>
     <Authors>Arvin Zhao</Authors>
     <Company></Company>
     <Product>沪深股票助手</Product>
@@ -19,6 +19,8 @@
     <AssemblyName>ShSzStockHelper</AssemblyName>
     <PackageId>ShSzStockHelper</PackageId>
     <RepositoryType>Public</RepositoryType>
+    <AssemblyVersion>0.2.6.0</AssemblyVersion>
+    <FileVersion>0.2.6.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

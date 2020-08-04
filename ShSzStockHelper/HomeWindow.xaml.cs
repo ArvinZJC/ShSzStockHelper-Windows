@@ -1,10 +1,10 @@
 ﻿/*
  * @Description: the back-end code of the home window
- * @Version: 1.0.9.20200726
+ * @Version: 1.1.0.20200802
  * @Author: Arvin Zhao
  * @Date: 2020-07-08 10:17:48
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2020-07-26 14:12:09
+ * @LastEditTime: 2020-08-02 14:12:09
  */
 
 using Microsoft.Win32;
@@ -40,7 +40,7 @@ namespace ShSzStockHelper
 
             _strikePrice_VolumeDataProcessor = new StrikePrice_VolumeDataProcessor(); // Intialise the helper class for processing data of strike prices and volumes collected.
 
-            windowHome.Title = Properties.Resources.AppName + " " + Assembly.GetEntryAssembly().GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion;
+            windowHome.Title = Properties.Resources.AppName + " " + Assembly.GetEntryAssembly().GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion; // Display the app name and the package version defined in "Properties-Package-Package version".
             datePickerStartDate.MaxDate = DateTime.Now;
             datePickerEndDate.MaxDate = DateTime.Now;
         } // end constructor HomeWindow
