@@ -1,9 +1,10 @@
-﻿<Application x:Class="ShSzStockHelper.App"
+﻿<!-- The app initialiser. -->
+<Application x:Class="ShSzStockHelper.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ShSzStockHelper"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="HomeWindow.xaml">
     <Application.Resources>
-         
+        <local:StylePropertyViewModel x:Key="StyleProperties" />
     </Application.Resources>
 </Application>

@@ -5,10 +5,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>AppIcon.ico</ApplicationIcon>
-    <Version>0.2.6</Version>
+    <Version>0.3.0</Version>
     <Authors>Arvin Zhao</Authors>
     <Company></Company>
-    <Product>沪深股票助手</Product>
+    <Product>沪深小助手</Product>
     <Copyright>© 2020 Arvin Zhao</Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Description>TODO</Description>
@@ -19,8 +19,8 @@
     <AssemblyName>ShSzStockHelper</AssemblyName>
     <PackageId>ShSzStockHelper</PackageId>
     <RepositoryType>Public</RepositoryType>
-    <AssemblyVersion>0.2.6.0</AssemblyVersion>
-    <FileVersion>0.2.6.0</FileVersion>
+    <AssemblyVersion>0.3.0.0</AssemblyVersion>
+    <FileVersion>0.3.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,37 +29,42 @@
 
   <ItemGroup>
     <Resource Include="AppIcon.ico" />
+    <Resource Include="Images\ClearSelection.png" />
     <Resource Include="Images\ExportToExcel.png" />
+    <Resource Include="Images\Print.png" />
     <Resource Include="Images\Search.png" />
     <Reference Include="Syncfusion.Data.WPF">
-      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\Assemblies\4.6\Syncfusion.Data.WPF.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.Data.WPF.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Licensing">
-      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\Assemblies\4.6\Syncfusion.Licensing.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfBusyIndicator.WPF">
+      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.SfBusyIndicator.WPF.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SfGrid.WPF">
-      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\Assemblies\4.6\Syncfusion.SfGrid.WPF.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.SfGrid.WPF.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SfGridConverter.WPF">
-      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\Assemblies\4.6\Syncfusion.SfGridConverter.WPF.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.SfGridConverter.WPF.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SfInput.WPF">
-      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\Assemblies\4.6\Syncfusion.SfInput.WPF.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.SfInput.WPF.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SfShared.WPF">
-      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\Assemblies\4.6\Syncfusion.SfShared.Wpf.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.SfShared.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SfSkinManager.WPF">
-      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\Assemblies\4.6\Syncfusion.SfSkinManager.WPF.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.SfSkinManager.WPF.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Shared.WPF">
-      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\Assemblies\4.6\Syncfusion.Shared.WPF.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.Shared.WPF.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Themes.MaterialLight.WPF">
-      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\Assemblies\4.6\Syncfusion.Themes.MaterialLight.WPF.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.Themes.MaterialLight.WPF.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.XlsIO.Base">
-      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\Assemblies\4.6\Syncfusion.XlsIO.Base.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.XlsIO.Base.dll</HintPath>
     </Reference>
   </ItemGroup>
 
@@ -77,9 +82,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Syncfusion.SfGrid.WPF.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Syncfusion.SfInput.Wpf.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
   </ItemGroup>

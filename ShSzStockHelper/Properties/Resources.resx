@@ -117,38 +117,74 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AppName" xml:space="preserve">
-    <value>沪深股票助手</value>
+  <data name="BusyIndicator_Header" xml:space="preserve">
+    <value>搜索中...</value>
+  </data>
+  <data name="ButtonClearSelection_Label" xml:space="preserve">
+    <value>取消选择的行</value>
   </data>
   <data name="ButtonExportToExcel_Label" xml:space="preserve">
     <value>导出到Excel</value>
   </data>
+  <data name="ButtonPrint_Label" xml:space="preserve">
+    <value>打印</value>
+  </data>
+  <data name="ButtonPrint_ToolTip" xml:space="preserve">
+    <value>点击打开打印预览，进行打印前的配置</value>
+  </data>
   <data name="ButtonSearch_ToolTip" xml:space="preserve">
-    <value>点击搜索。</value>
+    <value>点击搜索</value>
   </data>
   <data name="DatePickerEndDate_ToolTip" xml:space="preserve">
-    <value>选择结束日期（年-月-日）。</value>
+    <value>选择结束日期（年-月-日）</value>
   </data>
   <data name="DatePickerEndDate_WaterMark" xml:space="preserve">
     <value>结束日期</value>
   </data>
   <data name="DatePickerStartDate_ToolTip" xml:space="preserve">
-    <value>选择开始日期（年-月-日）。</value>
+    <value>选择开始日期（年-月-日）</value>
   </data>
   <data name="DatePickerStartDate_WaterMark" xml:space="preserve">
     <value>开始日期</value>
   </data>
-  <data name="DayVolumeColumnHeader" xml:space="preserve">
-    <value>每日成交量（手）</value>
+  <data name="DayVolume" xml:space="preserve">
+    <value>每日成交量</value>
+  </data>
+  <data name="Fri" xml:space="preserve">
+    <value>五</value>
+  </data>
+  <data name="LeftBracket" xml:space="preserve">
+    <value>（</value>
+  </data>
+  <data name="Mon" xml:space="preserve">
+    <value>一</value>
+  </data>
+  <data name="PriceUnit" xml:space="preserve">
+    <value>元</value>
+  </data>
+  <data name="QuestionMark" xml:space="preserve">
+    <value>？</value>
+  </data>
+  <data name="RightBracket" xml:space="preserve">
+    <value>）</value>
+  </data>
+  <data name="Sat" xml:space="preserve">
+    <value>六</value>
   </data>
   <data name="SaveFileDialogueExportToExcel_Filter" xml:space="preserve">
     <value>Excel 97-2003 工作簿(*.xls)|*.xls|Excel 工作簿(*.xlsx)|*.xlsx</value>
   </data>
-  <data name="StrikePriceColumnHeader" xml:space="preserve">
-    <value>成交价（元）</value>
+  <data name="StrikePrice" xml:space="preserve">
+    <value>成交价</value>
+  </data>
+  <data name="Sun" xml:space="preserve">
+    <value>日</value>
+  </data>
+  <data name="TextBlockNullData_Text_AccessDenied" xml:space="preserve">
+    <value>未查询到数据！数据提供方拒绝了您的访问，解封一般需要您等待5~60分钟。这可能是因为您搜索频率过高。请您降低搜索频率，并建议您起止日期的间隔时长不超过1个月。</value>
   </data>
   <data name="TextBlockNullData_Text_ImproperDateRange" xml:space="preserve">
-    <value>未查询到数据！数据提供方反馈所查时间段过长。请您修改起止日期，两日期的间隔时长建议不超过9个月。</value>
+    <value>未查询到数据！数据提供方反馈所查时间段过长。请您修改起止日期，两日期的间隔时长建议不超过1个月，最长不应超过9个月。</value>
   </data>
   <data name="TextBlockNullData_Text_UnknownError" xml:space="preserve">
     <value>未知错误。请提交反馈，以便帮助开发者优化用户体验。</value>
@@ -157,12 +193,27 @@
     <value>未查询到数据！搜索条件有误，或数据提供方还没有更新数据。您可检查股票代码是否正确、所查时间段是否处于股市休市期。</value>
   </data>
   <data name="TextBoxSymbol_ToolTip" xml:space="preserve">
-    <value>输入股票代码，请以股票上市的交易所的代码开头（支持SH和SZ，大小写不限），之后接6位数字。</value>
+    <value>输入股票代码，请以股票上市的交易所的代码开头（支持SH和SZ，大小写不限），之后接6位数字</value>
   </data>
   <data name="TextBoxSymbol_WaterMark" xml:space="preserve">
     <value>股票代码</value>
   </data>
-  <data name="TotalVolumeColumnHeader" xml:space="preserve">
-    <value>总成交量（手）</value>
+  <data name="Thu" xml:space="preserve">
+    <value>四</value>
+  </data>
+  <data name="TotalVolume" xml:space="preserve">
+    <value>总成交量</value>
+  </data>
+  <data name="Tue" xml:space="preserve">
+    <value>二</value>
+  </data>
+  <data name="VolumeUnit_1" xml:space="preserve">
+    <value>手</value>
+  </data>
+  <data name="VolumeUnit_10000" xml:space="preserve">
+    <value>万手</value>
+  </data>
+  <data name="Wed" xml:space="preserve">
+    <value>三</value>
   </data>
 </root>

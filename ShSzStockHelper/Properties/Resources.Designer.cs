@@ -61,11 +61,20 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 沪深股票助手.
+        ///   Looks up a localized string similar to 搜索中....
         /// </summary>
-        public static string AppName {
+        public static string BusyIndicator_Header {
             get {
-                return ResourceManager.GetString("AppName", resourceCulture);
+                return ResourceManager.GetString("BusyIndicator_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 取消选择的行.
+        /// </summary>
+        public static string ButtonClearSelection_Label {
+            get {
+                return ResourceManager.GetString("ButtonClearSelection_Label", resourceCulture);
             }
         }
         
@@ -79,7 +88,25 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 点击搜索。.
+        ///   Looks up a localized string similar to 打印.
+        /// </summary>
+        public static string ButtonPrint_Label {
+            get {
+                return ResourceManager.GetString("ButtonPrint_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 点击打开打印预览，进行打印前的配置.
+        /// </summary>
+        public static string ButtonPrint_ToolTip {
+            get {
+                return ResourceManager.GetString("ButtonPrint_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 点击搜索.
         /// </summary>
         public static string ButtonSearch_ToolTip {
             get {
@@ -88,7 +115,7 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 选择结束日期（年-月-日）。.
+        ///   Looks up a localized string similar to 选择结束日期（年-月-日）.
         /// </summary>
         public static string DatePickerEndDate_ToolTip {
             get {
@@ -106,7 +133,7 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 选择开始日期（年-月-日）。.
+        ///   Looks up a localized string similar to 选择开始日期（年-月-日）.
         /// </summary>
         public static string DatePickerStartDate_ToolTip {
             get {
@@ -124,11 +151,74 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 每日成交量（手）.
+        ///   Looks up a localized string similar to 每日成交量.
         /// </summary>
-        public static string DayVolumeColumnHeader {
+        public static string DayVolume {
             get {
-                return ResourceManager.GetString("DayVolumeColumnHeader", resourceCulture);
+                return ResourceManager.GetString("DayVolume", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 五.
+        /// </summary>
+        public static string Fri {
+            get {
+                return ResourceManager.GetString("Fri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to （.
+        /// </summary>
+        public static string LeftBracket {
+            get {
+                return ResourceManager.GetString("LeftBracket", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 一.
+        /// </summary>
+        public static string Mon {
+            get {
+                return ResourceManager.GetString("Mon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 元.
+        /// </summary>
+        public static string PriceUnit {
+            get {
+                return ResourceManager.GetString("PriceUnit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ？.
+        /// </summary>
+        public static string QuestionMark {
+            get {
+                return ResourceManager.GetString("QuestionMark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ）.
+        /// </summary>
+        public static string RightBracket {
+            get {
+                return ResourceManager.GetString("RightBracket", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 六.
+        /// </summary>
+        public static string Sat {
+            get {
+                return ResourceManager.GetString("Sat", resourceCulture);
             }
         }
         
@@ -142,16 +232,34 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 成交价（元）.
+        ///   Looks up a localized string similar to 成交价.
         /// </summary>
-        public static string StrikePriceColumnHeader {
+        public static string StrikePrice {
             get {
-                return ResourceManager.GetString("StrikePriceColumnHeader", resourceCulture);
+                return ResourceManager.GetString("StrikePrice", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 未查询到数据！数据提供方反馈所查时间段过长。请您修改起止日期，两日期的间隔时长建议不超过9个月。.
+        ///   Looks up a localized string similar to 日.
+        /// </summary>
+        public static string Sun {
+            get {
+                return ResourceManager.GetString("Sun", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 未查询到数据！数据提供方拒绝了您的访问，解封一般需要您等待5~60分钟。这可能是因为您搜索频率过高。请您降低搜索频率，并建议您起止日期的间隔时长不超过1个月。.
+        /// </summary>
+        public static string TextBlockNullData_Text_AccessDenied {
+            get {
+                return ResourceManager.GetString("TextBlockNullData_Text_AccessDenied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 未查询到数据！数据提供方反馈所查时间段过长。请您修改起止日期，两日期的间隔时长建议不超过1个月，最长不应超过9个月。.
         /// </summary>
         public static string TextBlockNullData_Text_ImproperDateRange {
             get {
@@ -178,7 +286,7 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 输入股票代码，请以股票上市的交易所的代码开头（支持SH和SZ，大小写不限），之后接6位数字。.
+        ///   Looks up a localized string similar to 输入股票代码，请以股票上市的交易所的代码开头（支持SH和SZ，大小写不限），之后接6位数字.
         /// </summary>
         public static string TextBoxSymbol_ToolTip {
             get {
@@ -196,11 +304,56 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 总成交量（手）.
+        ///   Looks up a localized string similar to 四.
         /// </summary>
-        public static string TotalVolumeColumnHeader {
+        public static string Thu {
             get {
-                return ResourceManager.GetString("TotalVolumeColumnHeader", resourceCulture);
+                return ResourceManager.GetString("Thu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 总成交量.
+        /// </summary>
+        public static string TotalVolume {
+            get {
+                return ResourceManager.GetString("TotalVolume", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 二.
+        /// </summary>
+        public static string Tue {
+            get {
+                return ResourceManager.GetString("Tue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 手.
+        /// </summary>
+        public static string VolumeUnit_1 {
+            get {
+                return ResourceManager.GetString("VolumeUnit_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 万手.
+        /// </summary>
+        public static string VolumeUnit_10000 {
+            get {
+                return ResourceManager.GetString("VolumeUnit_10000", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 三.
+        /// </summary>
+        public static string Wed {
+            get {
+                return ResourceManager.GetString("Wed", resourceCulture);
             }
         }
     }

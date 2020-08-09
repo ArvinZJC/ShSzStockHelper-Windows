@@ -154,7 +154,7 @@
     <comment>Text for Blank filters</comment>
   </data>
   <data name="Bottom" xml:space="preserve">
-    <value>Bottom :</value>
+    <value>下：</value>
     <comment>Text for Bottom</comment>
   </data>
   <data name="Cancel" xml:space="preserve">
@@ -182,19 +182,19 @@
     <comment>Text for Contains</comment>
   </data>
   <data name="CustomMargin" xml:space="preserve">
-    <value>Custom Margin</value>
+    <value>自定义页边距...</value>
     <comment>Text for PrintDialog CustomMargin</comment>
   </data>
   <data name="CustomMargins" xml:space="preserve">
-    <value>Custom Margins</value>
+    <value>自定义页边距（单位：厘米）</value>
     <comment>Text for PrintDialog CustomMargins</comment>
   </data>
   <data name="CustomPageSizes" xml:space="preserve">
-    <value>Custom Page Sizes</value>
+    <value>自定义纸张大小（单位：厘米）</value>
     <comment>Text for PrintDialog  CustomPageSizes</comment>
   </data>
   <data name="CustomSize" xml:space="preserve">
-    <value>Custom Size</value>
+    <value>自定义纸张大小...</value>
     <comment>Text for PrintDialog CustomSize</comment>
   </data>
   <data name="DateFilters" xml:space="preserve">
@@ -222,15 +222,15 @@
     <comment>Text for Equals</comment>
   </data>
   <data name="FitAllColumnsOnOnePage" xml:space="preserve">
-    <value>Fit All Columns on One Page</value>
+    <value>将所有列调整为一页</value>
     <comment>Text for FitAllColumnsOnOnePage in PrintDialog window</comment>
   </data>
   <data name="FitAllRowsOnOnePage" xml:space="preserve">
-    <value>Fit All Rows on One Page</value>
+    <value>将所有行调整为一页</value>
     <comment>Text for FitAllRowsOnOnePage in PrintDialog window</comment>
   </data>
   <data name="FitGridOnOnePage" xml:space="preserve">
-    <value>Fit Grid on One Page</value>
+    <value>将表格调整为一页</value>
     <comment>Text for FitGridOnOnePage in PrintDialog window</comment>
   </data>
   <data name="GreaterThan" xml:space="preserve">
@@ -246,15 +246,15 @@
     <comment>Text for GroupDropArea</comment>
   </data>
   <data name="Height" xml:space="preserve">
-    <value>Height :</value>
+    <value>高度：</value>
     <comment>Text for Height of page size in PrintDialog</comment>
   </data>
   <data name="LandScapeOrientation" xml:space="preserve">
-    <value>LandScape Orientation</value>
+    <value>横向</value>
     <comment>Text for LandScape Orientation of Print Dialog window</comment>
   </data>
   <data name="Left" xml:space="preserve">
-    <value>Left :</value>
+    <value>左：</value>
     <comment>Text for Left margin of PrintDialog</comment>
   </data>
   <data name="LessThan" xml:space="preserve">
@@ -270,11 +270,11 @@
     <comment>Tooltip text for Match Case on AdvancedFiltering Popup</comment>
   </data>
   <data name="Moderate" xml:space="preserve">
-    <value>Moderate</value>
+    <value>中等</value>
     <comment>Text for Moderate margin in PrintDialog</comment>
   </data>
   <data name="Narrow" xml:space="preserve">
-    <value>Narrow</value>
+    <value>窄</value>
     <comment>Text for Narrow margin in PrintDialog</comment>
   </data>
   <data name="NoItems" xml:space="preserve">
@@ -286,11 +286,11 @@
     <comment>No Items match </comment>
   </data>
   <data name="Normal" xml:space="preserve">
-    <value>Normal</value>
+    <value>常规</value>
     <comment>Text for Normal margin in PrintDialog</comment>
   </data>
   <data name="NoScaling" xml:space="preserve">
-    <value>No Scaling</value>
+    <value>无缩放</value>
     <comment>Text for NoScaling in PrintDialog window</comment>
   </data>
   <data name="NotContains" xml:space="preserve">
@@ -326,23 +326,23 @@
     <comment>Text for OR Operator</comment>
   </data>
   <data name="PortraitOrientation" xml:space="preserve">
-    <value>Portrait Orientation</value>
+    <value>纵向</value>
     <comment>Text for Portrait Orientation of PrintDialog</comment>
   </data>
   <data name="Print" xml:space="preserve">
-    <value>Print</value>
+    <value>打印</value>
     <comment>Text for Print option in PrintDialog</comment>
   </data>
   <data name="PrintPreview" xml:space="preserve">
-    <value>Print Preview</value>
+    <value>打印预览</value>
     <comment>Text for PrintPreview in PrintDialog </comment>
   </data>
   <data name="QuickPrint" xml:space="preserve">
-    <value>Quick Print</value>
+    <value>快速打印</value>
     <comment>Text for Quick Print option in PrintDialog</comment>
   </data>
   <data name="Right" xml:space="preserve">
-    <value>Right :</value>
+    <value>右：</value>
     <comment>Text for Right margin of PrintDialog</comment>
   </data>
   <data name="RowErrorMessage" xml:space="preserve">
@@ -394,15 +394,15 @@
     <comment>Text for TextFilters</comment>
   </data>
   <data name="Top" xml:space="preserve">
-    <value>Top :</value>
+    <value>上：</value>
     <comment>Text for Top margin of PrintDialog</comment>
   </data>
   <data name="Wide" xml:space="preserve">
-    <value>Wide</value>
+    <value>宽</value>
     <comment>Text for Wide margin in PrintDialog</comment>
   </data>
   <data name="Width" xml:space="preserve">
-    <value>Width :</value>
+    <value>宽度：</value>
     <comment>Text for Width of page size in PrintDialog</comment>
   </data>
   <data name="CantDropHere" xml:space="preserve">
