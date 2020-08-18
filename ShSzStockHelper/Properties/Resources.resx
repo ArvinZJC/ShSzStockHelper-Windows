@@ -117,7 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BusyIndicator_Header" xml:space="preserve">
+  <data name="BusyIndicatorHomeWindowLoading_Header" xml:space="preserve">
+    <value>初始化中...</value>
+  </data>
+  <data name="BusyIndicatorSearchResultArea_Header" xml:space="preserve">
     <value>搜索中...</value>
   </data>
   <data name="ButtonClearSelection_Label" xml:space="preserve">
@@ -132,17 +135,20 @@
   <data name="ButtonPrint_ToolTip" xml:space="preserve">
     <value>点击打开打印预览，进行打印前的配置</value>
   </data>
+  <data name="ButtonRestoreColumnWidth_Label" xml:space="preserve">
+    <value>还原列宽</value>
+  </data>
   <data name="ButtonSearch_ToolTip" xml:space="preserve">
     <value>点击搜索</value>
   </data>
   <data name="DatePickerEndDate_ToolTip" xml:space="preserve">
-    <value>选择结束日期（年-月-日）</value>
+    <value>点击日历图标来选择结束日期。除此之外，选择日期后，您也可以在输入框中编辑日期（年-月-日）</value>
   </data>
   <data name="DatePickerEndDate_WaterMark" xml:space="preserve">
     <value>结束日期</value>
   </data>
   <data name="DatePickerStartDate_ToolTip" xml:space="preserve">
-    <value>选择开始日期（年-月-日）</value>
+    <value>点击日历图标来选择开始日期。除此之外，选择日期后，您也可以在输入框中编辑日期（年-月-日）</value>
   </data>
   <data name="DatePickerStartDate_WaterMark" xml:space="preserve">
     <value>开始日期</value>
@@ -180,6 +186,12 @@
   <data name="Sun" xml:space="preserve">
     <value>日</value>
   </data>
+  <data name="TabItemStrikePriceVolume_Header_NewTab" xml:space="preserve">
+    <value>新标签页</value>
+  </data>
+  <data name="TextBlockNewTabHint_Text" xml:space="preserve">
+    <value>点击左上方的“+”按钮新建标签页，开始搜索吧！</value>
+  </data>
   <data name="TextBlockNullData_Text_AccessDenied" xml:space="preserve">
     <value>未查询到数据！数据提供方拒绝了您的访问，解封一般需要您等待5~60分钟。这可能是因为您搜索频率过高。请您降低搜索频率，并建议您起止日期的间隔时长不超过1个月。</value>
   </data>
@@ -190,10 +202,10 @@
     <value>未知错误。请提交反馈，以便帮助开发者优化用户体验。</value>
   </data>
   <data name="TextBlockNullData_Text_WrongFilters" xml:space="preserve">
-    <value>未查询到数据！搜索条件有误，或数据提供方还没有更新数据。您可检查股票代码是否正确、所查时间段是否处于股市休市期。</value>
+    <value>未查询到数据！搜索条件有误，或数据提供方没有相关数据。您可检查股票所属公司上市状态、股票代码是否正确、所查时间段是否处于股市休市期。</value>
   </data>
   <data name="TextBoxSymbol_ToolTip" xml:space="preserve">
-    <value>输入股票代码，请以股票上市的交易所的代码开头（支持SH和SZ，大小写不限），之后接6位数字</value>
+    <value>股票代码应以上市交易所代码开头（支持SH和SZ，大小写不限）接6位数字。股票名称在输入框失去焦点后会自动转换成对应的代码（如果有）</value>
   </data>
   <data name="TextBoxSymbol_WaterMark" xml:space="preserve">
     <value>股票代码</value>

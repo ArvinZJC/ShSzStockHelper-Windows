@@ -61,11 +61,20 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 初始化中....
+        /// </summary>
+        public static string BusyIndicatorHomeWindowLoading_Header {
+            get {
+                return ResourceManager.GetString("BusyIndicatorHomeWindowLoading_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 搜索中....
         /// </summary>
-        public static string BusyIndicator_Header {
+        public static string BusyIndicatorSearchResultArea_Header {
             get {
-                return ResourceManager.GetString("BusyIndicator_Header", resourceCulture);
+                return ResourceManager.GetString("BusyIndicatorSearchResultArea_Header", resourceCulture);
             }
         }
         
@@ -106,6 +115,15 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 还原列宽.
+        /// </summary>
+        public static string ButtonRestoreColumnWidth_Label {
+            get {
+                return ResourceManager.GetString("ButtonRestoreColumnWidth_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 点击搜索.
         /// </summary>
         public static string ButtonSearch_ToolTip {
@@ -115,7 +133,7 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 选择结束日期（年-月-日）.
+        ///   Looks up a localized string similar to 点击日历图标来选择结束日期。除此之外，选择日期后，您也可以在输入框中编辑日期（年-月-日）.
         /// </summary>
         public static string DatePickerEndDate_ToolTip {
             get {
@@ -133,7 +151,7 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 选择开始日期（年-月-日）.
+        ///   Looks up a localized string similar to 点击日历图标来选择开始日期。除此之外，选择日期后，您也可以在输入框中编辑日期（年-月-日）.
         /// </summary>
         public static string DatePickerStartDate_ToolTip {
             get {
@@ -250,6 +268,24 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 新标签页.
+        /// </summary>
+        public static string TabItemStrikePriceVolume_Header_NewTab {
+            get {
+                return ResourceManager.GetString("TabItemStrikePriceVolume_Header_NewTab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 点击左上方的“+”按钮新建标签页，开始搜索吧！.
+        /// </summary>
+        public static string TextBlockNewTabHint_Text {
+            get {
+                return ResourceManager.GetString("TextBlockNewTabHint_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 未查询到数据！数据提供方拒绝了您的访问，解封一般需要您等待5~60分钟。这可能是因为您搜索频率过高。请您降低搜索频率，并建议您起止日期的间隔时长不超过1个月。.
         /// </summary>
         public static string TextBlockNullData_Text_AccessDenied {
@@ -277,7 +313,7 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 未查询到数据！搜索条件有误，或数据提供方还没有更新数据。您可检查股票代码是否正确、所查时间段是否处于股市休市期。.
+        ///   Looks up a localized string similar to 未查询到数据！搜索条件有误，或数据提供方没有相关数据。您可检查股票所属公司上市状态、股票代码是否正确、所查时间段是否处于股市休市期。.
         /// </summary>
         public static string TextBlockNullData_Text_WrongFilters {
             get {
@@ -286,7 +322,7 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 输入股票代码，请以股票上市的交易所的代码开头（支持SH和SZ，大小写不限），之后接6位数字.
+        ///   Looks up a localized string similar to 股票代码应以上市交易所代码开头（支持SH和SZ，大小写不限）接6位数字。股票名称在输入框失去焦点后会自动转换成对应的代码（如果有）.
         /// </summary>
         public static string TextBoxSymbol_ToolTip {
             get {

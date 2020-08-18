@@ -31,11 +31,11 @@
     <ROW Property="AppLogoIcon" Value="applogoicon" MultiBuildValue="DefaultBuild:AppIcon_Image.png" Type="1" MsiKey="AppLogoIcon"/>
     <ROW Property="CTRLS" Value="3"/>
     <ROW Property="Manufacturer" Value="Arvin Zhao"/>
-    <ROW Property="ProductCode" Value="2052:{2512A91C-029F-4CCF-9998-9907E786B9A3} " Type="16"/>
+    <ROW Property="ProductCode" Value="2052:{14BDE2B0-B09A-46ED-9331-8DD1501768BD} " Type="16"/>
     <ROW Property="ProductLanguage" Value="2052"/>
     <ROW Property="ProductName" Value="沪深小助手"/>
     <ROW Property="ProductNameCode" Value="ShSzStockHelper"/>
-    <ROW Property="ProductVersion" Value="0.3.0" Type="32"/>
+    <ROW Property="ProductVersion" Value="0.4.0" Type="32"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
     <ROW Property="SetupExeDir" Value="Caphyon\Advanced Installer\[|ProductCode]\"/>
     <ROW Property="SetupFileName" Value="[|ProductNameCode]_Setup_V[|ProductVersion]"/>
@@ -63,7 +63,7 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
     <ROW Component="AIShRegAnswer" ComponentId="{48BA8E3B-2824-45DD-8339-464AB17D69C3}" Directory_="APPDIR" Attributes="4" KeyPath="AIShRegAnswer"/>
-    <ROW Component="AI_CustomARPName" ComponentId="{36EE1A07-FF42-4CD2-9853-160A8E2DA345}" Directory_="APPDIR" Attributes="4" KeyPath="DisplayName" Options="1"/>
+    <ROW Component="AI_CustomARPName" ComponentId="{509280C2-2A40-49B1-92D2-CEE912B724BF}" Directory_="APPDIR" Attributes="4" KeyPath="DisplayName" Options="1"/>
     <ROW Component="AI_ExePath" ComponentId="{F53F50AD-6DCA-4C10-94C0-19CDBBDC6C6E}" Directory_="APPDIR" Attributes="4" KeyPath="AI_ExePath"/>
     <ROW Component="APIMSWincorexstatel210.dll" ComponentId="{F6AE5AA0-6AC7-4046-A607-6070A48CFDD4}" Directory_="APPDIR" Attributes="0" KeyPath="APIMSWincorexstatel210.dll"/>
     <ROW Component="APPDIR" ComponentId="{10D3588F-0A61-4867-B26F-06F70CACF64E}" Directory_="APPDIR" Attributes="0"/>
@@ -81,6 +81,7 @@
     <ROW Component="Microsoft.Win32.Registry.AccessControl.dll" ComponentId="{C9F12216-56D4-4715-9995-84D5EA1C7770}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Win32.Registry.AccessControl.dll"/>
     <ROW Component="Microsoft.Win32.Registry.dll" ComponentId="{8D085179-4967-46C2-BF34-F333A7EDD517}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Win32.Registry.dll"/>
     <ROW Component="Microsoft.Win32.SystemEvents.dll" ComponentId="{7EA6FC83-A51D-4349-9A36-2DEECF102D92}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Win32.SystemEvents.dll"/>
+    <ROW Component="Newtonsoft.Json.dll" ComponentId="{3395716E-ACDD-4564-AA83-086A13EF533C}" Directory_="APPDIR" Attributes="0" KeyPath="Newtonsoft.Json.dll"/>
     <ROW Component="PenImc_cor3.dll" ComponentId="{55DAE3E7-4205-4A80-8C75-6DA8FA93B85E}" Directory_="APPDIR" Attributes="0" KeyPath="PenImc_cor3.dll"/>
     <ROW Component="PresentationCore.dll" ComponentId="{85F136B9-D252-43F1-A238-FE8D8B23D439}" Directory_="APPDIR" Attributes="0" KeyPath="PresentationCore.dll"/>
     <ROW Component="PresentationFramework.Aero.dll" ComponentId="{44E79BCB-FD3D-47B2-B427-F6C399A96CC1}" Directory_="APPDIR" Attributes="0" KeyPath="PresentationFramework.Aero.dll"/>
@@ -113,6 +114,7 @@
     <ROW Component="Syncfusion.SfSkinManager.WPF.dll" ComponentId="{7006C23A-2821-4B40-863A-31F116841C37}" Directory_="APPDIR" Attributes="0" KeyPath="Syncfusion.SfSkinManager.WPF.dll"/>
     <ROW Component="Syncfusion.Shared.WPF.dll" ComponentId="{D29F7BF2-C32D-47CE-9DC8-B398FD544FC1}" Directory_="APPDIR" Attributes="0" KeyPath="Syncfusion.Shared.WPF.dll"/>
     <ROW Component="Syncfusion.Themes.MaterialLight.WPF.dll" ComponentId="{0642DA6E-5B11-419C-A19F-95B0AC522BAE}" Directory_="APPDIR" Attributes="0" KeyPath="Syncfusion.Themes.MaterialLight.WPF.dll"/>
+    <ROW Component="Syncfusion.Tools.WPF.dll" ComponentId="{F08A3985-07C0-4274-AAB0-CA2D7D828709}" Directory_="APPDIR" Attributes="0" KeyPath="Syncfusion.Tools.WPF.dll"/>
     <ROW Component="Syncfusion.XlsIO.Base.dll" ComponentId="{8D565B5B-CAC5-4608-B47F-2A53BAE34B3A}" Directory_="APPDIR" Attributes="0" KeyPath="Syncfusion.XlsIO.Base.dll"/>
     <ROW Component="System.AppContext.dll" ComponentId="{C2583847-8FC9-4DAA-9CB7-04C862B068F0}" Directory_="APPDIR" Attributes="0" KeyPath="System.AppContext.dll"/>
     <ROW Component="System.Buffers.dll" ComponentId="{477FE52B-B00E-4E81-A734-4BD86F75AD43}" Directory_="APPDIR" Attributes="0" KeyPath="System.Buffers.dll"/>
@@ -350,6 +352,7 @@
     <ROW Component="hostpolicy.dll" ComponentId="{6D9DB218-8449-4C5C-94D9-553F17DF322B}" Directory_="APPDIR" Attributes="0" KeyPath="hostpolicy.dll"/>
     <ROW Component="mscordaccore.dll" ComponentId="{51544EB3-EDA4-448E-8752-4EFF5537D4CE}" Directory_="APPDIR" Attributes="0" KeyPath="mscordaccore.dll"/>
     <ROW Component="mscordaccore_x86_x86_4.700.20.26901.dll" ComponentId="{B5881276-1887-43D6-9633-D15EED0FD160}" Directory_="APPDIR" Attributes="0" KeyPath="mscordaccore_x86_x86_4.700.20.26901.dll"/>
+    <ROW Component="mscordaccore_x86_x86_4.700.20.36602.dll" ComponentId="{B943B360-93BD-4D42-8120-725F7EA7D817}" Directory_="APPDIR" Attributes="0" KeyPath="mscordaccore_x86_x86_4.700.20.36602.dll"/>
     <ROW Component="mscordbi.dll" ComponentId="{13E8DEA7-A491-4EF0-95BB-7B7FBAA40201}" Directory_="APPDIR" Attributes="0" KeyPath="mscordbi.dll"/>
     <ROW Component="mscorlib.dll" ComponentId="{95F49768-127D-4C45-9B2C-C47DE67A1EB5}" Directory_="APPDIR" Attributes="0" KeyPath="mscorlib.dll"/>
     <ROW Component="mscorrc.debug.dll" ComponentId="{5B4862A3-45FE-4E1A-973C-D2B57C7F4065}" Directory_="APPDIR" Attributes="0" KeyPath="mscorrc.debug.dll"/>
@@ -363,7 +366,7 @@
     <ROW Feature="Documents" Title="文档" Description="文档可帮助您更好地了解 [|ProductName] [|ProductVersion] 。" Display="7" Level="1" Directory_="APPDIR" Attributes="0"/>
     <ROW Feature="EssentialFeatures" Title="基本组件（必需）" Description="基本组件包括主程序、注册表项等，是程序正常且稳定运行的基础。" Display="3" Level="1" Directory_="APPDIR" Attributes="16"/>
     <ROW Feature="KeyDlls" Title="程序核心运行库（必需）" Description="程序核心运行库用来支持主程序的运行，是程序正常且稳定运行的关键。" Display="4" Level="1" Directory_="APPDIR" Attributes="16"/>
-    <ATTRIBUTE name="CurrentFeature" value="EssentialFeatures"/>
+    <ATTRIBUTE name="CurrentFeature" value="KeyDlls"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
     <ROW File="_0725C656528846388FDCE9D0E3124DB8" Component_="C__0725C656528846388FDCE9D0E3124DB8" FileName="SHSZST~1.EXE|ShSzStockHelper.exe" Attributes="512" SourcePath="..\ShSzStockHelper\bin\Publish\netcoreapp3.1\ShSzStockHelper.exe" SelfReg="false"/>
@@ -656,6 +659,9 @@
     <ROW File="WindowsFormsIntegration.dll" Component_="WindowsFormsIntegration.dll" FileName="WINDOW~2.DLL|WindowsFormsIntegration.dll" Attributes="0" SourcePath="..\ShSzStockHelper\bin\Publish\netcoreapp3.1\WindowsFormsIntegration.dll" SelfReg="false"/>
     <ROW File="wpfgfx_cor3.dll" Component_="wpfgfx_cor3.dll" FileName="WPFGFX~1.DLL|wpfgfx_cor3.dll" Attributes="0" SourcePath="..\ShSzStockHelper\bin\Publish\netcoreapp3.1\wpfgfx_cor3.dll" SelfReg="false"/>
     <ROW File="Syncfusion.SfBusyIndicator.WPF.dll" Component_="Syncfusion.SfBusyIndicator.WPF.dll" FileName="SYNCF~13.DLL|Syncfusion.SfBusyIndicator.WPF.dll" Attributes="0" SourcePath="..\ShSzStockHelper\bin\Publish\netcoreapp3.1\Syncfusion.SfBusyIndicator.WPF.dll" SelfReg="false"/>
+    <ROW File="mscordaccore_x86_x86_4.700.20.36602.dll" Component_="mscordaccore_x86_x86_4.700.20.36602.dll" FileName="MSCORD~3.DLL|mscordaccore_x86_x86_4.700.20.36602.dll" Attributes="0" SourcePath="..\ShSzStockHelper\bin\Publish\netcoreapp3.1\mscordaccore_x86_x86_4.700.20.36602.dll" SelfReg="false"/>
+    <ROW File="Newtonsoft.Json.dll" Component_="Newtonsoft.Json.dll" FileName="NEWTON~1.DLL|Newtonsoft.Json.dll" Attributes="0" SourcePath="..\ShSzStockHelper\bin\Publish\netcoreapp3.1\Newtonsoft.Json.dll" SelfReg="false"/>
+    <ROW File="Syncfusion.Tools.WPF.dll" Component_="Syncfusion.Tools.WPF.dll" FileName="SYNCF~14.DLL|Syncfusion.Tools.WPF.dll" Attributes="0" SourcePath="..\ShSzStockHelper\bin\Publish\netcoreapp3.1\Syncfusion.Tools.WPF.dll" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.custcomp.MsiShortcutPropertyComponent">
     <ROW MsiShortcutProperty="_0" Shortcut_="_" PropertyKey="System.AppUserModel.PreventPinning" PropVariantValue="1"/>
@@ -1353,6 +1359,9 @@
     <ROW Feature_="KeyDlls" Component_="UIAutomationClient.dll"/>
     <ROW Feature_="KeyDlls" Component_="UIAutomationClientSideProviders.dll"/>
     <ROW Feature_="KeyDlls" Component_="Syncfusion.SfBusyIndicator.WPF.dll"/>
+    <ROW Feature_="KeyDlls" Component_="mscordaccore_x86_x86_4.700.20.36602.dll"/>
+    <ROW Feature_="KeyDlls" Component_="Newtonsoft.Json.dll"/>
+    <ROW Feature_="KeyDlls" Component_="Syncfusion.Tools.WPF.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="APPDIRYourCommand.exe" SourcePath="SetupIcon.ico" Index="0"/>

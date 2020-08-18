@@ -5,7 +5,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>AppIcon.ico</ApplicationIcon>
-    <Version>0.3.0</Version>
+    <Version>0.4.0</Version>
     <Authors>Arvin Zhao</Authors>
     <Company></Company>
     <Product>沪深小助手</Product>
@@ -19,12 +19,13 @@
     <AssemblyName>ShSzStockHelper</AssemblyName>
     <PackageId>ShSzStockHelper</PackageId>
     <RepositoryType>Public</RepositoryType>
-    <AssemblyVersion>0.3.0.0</AssemblyVersion>
-    <FileVersion>0.3.0.0</FileVersion>
+    <AssemblyVersion>0.4.0.0</AssemblyVersion>
+    <FileVersion>0.4.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.11.24" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,7 +33,9 @@
     <Resource Include="Images\ClearSelection.png" />
     <Resource Include="Images\ExportToExcel.png" />
     <Resource Include="Images\Print.png" />
+    <Resource Include="Images\RestoreColumnWidth.png" />
     <Resource Include="Images\Search.png" />
+    <Resource Include="Resources\StockSymbolNameData.json" />
     <Reference Include="Syncfusion.Data.WPF">
       <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.Data.WPF.dll</HintPath>
     </Reference>
@@ -63,6 +66,9 @@
     <Reference Include="Syncfusion.Themes.MaterialLight.WPF">
       <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.Themes.MaterialLight.WPF.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.Tools.WPF">
+      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.Tools.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.XlsIO.Base">
       <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.XlsIO.Base.dll</HintPath>
     </Reference>
@@ -82,6 +88,12 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Syncfusion.SfGrid.WPF.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Syncfusion.Shared.Wpf.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Syncfusion.Tools.Wpf.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
   </ItemGroup>

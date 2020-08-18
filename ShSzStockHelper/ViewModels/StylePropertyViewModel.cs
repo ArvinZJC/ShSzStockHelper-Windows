@@ -1,12 +1,13 @@
 ﻿/*
  * @Description: a view model defining the style properties used by the app
- * @Version: 1.0.1.20200807
+ * @Version: 1.0.3.20200814
  * @Author: Arvin Zhao
  * @Date: 2020-08-06 13:25:33
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2020-08-07 13:36:16
+ * @LastEditTime: 2020-08-14 13:36:16
  */
 
+using Syncfusion.SfSkinManager;
 using System;
 using System.Windows.Media;
 
@@ -88,12 +89,27 @@ namespace ShSzStockHelper
         public double PrimaryTextFontSize { get; } = 14.0;
         #endregion Font
 
+        #region Tab Control
+        /// <summary>
+        /// The maximum width of a tab item.
+        /// </summary>
+        public double MaxTabItemWidth { get; } = 200.0;
+        #endregion Tab Control
+
         #region Textbox
+        /// <summary>
+        /// The maximum height of the auto-complete suggestion list.
+        /// </summary>
+        public double MaxDropDownHeight { get; } = 300.0;
         /// <summary>
         /// The maximum input length.
         /// </summary>
         public int MaxInputLength { get; } = 14;
         #endregion Textbox
+
+        #region Theme
+        public VisualStyles AppTheme { get; } = VisualStyles.MaterialLight;
+        #endregion Theme
 
         #region Window
         /// <summary>
@@ -108,4 +124,3 @@ namespace ShSzStockHelper
         #endregion Window
     } // end class StylePropertyViewModel
 } // end namespace ShSzStockHelper
-                                  

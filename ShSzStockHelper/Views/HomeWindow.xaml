@@ -1,0 +1,68 @@
+﻿<!-- UI definition of the home window. -->
+<syncfusion:ChromelessWindow xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                             xmlns:property="clr-namespace:ShSzStockHelper.Properties"
+                             xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+                             xmlns:syncfusionNotification="clr-namespace:Syncfusion.Windows.Controls.Notification;assembly=Syncfusion.SfBusyIndicator.WPF"
+                             xmlns:syncfusionSkin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+                             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                             mc:Ignorable="d"
+                             syncfusionSkin:SfSkinManager.VisualStyle="{Binding AppTheme, Source={StaticResource StyleProperties}}"
+                             x:Name="windowHome"
+                             x:Class="ShSzStockHelper.HomeWindow"
+                             FontFamily="{Binding GlobalFontFamily, Source={StaticResource StyleProperties}}"
+                             Icon="../AppIcon.ico"
+                             Loaded="WindowHome_LoadedAsync"
+                             MinHeight="{Binding MinWindowHeight, Source={StaticResource StyleProperties}}"
+                             MinWidth="{Binding MinWindowWidth, Source={StaticResource StyleProperties}}"
+                             UseNativeChrome="True"
+                             WindowStartupLocation="CenterScreen"
+                             WindowState="Maximized">
+    <syncfusion:ChromelessWindow.Resources>
+        <Style BasedOn="{StaticResource WPFToolTipStyle}" TargetType="ToolTip">
+            <Setter Property="FontFamily" Value="{Binding GlobalFontFamily, Source={StaticResource StyleProperties}}" />
+            <Setter Property="FontSize" Value="{Binding PrimaryTextFontSize, Source={StaticResource StyleProperties}}" />
+            <Setter Property="MaxWidth" Value="300" />
+        </Style>
+    </syncfusion:ChromelessWindow.Resources>
+
+    <syncfusionNotification:SfBusyIndicator x:Name="busyIndicatorHomeWindowLoading"
+                                            AnimationType="Cupertino"
+                                            Background="Transparent"
+                                            IsBusy="False">
+        <syncfusionNotification:SfBusyIndicator.HeaderTemplate>
+            <DataTemplate >
+                <TextBlock FontFamily="{Binding GlobalFontFamily, Source={StaticResource StyleProperties}}"
+                           FontSize="{Binding PrimaryTextFontSize, Source={StaticResource StyleProperties}}"
+                           Foreground="DarkGray"
+                           Margin="6,10,0,0"
+                           Text="{x:Static property:Resources.BusyIndicatorHomeWindowLoading_Header}"
+                           TextAlignment="Center"/>
+            </DataTemplate>
+        </syncfusionNotification:SfBusyIndicator.HeaderTemplate>
+
+        <Grid>
+            <syncfusion:TabControlExt x:Name="tabControlStrikePriceVolume"
+                                      CloseButtonType="Individual"
+                                      CloseMode="Delete"
+                                      EnableLabelEdit="False"
+                                      IsDisableUnloadTabItemExtContent="True"
+                                      IsNewButtonClosedonNoChild="False"
+                                      IsNewButtonEnabled="True"
+                                      NewButtonAlignment="First"
+                                      NewButtonClick="TabControlStrikePriceVolume_NewButtonClick"
+                                      OnCloseAllTabs="TabControlStrikePriceVolume_OnCloseAllTabs"
+                                      TabClosed="TabControlStrikePriceVolume_TabClosed"/>
+
+            <TextBlock x:Name="textBlockNewTabHint"
+                      FontFamily="{Binding GlobalFontFamily, Source={StaticResource StyleProperties}}"
+                      FontSize="{Binding PrimaryTextFontSize, Source={StaticResource StyleProperties}}"
+                      HorizontalAlignment="Center"
+                      Margin="15"
+                      Text="{x:Static property:Resources.TextBlockNewTabHint_Text}"
+                      TextWrapping="Wrap"
+                      VerticalAlignment="Center"/>
+        </Grid>
+    </syncfusionNotification:SfBusyIndicator>
+</syncfusion:ChromelessWindow>
