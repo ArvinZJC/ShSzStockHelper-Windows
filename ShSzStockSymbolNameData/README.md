@@ -1,3 +1,3 @@
-# [ShSzStockHelper_Windows](https://github.com/ArvinZJC/ShSzStockHelper_Windows)/ShSzStockSymbolNameData
+# [ShSzStockHelper_Windows](https://github.com/ArvinZJC/ShSzStockHelper-Windows)/ShSzStockSymbolNameData
 
 (TODO)

@@ -1,3 +1,3 @@
-# [ShSzStockHelper_Windows](https://github.com/ArvinZJC/ShSzStockHelper_Windows)/ShSzStockHelper_Setup
+# [ShSzStockHelper_Windows](https://github.com/ArvinZJC/ShSzStockHelper-Windows)/ShSzStockHelper_Setup
 
 (TODO)
