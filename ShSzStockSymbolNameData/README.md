@@ -1,4 +1,4 @@
-# [ShSzStockHelper_Windows](https://github.com/ArvinZJC/ShSzStockHelper-Windows)/ShSzStockSymbolNameData
+# [ShSzStockHelper-Windows](https://github.com/ArvinZJC/ShSzStockHelper-Windows)/ShSzStockSymbolNameData
 
 This folder contains a Jupyter Notebook file with Python code to retrieve and store a list of symbols and corresponding names of SH/SZ stocks in a JSON file which is a part of the resources of the application. The JSON file is processed to provide the autocomplete functionality of the text box control for inputing the symbol of an SH/SZ stock.
 

@@ -1,4 +1,4 @@
-# [ShSzStockHelper_Windows](https://github.com/ArvinZJC/ShSzStockHelper-Windows)/ShSzStockHelper_Setup
+# [ShSzStockHelper-Windows](https://github.com/ArvinZJC/ShSzStockHelper-Windows)/ShSzStockHelper_Setup
 
 This is the Advanced Installer project folder of the application setup file. The files in the folder are mainly used to build the latest application setup file (.exe) with user-friendly UI. The setup file can install/modify/uninstall the application on the computer.
 

@@ -1,4 +1,4 @@
-# [ShSzStockHelper_Windows](https://github.com/ArvinZJC/ShSzStockHelper-Windows)/ShSzStockHelper
+# [ShSzStockHelper-Windows](https://github.com/ArvinZJC/ShSzStockHelper-Windows)/ShSzStockHelper
 
 This is the Visual Studio solution folder of the application. It contains code and resources for the application to run. The major features of the application are listed as follows.
 
