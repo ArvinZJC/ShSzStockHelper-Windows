@@ -1,33 +1,5 @@
 ﻿<!-- The app initialiser. -->
 <Application xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:local="clr-namespace:ShSzStockHelper"
-             xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="ShSzStockHelper.App"
-             StartupUri="Views/HomeWindow.xaml">
-    <Application.Resources>
-        <local:StylePropertyViewModel x:Key="StyleProperties" />
-
-        <DataTemplate x:Key="PrintedPageFooterTemplate">
-            <Grid>
-                <TextBlock FontFamily="{Binding GlobalFontFamily, Source={StaticResource StyleProperties}}"
-                           FontSize="{Binding ContentTextFontSize, Source={StaticResource StyleProperties}}"
-                           FontWeight="Bold"
-                           HorizontalAlignment="Right"
-                           VerticalAlignment="Center">
-                    <TextBlock.Text>
-                        <Binding Path="PageIndex"
-                                 RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type syncfusion:PrintPageControl}}"
-                                 StringFormat=" {0}" />
-                    </TextBlock.Text>
-                </TextBlock>
-            </Grid>
-        </DataTemplate>
-
-        <DataTemplate x:Key="TabItemHeaderTemplate">
-            <TextBlock FontFamily="{Binding GlobalFontFamily, Source={StaticResource StyleProperties}}"
-                       FontSize="{Binding PrimaryTextFontSize, Source={StaticResource StyleProperties}}"
-                       Text="{Binding}"/>
-        </DataTemplate>
-    </Application.Resources>
-</Application>
+             StartupUri="Views/HomeWindow.xaml"/>

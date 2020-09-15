@@ -117,17 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="AlertDialogue_Title" xml:space="preserve">
+    <value>提示</value>
+  </data>
   <data name="BusyIndicatorHomeWindowLoading_Header" xml:space="preserve">
     <value>初始化中...</value>
   </data>
   <data name="BusyIndicatorSearchResultArea_Header" xml:space="preserve">
     <value>搜索中...</value>
   </data>
+  <data name="ButtonCancel_Label" xml:space="preserve">
+    <value>不了</value>
+  </data>
   <data name="ButtonClearSelection_Label" xml:space="preserve">
     <value>取消选择的行</value>
   </data>
-  <data name="ButtonExportToExcel_Label" xml:space="preserve">
-    <value>导出到Excel</value>
+  <data name="ButtonOk_Label" xml:space="preserve">
+    <value>是的</value>
   </data>
   <data name="ButtonPrint_Label" xml:space="preserve">
     <value>打印</value>
@@ -141,14 +150,56 @@
   <data name="ButtonSearch_ToolTip" xml:space="preserve">
     <value>点击搜索</value>
   </data>
+  <data name="Checked" xml:space="preserve">
+    <value>选中</value>
+  </data>
+  <data name="Colon" xml:space="preserve">
+    <value>：</value>
+  </data>
+  <data name="ComboBoxItem2Y1M1DCn_Content" xml:space="preserve">
+    <value>yy年M月d日</value>
+  </data>
+  <data name="ComboBoxItem2Y1M1DHyphen_Content" xml:space="preserve">
+    <value>yy-M-d</value>
+  </data>
+  <data name="ComboBoxItem2Y2M2DHyphen_Content" xml:space="preserve">
+    <value>yy-MM-dd</value>
+  </data>
+  <data name="ComboBoxItem4Y1M1DCn_Content" xml:space="preserve">
+    <value>yyyy年M月d日</value>
+  </data>
+  <data name="ComboBoxItem4Y1M1DHyphen_Content" xml:space="preserve">
+    <value>yyyy-M-d</value>
+  </data>
+  <data name="ComboBoxItem4Y2M2DHyphen_Content" xml:space="preserve">
+    <value>yyyy-MM-dd</value>
+  </data>
+  <data name="ComboBoxItemMaterialDark_Content" xml:space="preserve">
+    <value>深色</value>
+  </data>
+  <data name="ComboBoxItemMaterialLight_Content" xml:space="preserve">
+    <value>浅色</value>
+  </data>
+  <data name="ComboBoxItemXlsx_Content" xml:space="preserve">
+    <value>Excel 工作簿（*.xlsx）</value>
+  </data>
+  <data name="ComboBoxItemXls_Content" xml:space="preserve">
+    <value>Excel 97-2003 工作簿（*.xls）</value>
+  </data>
+  <data name="DateDisplayFormatSetting" xml:space="preserve">
+    <value>日期格式</value>
+  </data>
+  <data name="DateDisplayFormatSetting_Explanation" xml:space="preserve">
+    <value>标签页标题、导出的Excel工作簿的默认文件名等之中的日期的显示格式。字母y代表年，M代表月，d代表日。字母的个数表示显示的数字的最小位数，必要时会以0补全。您对此设置的修改在已创建的标签页中可能不会完全生效，您可尝试再次搜索或创建新的标签页。</value>
+  </data>
   <data name="DatePickerEndDate_ToolTip" xml:space="preserve">
-    <value>点击日历图标来选择结束日期。除此之外，选择日期后，您也可以在输入框中编辑日期（年-月-日）</value>
+    <value>点击日历图标来选择结束日期。除此之外，选择日期后，您也可以在输入框中编辑日期</value>
   </data>
   <data name="DatePickerEndDate_WaterMark" xml:space="preserve">
     <value>结束日期</value>
   </data>
   <data name="DatePickerStartDate_ToolTip" xml:space="preserve">
-    <value>点击日历图标来选择开始日期。除此之外，选择日期后，您也可以在输入框中编辑日期（年-月-日）</value>
+    <value>点击日历图标来选择开始日期。除此之外，选择日期后，您也可以在输入框中编辑日期</value>
   </data>
   <data name="DatePickerStartDate_WaterMark" xml:space="preserve">
     <value>开始日期</value>
@@ -156,14 +207,71 @@
   <data name="DayVolume" xml:space="preserve">
     <value>每日成交量</value>
   </data>
+  <data name="DefaultSettingValue" xml:space="preserve">
+    <value>默认：</value>
+  </data>
+  <data name="DisplayFontFamilyNameSetting" xml:space="preserve">
+    <value>显示字体</value>
+  </data>
+  <data name="DisplayFontFamilyNameSetting_Explanation" xml:space="preserve">
+    <value>界面上的文字字体。部分界面元素暂不支持此设置。</value>
+  </data>
+  <data name="ExcelCellFontFamilyNameSetting" xml:space="preserve">
+    <value>单元格字体</value>
+  </data>
+  <data name="ExcelCellFontFamilyNameSetting_Explanation" xml:space="preserve">
+    <value>导出的Excel文件中数据区域单元格的文字字体。您对此设置的修改在已弹出的保存Excel文件对话框中不会生效，关闭对话框后再次导出到Excel可使之生效。</value>
+  </data>
+  <data name="ExcelCellFontSizeSetting" xml:space="preserve">
+    <value>单元格字号</value>
+  </data>
+  <data name="ExcelCellFontSizeSetting_Explanation" xml:space="preserve">
+    <value>导出的Excel文件中数据区域单元格的文字大小。建议保持默认值不变。您对此设置的修改在已弹出的保存Excel文件对话框中不会生效，关闭对话框后再次导出到Excel可使之生效。</value>
+  </data>
+  <data name="ExcelFileFormatSetting" xml:space="preserve">
+    <value>文件格式</value>
+  </data>
+  <data name="ExcelFileFormatSetting_Explanation" xml:space="preserve">
+    <value>导出的Excel文件格式。XLS格式兼容性较好，如果安装的Excel编辑软件版本较低，建议选择此格式。您对此设置的修改在已弹出的保存Excel文件对话框中不会生效，关闭对话框后再次导出到Excel可使之生效。</value>
+  </data>
+  <data name="ExportToExcel" xml:space="preserve">
+    <value>导出到Excel</value>
+  </data>
+  <data name="FilteringSetting" xml:space="preserve">
+    <value>筛选</value>
+  </data>
+  <data name="FilteringSetting_Explanation" xml:space="preserve">
+    <value>列的筛选功能的开关。启用该功能允许您设定条件来显示符合的数据。您对此设置中关于</value>
+  </data>
   <data name="Fri" xml:space="preserve">
     <value>五</value>
+  </data>
+  <data name="GeneralSettings" xml:space="preserve">
+    <value>通用</value>
   </data>
   <data name="LeftBracket" xml:space="preserve">
     <value>（</value>
   </data>
+  <data name="Menu_ToolTip" xml:space="preserve">
+    <value>菜单</value>
+  </data>
+  <data name="MinDateSetting" xml:space="preserve">
+    <value>最早日期</value>
+  </data>
+  <data name="MinDateSetting_Explanation" xml:space="preserve">
+    <value>日期选择框中允许选择的最早日期。上海证券交易所在1990年12月19日开始正式营业，深圳证券交易所则在1990年12月1日开始营业。由于数据提供方并不是从营业开始记录数据，您可通过点击日历图标或直接在输入框中编辑来适当修改此项设置。</value>
+  </data>
   <data name="Mon" xml:space="preserve">
     <value>一</value>
+  </data>
+  <data name="NullProductCopyrightError" xml:space="preserve">
+    <value>（未知版权声明）</value>
+  </data>
+  <data name="NullProductNameError" xml:space="preserve">
+    <value>（未知程序名）</value>
+  </data>
+  <data name="NullProductVersionError" xml:space="preserve">
+    <value>（未知版本号）</value>
   </data>
   <data name="PriceUnit" xml:space="preserve">
     <value>元</value>
@@ -180,6 +288,15 @@
   <data name="SaveFileDialogueExportToExcel_Filter" xml:space="preserve">
     <value>Excel 97-2003 工作簿(*.xls)|*.xls|Excel 工作簿(*.xlsx)|*.xlsx</value>
   </data>
+  <data name="Settings" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="SortingSetting" xml:space="preserve">
+    <value>排序</value>
+  </data>
+  <data name="SortingSetting_Explanation" xml:space="preserve">
+    <value>列的排序功能的开关。启用该功能允许您对数据进行升序或降序排列。您对此设置中关于</value>
+  </data>
   <data name="StrikePrice" xml:space="preserve">
     <value>成交价</value>
   </data>
@@ -188,6 +305,12 @@
   </data>
   <data name="TabItemStrikePriceVolume_Header_NewTab" xml:space="preserve">
     <value>新标签页</value>
+  </data>
+  <data name="TableColumnSettings_Explanation" xml:space="preserve">
+    <value>的列的部分的修改在已显示的表格中不会生效，再次搜索可使之生效。</value>
+  </data>
+  <data name="TableSettings" xml:space="preserve">
+    <value>表格</value>
   </data>
   <data name="TextBlockNewTabHint_Text" xml:space="preserve">
     <value>点击左上方的“+”按钮新建标签页，开始搜索吧！</value>
@@ -198,17 +321,38 @@
   <data name="TextBlockNullData_Text_ImproperDateRange" xml:space="preserve">
     <value>未查询到数据！数据提供方反馈所查时间段过长。请您修改起止日期，两日期的间隔时长建议不超过1个月，最长不应超过9个月。</value>
   </data>
+  <data name="TextBlockNullData_Text_NetworkError" xml:space="preserve">
+    <value>未查询到数据！请检查您的网络连接状况。</value>
+  </data>
   <data name="TextBlockNullData_Text_UnknownError" xml:space="preserve">
     <value>未知错误。请提交反馈，以便帮助开发者优化用户体验。</value>
   </data>
   <data name="TextBlockNullData_Text_WrongFilters" xml:space="preserve">
     <value>未查询到数据！搜索条件有误，或数据提供方没有相关数据。您可检查股票所属公司上市状态、股票代码是否正确、所查时间段是否处于股市休市期。</value>
   </data>
+  <data name="TextBlockOpenSource_Text_Part1" xml:space="preserve">
+    <value>在使用</value>
+  </data>
+  <data name="TextBlockOpenSource_Text_Part2" xml:space="preserve">
+    <value>此开源软件</value>
+  </data>
+  <data name="TextBlockOpenSource_Text_Part3" xml:space="preserve">
+    <value>时，请遵守相关许可协议。</value>
+  </data>
+  <data name="TextBlockProductRestartAlert_Text" xml:space="preserve">
+    <value>修改界面主题风格需要重启此应用，已创建的标签页会被关闭。若您确定重启此应用，您对主题设置的修改将会被保存，并在应用重启后生效。您确定重启此应用吗？</value>
+  </data>
   <data name="TextBoxSymbol_ToolTip" xml:space="preserve">
     <value>股票代码应以上市交易所代码开头（支持SH和SZ，大小写不限）接6位数字。股票名称在输入框失去焦点后会自动转换成对应的代码（如果有）</value>
   </data>
   <data name="TextBoxSymbol_WaterMark" xml:space="preserve">
     <value>股票代码</value>
+  </data>
+  <data name="ThemeSetting" xml:space="preserve">
+    <value>主题</value>
+  </data>
+  <data name="ThemeSetting_Explanation" xml:space="preserve">
+    <value>界面主题风格。只有您在弹出的应用重启确认对话框中确定重启此应用时，您对此设置的修改才会被保存，并在应用重启后生效。</value>
   </data>
   <data name="Thu" xml:space="preserve">
     <value>四</value>
@@ -219,8 +363,32 @@
   <data name="Tue" xml:space="preserve">
     <value>二</value>
   </data>
+  <data name="Unchecked" xml:space="preserve">
+    <value>不选中</value>
+  </data>
+  <data name="VolumeDecimalDigitsSetting" xml:space="preserve">
+    <value>成交量小数位数</value>
+  </data>
+  <data name="VolumeDecimalDigitsSetting_Explanation" xml:space="preserve">
+    <value>总成交量和每日成交量保留的小数位数。若需要显示准确值，数据在不同单位需要保留的小数位数不同，这由手和股的换算关系决定。由于列的类型的设计原因，总成交量的小数部分在必要时会用0补齐，每日成交量的小数部分则暂不支持。您对此设置中关于</value>
+  </data>
+  <data name="VolumeUnitSetting" xml:space="preserve">
+    <value>成交量单位</value>
+  </data>
+  <data name="VolumeUnitSetting_Explanation" xml:space="preserve">
+    <value>总成交量和每日成交量的单位。1手等于100股。您对此设置的修改在已显示的表格中不会生效，再次搜索可使之生效。</value>
+  </data>
   <data name="VolumeUnit_1" xml:space="preserve">
     <value>手</value>
+  </data>
+  <data name="VolumeUnit_10" xml:space="preserve">
+    <value>十手</value>
+  </data>
+  <data name="VolumeUnit_100" xml:space="preserve">
+    <value>百手</value>
+  </data>
+  <data name="VolumeUnit_1000" xml:space="preserve">
+    <value>千手</value>
   </data>
   <data name="VolumeUnit_10000" xml:space="preserve">
     <value>万手</value>

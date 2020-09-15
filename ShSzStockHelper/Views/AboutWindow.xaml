@@ -1,0 +1,65 @@
+﻿<!-- UI definition of the window for showing the info about the product. -->
+<!-- ReSharper disable Xaml.StaticResourceNotResolved -->
+<syncfusion:ChromelessWindow xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                             xmlns:properties="clr-namespace:ShSzStockHelper.Properties"
+                             xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+                             xmlns:syncfusionSkin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+                             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                             mc:Ignorable="d"
+                             syncfusionSkin:SfSkinManager.VisualStyle="{Binding ProductTheme, Converter={StaticResource ProductThemeConverter}, Source={x:Static properties:Settings.Default}}"
+                             x:Class="ShSzStockHelper.Views.AboutWindow"
+                             x:Name="WindowAbout"
+                             FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
+                             Height="{Binding SmallWindowHeight, Source={x:Static properties:Settings.Default}}"
+                             Icon="../AppIcon.ico"
+                             ResizeMode="NoResize"
+                             ShowInTaskbar="False"
+                             Width="{Binding SmallWindowWidth, Source={x:Static properties:Settings.Default}}"
+                             WindowStartupLocation="CenterOwner">
+    <syncfusion:ChromelessWindow.Resources>
+        <Style BasedOn="{StaticResource WPFToolTipStyle}" TargetType="ToolTip">
+            <Setter Property="FontFamily" Value="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}" />
+            <Setter Property="FontSize" Value="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}" />
+            <Setter Property="MaxWidth" Value="300" />
+        </Style>
+    </syncfusion:ChromelessWindow.Resources>
+
+    <StackPanel VerticalAlignment="Center">
+        <Image Height="{Binding HugeIconSideLength, Source={x:Static properties:Settings.Default}}"
+               Margin="0,0,0,10"
+               Source="../AppIcon.ico"
+               Width="{Binding HugeIconSideLength, Source={x:Static properties:Settings.Default}}"/>
+
+        <TextBlock x:Name="TextBlockProductName"
+                   FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
+                   FontSize="{Binding HugeTextFontSize, Source={x:Static properties:Settings.Default}}"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"/>
+
+        <TextBlock x:Name="TextBlockProductVersion"
+                   FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
+                   FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,10"/>
+
+        <TextBlock FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
+                   FontSize="{Binding ContentTextFontSize, Source={x:Static properties:Settings.Default}}"
+                   Foreground="{Binding ContentTextColour, Source={x:Static properties:Settings.Default}}"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,10">
+            <Run Text="{x:Static properties:Resources.TextBlockOpenSource_Text_Part1}"/>
+            <Hyperlink NavigateUri="https://github.com/ArvinZJC/ShSzStockHelper_Windows" RequestNavigate="HyperlinkOpenSource_OnRequestNavigate">
+                <Run Text="{x:Static properties:Resources.TextBlockOpenSource_Text_Part2}"></Run>
+            </Hyperlink>
+            <Run Text="{x:Static properties:Resources.TextBlockOpenSource_Text_Part3}"/>
+        </TextBlock>
+
+        <TextBlock x:Name="TextBlockProductCopyright"
+                   FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
+                   FontSize="{Binding ExplanationTextFontSize, Source={x:Static properties:Settings.Default}}"
+                   Foreground="{Binding ExplanationTextColour, Source={x:Static properties:Settings.Default}}"
+                   HorizontalAlignment="Center"/>
+    </StackPanel>
+</syncfusion:ChromelessWindow>

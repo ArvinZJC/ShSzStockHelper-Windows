@@ -138,11 +138,11 @@
     <comment>Text for PrintDialog CustomMargin</comment>
   </data>
   <data name="CustomMargins" xml:space="preserve">
-    <value>自定义页边距（单位：厘米）</value>
+    <value>自定义页边距（单位：cm）</value>
     <comment>Text for PrintDialog CustomMargins</comment>
   </data>
   <data name="CustomPageSizes" xml:space="preserve">
-    <value>自定义纸张大小（单位：厘米）</value>
+    <value>自定义纸张大小（单位：cm）</value>
     <comment>Text for PrintDialog  CustomPageSizes</comment>
   </data>
   <data name="CustomSize" xml:space="preserve">
@@ -201,6 +201,10 @@
     <value>窄</value>
     <comment>Text for Narrow margin in PrintDialog</comment>
   </data>
+  <data name="NoMatches" xml:space="preserve">
+    <value>无匹配项</value>
+    <comment>No Items match </comment>
+  </data>
   <data name="Normal" xml:space="preserve">
     <value>常规</value>
     <comment>Text for Normal margin in PrintDialog</comment>
@@ -252,6 +256,14 @@
   <data name="Right" xml:space="preserve">
     <value>右：</value>
     <comment>Text for Right margin of PrintDialog</comment>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>搜索</value>
+    <comment>Search water mark</comment>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+    <value>（全选）</value>
+    <comment>Text for Select All</comment>
   </data>
   <data name="ShowRowsWhere" xml:space="preserve">
     <value>显示行：</value>

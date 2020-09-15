@@ -117,16 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Close" xml:space="preserve">
-    <value>关闭</value>
-  </data>
-  <data name="CloseAll" xml:space="preserve">
-    <value>关闭所有标签页</value>
-  </data>
   <data name="CloseAllButThis" xml:space="preserve">
     <value>关闭其他标签页</value>
   </data>
   <data name="MoreTabs" xml:space="preserve">
     <value>点击查看标签页列表</value>
+  </data>
+  <data name="TabClose" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="TabCloseAll" xml:space="preserve">
+    <value>关闭所有标签页</value>
   </data>
 </root>

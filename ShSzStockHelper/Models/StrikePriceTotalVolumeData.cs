@@ -1,38 +1,29 @@
 ﻿/*
  * @Description: a data model of strike prices and total volumes
- * @Version: 1.0.3.20200805
+ * @Version: 1.0.4.20200829
  * @Author: Arvin Zhao
  * @Date: 2020-07-08 12:27:11
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2020-08-05 14:09:25
+ * @LastEditTime: 2020-08-29 14:09:25
  */
 
-namespace ShSzStockHelper
+namespace ShSzStockHelper.Models
 {
     /// <summary>
     /// A data model of strike prices and total volumes.
     /// </summary>
-    class StrikePriceTotalVolumeData
+    internal class StrikePriceTotalVolumeData
     {
-        /// <summary>
-        /// Initialise a new instance of the <see cref="StrikePriceTotalVolumeData"/> class.
-        /// </summary>
-        /// <param name="strikePrice">A strike price of a stock.</param>
-        /// <param name="totalVolume">Total volume of a strike price of a stock.</param>
-        public StrikePriceTotalVolumeData(decimal strikePrice, decimal totalVolume)
-        {
-            StrikePrice = strikePrice;
-            TotalVolume = totalVolume;
-        } // end constructor StrikePrice_TotalVolumeData
-
         /// <summary>
         /// A strike price of a stock.
         /// </summary>
+        // ReSharper disable once UnusedAutoPropertyAccessor.Global
         public decimal StrikePrice { get; set; }
 
         /// <summary>
         /// Total volume of a strike price of a stock.
         /// </summary>
+        // ReSharper disable once UnusedAutoPropertyAccessor.Global
         public decimal TotalVolume { get; set; }
     } // end class StrikePriceTotalVolumeData
-} // end namespace ShSzStockHelper.Model
+} // end namespace ShSzStockHelper.Models

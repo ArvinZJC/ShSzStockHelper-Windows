@@ -1,0 +1,159 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ShSzStockHelper.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DisplayFontFamilyName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Microsoft YaHei UI</Value>
+    </Setting>
+    <Setting Name="PrimaryTextFontSize" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">14</Value>
+    </Setting>
+    <Setting Name="ContentTextFontSize" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">12</Value>
+    </Setting>
+    <Setting Name="ColourDanger" Type="System.Windows.Media.SolidColorBrush" Scope="Application">
+      <Value Profile="(Default)">#FFFF0000</Value>
+    </Setting>
+    <Setting Name="ExcelHeaderBackground" Type="System.Windows.Media.SolidColorBrush" Scope="User">
+      <Value Profile="(Default)">#FFD3D3D3</Value>
+    </Setting>
+    <Setting Name="MaxCellWidth" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">300</Value>
+    </Setting>
+    <Setting Name="MinCellWidth" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">50</Value>
+    </Setting>
+    <Setting Name="ExcelCellFontSize" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">12</Value>
+    </Setting>
+    <Setting Name="ExcelCellFontFamilyName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Microsoft YaHei UI</Value>
+    </Setting>
+    <Setting Name="DateDisplayFormat" Type="System.String" Scope="User">
+      <Value Profile="(Default)">yyyy-M-d</Value>
+    </Setting>
+    <Setting Name="DateCodeFormat" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">yyyy-M-d</Value>
+    </Setting>
+    <Setting Name="MinDate" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)">1990-12-01</Value>
+    </Setting>
+    <Setting Name="HugeIconSideLength" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="SmallIconSideLength" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">18</Value>
+    </Setting>
+    <Setting Name="MaxTabItemWidth" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">200</Value>
+    </Setting>
+    <Setting Name="MaxDropDownHeight" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">300</Value>
+    </Setting>
+    <Setting Name="MaxInputLength" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">14</Value>
+    </Setting>
+    <Setting Name="DefaultWindowHeight" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">600</Value>
+    </Setting>
+    <Setting Name="DefaultWindowWidth" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">800</Value>
+    </Setting>
+    <Setting Name="ProductTheme" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">18</Value>
+    </Setting>
+    <Setting Name="ContentTextColour" Type="System.Windows.Media.SolidColorBrush" Scope="User">
+      <Value Profile="(Default)">#FF666666</Value>
+    </Setting>
+    <Setting Name="ExplanationTextColour" Type="System.Windows.Media.SolidColorBrush" Scope="Application">
+      <Value Profile="(Default)">#FF999999</Value>
+    </Setting>
+    <Setting Name="ExplanationTextFontSize" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="HugeTextFontSize" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">28</Value>
+    </Setting>
+    <Setting Name="SmallWindowHeight" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">300</Value>
+    </Setting>
+    <Setting Name="SmallWindowWidth" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">400</Value>
+    </Setting>
+    <Setting Name="DataGridHeaderRowHeight" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">42</Value>
+    </Setting>
+    <Setting Name="TitleTextFontSize" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">21</Value>
+    </Setting>
+    <Setting Name="ThemeColour" Type="System.Windows.Media.SolidColorBrush" Scope="User">
+      <Value Profile="(Default)">#FF0179FF</Value>
+    </Setting>
+    <Setting Name="CultureInfo" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">zh-CN</Value>
+    </Setting>
+    <Setting Name="StrikePriceSorting" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="TotalVolumeSorting" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="DayVolumeSorting" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="StrikePriceFiltering" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="TotalVolumeFiltering" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="DayVolumeFiltering" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="TotalVolumeUnit" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">10000</Value>
+    </Setting>
+    <Setting Name="DayVolumeUnit" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="TotalVolumeDecimalDigits" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="DayVolumeDecimalDigits" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="ExcelFileFormat" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="MenuIconUri" Type="System.String" Scope="User">
+      <Value Profile="(Default)">../../Images/MaterialLight/Menu.png</Value>
+    </Setting>
+    <Setting Name="AboutIconUri" Type="System.String" Scope="User">
+      <Value Profile="(Default)">../Images/MaterialLight/About.png</Value>
+    </Setting>
+    <Setting Name="ClearSelectionIconUri" Type="System.String" Scope="User">
+      <Value Profile="(Default)">../Images/MaterialLight/ClearSelection.png</Value>
+    </Setting>
+    <Setting Name="ExportToExcelIconUri" Type="System.String" Scope="User">
+      <Value Profile="(Default)">../Images/MaterialLight/ExportToExcel.png</Value>
+    </Setting>
+    <Setting Name="PrintIconUri" Type="System.String" Scope="User">
+      <Value Profile="(Default)">../Images/MaterialLight/Print.png</Value>
+    </Setting>
+    <Setting Name="RestoreColumnWidthIconUri" Type="System.String" Scope="User">
+      <Value Profile="(Default)">../Images/MaterialLight/ExportToExcel.png</Value>
+    </Setting>
+    <Setting Name="SearchIconUri" Type="System.String" Scope="User">
+      <Value Profile="(Default)">../Images/MaterialLight/Search.png</Value>
+    </Setting>
+    <Setting Name="SettingsIconUri" Type="System.String" Scope="User">
+      <Value Profile="(Default)">../Images/MaterialLight/Settings.png</Value>
+    </Setting>
+    <Setting Name="PrimaryTextColour" Type="System.Windows.Media.SolidColorBrush" Scope="User">
+      <Value Profile="(Default)">#DD000000</Value>
+    </Setting>
+    <Setting Name="MediumIconSideLength" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">50</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,13 +1,16 @@
 ﻿/*
  * @Description: the back-end code of the tab of searching for data of strike prices and volumes
- * @Version: 1.2.2.20200817
+ * @Version: 1.3.6.20200914
  * @Author: Arvin Zhao
  * @Date: 2020-08-10 13:37:27
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2020-08-17 13:38:24
+ * @LastEditTime: 2020-09-14 13:38:24
  */
 
 using Microsoft.Win32;
+using ShSzStockHelper.Helpers;
+using ShSzStockHelper.Models;
+using ShSzStockHelper.ViewModels;
 using Syncfusion.UI.Xaml.Grid;
 using Syncfusion.UI.Xaml.Grid.Converter;
 using Syncfusion.UI.Xaml.Grid.Helpers;
@@ -17,75 +20,71 @@ using Syncfusion.XlsIO;
 using System;
 using System.Diagnostics;
 using System.Globalization;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace ShSzStockHelper
+namespace ShSzStockHelper.Views
 {
     /// <summary>
     /// Interaction logic for the tab of searching for data of strike prices and volumes.
     /// </summary>
-    public partial class StrikePriceVolumeTab : UserControl
+    public partial class StrikePriceVolumeTab
     {
         private readonly StrikePriceVolumeDataProcessor _strikePriceVolumeDataProcessor;
+        private readonly StrikePriceTotalVolumeViewModel _strikePriceTotalVolumeViewModel;
         private readonly StockSymbolNameViewModel _stockSymbolNameViewModel;
-        private readonly StylePropertyViewModel _stylePropertyViewModel;
+        private readonly VolumeUnitViewModel _volumeUnitViewModel;
         private readonly ExcelExportingOptions _excelExportingOptions;
         private readonly TabItemExt _tabItemStrikePriceVolume;
-        private bool _isStandardSymbol = false;
-        private int _nodeTotalCount = 0; // The total count of rows in the data grid containing data of strike prices and volumes.
-        private string _stockName;
+        private bool _isStandardSymbol; // Use the default false value to indicate if the format of the input for the symbol is standard.
+        private int _nodeTotalCount; // The total count of rows in the data grid containing data of strike prices and volumes (use the default initial value 0).
+        private string _stockName, _dataTableTitle;
         private decimal?[][] _strikePriceVolumeRowCollection;
-        private const string regularExpression_HasChinese = @"[\u4e00-\u9fa5]";
+        private const string RegularExpressionHasChinese = @"[\u4e00-\u9fa5]";
 
         /// <summary>
         /// Initialise a new instance of the <see cref="StrikePriceVolumeTab"/> class.
         /// </summary>
-        /// <param name="tabItemStrikePriceVolume">The tab item used this user control as the content.</param>
+        /// <param name="tabItemStrikePriceVolume">The tab item using this user control as the content.</param>
+        /// <param name="stockSymbolNameViewModel">The view model containing the data of stocks' symbols and corresponding names.</param>
         public StrikePriceVolumeTab(TabItemExt tabItemStrikePriceVolume, StockSymbolNameViewModel stockSymbolNameViewModel)
         {
             InitializeComponent();
 
             _tabItemStrikePriceVolume = tabItemStrikePriceVolume;
             _stockSymbolNameViewModel = stockSymbolNameViewModel;
-            _strikePriceVolumeDataProcessor = new StrikePriceVolumeDataProcessor(); // Intialise the helper class for processing data of strike prices and volumes collected.
-            _stylePropertyViewModel = new StylePropertyViewModel(); // Initialise the view model class for using the defined style properties.
+            _strikePriceVolumeDataProcessor = new StrikePriceVolumeDataProcessor();
+            _strikePriceTotalVolumeViewModel = new StrikePriceTotalVolumeViewModel();
+            _volumeUnitViewModel = new VolumeUnitViewModel();
 
-            textBoxSymbol.AutoCompleteSource = _stockSymbolNameViewModel.StockSymbolNameRecords; // Set the auto-complete data source of the text box for the symbol.
+            TextBoxSymbol.AutoCompleteSource = _stockSymbolNameViewModel.StockSymbolNameRecords; // Set the auto-complete data source of the text box for the symbol.
 
             // Set the specified property values of the data pickers.
-            datePickerStartDate.CultureInfo = new CultureInfo("zh-CN");
-            datePickerStartDate.MaxDateTime = _stylePropertyViewModel.MaxDate;
-            datePickerStartDate.MinDateTime = _stylePropertyViewModel.MinDate;
-            datePickerEndDate.CultureInfo = new CultureInfo("zh-CN");
-            datePickerEndDate.MaxDateTime = _stylePropertyViewModel.MaxDate;
-            datePickerEndDate.MinDateTime = _stylePropertyViewModel.MinDate;
+            DatePickerStartDate.CultureInfo = new CultureInfo(Properties.Settings.Default.CultureInfo);
+            DatePickerEndDate.CultureInfo = new CultureInfo(Properties.Settings.Default.CultureInfo);
 
             // Set the specified property values of the data grid.
-            dataGridStrikePriceVolumeTable.FilterItemsPopulating += DataGridStrikePriceVolumeTable_FilterItemsPopulating;
-            dataGridStrikePriceVolumeTable.PrintSettings = new PrintSettings
+            DataGridStrikePriceVolumeTable.FilterItemsPopulating += DataGridStrikePriceVolumeTable_FilterItemsPopulating;
+            DataGridStrikePriceVolumeTable.PrintSettings = new PrintSettings
             {
                 AllowColumnWidthFitToPrintPage = false,
                 AllowPrintByDrawing = false,
                 AllowPrintStyles = false,
                 AllowRepeatHeaders = true,
                 CanPrintStackedHeaders = true,
-                PrintPageFooterHeight = _stylePropertyViewModel.ContentTextFontSize,
+                PrintPageFooterHeight = Properties.Settings.Default.ContentTextFontSize,
                 PrintPageFooterTemplate = Application.Current.Resources["PrintedPageFooterTemplate"] as DataTemplate
             };
-            dataGridStrikePriceVolumeTable.QueryUnboundColumnValue += DataGridStrikePriceVolumeTable_QueryUnboundColumnValue;
-            dataGridStrikePriceVolumeTable_columnStrikePrice.HeaderText = Properties.Resources.StrikePrice + "\n" + Properties.Resources.LeftBracket + Properties.Resources.PriceUnit + Properties.Resources.RightBracket;
-            dataGridStrikePriceVolumeTable_columnStrikePrice.MaximumWidth = _stylePropertyViewModel.MaxCellWidth;
-            dataGridStrikePriceVolumeTable_columnStrikePrice.MinimumWidth = _stylePropertyViewModel.MinCellWidth;
-            dataGridStrikePriceVolumeTable_columnTotalVolume.HeaderText = Properties.Resources.TotalVolume + "\n" + Properties.Resources.LeftBracket + Properties.Resources.VolumeUnit_10000 + Properties.Resources.RightBracket;
-            dataGridStrikePriceVolumeTable_columnTotalVolume.MaximumWidth = _stylePropertyViewModel.MaxCellWidth;
-            dataGridStrikePriceVolumeTable_columnTotalVolume.MinimumWidth = _stylePropertyViewModel.MinCellWidth;
-            
+            DataGridStrikePriceVolumeTable.QueryUnboundColumnValue += DataGridStrikePriceVolumeTable_QueryUnboundColumnValue;
+            ColumnStrikePrice.HeaderText += "\n" + Properties.Resources.LeftBracket + Properties.Resources.PriceUnit + Properties.Resources.RightBracket;
+            ColumnStrikePrice.MaximumWidth = Properties.Settings.Default.MaxCellWidth;
+            ColumnStrikePrice.MinimumWidth = Properties.Settings.Default.MinCellWidth;
+            ColumnStrikePrice.MaximumWidth = Properties.Settings.Default.MaxCellWidth;
+            ColumnStrikePrice.MinimumWidth = Properties.Settings.Default.MinCellWidth;
+
             _excelExportingOptions = new ExcelExportingOptions
             {
                 ExportStackedHeaders = true,
@@ -96,250 +95,287 @@ namespace ShSzStockHelper
         #region Control Events
         private void ButtonClearSelection_Click(object sender, RoutedEventArgs e)
         {
-            dataGridStrikePriceVolumeTable.SelectedItems.Clear();
-            buttonClearSelection.IsEnabled = false;
+            DataGridStrikePriceVolumeTable.SelectedItems.Clear();
+            ButtonClearSelection.IsEnabled = false;
         } // end method ButtonClearSelection_Click
 
         private void ButtonExportToExcel_Click(object sender, RoutedEventArgs e)
         {
-            // TODO: uncomment the following line to replace the 3 lines below the line when Syncfusion is updated (https://www.syncfusion.com/forums/156187/strange-performance-of-data-grid-when-exporting-to-excel).
-            // IWorkbook workbook = dataGridStrikePriceVolumeTable.ExportToExcel(dataGridStrikePriceVolumeTable.View, _excelExportingOptions).Excel.Workbooks[0];
-            IApplication application = dataGridStrikePriceVolumeTable.ExportToExcel(dataGridStrikePriceVolumeTable.View, _excelExportingOptions).Excel;
-            IWorkbook workbook = application.Workbooks[0];
+            var application = DataGridStrikePriceVolumeTable.ExportToExcel(DataGridStrikePriceVolumeTable.View, _excelExportingOptions).Excel;
+            var workbook = application.Workbooks[0];
             application.DataProviderType = ExcelDataProviderType.ByteArray;
 
-            SaveFileDialog saveFileDialog = new SaveFileDialog
+            var saveFileDialog = new SaveFileDialog
             {
-                FileName = _stockName + " (" + _strikePriceVolumeDataProcessor.StartDate.ToString(_stylePropertyViewModel.DateFormat) + "~" + _strikePriceVolumeDataProcessor.EndDate.ToString(_stylePropertyViewModel.DateFormat) + ")",
+                FileName = _dataTableTitle,
                 Filter = Properties.Resources.SaveFileDialogueExportToExcel_Filter,
-                FilterIndex = 2
+                FilterIndex = Properties.Settings.Default.ExcelFileFormat
             };
 
-            // Display a dialogue that allows the user to specify a filename to save an Excel file as.
-            if (saveFileDialog.ShowDialog() == true)
+            // Display a dialogue that allows the user to specify a filename to save as an Excel file.
+            if (saveFileDialog.ShowDialog() != true)
+                return;
+
+            using (var stream = saveFileDialog.OpenFile())
             {
-                using (Stream stream = saveFileDialog.OpenFile())
+                workbook.Version = saveFileDialog.FilterIndex switch
                 {
-                    workbook.Version = saveFileDialog.FilterIndex switch
-                    {
-                        1 => ExcelVersion.Excel97to2003,
-                        _ => ExcelVersion.Excel2010,
-                    }; // Specify the version of the exported Excel file.
-                    workbook.Worksheets[0].AutoFilters.FilterRange = workbook.Worksheets[0].Range["A"
-                        + (dataGridStrikePriceVolumeTable.StackedHeaderRows.Count + 1).ToString()
-                        + ":"
-                        + workbook.Worksheets[0].UsedRange.End.AddressLocal]; // Enable filters for the exported range in the worksheet.
+                    1 => ExcelVersion.Excel97to2003,
+                    _ => ExcelVersion.Excel2010,
+                }; // Specify the version of the exported Excel file.
+                workbook.Worksheets[0].AutoFilters.FilterRange = workbook.Worksheets[0].Range["A"
+                    + (DataGridStrikePriceVolumeTable.StackedHeaderRows.Count + 1)
+                    + ":"
+                    + workbook.Worksheets[0].UsedRange.End.AddressLocal]; // Enable filters for the exported range in the worksheet.
 
-                    // Set borders to cells.
-                    workbook.Worksheets[0].UsedRange.BorderAround();
-                    workbook.Worksheets[0].UsedRange.BorderInside();
+                // Set borders to cells.
+                workbook.Worksheets[0].UsedRange.BorderAround();
+                workbook.Worksheets[0].UsedRange.BorderInside();
 
-                    workbook.SaveAs(stream);
-                } // end using
+                workbook.SaveAs(stream);
+            } // end using
 
-                Process.Start("Explorer.exe", "/select," + saveFileDialog.FileName); // Start File Explorer and locate the created Excel file.
-            } // end if
+            Process.Start("Explorer.exe", "/select," + saveFileDialog.FileName); // Start File Explorer and locate the created Excel file.
         } // end method ButtonExportToExcel_Click
 
         private void ButtonPrint_Click(object sender, RoutedEventArgs e)
         {
-            dataGridStrikePriceVolumeTable.ShowPrintPreview();
+            DataGridStrikePriceVolumeTable.ShowPrintPreview();
         } // end method ButtonPrint_Click
 
         private void ButtonRestoreColumnWidth_Click(object sender, RoutedEventArgs e)
         {
             RestoreColumnWidth();
-            buttonRestoreColumnWidth.IsEnabled = false;
+            ButtonRestoreColumnWidth.IsEnabled = false;
         } // end method ButtonRestoreColumnWidth_Click
 
         private async void ButtonSearch_ClickAsync(object sender, RoutedEventArgs e)
         {
-            string tabItemTitle = _stockName + " (" + _strikePriceVolumeDataProcessor.StartDate.ToString(_stylePropertyViewModel.DateFormat) + "~" + _strikePriceVolumeDataProcessor.EndDate.ToString(_stylePropertyViewModel.DateFormat) + ")";
+            var input = TextBoxSymbol.Text.Trim().ToUpper();
+
+            if (TextBoxSymbol.SelectedItem != null && input.Equals(((StockSymbolNameData) TextBoxSymbol.SelectedItem).Symbol))
+                _stockName = ((StockSymbolNameData) TextBoxSymbol.SelectedItem).Name;
+            else
+                try
+                {
+                    var satisfiedRecord = _stockSymbolNameViewModel.StockSymbolNameRecords.First(record => input.Equals(record.Symbol));
+
+                    _stockName = satisfiedRecord.Name;
+                }
+                // No matching record is found from local data.
+                catch (InvalidOperationException)
+                {
+                    _stockName = await _strikePriceVolumeDataProcessor.GetStockNameFromWebAsync() ?? input;
+                } // end try...catch
+
+            _dataTableTitle = _stockName + Properties.Resources.LeftBracket + _strikePriceVolumeDataProcessor.StartDate.ToString(Properties.Settings.Default.DateDisplayFormat) + "~" + _strikePriceVolumeDataProcessor.EndDate.ToString(Properties.Settings.Default.DateDisplayFormat) + Properties.Resources.RightBracket;
 
             // Ensure that the specified controls are in the initial/suitable status.
-            _tabItemStrikePriceVolume.Header = tabItemTitle;
-            _tabItemStrikePriceVolume.ItemToolTip = tabItemTitle;
-            buttonSearch.IsEnabled = false;
-            busyIndicatorSearchResultArea.IsBusy = true;
-            dataGridStrikePriceVolumeTable.Visibility = Visibility.Hidden;
-            textBlockNullData.Visibility = Visibility.Hidden;
-            textBlockNullData.Text = Properties.Resources.TextBlockNullData_Text_UnknownError;
-            buttonClearSelection.IsEnabled = false;
-            buttonRestoreColumnWidth.IsEnabled = false;
-            buttonExportToExcel.IsEnabled = false;
-            buttonPrint.IsEnabled = false;
+            _tabItemStrikePriceVolume.Header = _dataTableTitle;
+            _tabItemStrikePriceVolume.ItemToolTip = _dataTableTitle;
+            ButtonSearch.IsEnabled = false;
+            BusyIndicatorSearchResultArea.IsBusy = true;
+            DataGridStrikePriceVolumeTable.Visibility = Visibility.Hidden;
+            TextBlockNullData.Visibility = Visibility.Hidden;
+            TextBlockNullData.Text = Properties.Resources.TextBlockNullData_Text_UnknownError;
+            ButtonClearSelection.IsEnabled = false;
+            ButtonRestoreColumnWidth.IsEnabled = false;
+            ButtonExportToExcel.IsEnabled = false;
+            ButtonPrint.IsEnabled = false;
 
             _strikePriceVolumeRowCollection = await _strikePriceVolumeDataProcessor.GetStrikePriceVolumeDataFromWebAsync();
 
             if (_strikePriceVolumeRowCollection != null)
             {
-                if (_strikePriceVolumeRowCollection[0].Length >= 3)
+                if (_strikePriceVolumeRowCollection[0] != null)
                 {
-                    dataGridStrikePriceVolumeTable.Columns.Suspend(); // Suspend all the UI updates of the specified data grid to improve performance.
-                    dataGridStrikePriceVolumeTable.SortColumnDescriptions.Clear(); // Clear sorting.
-
-                    if (dataGridStrikePriceVolumeTable.StackedHeaderRows.Count > 0)
+                    if (_strikePriceVolumeRowCollection[0].Length >= 3)
                     {
-                        string[] childColumns = dataGridStrikePriceVolumeTable.StackedHeaderRows[0].StackedColumns[0].ChildColumns.Split(",");
+                        DataGridStrikePriceVolumeTable.Columns.Suspend(); // Suspend all the UI updates of the specified data grid to improve performance.
+                        DataGridStrikePriceVolumeTable.SortColumnDescriptions.Clear(); // Clear sorting.
 
-                        // Clear unbound columns containing each day's volumes.
-                        foreach (string mappingName in childColumns)
+                        ColumnTotalVolume.HeaderText = Properties.Resources.TotalVolume
+                                                       + "\n"
+                                                       + Properties.Resources.LeftBracket
+                                                       + _volumeUnitViewModel.VolumeUnitRecords.First(item => item.Coefficient == Properties.Settings.Default.TotalVolumeUnit).Name
+                                                       + Properties.Resources.RightBracket;
+
+                        if (DataGridStrikePriceVolumeTable.StackedHeaderRows.Count > 0)
                         {
-                            GridColumn column = dataGridStrikePriceVolumeTable.Columns[mappingName];
+                            var childColumns = DataGridStrikePriceVolumeTable.StackedHeaderRows[0].StackedColumns[0].ChildColumns.Split(",");
 
-                            if (column == null)
-                                continue;
+                            // Clear unbound columns containing each day's volumes.
+                            foreach (var mappingName in childColumns)
+                            {
+                                var column = DataGridStrikePriceVolumeTable.Columns[mappingName];
 
-                            dataGridStrikePriceVolumeTable.Columns.Remove(column);
-                        } // end foreach
+                                if (column == null)
+                                    continue;
 
-                        dataGridStrikePriceVolumeTable.StackedHeaderRows.Clear(); // Clear stacked headers after clearing unbound columns.
-                    } // end if
+                                DataGridStrikePriceVolumeTable.Columns.Remove(column);
+                            } // end foreach
 
-                    RestoreColumnWidth();
+                            DataGridStrikePriceVolumeTable.StackedHeaderRows.Clear(); // Clear stacked headers after clearing unbound columns.
+                        } // end if
 
-                    dataGridStrikePriceVolumeTable.GridColumnSizer.Refresh();
+                        RestoreColumnWidth();
+                        DataGridStrikePriceVolumeTable.GridColumnSizer.Refresh();
+                        _strikePriceTotalVolumeViewModel.StrikePriceTotalVolumeRecords.Clear();
 
-                    StrikePriceTotalVolumeViewModel strikePriceTotalVolumeViewModel = new StrikePriceTotalVolumeViewModel();
-                    _nodeTotalCount = _strikePriceVolumeRowCollection.Length;
+                        _nodeTotalCount = _strikePriceVolumeRowCollection.Length;
 
-                    for (int nodeCount = 0; nodeCount < _nodeTotalCount; nodeCount++)
-                        strikePriceTotalVolumeViewModel.StrikePriceTotalVolumeRecords.Add(new StrikePriceTotalVolumeData(
-                            (decimal)_strikePriceVolumeRowCollection[nodeCount][0],
-                            (decimal)_strikePriceVolumeRowCollection[nodeCount][1] / 1000000m)); // 总成交量：1万手 = 100万股。
+                        for (var nodeCount = 0; nodeCount < _nodeTotalCount; nodeCount++)
+                            if (_strikePriceVolumeRowCollection[nodeCount][0] != null && _strikePriceVolumeRowCollection[nodeCount][1] != null)
+                                _strikePriceTotalVolumeViewModel.StrikePriceTotalVolumeRecords.Add(new StrikePriceTotalVolumeData()
+                                {
+                                    StrikePrice = (decimal) _strikePriceVolumeRowCollection[nodeCount][0],
+                                    TotalVolume = (decimal) _strikePriceVolumeRowCollection[nodeCount][1] / (Properties.Settings.Default.TotalVolumeUnit * 100m) // 总成交量（1手 = 100股）。
+                                });
 
-                    StringBuilder stackedHeaderRowDayVolumeChildColumns = new StringBuilder();
+                        var stackedHeaderRowDayVolumeChildColumns = new StringBuilder();
 
-                    for (int dayVolumeColumnCount = 0; dayVolumeColumnCount < _strikePriceVolumeRowCollection[0].Length - 2; dayVolumeColumnCount++)
-                    {
-                        string dayVolumeColumnMappingName = dayVolumeColumnCount.ToString();
-                        DateTime dayVolumeColumnDate = _strikePriceVolumeDataProcessor.StartDate.AddDays(dayVolumeColumnCount);
-                        string dayVolumeColumnWeekday = dayVolumeColumnDate.DayOfWeek switch
+                        for (var dayVolumeColumnCount = 0; dayVolumeColumnCount < _strikePriceVolumeRowCollection[0].Length - 2; dayVolumeColumnCount++)
                         {
-                            DayOfWeek.Monday => Properties.Resources.Mon,
-                            DayOfWeek.Tuesday => Properties.Resources.Tue,
-                            DayOfWeek.Wednesday => Properties.Resources.Wed,
-                            DayOfWeek.Thursday => Properties.Resources.Thu,
-                            DayOfWeek.Friday => Properties.Resources.Fri,
-                            DayOfWeek.Saturday => Properties.Resources.Sat,
-                            DayOfWeek.Sunday => Properties.Resources.Sun,
-                            _ => Properties.Resources.QuestionMark,
-                        };
-
-                        if (dayVolumeColumnWeekday.Equals(Properties.Resources.Sat) || dayVolumeColumnWeekday.Equals(Properties.Resources.Sun))
-                            dataGridStrikePriceVolumeTable.Columns.Add(new GridUnBoundColumn()
+                            var dayVolumeColumnMappingName = dayVolumeColumnCount.ToString();
+                            var dayVolumeColumnDate = _strikePriceVolumeDataProcessor.StartDate.AddDays(dayVolumeColumnCount);
+                            var dayVolumeColumnWeekday = dayVolumeColumnDate.DayOfWeek switch
                             {
-                                HeaderText = dayVolumeColumnDate.ToString(_stylePropertyViewModel.DateFormat + "\n" + Properties.Resources.LeftBracket + dayVolumeColumnWeekday + Properties.Resources.RightBracket),
-                                MappingName = dayVolumeColumnMappingName,
-                                MaximumWidth = 0,
-                                MinimumWidth = 0,
-                                ShowHeaderToolTip = true,
-                                TextAlignment = TextAlignment.Right,
-                                Width = 0
-                            });
-                        else
-                            dataGridStrikePriceVolumeTable.Columns.Add(new GridUnBoundColumn()
-                            {
-                                HeaderText = dayVolumeColumnDate.ToString(_stylePropertyViewModel.DateFormat + "\n" + Properties.Resources.LeftBracket + dayVolumeColumnWeekday + Properties.Resources.RightBracket),
-                                MappingName = dayVolumeColumnMappingName,
-                                MaximumWidth = _stylePropertyViewModel.MaxCellWidth,
-                                MinimumWidth = _stylePropertyViewModel.MinCellWidth,
-                                ShowHeaderToolTip = true,
-                                TextAlignment = TextAlignment.Right
-                            });
+                                DayOfWeek.Monday => Properties.Resources.Mon,
+                                DayOfWeek.Tuesday => Properties.Resources.Tue,
+                                DayOfWeek.Wednesday => Properties.Resources.Wed,
+                                DayOfWeek.Thursday => Properties.Resources.Thu,
+                                DayOfWeek.Friday => Properties.Resources.Fri,
+                                DayOfWeek.Saturday => Properties.Resources.Sat,
+                                DayOfWeek.Sunday => Properties.Resources.Sun,
+                                _ => Properties.Resources.QuestionMark,
+                            };
 
-                        stackedHeaderRowDayVolumeChildColumns.Append(dayVolumeColumnMappingName + ",");
-                    } // end for
+                            if (dayVolumeColumnWeekday.Equals(Properties.Resources.Sat) || dayVolumeColumnWeekday.Equals(Properties.Resources.Sun))
+                                DataGridStrikePriceVolumeTable.Columns.Add(new GridUnBoundColumn()
+                                {
+                                    MappingName = dayVolumeColumnMappingName,
+                                    MaximumWidth = 0,
+                                    MinimumWidth = 0,
+                                    Width = 0
+                                });
+                            else
+                                DataGridStrikePriceVolumeTable.Columns.Add(new GridUnBoundColumn()
+                                {
+                                    AllowFiltering = Properties.Settings.Default.DayVolumeFiltering,
+                                    AllowSorting = Properties.Settings.Default.DayVolumeSorting,
+                                    HeaderText = dayVolumeColumnDate.ToString(Properties.Settings.Default.DateDisplayFormat + "\n" + Properties.Resources.LeftBracket + dayVolumeColumnWeekday + Properties.Resources.RightBracket),
+                                    MappingName = dayVolumeColumnMappingName,
+                                    MaximumWidth = Properties.Settings.Default.MaxCellWidth,
+                                    MinimumWidth = Properties.Settings.Default.MinCellWidth,
+                                    ShowHeaderToolTip = true,
+                                    TextAlignment = TextAlignment.Right
+                                });
 
-                    StackedHeaderRow stackedHeaderRowDayVolume = new StackedHeaderRow();
+                            stackedHeaderRowDayVolumeChildColumns.Append(dayVolumeColumnMappingName + ",");
+                        } // end for
 
-                    stackedHeaderRowDayVolume.StackedColumns.Add(new StackedColumn()
+                        var stackedHeaderRowDayVolume = new StackedHeaderRow();
+
+                        stackedHeaderRowDayVolume.StackedColumns.Add(new StackedColumn()
+                        {
+                            ChildColumns = stackedHeaderRowDayVolumeChildColumns.ToString(),
+                            HeaderText = Properties.Resources.DayVolume
+                                         + Properties.Resources.LeftBracket
+                                         + _volumeUnitViewModel.VolumeUnitRecords.First(item => item.Coefficient == Properties.Settings.Default.DayVolumeUnit).Name
+                                         + Properties.Resources.RightBracket,
+                            MappingName = "DayVolume"
+                        });
+                        
+                        DataGridStrikePriceVolumeTable.ItemsSource = _strikePriceTotalVolumeViewModel.StrikePriceTotalVolumeRecords; // Bind data to the specified data grid. It can also clear data in the first and second columns (strike price and total volume).
+                        DataGridStrikePriceVolumeTable.StackedHeaderRows.Add(stackedHeaderRowDayVolume);
+                        DataGridStrikePriceVolumeTable.Columns.Resume();
+                        DataGridStrikePriceVolumeTable.RefreshColumns();
+                        DataGridStrikePriceVolumeTable.Visibility = Visibility.Visible;
+                        ButtonExportToExcel.IsEnabled = true;
+                        ButtonPrint.IsEnabled = true;
+                    }
+                    // Access is denied by the specified data source.
+                    else if (_strikePriceVolumeRowCollection[0].Length == 1)
                     {
-                        ChildColumns = stackedHeaderRowDayVolumeChildColumns.ToString(),
-                        HeaderText = Properties.Resources.DayVolume + "（" + Properties.Resources.VolumeUnit_1 + "）",
-                        MappingName = "DayVolume"
-                    });
-                    
-                    dataGridStrikePriceVolumeTable.ItemsSource = strikePriceTotalVolumeViewModel.StrikePriceTotalVolumeRecords; // Bind data to the specified data grid. It can also clear data in the first and second columns (strike price and total volume).
-                    dataGridStrikePriceVolumeTable.StackedHeaderRows.Add(stackedHeaderRowDayVolume);
-                    dataGridStrikePriceVolumeTable.Columns.Resume();
-                    dataGridStrikePriceVolumeTable.RefreshColumns();
-                    dataGridStrikePriceVolumeTable.Visibility = Visibility.Visible;
-                    buttonExportToExcel.IsEnabled = true;
-                    buttonPrint.IsEnabled = true;
+                        TextBlockNullData.Text = Properties.Resources.TextBlockNullData_Text_AccessDenied;
+                        TextBlockNullData.Visibility = Visibility.Visible;
+                    }
+                    // The date range is too long.
+                    else
+                    {
+                        TextBlockNullData.Text = Properties.Resources.TextBlockNullData_Text_ImproperDateRange;
+                        TextBlockNullData.Visibility = Visibility.Visible;
+                    } // end if...else
                 }
-                // Access is denied by the specified data source.
-                else if (_strikePriceVolumeRowCollection[0].Length == 1)
-                {
-                    textBlockNullData.Text = Properties.Resources.TextBlockNullData_Text_AccessDenied;
-                    textBlockNullData.Visibility = Visibility.Visible;
-                }
-                // The date range is too long.
+                // Wrong filters (symbol/start date/end date).
                 else
                 {
-                    textBlockNullData.Text = Properties.Resources.TextBlockNullData_Text_ImproperDateRange;
-                    textBlockNullData.Visibility = Visibility.Visible;
+                    TextBlockNullData.Text = Properties.Resources.TextBlockNullData_Text_WrongFilters;
+                    TextBlockNullData.Visibility = Visibility.Visible;
                 } // end if...else
             }
-            // Wrong filters (symbol/start date/end date).
+            // It seems to be no internet connection.
             else
             {
-                textBlockNullData.Text = Properties.Resources.TextBlockNullData_Text_WrongFilters;
-                textBlockNullData.Visibility = Visibility.Visible;
+                TextBlockNullData.Text = Properties.Resources.TextBlockNullData_Text_NetworkError;
+                TextBlockNullData.Visibility = Visibility.Visible;
             } // end if...else
 
-            buttonSearch.IsEnabled = true;
-            busyIndicatorSearchResultArea.IsBusy = false;
+            ButtonSearch.IsEnabled = true;
+            BusyIndicatorSearchResultArea.IsBusy = false;
         } // end method ButtonSearch_ClickAsync
 
         // Set advanced filter type for unbound columns.
-        private void DataGridStrikePriceVolumeTable_FilterItemsPopulating(object sender, GridFilterItemsPopulatingEventArgs e)
+        private static void DataGridStrikePriceVolumeTable_FilterItemsPopulating(object sender, GridFilterItemsPopulatingEventArgs e)
         {
-            if (e.Column.MappingName != "StrikePrice" || e.Column.MappingName != "TotalVolume")
-            {
-                e.FilterControl.AdvancedFilterType = AdvancedFilterType.NumberFilter;
-                e.FilterControl.SetColumnDataType(typeof(decimal));
-                e.FilterControl.AscendingSortString = GridResourceWrapper.SortNumberAscending;
-                e.FilterControl.DescendingSortString = GridResourceWrapper.SortNumberDescending;
-            } // end if
-        } // end method DataGridStrikePriceVolumeTabl_FilterItemsPopulating
+            if (e.Column.MappingName == "StrikePrice" && e.Column.MappingName == "TotalVolume")
+                return;
+
+            e.FilterControl.AdvancedFilterType = AdvancedFilterType.NumberFilter;
+            e.FilterControl.SetColumnDataType(typeof(decimal?));
+            e.FilterControl.AscendingSortString = GridResourceWrapper.SortNumberAscending;
+            e.FilterControl.DescendingSortString = GridResourceWrapper.SortNumberDescending;
+        } // end method DataGridStrikePriceVolumeTable_FilterItemsPopulating
 
         // Populate data of each day's volume for unbound columns.
         private void DataGridStrikePriceVolumeTable_QueryUnboundColumnValue(object sender, GridUnboundColumnEventsArgs e)
         {
-            if (e.UnBoundAction == UnBoundActions.QueryData
-                && _strikePriceVolumeRowCollection != null
-                && _strikePriceVolumeRowCollection[0].Length != 1)
-            {
-                decimal strikePrice = Convert.ToDecimal(e.Record.GetType().GetProperty("StrikePrice").GetValue(e.Record));
+            if (e.UnBoundAction != UnBoundActions.QueryData
+                || _strikePriceVolumeRowCollection == null
+                || _strikePriceVolumeRowCollection[0].Length == 1)
+                return;
 
-                // Round each volume value which is not null to the nearest integer.
-                for (int nodeCount = 0; nodeCount < _nodeTotalCount; nodeCount++)
-                    if (_strikePriceVolumeRowCollection[nodeCount][0] == strikePrice)
-                    {
-                        decimal? dayVolume = _strikePriceVolumeRowCollection[nodeCount][2 + Convert.ToInt32(e.Column.MappingName)];
-                        e.Value = dayVolume == null ? null : (decimal?)decimal.Round((decimal)dayVolume / 100m); // 每日成交量：1手 = 100股。
-                        break;
-                    } // end if
-            } // end if
+            var strikePrice = Convert.ToDecimal(e.Record.GetType().GetProperty("StrikePrice")?.GetValue(e.Record));
+
+            // Round each volume value which is not null.
+            for (var nodeCount = 0; nodeCount < _nodeTotalCount; nodeCount++)
+                if (_strikePriceVolumeRowCollection[nodeCount][0] == strikePrice)
+                {
+                    var dayVolume = _strikePriceVolumeRowCollection[nodeCount][2 + Convert.ToInt32(e.Column.MappingName)];
+                    
+                    e.Value = dayVolume == null
+                        ? null
+                        : (decimal?) decimal.Round((decimal) dayVolume / (Properties.Settings.Default.DayVolumeUnit * 100m), Properties.Settings.Default.DayVolumeDecimalDigits); // 每日成交量（1手 = 100股）。
+                    break;
+                } // end if
         } // end method DataGridStrikePriceVolumeTable_QueryUnboundColumnValue
 
         private void DataGridStrikePriceVolumeTable_SelectionChanged(object sender, GridSelectionChangedEventArgs e)
         {
-            buttonClearSelection.IsEnabled = true;
+            ButtonClearSelection.IsEnabled = true;
         } // end method DataGridStrikePriceVolumeTable_SelectionChanged
 
         private void DataGridStrikePriceVolumeTable_OnResizingColumns(object sender, ResizingColumnsEventArgs e)
         {
             if (e.Reason == ColumnResizingReason.Resized)
-                buttonRestoreColumnWidth.IsEnabled = true;
+                ButtonRestoreColumnWidth.IsEnabled = true;
         } // end method DataGridStrikePriceVolumeTable_OnResizingColumns
 
         private void DatePickerEndDate_DateTimeChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
             if (e.NewValue != null)
             {
-                DateTime endDateTime = e.NewValue.ToDateTime();
+                var endDateTime = e.NewValue.ToDateTime();
                 _strikePriceVolumeDataProcessor.EndDate = new DateTime(endDateTime.Year, endDateTime.Month, endDateTime.Day);
             } // end if
 
@@ -351,7 +387,7 @@ namespace ShSzStockHelper
         {
             if (e.NewValue != null)
             {
-                DateTime startDateTime = e.NewValue.ToDateTime();
+                var startDateTime = e.NewValue.ToDateTime();
                 _strikePriceVolumeDataProcessor.StartDate = new DateTime(startDateTime.Year, startDateTime.Month, startDateTime.Day);
             } // end if
 
@@ -360,95 +396,76 @@ namespace ShSzStockHelper
         } // end method DatePickerStartDate_DateTimeChanged
 
         // A handler for styling the created workbooks.
-        private void ExcelExportingHandler(object sender, GridExcelExportingEventArgs e)
+        private static void ExcelExportingHandler(object sender, GridExcelExportingEventArgs e)
         {
             if (e.CellType == ExportCellType.HeaderCell || e.CellType == ExportCellType.StackedHeaderCell)
             {
-                e.CellStyle.BackGroundBrush = _stylePropertyViewModel.ExcelHeaderBackground;
+                e.CellStyle.BackGroundBrush = Properties.Settings.Default.ExcelHeaderBackground;
                 e.Style.HorizontalAlignment = ExcelHAlign.HAlignCenter;
                 e.Style.VerticalAlignment = ExcelVAlign.VAlignCenter;
             } // end if
 
-            e.CellStyle.FontInfo.FontName = _stylePropertyViewModel.GlobalFontFamilyName;
-            e.CellStyle.FontInfo.Size = _stylePropertyViewModel.ContentTextFontSize;
+            e.CellStyle.FontInfo.FontName = Properties.Settings.Default.ExcelCellFontFamilyName;
+            e.CellStyle.FontInfo.Size = Properties.Settings.Default.ExcelCellFontSize;
             e.Handled = true;
         } // end method ExcelExportingHandler
 
-        private async void TextBoxSymbol_LostFocusAsync(object sender, RoutedEventArgs e)
+        private void TextBoxSymbol_LostFocus(object sender, RoutedEventArgs e)
         {
-            string input = textBoxSymbol.Text.Trim();
+            var input = TextBoxSymbol.Text.Trim();
 
-            _stockName = input;
+            if (!Regex.IsMatch(input, RegularExpressionHasChinese))
+                return;
 
-            if (Regex.IsMatch(input, regularExpression_HasChinese))
-            {
-                // When the text box loses focus, it can change the name of the stock you entered to the corresponding symbol if a matching one is found.
-                if (textBoxSymbol.SelectedItem != null && input.Equals((textBoxSymbol.SelectedItem as StockSymbolNameData).Name))
-                    textBoxSymbol.Text = (textBoxSymbol.SelectedItem as StockSymbolNameData).Symbol;
-                else
-                    try
-                    {
-                        StockSymbolNameData satisfiedRecord = _stockSymbolNameViewModel.StockSymbolNameRecords.First(record => input.Equals(record.Name));
+            // When the text box loses focus, it can change the name of the stock you entered to the corresponding symbol if a matching one is found.
+            if (TextBoxSymbol.SelectedItem != null && input.Equals(((StockSymbolNameData) TextBoxSymbol.SelectedItem).Name))
+                TextBoxSymbol.Text = ((StockSymbolNameData) TextBoxSymbol.SelectedItem).Symbol;
+            else
+                try
+                {
+                    var satisfiedRecord = _stockSymbolNameViewModel.StockSymbolNameRecords.First(record => input.Equals(record.Name));
 
-                        textBoxSymbol.Text = satisfiedRecord.Symbol;
-                    }
-                    catch (InvalidOperationException)
-                    {
-                        // Keep the current input because no matching record is found.
-                    } // end try...catch
-            }
-            else if (_isStandardSymbol)
-            {
-                if (textBoxSymbol.SelectedItem != null && _stockName.Equals((textBoxSymbol.SelectedItem as StockSymbolNameData).Symbol))
-                    _stockName = (textBoxSymbol.SelectedItem as StockSymbolNameData).Name;
-                else
-                    try
-                    {
-                        StockSymbolNameData satisfiedRecord = _stockSymbolNameViewModel.StockSymbolNameRecords.First(record => _stockName.Equals(record.Symbol));
-
-                        _stockName = satisfiedRecord.Name;
-                    }
-                    // No matching record is found from local data.
-                    catch (InvalidOperationException)
-                    {
-                        _stockName = await _strikePriceVolumeDataProcessor.GetStockNameFromWebAsync() ?? input.ToUpper();
-                    } // end try...catch
-            } // end nested if...else
-        } // end method TextBoxSymbol_LostFocusAsync
+                    TextBoxSymbol.Text = satisfiedRecord.Symbol;
+                }
+                catch (InvalidOperationException)
+                {
+                    // Keep the current input because no matching record is found.
+                } // end try...catch
+        } // end method TextBoxSymbol_LostFocus
 
         // Perform actions when necessary if the selected item in the auto-complete suggestion list is changed.
         private void TextBoxSymbol_SelectedItemChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (textBoxSymbol.SelectedItem != null && Regex.IsMatch(textBoxSymbol.Text.Trim(), regularExpression_HasChinese))
-                textBoxSymbol.Text = (textBoxSymbol.SelectedItem as StockSymbolNameData).Symbol;
+            if (TextBoxSymbol.SelectedItem != null && Regex.IsMatch(TextBoxSymbol.Text.Trim(), RegularExpressionHasChinese))
+                TextBoxSymbol.Text = ((StockSymbolNameData) TextBoxSymbol.SelectedItem).Symbol;
         } // end method TextBoxSymbol_SelectedItemChanged
         
         private void TextBoxSymbol_TextChanged(object sender, RoutedEventArgs e)
         {
-            string input = textBoxSymbol.Text.Trim();
+            var input = TextBoxSymbol.Text.Trim();
 
-            if (Regex.IsMatch(input, regularExpression_HasChinese))
+            if (Regex.IsMatch(input, RegularExpressionHasChinese))
             {
                 _isStandardSymbol = false;
-                textBoxSymbol.Foreground = _stylePropertyViewModel.ColourDanger;
-                textBoxSymbol.SearchItemPath = "Name";
+                TextBoxSymbol.Foreground = Properties.Settings.Default.ColourDanger;
+                TextBoxSymbol.SearchItemPath = "Name";
 
-                if (textBoxSymbol.SelectedItem != null && input.Equals((textBoxSymbol.SelectedItem as StockSymbolNameData).Name))
-                    textBoxSymbol.Text = (textBoxSymbol.SelectedItem as StockSymbolNameData).Symbol;
+                if (TextBoxSymbol.SelectedItem != null && input.Equals(((StockSymbolNameData) TextBoxSymbol.SelectedItem).Name))
+                    TextBoxSymbol.Text = ((StockSymbolNameData) TextBoxSymbol.SelectedItem).Symbol;
             }
             else
             {
                 _isStandardSymbol = Regex.IsMatch(input, @"^[Ss]([Hh]|[Zz])\d{6}$");
-                textBoxSymbol.SearchItemPath = "Symbol";
+                TextBoxSymbol.SearchItemPath = "Symbol";
 
                 // Change the foreground colour of the specified text box to red if the format of the input for the symbol is not satisfied.
                 if (_isStandardSymbol)
                 {
-                    textBoxSymbol.Foreground = Brushes.Black;
+                    TextBoxSymbol.Foreground = Properties.Settings.Default.PrimaryTextColour;
                     _strikePriceVolumeDataProcessor.Symbol = input;
                 }
                 else
-                    textBoxSymbol.Foreground = _stylePropertyViewModel.ColourDanger;
+                    TextBoxSymbol.Foreground = Properties.Settings.Default.ColourDanger;
             } // end if...else
 
             ChangeButtonSearchStatus();
@@ -461,17 +478,17 @@ namespace ShSzStockHelper
         /// </summary>
         private void ChangeDatePickerForeground()
         {
-            if (datePickerStartDate.DateTime != null
-                && datePickerEndDate.DateTime != null
-                && datePickerStartDate.DateTime.ToDateTime().CompareTo(datePickerEndDate.DateTime.ToDateTime()) > 0)
+            if (DatePickerStartDate.DateTime != null
+                && DatePickerEndDate.DateTime != null
+                && DatePickerStartDate.DateTime.ToDateTime().CompareTo(DatePickerEndDate.DateTime.ToDateTime()) > 0)
             {
-                datePickerStartDate.Foreground = _stylePropertyViewModel.ColourDanger;
-                datePickerEndDate.Foreground = _stylePropertyViewModel.ColourDanger;
+                DatePickerStartDate.Foreground = Properties.Settings.Default.ColourDanger;
+                DatePickerEndDate.Foreground = Properties.Settings.Default.ColourDanger;
             }
             else
             {
-                datePickerStartDate.Foreground = Brushes.Black;
-                datePickerEndDate.Foreground = Brushes.Black;
+                DatePickerStartDate.Foreground = Properties.Settings.Default.PrimaryTextColour;
+                DatePickerEndDate.Foreground = Properties.Settings.Default.PrimaryTextColour;
             } // end if...else
         } // end method ChangeDatePickerForeground
 
@@ -481,12 +498,12 @@ namespace ShSzStockHelper
         private void ChangeButtonSearchStatus()
         {
             if (_isStandardSymbol
-                && datePickerStartDate.DateTime != null
-                && datePickerEndDate.DateTime != null
-                && datePickerStartDate.DateTime.ToDateTime().CompareTo(datePickerEndDate.DateTime.ToDateTime()) <= 0)
-                buttonSearch.IsEnabled = true;
+                && DatePickerStartDate.DateTime != null
+                && DatePickerEndDate.DateTime != null
+                && DatePickerStartDate.DateTime.ToDateTime().CompareTo(DatePickerEndDate.DateTime.ToDateTime()) <= 0)
+                ButtonSearch.IsEnabled = true;
             else
-                buttonSearch.IsEnabled = false;
+                ButtonSearch.IsEnabled = false;
         } // end method ChangeButtonSearchStatus
 
         /// <summary>
@@ -494,12 +511,11 @@ namespace ShSzStockHelper
         /// </summary>
         private void RestoreColumnWidth()
         {
-            foreach (GridColumn column in dataGridStrikePriceVolumeTable.Columns)
-                if (!double.IsNaN(column.Width))
-                    column.Width = double.NaN; // Reset column width to apply autosize calculation.
+            foreach (var column in DataGridStrikePriceVolumeTable.Columns.Where(column => !double.IsNaN(column.Width)))
+                column.Width = double.NaN; // Reset column width to apply autosize calculation.
 
-            dataGridStrikePriceVolumeTable.GridColumnSizer.Refresh();
+            DataGridStrikePriceVolumeTable.GridColumnSizer.Refresh();
         } // end method RestoreColumnWidth
         #endregion Private Methods
     } // end class StrikePriceVolumeTab
-} // end namespace ShSzStockHelper
+} // end namespace ShSzStockHelper.Views

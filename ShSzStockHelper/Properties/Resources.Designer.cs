@@ -61,6 +61,24 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 关于.
+        /// </summary>
+        public static string About {
+            get {
+                return ResourceManager.GetString("About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 提示.
+        /// </summary>
+        public static string AlertDialogue_Title {
+            get {
+                return ResourceManager.GetString("AlertDialogue_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 初始化中....
         /// </summary>
         public static string BusyIndicatorHomeWindowLoading_Header {
@@ -79,6 +97,15 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 不了.
+        /// </summary>
+        public static string ButtonCancel_Label {
+            get {
+                return ResourceManager.GetString("ButtonCancel_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 取消选择的行.
         /// </summary>
         public static string ButtonClearSelection_Label {
@@ -88,11 +115,11 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 导出到Excel.
+        ///   Looks up a localized string similar to 是的.
         /// </summary>
-        public static string ButtonExportToExcel_Label {
+        public static string ButtonOk_Label {
             get {
-                return ResourceManager.GetString("ButtonExportToExcel_Label", resourceCulture);
+                return ResourceManager.GetString("ButtonOk_Label", resourceCulture);
             }
         }
         
@@ -133,7 +160,133 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 点击日历图标来选择结束日期。除此之外，选择日期后，您也可以在输入框中编辑日期（年-月-日）.
+        ///   Looks up a localized string similar to 选中.
+        /// </summary>
+        public static string Checked {
+            get {
+                return ResourceManager.GetString("Checked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ：.
+        /// </summary>
+        public static string Colon {
+            get {
+                return ResourceManager.GetString("Colon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to yy年M月d日.
+        /// </summary>
+        public static string ComboBoxItem2Y1M1DCn_Content {
+            get {
+                return ResourceManager.GetString("ComboBoxItem2Y1M1DCn_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to yy-M-d.
+        /// </summary>
+        public static string ComboBoxItem2Y1M1DHyphen_Content {
+            get {
+                return ResourceManager.GetString("ComboBoxItem2Y1M1DHyphen_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to yy-MM-dd.
+        /// </summary>
+        public static string ComboBoxItem2Y2M2DHyphen_Content {
+            get {
+                return ResourceManager.GetString("ComboBoxItem2Y2M2DHyphen_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to yyyy年M月d日.
+        /// </summary>
+        public static string ComboBoxItem4Y1M1DCn_Content {
+            get {
+                return ResourceManager.GetString("ComboBoxItem4Y1M1DCn_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to yyyy-M-d.
+        /// </summary>
+        public static string ComboBoxItem4Y1M1DHyphen_Content {
+            get {
+                return ResourceManager.GetString("ComboBoxItem4Y1M1DHyphen_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to yyyy-MM-dd.
+        /// </summary>
+        public static string ComboBoxItem4Y2M2DHyphen_Content {
+            get {
+                return ResourceManager.GetString("ComboBoxItem4Y2M2DHyphen_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 深色.
+        /// </summary>
+        public static string ComboBoxItemMaterialDark_Content {
+            get {
+                return ResourceManager.GetString("ComboBoxItemMaterialDark_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 浅色.
+        /// </summary>
+        public static string ComboBoxItemMaterialLight_Content {
+            get {
+                return ResourceManager.GetString("ComboBoxItemMaterialLight_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Excel 97-2003 工作簿（*.xls）.
+        /// </summary>
+        public static string ComboBoxItemXls_Content {
+            get {
+                return ResourceManager.GetString("ComboBoxItemXls_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Excel 工作簿（*.xlsx）.
+        /// </summary>
+        public static string ComboBoxItemXlsx_Content {
+            get {
+                return ResourceManager.GetString("ComboBoxItemXlsx_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 日期格式.
+        /// </summary>
+        public static string DateDisplayFormatSetting {
+            get {
+                return ResourceManager.GetString("DateDisplayFormatSetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 标签页标题、导出的Excel工作簿的默认文件名等之中的日期的显示格式。字母y代表年，M代表月，d代表日。字母的个数表示显示的数字的最小位数，必要时会以0补全。您对此设置的修改在已创建的标签页中可能不会完全生效，您可尝试再次搜索或创建新的标签页。.
+        /// </summary>
+        public static string DateDisplayFormatSetting_Explanation {
+            get {
+                return ResourceManager.GetString("DateDisplayFormatSetting_Explanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 点击日历图标来选择结束日期。除此之外，选择日期后，您也可以在输入框中编辑日期.
         /// </summary>
         public static string DatePickerEndDate_ToolTip {
             get {
@@ -151,7 +304,7 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 点击日历图标来选择开始日期。除此之外，选择日期后，您也可以在输入框中编辑日期（年-月-日）.
+        ///   Looks up a localized string similar to 点击日历图标来选择开始日期。除此之外，选择日期后，您也可以在输入框中编辑日期.
         /// </summary>
         public static string DatePickerStartDate_ToolTip {
             get {
@@ -178,11 +331,128 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 默认：.
+        /// </summary>
+        public static string DefaultSettingValue {
+            get {
+                return ResourceManager.GetString("DefaultSettingValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 显示字体.
+        /// </summary>
+        public static string DisplayFontFamilyNameSetting {
+            get {
+                return ResourceManager.GetString("DisplayFontFamilyNameSetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 界面上的文字字体。部分界面元素暂不支持此设置。.
+        /// </summary>
+        public static string DisplayFontFamilyNameSetting_Explanation {
+            get {
+                return ResourceManager.GetString("DisplayFontFamilyNameSetting_Explanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 单元格字体.
+        /// </summary>
+        public static string ExcelCellFontFamilyNameSetting {
+            get {
+                return ResourceManager.GetString("ExcelCellFontFamilyNameSetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 导出的Excel文件中数据区域单元格的文字字体。您对此设置的修改在已弹出的保存Excel文件对话框中不会生效，关闭对话框后再次导出到Excel可使之生效。.
+        /// </summary>
+        public static string ExcelCellFontFamilyNameSetting_Explanation {
+            get {
+                return ResourceManager.GetString("ExcelCellFontFamilyNameSetting_Explanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 单元格字号.
+        /// </summary>
+        public static string ExcelCellFontSizeSetting {
+            get {
+                return ResourceManager.GetString("ExcelCellFontSizeSetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 导出的Excel文件中数据区域单元格的文字大小。建议保持默认值不变。您对此设置的修改在已弹出的保存Excel文件对话框中不会生效，关闭对话框后再次导出到Excel可使之生效。.
+        /// </summary>
+        public static string ExcelCellFontSizeSetting_Explanation {
+            get {
+                return ResourceManager.GetString("ExcelCellFontSizeSetting_Explanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 文件格式.
+        /// </summary>
+        public static string ExcelFileFormatSetting {
+            get {
+                return ResourceManager.GetString("ExcelFileFormatSetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 导出的Excel文件格式。XLS格式兼容性较好，如果安装的Excel编辑软件版本较低，建议选择此格式。您对此设置的修改在已弹出的保存Excel文件对话框中不会生效，关闭对话框后再次导出到Excel可使之生效。.
+        /// </summary>
+        public static string ExcelFileFormatSetting_Explanation {
+            get {
+                return ResourceManager.GetString("ExcelFileFormatSetting_Explanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 导出到Excel.
+        /// </summary>
+        public static string ExportToExcel {
+            get {
+                return ResourceManager.GetString("ExportToExcel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 筛选.
+        /// </summary>
+        public static string FilteringSetting {
+            get {
+                return ResourceManager.GetString("FilteringSetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 列的筛选功能的开关。启用该功能允许您设定条件来显示符合的数据。您对此设置中关于.
+        /// </summary>
+        public static string FilteringSetting_Explanation {
+            get {
+                return ResourceManager.GetString("FilteringSetting_Explanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 五.
         /// </summary>
         public static string Fri {
             get {
                 return ResourceManager.GetString("Fri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 通用.
+        /// </summary>
+        public static string GeneralSettings {
+            get {
+                return ResourceManager.GetString("GeneralSettings", resourceCulture);
             }
         }
         
@@ -196,11 +466,65 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 菜单.
+        /// </summary>
+        public static string Menu_ToolTip {
+            get {
+                return ResourceManager.GetString("Menu_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 最早日期.
+        /// </summary>
+        public static string MinDateSetting {
+            get {
+                return ResourceManager.GetString("MinDateSetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 日期选择框中允许选择的最早日期。上海证券交易所在1990年12月19日开始正式营业，深圳证券交易所则在1990年12月1日开始营业。由于数据提供方并不是从营业开始记录数据，您可通过点击日历图标或直接在输入框中编辑来适当修改此项设置。.
+        /// </summary>
+        public static string MinDateSetting_Explanation {
+            get {
+                return ResourceManager.GetString("MinDateSetting_Explanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 一.
         /// </summary>
         public static string Mon {
             get {
                 return ResourceManager.GetString("Mon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to （未知版权声明）.
+        /// </summary>
+        public static string NullProductCopyrightError {
+            get {
+                return ResourceManager.GetString("NullProductCopyrightError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to （未知程序名）.
+        /// </summary>
+        public static string NullProductNameError {
+            get {
+                return ResourceManager.GetString("NullProductNameError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to （未知版本号）.
+        /// </summary>
+        public static string NullProductVersionError {
+            get {
+                return ResourceManager.GetString("NullProductVersionError", resourceCulture);
             }
         }
         
@@ -250,6 +574,33 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 设置.
+        /// </summary>
+        public static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 排序.
+        /// </summary>
+        public static string SortingSetting {
+            get {
+                return ResourceManager.GetString("SortingSetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 列的排序功能的开关。启用该功能允许您对数据进行升序或降序排列。您对此设置中关于.
+        /// </summary>
+        public static string SortingSetting_Explanation {
+            get {
+                return ResourceManager.GetString("SortingSetting_Explanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 成交价.
         /// </summary>
         public static string StrikePrice {
@@ -273,6 +624,24 @@ namespace ShSzStockHelper.Properties {
         public static string TabItemStrikePriceVolume_Header_NewTab {
             get {
                 return ResourceManager.GetString("TabItemStrikePriceVolume_Header_NewTab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 的列的部分的修改在已显示的表格中不会生效，再次搜索可使之生效。.
+        /// </summary>
+        public static string TableColumnSettings_Explanation {
+            get {
+                return ResourceManager.GetString("TableColumnSettings_Explanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 表格.
+        /// </summary>
+        public static string TableSettings {
+            get {
+                return ResourceManager.GetString("TableSettings", resourceCulture);
             }
         }
         
@@ -304,6 +673,15 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 未查询到数据！请检查您的网络连接状况。.
+        /// </summary>
+        public static string TextBlockNullData_Text_NetworkError {
+            get {
+                return ResourceManager.GetString("TextBlockNullData_Text_NetworkError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 未知错误。请提交反馈，以便帮助开发者优化用户体验。.
         /// </summary>
         public static string TextBlockNullData_Text_UnknownError {
@@ -322,6 +700,42 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 在使用.
+        /// </summary>
+        public static string TextBlockOpenSource_Text_Part1 {
+            get {
+                return ResourceManager.GetString("TextBlockOpenSource_Text_Part1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 此开源软件.
+        /// </summary>
+        public static string TextBlockOpenSource_Text_Part2 {
+            get {
+                return ResourceManager.GetString("TextBlockOpenSource_Text_Part2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 时，请遵守相关许可协议。.
+        /// </summary>
+        public static string TextBlockOpenSource_Text_Part3 {
+            get {
+                return ResourceManager.GetString("TextBlockOpenSource_Text_Part3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 修改界面主题风格需要重启此应用，已创建的标签页会被关闭。若您确定重启此应用，您对主题设置的修改将会被保存，并在应用重启后生效。您确定重启此应用吗？.
+        /// </summary>
+        public static string TextBlockProductRestartAlert_Text {
+            get {
+                return ResourceManager.GetString("TextBlockProductRestartAlert_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 股票代码应以上市交易所代码开头（支持SH和SZ，大小写不限）接6位数字。股票名称在输入框失去焦点后会自动转换成对应的代码（如果有）.
         /// </summary>
         public static string TextBoxSymbol_ToolTip {
@@ -336,6 +750,24 @@ namespace ShSzStockHelper.Properties {
         public static string TextBoxSymbol_WaterMark {
             get {
                 return ResourceManager.GetString("TextBoxSymbol_WaterMark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 主题.
+        /// </summary>
+        public static string ThemeSetting {
+            get {
+                return ResourceManager.GetString("ThemeSetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 界面主题风格。只有您在弹出的应用重启确认对话框中确定重启此应用时，您对此设置的修改才会被保存，并在应用重启后生效。.
+        /// </summary>
+        public static string ThemeSetting_Explanation {
+            get {
+                return ResourceManager.GetString("ThemeSetting_Explanation", resourceCulture);
             }
         }
         
@@ -367,6 +799,33 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 不选中.
+        /// </summary>
+        public static string Unchecked {
+            get {
+                return ResourceManager.GetString("Unchecked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 成交量小数位数.
+        /// </summary>
+        public static string VolumeDecimalDigitsSetting {
+            get {
+                return ResourceManager.GetString("VolumeDecimalDigitsSetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 总成交量和每日成交量保留的小数位数。若需要显示准确值，数据在不同单位需要保留的小数位数不同，这由手和股的换算关系决定。由于列的类型的设计原因，总成交量的小数部分在必要时会用0补齐，每日成交量的小数部分则暂不支持。您对此设置中关于.
+        /// </summary>
+        public static string VolumeDecimalDigitsSetting_Explanation {
+            get {
+                return ResourceManager.GetString("VolumeDecimalDigitsSetting_Explanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 手.
         /// </summary>
         public static string VolumeUnit_1 {
@@ -376,11 +835,56 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 十手.
+        /// </summary>
+        public static string VolumeUnit_10 {
+            get {
+                return ResourceManager.GetString("VolumeUnit_10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 百手.
+        /// </summary>
+        public static string VolumeUnit_100 {
+            get {
+                return ResourceManager.GetString("VolumeUnit_100", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 千手.
+        /// </summary>
+        public static string VolumeUnit_1000 {
+            get {
+                return ResourceManager.GetString("VolumeUnit_1000", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 万手.
         /// </summary>
         public static string VolumeUnit_10000 {
             get {
                 return ResourceManager.GetString("VolumeUnit_10000", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 成交量单位.
+        /// </summary>
+        public static string VolumeUnitSetting {
+            get {
+                return ResourceManager.GetString("VolumeUnitSetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 总成交量和每日成交量的单位。1手等于100股。您对此设置的修改在已显示的表格中不会生效，再次搜索可使之生效。.
+        /// </summary>
+        public static string VolumeUnitSetting_Explanation {
+            get {
+                return ResourceManager.GetString("VolumeUnitSetting_Explanation", resourceCulture);
             }
         }
         

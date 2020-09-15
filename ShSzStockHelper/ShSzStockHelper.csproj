@@ -5,13 +5,13 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>AppIcon.ico</ApplicationIcon>
-    <Version>0.4.0</Version>
+    <Version>0.7.0</Version>
     <Authors>Arvin Zhao</Authors>
     <Company></Company>
     <Product>沪深小助手</Product>
     <Copyright>© 2020 Arvin Zhao</Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <Description>TODO</Description>
+    <Description>This is the package of the Windows version of the application SH/SZ Stock Helper. The application can mainly search strike prices and volumes for the user.</Description>
     <PackageIcon>AppIcon.ico</PackageIcon>
     <RepositoryUrl>https://github.com/ArvinZJC/ShSzStockHelper_Windows</RepositoryUrl>
     <PackageReleaseNotes>TODO</PackageReleaseNotes>
@@ -19,8 +19,8 @@
     <AssemblyName>ShSzStockHelper</AssemblyName>
     <PackageId>ShSzStockHelper</PackageId>
     <RepositoryType>Public</RepositoryType>
-    <AssemblyVersion>0.4.0.0</AssemblyVersion>
-    <FileVersion>0.4.0.0</FileVersion>
+    <AssemblyVersion>0.7.0.0</AssemblyVersion>
+    <FileVersion>0.7.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -30,11 +30,23 @@
 
   <ItemGroup>
     <Resource Include="AppIcon.ico" />
-    <Resource Include="Images\ClearSelection.png" />
-    <Resource Include="Images\ExportToExcel.png" />
-    <Resource Include="Images\Print.png" />
-    <Resource Include="Images\RestoreColumnWidth.png" />
-    <Resource Include="Images\Search.png" />
+    <Resource Include="Images\Alert.png" />
+    <Resource Include="Images\MaterialLight\About.png" />
+    <Resource Include="Images\MaterialDark\About.png" />
+    <Resource Include="Images\MaterialLight\ClearSelection.png" />
+    <Resource Include="Images\MaterialDark\ClearSelection.png" />
+    <Resource Include="Images\MaterialLight\ExportToExcel.png" />
+    <Resource Include="Images\MaterialDark\ExportToExcel.png" />
+    <Resource Include="Images\MaterialLight\Menu.png" />
+    <Resource Include="Images\MaterialDark\Menu.png" />
+    <Resource Include="Images\MaterialLight\Print.png" />
+    <Resource Include="Images\MaterialDark\Print.png" />
+    <Resource Include="Images\MaterialLight\RestoreColumnWidth.png" />
+    <Resource Include="Images\MaterialDark\RestoreColumnWidth.png" />
+    <Resource Include="Images\MaterialLight\Search.png" />
+    <Resource Include="Images\MaterialDark\Search.png" />
+    <Resource Include="Images\MaterialLight\Settings.png" />
+    <Resource Include="Images\MaterialDark\Settings.png" />
     <Resource Include="Resources\StockSymbolNameData.json" />
     <Reference Include="Syncfusion.Data.WPF">
       <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.Data.WPF.dll</HintPath>
@@ -60,8 +72,14 @@
     <Reference Include="Syncfusion.SfSkinManager.WPF">
       <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.SfSkinManager.WPF.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.SfTreeNavigator.WPF">
+      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.SfTreeNavigator.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.Shared.WPF">
       <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.Shared.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.MaterialDark.WPF">
+      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.Themes.MaterialDark.WPF.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Themes.MaterialLight.WPF">
       <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.Themes.MaterialLight.WPF.dll</HintPath>
@@ -75,10 +93,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Properties\DefaultUserSettings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DefaultUserSettings.settings</DependentUpon>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -93,7 +121,7 @@
     <EmbeddedResource Update="Resources\Syncfusion.Shared.Wpf.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Syncfusion.Tools.Wpf.resx">
+    <EmbeddedResource Update="Resources\Syncfusion.Tools.Wpf.zh-CN.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -102,6 +130,17 @@
     <None Include="..\LICENSE">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\DefaultUserSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>DefaultUserSettings.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
 

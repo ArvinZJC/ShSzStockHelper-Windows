@@ -1,49 +1,83 @@
 ﻿<!-- UI definition of the home window. -->
+<!-- ReSharper disable Xaml.StaticResourceNotResolved -->
 <syncfusion:ChromelessWindow xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                             xmlns:listCollection="clr-namespace:System.Collections;assembly=mscorlib"
                              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                             xmlns:property="clr-namespace:ShSzStockHelper.Properties"
+                             xmlns:properties="clr-namespace:ShSzStockHelper.Properties"
                              xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
                              xmlns:syncfusionNotification="clr-namespace:Syncfusion.Windows.Controls.Notification;assembly=Syncfusion.SfBusyIndicator.WPF"
                              xmlns:syncfusionSkin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
                              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                              mc:Ignorable="d"
-                             syncfusionSkin:SfSkinManager.VisualStyle="{Binding AppTheme, Source={StaticResource StyleProperties}}"
-                             x:Name="windowHome"
-                             x:Class="ShSzStockHelper.HomeWindow"
-                             FontFamily="{Binding GlobalFontFamily, Source={StaticResource StyleProperties}}"
+                             syncfusionSkin:SfSkinManager.VisualStyle="{Binding ProductTheme, Converter={StaticResource ProductThemeConverter}, Source={x:Static properties:Settings.Default}}"
+                             x:Class="ShSzStockHelper.Views.HomeWindow"
+                             x:Name="WindowHome"
+                             Closing="WindowHome_OnClosing"
+                             FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
                              Icon="../AppIcon.ico"
                              Loaded="WindowHome_LoadedAsync"
-                             MinHeight="{Binding MinWindowHeight, Source={StaticResource StyleProperties}}"
-                             MinWidth="{Binding MinWindowWidth, Source={StaticResource StyleProperties}}"
-                             UseNativeChrome="True"
+                             MinHeight="{Binding DefaultWindowHeight, Source={x:Static properties:Settings.Default}}"
+                             MinWidth="{Binding DefaultWindowWidth, Source={x:Static properties:Settings.Default}}"
                              WindowStartupLocation="CenterScreen"
                              WindowState="Maximized">
     <syncfusion:ChromelessWindow.Resources>
         <Style BasedOn="{StaticResource WPFToolTipStyle}" TargetType="ToolTip">
-            <Setter Property="FontFamily" Value="{Binding GlobalFontFamily, Source={StaticResource StyleProperties}}" />
-            <Setter Property="FontSize" Value="{Binding PrimaryTextFontSize, Source={StaticResource StyleProperties}}" />
-            <Setter Property="MaxWidth" Value="300" />
+            <Setter Property="FontFamily" Value="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}" />
+            <Setter Property="FontSize" Value="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}" />
         </Style>
     </syncfusion:ChromelessWindow.Resources>
 
-    <syncfusionNotification:SfBusyIndicator x:Name="busyIndicatorHomeWindowLoading"
+    <syncfusion:ChromelessWindow.RightHeaderItemsSource>
+        <listCollection:ArrayList>
+            <syncfusion:MenuAdv Margin="0,0,5,0" PopUpAnimationType="Slide">
+                <syncfusion:MenuItemAdv Focusable="False"
+                                        HeaderTemplate="{StaticResource MenuItemHeaderTemplate}"
+                                        ToolTip="{x:Static properties:Resources.Menu_ToolTip}">
+                    <syncfusion:MenuItemAdv Click="MenuItemSettings_OnClick"
+                                            Header="{x:Static properties:Resources.Settings}"
+                                            HeaderTemplate="{StaticResource MenuSubItemHeaderTemplate}">
+                        <syncfusion:MenuItemAdv.Icon>
+                            <Image Height="{Binding SmallIconSideLength, Source={x:Static properties:Settings.Default}}"
+                                   Source="{Binding SettingsIconUri, Converter={StaticResource IconUriConverter}, Source={x:Static properties:Settings.Default}}"
+                                   Width="{Binding SmallIconSideLength, Source={x:Static properties:Settings.Default}}"/>
+                        </syncfusion:MenuItemAdv.Icon>
+                    </syncfusion:MenuItemAdv>
+                    <syncfusion:MenuItemAdv x:Name="MenuItemAbout"
+                                            Click="MenuItemAbout_OnClick"
+                                            HeaderTemplate="{StaticResource MenuSubItemHeaderTemplate}">
+                        <syncfusion:MenuItemAdv.Icon>
+                            <Image Height="{Binding SmallIconSideLength, Source={x:Static properties:Settings.Default}}"
+                                   Source="{Binding AboutIconUri, Converter={StaticResource IconUriConverter}, Source={x:Static properties:Settings.Default}}"
+                                   Width="{Binding SmallIconSideLength, Source={x:Static properties:Settings.Default}}"/>
+                        </syncfusion:MenuItemAdv.Icon>
+                    </syncfusion:MenuItemAdv>
+                </syncfusion:MenuItemAdv>
+            </syncfusion:MenuAdv>
+        </listCollection:ArrayList>
+    </syncfusion:ChromelessWindow.RightHeaderItemsSource>
+
+    <syncfusionNotification:SfBusyIndicator x:Name="BusyIndicatorHomeWindowLoading"
                                             AnimationType="Cupertino"
                                             Background="Transparent"
                                             IsBusy="False">
         <syncfusionNotification:SfBusyIndicator.HeaderTemplate>
-            <DataTemplate >
-                <TextBlock FontFamily="{Binding GlobalFontFamily, Source={StaticResource StyleProperties}}"
-                           FontSize="{Binding PrimaryTextFontSize, Source={StaticResource StyleProperties}}"
+            <DataTemplate>
+                <TextBlock FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
+                           FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
                            Foreground="DarkGray"
                            Margin="6,10,0,0"
-                           Text="{x:Static property:Resources.BusyIndicatorHomeWindowLoading_Header}"
+                           Text="{x:Static properties:Resources.BusyIndicatorHomeWindowLoading_Header}"
                            TextAlignment="Center"/>
             </DataTemplate>
         </syncfusionNotification:SfBusyIndicator.HeaderTemplate>
 
         <Grid>
-            <syncfusion:TabControlExt x:Name="tabControlStrikePriceVolume"
+            <Grid.Resources>
+                <Style BasedOn="{StaticResource SyncfusionTabItemExtStyle}" TargetType="syncfusion:TabItemExt"/>
+            </Grid.Resources>
+
+            <syncfusion:TabControlExt x:Name="TabControlStrikePriceVolume"
                                       CloseButtonType="Individual"
                                       CloseMode="Delete"
                                       EnableLabelEdit="False"
@@ -53,14 +87,15 @@
                                       NewButtonAlignment="First"
                                       NewButtonClick="TabControlStrikePriceVolume_NewButtonClick"
                                       OnCloseAllTabs="TabControlStrikePriceVolume_OnCloseAllTabs"
+                                      Style="{StaticResource TabControlStyle}"
                                       TabClosed="TabControlStrikePriceVolume_TabClosed"/>
 
-            <TextBlock x:Name="textBlockNewTabHint"
-                      FontFamily="{Binding GlobalFontFamily, Source={StaticResource StyleProperties}}"
-                      FontSize="{Binding PrimaryTextFontSize, Source={StaticResource StyleProperties}}"
+            <TextBlock x:Name="TextBlockNewTabHint"
+                      FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
+                      FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
                       HorizontalAlignment="Center"
                       Margin="15"
-                      Text="{x:Static property:Resources.TextBlockNewTabHint_Text}"
+                      Text="{x:Static properties:Resources.TextBlockNewTabHint_Text}"
                       TextWrapping="Wrap"
                       VerticalAlignment="Center"/>
         </Grid>
