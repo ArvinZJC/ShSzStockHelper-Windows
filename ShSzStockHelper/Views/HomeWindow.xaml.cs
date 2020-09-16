@@ -1,10 +1,10 @@
 ﻿/*
  * @Description: the back-end code of the home window
- * @Version: 1.1.5.20200907
+ * @Version: 1.1.6.20200916
  * @Author: Arvin Zhao
  * @Date: 2020-07-08 10:17:48
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2020-09-07 14:12:09
+ * @LastEditTime: 2020-09-16 14:12:09
  */
 
 using ShSzStockHelper.ViewModels;
@@ -12,11 +12,8 @@ using Syncfusion.Windows.Tools.Controls;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Globalization;
 using System.Reflection;
-using System.Threading;
 using System.Windows;
-using System.Windows.Threading;
 
 namespace ShSzStockHelper.Views
 {
@@ -27,7 +24,6 @@ namespace ShSzStockHelper.Views
     {
         private readonly StockSymbolNameViewModel _stockSymbolNameViewModel;
         private readonly SystemFontFamilyNameViewModel _systemFontFamilyNameViewModel;
-        private readonly DispatcherTimer _gcTimer;
         private readonly string _productName, _productVersion, _productCopyright;
 
         /// <summary>
@@ -35,13 +31,10 @@ namespace ShSzStockHelper.Views
         /// </summary>
         public HomeWindow()
         {
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Properties.Settings.Default.CultureInfo); // It is necessary to specify the culture info here and in the name of the resource file "Syncfusion.Tools.Wpf" to avoid the issue that some text of the tab control is not displayed in simplified Chinese.
-            
             InitializeComponent(); // Do essential tasks before invoking this method.
 
             _stockSymbolNameViewModel = new StockSymbolNameViewModel();
             _systemFontFamilyNameViewModel = new SystemFontFamilyNameViewModel();
-            _gcTimer = new DispatcherTimer();
             _productName = Properties.Resources.NullProductNameError;
             _productVersion = Properties.Resources.NullProductVersionError;
             _productCopyright = Properties.Resources.NullProductCopyrightError;
@@ -64,17 +57,7 @@ namespace ShSzStockHelper.Views
 
             WindowHome.Title = _productName + " " + _productVersion; // Display the app name and the package version defined in "Properties\Package\Package version".
             MenuItemAbout.Header = Properties.Resources.About + _productName;
-
-            // TODO: need long time not too often
-            _gcTimer.Interval = TimeSpan.FromSeconds(10); // Force collecting garbage every 10 seconds.
-            _gcTimer.Start();
-            _gcTimer.Tick += OnGarbageCollection;
         } // end constructor HomeWindow
-
-        ~HomeWindow()
-        {
-            _gcTimer.Tick -= OnGarbageCollection;
-        } // end destructor HomeWindow
 
         #region Control Events
         private void MenuItemAbout_OnClick(object sender, RoutedEventArgs e)
@@ -94,14 +77,6 @@ namespace ShSzStockHelper.Views
 
             new SettingsWindow(_systemFontFamilyNameViewModel).Show();
         } // end method MenuItemSettings_OnClick
-
-        // Perform actions to force collecting garbage.
-        private static void OnGarbageCollection(object sender, EventArgs e)
-        {
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
-            GC.Collect();
-        } // end method OnGarbageCollection
 
         // Add a new tab with the specified content when the new button of the specified tab control is clicked.
         private void TabControlStrikePriceVolume_NewButtonClick(object sender, EventArgs e)

@@ -1,10 +1,10 @@
 ﻿/*
  * @Description: a view model corresponding to the data model of stocks' symbols and corresponding names
- * @Version: 1.0.8.20200903
+ * @Version: 1.0.9.20200916
  * @Author: Arvin Zhao
  * @Date: 2020-08-13 18:34:25
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2020-09-03 18:38:01
+ * @LastEditTime: 2020-09-16 18:38:01
  */
 
 using Newtonsoft.Json;
@@ -63,7 +63,7 @@ namespace ShSzStockHelper.ViewModels
                     var tsCode = jsonToken["ts_code"]?.ToString().Split("."); // Split the original value of the key "ts_code" (e.g., "601006.SZ" => {"601006", "SZ"}).
 
                     if (tsCode != null)
-                        StockSymbolNameRecords.Add(new StockSymbolNameData()
+                        StockSymbolNameRecords.Add(new StockSymbolNameData
                             {
                                 Symbol = tsCode[1] + tsCode[0],
                                 Name = jsonToken["name"]?.ToString()

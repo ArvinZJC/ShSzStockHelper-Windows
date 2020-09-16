@@ -1,10 +1,10 @@
 ﻿/*
  * @Description: the back-end code of the settings window
- * @Version: 1.1.3.20200915
+ * @Version: 1.1.4.20200916
  * @Author: Arvin Zhao
  * @Date: 2020-08-31 12:22:18
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2020-09-15 12:38:34
+ * @LastEditTime: 2020-09-16 12:38:34
  */
 
 using ShSzStockHelper.Models;
@@ -328,7 +328,7 @@ namespace ShSzStockHelper.Views
             if (selectedTheme == Properties.Settings.Default.ProductTheme)
                 return;
 
-            var productRestartConfirmationDialogueResult = new ProductRestartConfirmationDialogue() {Owner = this}.ShowDialog();
+            var productRestartConfirmationDialogueResult = new ProductRestartConfirmationDialogue{Owner = this}.ShowDialog();
 
             if (productRestartConfirmationDialogueResult == null || !(bool) productRestartConfirmationDialogueResult)
             {

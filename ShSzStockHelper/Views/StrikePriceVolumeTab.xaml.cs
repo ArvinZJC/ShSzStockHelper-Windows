@@ -1,10 +1,10 @@
 ﻿/*
  * @Description: the back-end code of the tab of searching for data of strike prices and volumes
- * @Version: 1.3.6.20200914
+ * @Version: 1.3.7.20200916
  * @Author: Arvin Zhao
  * @Date: 2020-08-10 13:37:27
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2020-09-14 13:38:24
+ * @LastEditTime: 2020-09-16 13:38:24
  */
 
 using Microsoft.Win32;
@@ -24,7 +24,6 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
-using System.Windows.Media;
 
 namespace ShSzStockHelper.Views
 {
@@ -118,11 +117,9 @@ namespace ShSzStockHelper.Views
 
             using (var stream = saveFileDialog.OpenFile())
             {
-                workbook.Version = saveFileDialog.FilterIndex switch
-                {
-                    1 => ExcelVersion.Excel97to2003,
-                    _ => ExcelVersion.Excel2010,
-                }; // Specify the version of the exported Excel file.
+                workbook.Version = saveFileDialog.FilterIndex == 1
+                    ? ExcelVersion.Excel97to2003
+                    : ExcelVersion.Excel2010; // Specify the version of the exported Excel file.
                 workbook.Worksheets[0].AutoFilters.FilterRange = workbook.Worksheets[0].Range["A"
                     + (DataGridStrikePriceVolumeTable.StackedHeaderRows.Count + 1)
                     + ":"
@@ -226,7 +223,7 @@ namespace ShSzStockHelper.Views
 
                         for (var nodeCount = 0; nodeCount < _nodeTotalCount; nodeCount++)
                             if (_strikePriceVolumeRowCollection[nodeCount][0] != null && _strikePriceVolumeRowCollection[nodeCount][1] != null)
-                                _strikePriceTotalVolumeViewModel.StrikePriceTotalVolumeRecords.Add(new StrikePriceTotalVolumeData()
+                                _strikePriceTotalVolumeViewModel.StrikePriceTotalVolumeRecords.Add(new StrikePriceTotalVolumeData
                                 {
                                     StrikePrice = (decimal) _strikePriceVolumeRowCollection[nodeCount][0],
                                     TotalVolume = (decimal) _strikePriceVolumeRowCollection[nodeCount][1] / (Properties.Settings.Default.TotalVolumeUnit * 100m) // 总成交量（1手 = 100股）。
@@ -251,7 +248,7 @@ namespace ShSzStockHelper.Views
                             };
 
                             if (dayVolumeColumnWeekday.Equals(Properties.Resources.Sat) || dayVolumeColumnWeekday.Equals(Properties.Resources.Sun))
-                                DataGridStrikePriceVolumeTable.Columns.Add(new GridUnBoundColumn()
+                                DataGridStrikePriceVolumeTable.Columns.Add(new GridUnBoundColumn
                                 {
                                     MappingName = dayVolumeColumnMappingName,
                                     MaximumWidth = 0,
@@ -259,7 +256,7 @@ namespace ShSzStockHelper.Views
                                     Width = 0
                                 });
                             else
-                                DataGridStrikePriceVolumeTable.Columns.Add(new GridUnBoundColumn()
+                                DataGridStrikePriceVolumeTable.Columns.Add(new GridUnBoundColumn
                                 {
                                     AllowFiltering = Properties.Settings.Default.DayVolumeFiltering,
                                     AllowSorting = Properties.Settings.Default.DayVolumeSorting,
@@ -276,7 +273,7 @@ namespace ShSzStockHelper.Views
 
                         var stackedHeaderRowDayVolume = new StackedHeaderRow();
 
-                        stackedHeaderRowDayVolume.StackedColumns.Add(new StackedColumn()
+                        stackedHeaderRowDayVolume.StackedColumns.Add(new StackedColumn
                         {
                             ChildColumns = stackedHeaderRowDayVolumeChildColumns.ToString(),
                             HeaderText = Properties.Resources.DayVolume

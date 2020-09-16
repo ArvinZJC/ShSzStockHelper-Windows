@@ -1,14 +1,15 @@
 ﻿/*
  * @Description: a data processor to process data of strike prices and volumes collected
- * @Version: 1.1.4.20200904
+ * @Version: 1.1.5.20200916
  * @Author: Arvin Zhao
  * @Date: 2020-07-15 18:25:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2020-09-04 19:25:42
+ * @LastEditTime: 2020-09-16 19:25:42
  */
 
 using HtmlAgilityPack;
 using System;
+using System.Globalization;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,7 +53,7 @@ namespace ShSzStockHelper.Helpers
         private async Task<HtmlNode> GetStrikePriceVolumeHtmlRootNodeAsync(DateTime startDate, DateTime endDate)
         {
             return (await _htmlWeb
-                .LoadFromWebAsync(@"http://market.finance.sina.com.cn/pricehis.php?symbol=" + Symbol.ToLower() + "&startdate=" + startDate.ToString(Properties.Settings.Default.DateCodeFormat) + "&enddate=" + endDate.ToString(Properties.Settings.Default.DateCodeFormat)))
+                .LoadFromWebAsync(@"http://market.finance.sina.com.cn/pricehis.php?symbol=" + Symbol.ToLower(CultureInfo.InvariantCulture) + "&startdate=" + startDate.ToString(Properties.Settings.Default.DateCodeFormat) + "&enddate=" + endDate.ToString(Properties.Settings.Default.DateCodeFormat)))
                 .DocumentNode;
         } // end method GetStrikePriceVolumeHtmlRootNodeAsync
 
@@ -72,10 +73,10 @@ namespace ShSzStockHelper.Helpers
 
                 /*
                  * Sample values:
-                 * 1. var hq_str_sh601006="大秦铁路,6.640,2020-08-17,13:07:28,00,";
-                 * 2. var hq_str_sh6010065="";
+                 * 1. sh601006: "大秦铁路,6.640,2020-08-17,13:07:28,00,";
+                 * 2. sh6010065: "";
                  */
-                var originalText = (await _htmlWeb.LoadFromWebAsync(@"http://hq.sinajs.cn/list=" + Symbol.ToLower())).DocumentNode.InnerText;
+                var originalText = (await _htmlWeb.LoadFromWebAsync(@"http://hq.sinajs.cn/list=" + Symbol.ToLower(CultureInfo.InvariantCulture))).DocumentNode.InnerText;
                 var originalData = originalText.Substring(originalText.IndexOf("\"", StringComparison.Ordinal) + 1);
 
                 return originalData.Equals("\";") ? null : originalData.Split(",")[0];
