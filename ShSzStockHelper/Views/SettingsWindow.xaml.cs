@@ -419,108 +419,45 @@ namespace ShSzStockHelper.Views
             if (_hasMouseOnTreeNavigatorSettings)
                 return;
 
+            var heightTheme = StackPanelGeneral.ActualHeight + StackPanelTheme.ActualHeight;
+            var heightDisplayFontFamilyName = heightTheme + StackPanelDisplayFontFamilyName.ActualHeight;
+            var heightDateDisplayFormat = heightDisplayFontFamilyName + StackPanelDateDisplayFormat.ActualHeight;
+            var heightMinDate = heightDateDisplayFormat + StackPanelMinDate.ActualHeight;
+            var heightTable = heightMinDate + StackPanelTable.ActualHeight;
+            var heightSorting = heightTable + StackPanelSorting.ActualHeight;
+            var heightFiltering = heightSorting + StackPanelFiltering.ActualHeight;
+            var heightVolumeUnit = heightFiltering + StackPanelVolumeUnit.ActualHeight;
+            var heightVolumeDecimalDigits = heightVolumeUnit + StackPanelVolumeDecimalDigits.ActualHeight;
+            var heightExportToExcel = heightVolumeDecimalDigits + StackPanelExportToExcel.ActualHeight;
+            var heightExcelCellFontFamilyName = heightExportToExcel + StackPanelExcelCellFontFamilyName.ActualHeight;
+            var heightExcelCellFontSize = heightExcelCellFontFamilyName + StackPanelExcelCellFontSize.ActualHeight;
+
+
             if (ScrollViewerSettings.VerticalOffset < StackPanelGeneral.ActualHeight)
                 TreeNavigatorSettings.SelectedItem = TreeNavigatorItemGeneral;
-            else if (ScrollViewerSettings.VerticalOffset < StackPanelGeneral.ActualHeight + StackPanelTheme.ActualHeight)
+            else if (ScrollViewerSettings.VerticalOffset < heightTheme)
                 TreeNavigatorSettings.SelectedItem = TreeNavigatorItemTheme;
-            else if (ScrollViewerSettings.VerticalOffset < StackPanelGeneral.ActualHeight
-                + StackPanelTheme.ActualHeight
-                + StackPanelDisplayFontFamilyName.ActualHeight)
+            else if (ScrollViewerSettings.VerticalOffset < heightDisplayFontFamilyName)
                 TreeNavigatorSettings.SelectedItem = TreeNavigatorItemDisplayFontFamily;
-            else if (ScrollViewerSettings.VerticalOffset < StackPanelGeneral.ActualHeight
-                + StackPanelTheme.ActualHeight
-                + StackPanelDisplayFontFamilyName.ActualHeight
-                + StackPanelDateDisplayFormat.ActualHeight)
+            else if (ScrollViewerSettings.VerticalOffset < heightDateDisplayFormat)
                 TreeNavigatorSettings.SelectedItem = TreeNavigatorItemDateDisplayFormat;
-            else if (ScrollViewerSettings.VerticalOffset < StackPanelGeneral.ActualHeight
-                + StackPanelTheme.ActualHeight
-                + StackPanelDisplayFontFamilyName.ActualHeight
-                + StackPanelDateDisplayFormat.ActualHeight
-                + StackPanelMinDate.ActualHeight)
+            else if (ScrollViewerSettings.VerticalOffset < heightMinDate)
                 TreeNavigatorSettings.SelectedItem = TreeNavigatorItemMinDate;
-            else if (ScrollViewerSettings.VerticalOffset < StackPanelGeneral.ActualHeight
-                + StackPanelTheme.ActualHeight
-                + StackPanelDisplayFontFamilyName.ActualHeight
-                + StackPanelDateDisplayFormat.ActualHeight
-                + StackPanelMinDate.ActualHeight
-                + StackPanelTable.ActualHeight)
+            else if (ScrollViewerSettings.VerticalOffset < heightTable)
                 TreeNavigatorSettings.SelectedItem = TreeNavigatorItemTable;
-            else if (ScrollViewerSettings.VerticalOffset < StackPanelGeneral.ActualHeight
-                + StackPanelTheme.ActualHeight
-                + StackPanelDisplayFontFamilyName.ActualHeight
-                + StackPanelDateDisplayFormat.ActualHeight
-                + StackPanelMinDate.ActualHeight
-                + StackPanelTable.ActualHeight
-                + StackPanelSorting.ActualHeight)
+            else if (ScrollViewerSettings.VerticalOffset < heightSorting)
                 TreeNavigatorSettings.SelectedItem = TreeNavigatorItemSorting;
-            else if (ScrollViewerSettings.VerticalOffset < StackPanelGeneral.ActualHeight
-                + StackPanelTheme.ActualHeight
-                + StackPanelDisplayFontFamilyName.ActualHeight
-                + StackPanelDateDisplayFormat.ActualHeight
-                + StackPanelMinDate.ActualHeight
-                + StackPanelTable.ActualHeight
-                + StackPanelSorting.ActualHeight
-                + StackPanelFiltering.ActualHeight)
+            else if (ScrollViewerSettings.VerticalOffset < heightFiltering)
                 TreeNavigatorSettings.SelectedItem = TreeNavigatorItemFiltering;
-            else if (ScrollViewerSettings.VerticalOffset < StackPanelGeneral.ActualHeight
-                + StackPanelTheme.ActualHeight
-                + StackPanelDisplayFontFamilyName.ActualHeight
-                + StackPanelDateDisplayFormat.ActualHeight
-                + StackPanelMinDate.ActualHeight
-                + StackPanelTable.ActualHeight
-                + StackPanelSorting.ActualHeight
-                + StackPanelFiltering.ActualHeight
-                + StackPanelVolumeUnit.ActualHeight)
+            else if (ScrollViewerSettings.VerticalOffset < heightVolumeUnit)
                 TreeNavigatorSettings.SelectedItem = TreeNavigatorItemVolumeUnit;
-            else if (ScrollViewerSettings.VerticalOffset < StackPanelGeneral.ActualHeight
-                + StackPanelTheme.ActualHeight
-                + StackPanelDisplayFontFamilyName.ActualHeight
-                + StackPanelDateDisplayFormat.ActualHeight
-                + StackPanelMinDate.ActualHeight
-                + StackPanelTable.ActualHeight
-                + StackPanelSorting.ActualHeight
-                + StackPanelFiltering.ActualHeight
-                + StackPanelVolumeUnit.ActualHeight
-                + StackPanelVolumeDecimalDigits.ActualHeight)
+            else if (ScrollViewerSettings.VerticalOffset < heightVolumeDecimalDigits)
                 TreeNavigatorSettings.SelectedItem = TreeNavigatorItemVolumeDecimalDigits;
-            else if (ScrollViewerSettings.VerticalOffset < StackPanelGeneral.ActualHeight
-                + StackPanelTheme.ActualHeight
-                + StackPanelDisplayFontFamilyName.ActualHeight
-                + StackPanelDateDisplayFormat.ActualHeight
-                + StackPanelMinDate.ActualHeight
-                + StackPanelTable.ActualHeight
-                + StackPanelSorting.ActualHeight
-                + StackPanelFiltering.ActualHeight
-                + StackPanelVolumeUnit.ActualHeight
-                + StackPanelVolumeDecimalDigits.ActualHeight
-                + StackPanelExportToExcel.ActualHeight)
+            else if (ScrollViewerSettings.VerticalOffset < heightExportToExcel)
                 TreeNavigatorSettings.SelectedItem = TreeNavigatorItemExportToExcel;
-            else if (ScrollViewerSettings.VerticalOffset < StackPanelGeneral.ActualHeight
-                + StackPanelTheme.ActualHeight
-                + StackPanelDisplayFontFamilyName.ActualHeight
-                + StackPanelDateDisplayFormat.ActualHeight
-                + StackPanelMinDate.ActualHeight
-                + StackPanelTable.ActualHeight
-                + StackPanelSorting.ActualHeight
-                + StackPanelFiltering.ActualHeight
-                + StackPanelVolumeUnit.ActualHeight
-                + StackPanelVolumeDecimalDigits.ActualHeight
-                + StackPanelExportToExcel.ActualHeight
-                + StackPanelExcelCellFontFamilyName.ActualHeight)
+            else if (ScrollViewerSettings.VerticalOffset < heightExcelCellFontFamilyName)
                 TreeNavigatorSettings.SelectedItem = TreeNavigatorItemExcelCellFontFamilyName;
-            else if (ScrollViewerSettings.VerticalOffset < StackPanelGeneral.ActualHeight
-                + StackPanelTheme.ActualHeight
-                + StackPanelDisplayFontFamilyName.ActualHeight
-                + StackPanelDateDisplayFormat.ActualHeight
-                + StackPanelMinDate.ActualHeight
-                + StackPanelTable.ActualHeight
-                + StackPanelSorting.ActualHeight
-                + StackPanelFiltering.ActualHeight
-                + StackPanelVolumeUnit.ActualHeight
-                + StackPanelVolumeDecimalDigits.ActualHeight
-                + StackPanelExportToExcel.ActualHeight
-                + StackPanelExcelCellFontFamilyName.ActualHeight
-                + StackPanelExcelCellFontSize.ActualHeight)
+            else if (ScrollViewerSettings.VerticalOffset < heightExcelCellFontSize)
                 TreeNavigatorSettings.SelectedItem = TreeNavigatorItemExcelCellFontSize;
             else
                 TreeNavigatorSettings.SelectedItem = TreeNavigatorItemExcelFileFormat;
