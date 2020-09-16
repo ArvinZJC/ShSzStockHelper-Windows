@@ -72,9 +72,9 @@ namespace ShSzStockHelper.Helpers
                 Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
                 /*
-                 * Sample values:
-                 * 1. sh601006: 大秦铁路,6.640,2020-08-17,13:07:28,00,;
-                 * 2. sh6010065: (空);
+                 * Sample returned values:
+                 * 1. sh601006: "大秦铁路,6.640,2020-08-17,13:07:28,00,";
+                 * 2. sh6010065: "";
                  */
                 var originalText = (await _htmlWeb.LoadFromWebAsync(@"http://hq.sinajs.cn/list=" + Symbol.ToLower(CultureInfo.InvariantCulture))).DocumentNode.InnerText;
                 var originalData = originalText.Substring(originalText.IndexOf("\"", StringComparison.Ordinal) + 1);
