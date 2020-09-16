@@ -1,5 +1,10 @@
 # ShSzStockHelper for Windows
 
+[![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ArvinZJC/ShSzStockHelper-Windows?include_prereleases)](https://github.com/ArvinZJC/ShSzStockHelper-Windows/releases)
+[![GitHub All Releases](https://img.shields.io/github/downloads/ArvinZJC/ShSzStockHelper-Windows/total)](https://github.com/ArvinZJC/ShSzStockHelper-Windows/releases)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/c39762b5ea944afabd725cdd3b127558)](https://www.codacy.com/manual/ArvinZJC/ShSzStockHelper-Windows?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ArvinZJC/ShSzStockHelper-Windows&amp;utm_campaign=Badge_Grade)
+[![License: GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 This repository contains the source code of the Windows version of the application SH/SZ Stock Helper (沪深小助手). Please note that the code is under [the GPL-3.0 License](https://github.com/ArvinZJC/ShSzStockHelper-Windows/blob/master/LICENSE). The application can mainly search strike prices and volumes for the user. Here SH represents Shanghai Stock Exchange, while SZ means Shenzhen Stock Exchange. Please note that this application is mainly designed for a specified part of Chinese users, and contents are displayed in simplified Chinese.
 
 ## Folder Instructions
@@ -19,7 +24,6 @@ This folder contains a Jupyter Notebook file with Python code to retrieve and st
 ## ATTENTION
 
 1. The setup EXE files can be downloaded from [Releases](https://github.com/ArvinZJC/ShSzStockHelper-Windows/releases) section. From [V0.3.0](https://github.com/ArvinZJC/ShSzStockHelper-Windows/releases/tag/v0.3.0), a totally new solution to build the setup file is applied to make it more powerful (but with a smaller size) and **any version older than V0.3.0 should be manually uninstalled**.
-
 2. The application supports Windows 7/8/8.1/10.
 
 For more information, please refer to the README file in each folder.
