@@ -39,6 +39,11 @@ namespace ShSzStockHelper
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(ShSzStockHelper.Properties.Settings.Default.CultureInfo); // It is necessary to specify the culture info here and in the name of the resource file "Syncfusion.Tools.Wpf" to avoid the issue that some text of the tab control is not displayed in simplified Chinese.
         } // end constructor App
 
+        ~App()
+        {
+            _mutex.Dispose();
+        } // end destructor App
+
         protected override void OnStartup(StartupEventArgs e)
         {
             _mutex = new Mutex(true, Assembly.GetExecutingAssembly().GetName().Name);
