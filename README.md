@@ -20,4 +20,6 @@ This folder contains a Jupyter Notebook file with Python code to retrieve and st
 
 1. The setup EXE files can be downloaded from [Releases](https://github.com/ArvinZJC/ShSzStockHelper-Windows/releases) section. From [V0.3.0](https://github.com/ArvinZJC/ShSzStockHelper-Windows/releases/tag/v0.3.0), a totally new solution to build the setup file is applied to make it more powerful (but with a smaller size) and **any version older than V0.3.0 should be manually uninstalled**.
 
+2. The application supports Windows 7/8/8.1/10.
+
 For more information, please refer to the README file in each folder.
