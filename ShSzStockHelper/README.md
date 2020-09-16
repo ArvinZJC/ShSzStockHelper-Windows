@@ -12,10 +12,21 @@ This is the Visual Studio solution folder of the application. It contains code a
 
 ## Partial UI
 
-![UI1.jpg](UI1.jpg)Figure 1
-![UI2.jpg](UI2.jpg)Figure 2
-![UI3.jpg](UI3.jpg)Figure 3
-![UI4.jpg](UI4.jpg)Figure 4
+UI 1:
+
+![UI1.jpg](./Images_README/UI1.jpg)
+
+UI 2:
+
+![UI2.jpg](./Images_README/UI2.jpg)
+
+UI 3:
+
+![UI3.jpg](./Images_README/UI3.jpg)
+
+UI 4:
+
+![UI4.jpg](./Images_README/UI4.jpg)
 
 ## ATTENTION
 

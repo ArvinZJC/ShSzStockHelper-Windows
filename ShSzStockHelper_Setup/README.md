@@ -4,8 +4,13 @@ This is the Advanced Installer project folder of the application setup file. The
 
 ## Partial UI
 
-![UI1.jpg](UI1.jpg)Figure 1
-![UI2.jpg](UI2.jpg)Figure 2
+UI 1:
+
+![UI1.jpg](./Images_README/UI1.jpg)
+
+UI 2:
+
+![UI2.jpg](./Images_README/UI2.jpg)
 
 ## ATTENTION
 
