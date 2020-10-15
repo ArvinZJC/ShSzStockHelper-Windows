@@ -1,5 +1,7 @@
 # [ShSzStockHelper-Windows](https://github.com/ArvinZJC/ShSzStockHelper-Windows)/ShSzStockHelper
 
+**English** | [简体中文](https://github.com/ArvinZJC/ShSzStockHelper-Windows/blob/master/ShSzStockHelper/README-zhCN.md)
+
 This is the Visual Studio solution folder of the application. It contains code and resources for the application to run. The major features of the application are listed as follows.
 
 1. Enable searching strike prices and volumes by the symbol of an SH/SZ stock, the start date, and the end date.
@@ -27,6 +29,6 @@ UI 4:
 
 ## ATTENTION
 
-1. By 15 September 2020, everything looks good with Visual Studio 2019 + WPF with .NET Core 3.1. Additionally, I would like to thankfully acknowledge Syncfusion for [its powerful WPF UI controls and libraries](https://www.syncfusion.com/wpf-ui-controls), which save much development time.
-2. Icon images except the app icon are from [Material Design Icons](https://material.io/resources/icons/?style=baseline) and [Flaticon](https://www.flaticon.com/).
+1. By 15 October 2020, everything looks good with Visual Studio 2019 + WPF with .NET Core 3.1. Additionally, I would like to thankfully acknowledge Syncfusion for [its powerful WPF UI controls and libraries](https://www.syncfusion.com/wpf-ui-controls), which save much development time.
+2. Icon images except the icon of the application are from [Material Design Icons](https://material.io/resources/icons/?style=baseline) and [Flaticon](https://www.flaticon.com/).
 3. To run the solution, the paths of Syncfusion assemblies in the [project configuration file](https://github.com/ArvinZJC/ShSzStockHelper-Windows/blob/master/ShSzStockHelper/ShSzStockHelper.csproj) may need adjustment.

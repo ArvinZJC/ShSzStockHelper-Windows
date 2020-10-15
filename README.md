@@ -1,11 +1,13 @@
-# ShSzStockHelper for Windows
+# SH/SZ Stock Helper for Windows
 
 [![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ArvinZJC/ShSzStockHelper-Windows?include_prereleases)](https://github.com/ArvinZJC/ShSzStockHelper-Windows/releases)
 [![GitHub All Releases](https://img.shields.io/github/downloads/ArvinZJC/ShSzStockHelper-Windows/total)](https://github.com/ArvinZJC/ShSzStockHelper-Windows/releases)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/c39762b5ea944afabd725cdd3b127558)](https://www.codacy.com/manual/ArvinZJC/ShSzStockHelper-Windows?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ArvinZJC/ShSzStockHelper-Windows&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/980d1c6c75754cdf9900139f5c5eb66f)](https://www.codacy.com/gh/ArvinZJC/ShSzStockHelper-Windows/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ArvinZJC/ShSzStockHelper-Windows&amp;utm_campaign=Badge_Grade)
 [![License: GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-This repository contains the source code of the Windows version of the application SH/SZ Stock Helper (沪深小助手). Please note that the code is under [the GPL-3.0 License](https://github.com/ArvinZJC/ShSzStockHelper-Windows/blob/master/LICENSE). The application can mainly search strike prices and volumes for the user. Here SH represents Shanghai Stock Exchange, while SZ means Shenzhen Stock Exchange. Please note that this application is mainly designed for a specified part of Chinese users, and contents are displayed in simplified Chinese.
+**English** | [简体中文](https://github.com/ArvinZJC/ShSzStockHelper-Windows/blob/master/README-zhCN.md)
+
+This repository contains the source code of the Windows version of the application SH/SZ Stock Helper. Please note that the code is under [the GPL-3.0 License](https://github.com/ArvinZJC/ShSzStockHelper-Windows/blob/master/LICENSE). The application can mainly search strike prices and volumes for the user. Here SH represents Shanghai Stock Exchange, while SZ means Shenzhen Stock Exchange. Please note that this application is mainly designed for a specified part of Chinese users, and contents are displayed in simplified Chinese.
 
 ## Folder Instructions
 
@@ -15,7 +17,7 @@ This is the Visual Studio solution folder of the application. It contains code a
 
 ### [ShSzStockHelper_Setup](https://github.com/ArvinZJC/ShSzStockHelper-Windows/tree/master/ShSzStockHelper_Setup)
 
-This is the Advanced Installer project folder of the application setup file. The files in the folder are mainly used to build the latest application setup file (.exe) with user-friendly UI.
+This is the Advanced Installer project folder. The files in the folder are mainly used to build the latest application setup file (.exe) with user-friendly UI.
 
 ### [ShSzStockSymbolNameData](https://github.com/ArvinZJC/ShSzStockHelper-Windows/tree/master/ShSzStockSymbolNameData)
 
