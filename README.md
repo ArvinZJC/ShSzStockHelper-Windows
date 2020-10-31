@@ -7,7 +7,9 @@
 
 **English** | [简体中文](https://github.com/ArvinZJC/ShSzStockHelper-Windows/blob/master/README-zhCN.md)
 
-This repository contains the source code of the Windows version of the application SH/SZ Stock Helper. Please note that the code is licensed under [the GPL-3.0 License](https://github.com/ArvinZJC/ShSzStockHelper-Windows/blob/master/LICENSE). The application can mainly search strike prices and volumes for the user. Here SH represents Shanghai Stock Exchange, while SZ means Shenzhen Stock Exchange. Please note that this application is mainly designed for a specified part of Chinese users, and contents are displayed in simplified Chinese.
+SH/SZ Stock Helper can mainly search strike prices and volumes for the users. Here SH represents Shanghai Stock Exchange, while SZ means Shenzhen Stock Exchange. Please note that this application is mainly designed for a specified part of Chinese users, and contents are displayed in simplified Chinese.
+
+This repository contains the source code of the Windows version of the application. Please note that the code is licensed under [the GPL-3.0 License](https://github.com/ArvinZJC/ShSzStockHelper-Windows/blob/master/LICENSE).
 
 ## Folder Instructions
 

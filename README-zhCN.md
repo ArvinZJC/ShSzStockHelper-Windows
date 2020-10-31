@@ -7,7 +7,9 @@
 
 [English](https://github.com/ArvinZJC/ShSzStockHelper-Windows/blob/master/README.md) | **简体中文**
 
-此项目包含了Windows版的沪深小助手的源码。请注意此项目使用[GPL-3.0协议](https://github.com/ArvinZJC/ShSzStockHelper-Windows/blob/master/LICENSE)。这款应用程序主要用来帮助用户搜索成交价和成交量，可看作是对分价表的组合加工。“沪深”所指代的啥就不多说了，想必炒股的人都明明白白的。这款应用程序实现的功能算不上太复杂，设计的目的主要是为了满足一些中国大陆用户的需求（包括家人），因而使用的语言是简体中文。
+沪深小助手主要用来帮助用户搜索成交价和成交量，可看作是对分价表的组合加工。“沪深”所指代的啥就不多说了，懂的都懂。这款应用程序实现的功能算不上太复杂，设计的目的主要是为了满足一些中国大陆用户的需求（包括家人），因而此应用程序支持的语言仅有简体中文。
+
+此项目包含了此应用程序的Windows版的源码。请注意此项目使用[GPL-3.0协议](https://github.com/ArvinZJC/ShSzStockHelper-Windows/blob/master/LICENSE)。
 
 ## 文件夹说明
 
