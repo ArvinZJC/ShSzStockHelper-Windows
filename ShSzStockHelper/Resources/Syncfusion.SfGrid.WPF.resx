@@ -138,11 +138,11 @@
     <comment>Text for PrintDialog CustomMargin</comment>
   </data>
   <data name="CustomMargins" xml:space="preserve">
-    <value>自定义页边距（单位：cm）</value>
+    <value>自定义页边距（单位：厘米）</value>
     <comment>Text for PrintDialog CustomMargins</comment>
   </data>
   <data name="CustomPageSizes" xml:space="preserve">
-    <value>自定义纸张大小（单位：cm）</value>
+    <value>自定义纸张大小（单位：厘米）</value>
     <comment>Text for PrintDialog  CustomPageSizes</comment>
   </data>
   <data name="CustomSize" xml:space="preserve">

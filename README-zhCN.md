@@ -1,4 +1,4 @@
-# 沪深小助手（Windows版）
+# 神户座
 
 [![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ArvinZJC/ShSzStockHelper-Windows?include_prereleases)](https://github.com/ArvinZJC/ShSzStockHelper-Windows/releases)
 [![GitHub All Releases](https://img.shields.io/github/downloads/ArvinZJC/ShSzStockHelper-Windows/total)](https://github.com/ArvinZJC/ShSzStockHelper-Windows/releases)
@@ -7,9 +7,12 @@
 
 [English](https://github.com/ArvinZJC/ShSzStockHelper-Windows/blob/master/README.md) | **简体中文**
 
-沪深小助手主要用来帮助用户搜索成交价和成交量，可看作是对分价表的组合加工。“沪深”所指代的啥就不多说了，懂的都懂。这款应用程序实现的功能算不上太复杂，设计的目的主要是为了满足一些中国大陆用户的需求（包括家人），因而此应用程序支持的语言仅有简体中文。
+神户座是一个Windows应用程序，它主要用来帮助用户搜索成交价和成交量，可看作是对分价表的组合加工。“神户”玩儿的是谐音梗，指代“沪深”。“沪深”的意思就不多说了，懂的都懂。这款应用程序实现的功能算不上太复杂，设计的目的主要是为了满足一些中国大陆用户的需求（包括家人），因而此应用程序支持的语言仅有简体中文。请注意此项目使用[GPL-3.0协议](https://github.com/ArvinZJC/ShSzStockHelper-Windows/blob/master/LICENSE)。
 
-此项目包含了此应用程序的Windows版的源码。请注意此项目使用[GPL-3.0协议](https://github.com/ArvinZJC/ShSzStockHelper-Windows/blob/master/LICENSE)。
+## 注意
+
+1. 应用程序配置文件和相应的更新日志可在[发行](https://github.com/ArvinZJC/ShSzStockHelper-Windows/releases)部分找到。从[V0.3.0](https://github.com/ArvinZJC/ShSzStockHelper-Windows/releases/tag/v0.3.0)开始，此项目采用了一个全新的打包方案，制作出来的应用程序配置文件功能体系更全，体积更小，也因此**从低于V0.3.0的版本升级时必须手动卸载旧版本**。
+2. 应用程序支持**Windows 7/8/8.1/10**。
 
 ## 文件夹说明
 
@@ -24,10 +27,5 @@
 ### [ShSzStockSymbolNameData](https://github.com/ArvinZJC/ShSzStockHelper-Windows/tree/master/ShSzStockSymbolNameData)
 
 这个文件夹包含了一个Jupyter Notebook文件，其中用Python代码实现了查询沪深股票代码和相应的股票名称，并将它们保存在一个JSON格式的文件中。这个数据文件是应用程序资源的一部分。
-
-## 注意
-
-1. 应用程序配置文件可从[发行](https://github.com/ArvinZJC/ShSzStockHelper-Windows/releases)部分下载。从[V0.3.0](https://github.com/ArvinZJC/ShSzStockHelper-Windows/releases/tag/v0.3.0)开始，此项目采用了一个全新的打包方案，制作出来的应用程序配置文件功能体系更全，体积更小，也因此**从低于V0.3.0的版本升级时必须手动卸载旧版本**。
-2. 应用程序支持Windows 7/8/8.1/10。
 
 更多信息请参见各文件夹的README。

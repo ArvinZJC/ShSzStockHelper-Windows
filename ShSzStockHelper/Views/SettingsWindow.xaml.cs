@@ -1,10 +1,10 @@
 ﻿/*
  * @Description: the back-end code of the settings window
- * @Version: 1.1.4.20200916
+ * @Version: 1.1.6.20201129
  * @Author: Arvin Zhao
  * @Date: 2020-08-31 12:22:18
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2020-09-16 12:38:34
+ * @LastEditTime: 2020-11-29 12:38:34
  */
 
 using ShSzStockHelper.Models;
@@ -140,7 +140,6 @@ namespace ShSzStockHelper.Views
             ComboBoxDayVolumeUnit.SelectedItem = volumeUnitViewModel.VolumeUnitRecords.First(item => item.Coefficient == Properties.Settings.Default.DayVolumeUnit);
 
             // Volume decimal digits setting.
-            TextBlockVolumeDecimalDigitsExplanation.Text += tableColumnSettingsExplanation;
             TextBlockTotalVolumeDecimalDigits.Text += Properties.Resources.LeftBracket
                                                       + Properties.Resources.DefaultSettingValue
                                                       + Properties.DefaultUserSettings.Default.TotalVolumeDecimalDigits
@@ -338,7 +337,18 @@ namespace ShSzStockHelper.Views
                 return;
             } // end if
 
-            Properties.Settings.Default.ProductTheme = selectedTheme;
+            try
+            {
+                Properties.Settings.Default.ProductTheme = selectedTheme;
+            }
+            catch (InvalidCastException)
+            {
+                /*
+                 * The application needs restarting to refresh resources to apply a theme. It is necessary to change the values of some properties before restarting.
+                 * However, the code in the try clause can cause changing the theme before restarting (MVVM), which may throw an exception due to missing the relevant resources.
+                 * This exception can be ignored, and it should not affect changing the theme after restarting.
+                 */
+            } // end try...catch
 
             if (Properties.Settings.Default.ProductTheme == (int) VisualStyles.MaterialDark)
             {

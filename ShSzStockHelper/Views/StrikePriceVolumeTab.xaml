@@ -15,10 +15,7 @@
              syncfusionSkin:SfSkinManager.VisualStyle="{Binding ProductTheme, Converter={StaticResource ProductThemeConverter}, Source={x:Static properties:Settings.Default}}"
              x:Class="ShSzStockHelper.Views.StrikePriceVolumeTab">
     <UserControl.Resources>
-        <Style BasedOn="{StaticResource WPFToolTipStyle}" TargetType="ToolTip">
-            <Setter Property="FontFamily" Value="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}" />
-            <Setter Property="FontSize" Value="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}" />
-        </Style>
+        <Style BasedOn="{StaticResource ToolTipStyle}" TargetType="ToolTip" />
     </UserControl.Resources>
 
     <Grid>
@@ -114,7 +111,6 @@
                                   IconHeight="{Binding SmallIconSideLength, Source={x:Static properties:Settings.Default}}"
                                   IconWidth="{Binding SmallIconSideLength, Source={x:Static properties:Settings.Default}}"
                                   IsEnabled="False"
-                                  Label=""
                                   Padding="15,5,15,5"
                                   SizeMode="Small"
                                   SmallIcon="{Binding SearchIconUri, Converter={StaticResource IconUriConverter}, Source={x:Static properties:Settings.Default}}"
@@ -143,15 +139,9 @@
 
             <Grid>
                 <Grid.Resources>
-                    <Style BasedOn="{StaticResource SyncfusionAdvancedFilterControlStyle}" TargetType="syncfusion:AdvancedFilterControl">
-                        <Setter Property="CanGenerateUniqueItems" Value="False" />
-                    </Style>
+                    <Style BasedOn="{StaticResource CheckboxFilterControlStyle}" TargetType="syncfusion:CheckboxFilterControl"/>
 
-                    <Style BasedOn="{StaticResource SyncfusionCheckboxFilterControlStyle}" TargetType="syncfusion:CheckboxFilterControl"/>
-
-                    <Style BasedOn="{StaticResource SyncfusionGridStackedHeaderCellControlStyle}" TargetType="syncfusion:GridStackedHeaderCellControl">
-                        <Setter Property="FontSize" Value="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}" />
-                    </Style>
+                    <Style BasedOn="{StaticResource GridStackedHeaderCellControlStyle}" TargetType="syncfusion:GridStackedHeaderCellControl"/>
                 </Grid.Resources>
 
                 <syncfusion:SfDataGrid x:Name="DataGridStrikePriceVolumeTable"
@@ -183,14 +173,12 @@
                                                        ShowHeaderToolTip="True"
                                                        TextAlignment="Right"/>
 
-                        <syncfusion:GridNumericColumn x:Name="ColumnTotalVolume"
-                                                      AllowFiltering="{Binding TotalVolumeFiltering, Source={x:Static properties:Settings.Default}}"
-                                                      AllowSorting="{Binding TotalVolumeSorting, Source={x:Static properties:Settings.Default}}"
-                                                      MappingName="TotalVolume"
-                                                      NumberDecimalDigits="{Binding TotalVolumeDecimalDigits, Source={x:Static properties:Settings.Default}}"
-                                                      NumberGroupSeparator=""
-                                                      ShowHeaderToolTip="True"
-                                                      TextAlignment="Right"/>
+                        <syncfusion:GridTextColumn x:Name="ColumnTotalVolume"
+                                                   AllowFiltering="{Binding TotalVolumeFiltering, Source={x:Static properties:Settings.Default}}"
+                                                   AllowSorting="{Binding TotalVolumeSorting, Source={x:Static properties:Settings.Default}}"
+                                                   MappingName="TotalVolume"
+                                                   ShowHeaderToolTip="True"
+                                                   TextAlignment="Right"/>
                     </syncfusion:SfDataGrid.Columns>
                 </syncfusion:SfDataGrid>
 

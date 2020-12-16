@@ -1,10 +1,10 @@
 ﻿/*
  * @Description: the back-end code of the tab of searching for data of strike prices and volumes
- * @Version: 1.3.7.20200916
+ * @Version: 1.4.2.20201125
  * @Author: Arvin Zhao
  * @Date: 2020-08-10 13:37:27
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2020-09-16 13:38:24
+ * @LastEditTime: 2020-11-25 13:38:24
  */
 
 using Microsoft.Win32;
@@ -75,14 +75,15 @@ namespace ShSzStockHelper.Views
                 AllowRepeatHeaders = true,
                 CanPrintStackedHeaders = true,
                 PrintPageFooterHeight = Properties.Settings.Default.ContentTextFontSize,
-                PrintPageFooterTemplate = Application.Current.Resources["PrintedPageFooterTemplate"] as DataTemplate
+                PrintPageFooterTemplate = Application.Current.Resources["PrintedPageFooterTemplate"] as DataTemplate,
+                PrintPreviewWindowStyle = Application.Current.Resources["PrintPreviewWindowStyle"] as Style
             };
             DataGridStrikePriceVolumeTable.QueryUnboundColumnValue += DataGridStrikePriceVolumeTable_QueryUnboundColumnValue;
             ColumnStrikePrice.HeaderText += "\n" + Properties.Resources.LeftBracket + Properties.Resources.PriceUnit + Properties.Resources.RightBracket;
             ColumnStrikePrice.MaximumWidth = Properties.Settings.Default.MaxCellWidth;
             ColumnStrikePrice.MinimumWidth = Properties.Settings.Default.MinCellWidth;
-            ColumnStrikePrice.MaximumWidth = Properties.Settings.Default.MaxCellWidth;
-            ColumnStrikePrice.MinimumWidth = Properties.Settings.Default.MinCellWidth;
+            ColumnTotalVolume.MaximumWidth = Properties.Settings.Default.MaxCellWidth;
+            ColumnTotalVolume.MinimumWidth = Properties.Settings.Default.MinCellWidth;
 
             _excelExportingOptions = new ExcelExportingOptions
             {
@@ -150,6 +151,7 @@ namespace ShSzStockHelper.Views
         {
             var input = TextBoxSymbol.Text.Trim().ToUpper();
 
+            // Decide the stock name to display.
             if (TextBoxSymbol.SelectedItem != null && input.Equals(((StockSymbolNameData) TextBoxSymbol.SelectedItem).Symbol))
                 _stockName = ((StockSymbolNameData) TextBoxSymbol.SelectedItem).Name;
             else
@@ -226,7 +228,11 @@ namespace ShSzStockHelper.Views
                                 _strikePriceTotalVolumeViewModel.StrikePriceTotalVolumeRecords.Add(new StrikePriceTotalVolumeData
                                 {
                                     StrikePrice = (decimal) _strikePriceVolumeRowCollection[nodeCount][0],
-                                    TotalVolume = (decimal) _strikePriceVolumeRowCollection[nodeCount][1] / (Properties.Settings.Default.TotalVolumeUnit * 100m) // 总成交量（1手 = 100股）。
+                                    /*
+                                     * 总成交量（1手 = 100股）。
+                                     * First, round the day volume. Second, convert it to a string representation in a specified format. Then, convert it back to a decimal value. These steps are necessary to keep the specified number of decimal digits without dropping 0.
+                                     */
+                                    TotalVolume = Convert.ToDecimal(decimal.Round((decimal) _strikePriceVolumeRowCollection[nodeCount][1] / (Properties.Settings.Default.TotalVolumeUnit * 100m), Properties.Settings.Default.TotalVolumeDecimalDigits).ToString("N" + Properties.Settings.Default.TotalVolumeDecimalDigits))
                                 });
 
                         var stackedHeaderRowDayVolumeChildColumns = new StringBuilder();
@@ -349,10 +355,15 @@ namespace ShSzStockHelper.Views
                 if (_strikePriceVolumeRowCollection[nodeCount][0] == strikePrice)
                 {
                     var dayVolume = _strikePriceVolumeRowCollection[nodeCount][2 + Convert.ToInt32(e.Column.MappingName)];
-                    
+
+                    /*
+                     * 每日成交量（1手 = 100股）。
+                     * First, round the day volume. Second, convert it to a string representation in a specified format. Then, convert it back to a decimal value. These steps are necessary to keep the specified number of decimal digits without dropping 0.
+                     */
                     e.Value = dayVolume == null
                         ? null
-                        : (decimal?) decimal.Round((decimal) dayVolume / (Properties.Settings.Default.DayVolumeUnit * 100m), Properties.Settings.Default.DayVolumeDecimalDigits); // 每日成交量（1手 = 100股）。
+                        : (decimal?) Convert.ToDecimal(decimal.Round((decimal) dayVolume / (Properties.Settings.Default.DayVolumeUnit * 100m), Properties.Settings.Default.DayVolumeDecimalDigits).ToString("N" + Properties.Settings.Default.DayVolumeDecimalDigits));
+
                     break;
                 } // end if
         } // end method DataGridStrikePriceVolumeTable_QueryUnboundColumnValue

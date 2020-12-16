@@ -22,10 +22,7 @@
                              Width="{Binding DefaultWindowWidth, Source={x:Static properties:Settings.Default}}"
                              WindowStartupLocation="CenterScreen">
     <syncfusion:ChromelessWindow.Resources>
-        <Style BasedOn="{StaticResource WPFToolTipStyle}" TargetType="ToolTip">
-            <Setter Property="FontFamily" Value="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}" />
-            <Setter Property="FontSize" Value="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}" />
-        </Style>
+        <Style BasedOn="{StaticResource ToolTipStyle}" TargetType="ToolTip" />
     </syncfusion:ChromelessWindow.Resources>
 
     <Grid>
@@ -104,35 +101,6 @@
                       Grid.Column="1"
                       ScrollChanged="ScrollViewerSettings_OnScrollChanged"
                       VerticalScrollBarVisibility="Auto">
-            <ScrollViewer.Resources>
-                <Style x:Key="TextBlockGeneralStyle" TargetType="TextBlock">
-                    <Setter Property="FontFamily" Value="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"/>
-                    <Setter Property="FontSize" Value="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"/>
-                </Style>
-
-                <Style x:Key="TextBlockExplanationStyle"
-                       BasedOn="{StaticResource TextBlockGeneralStyle}"
-                       TargetType="TextBlock">
-                    <Setter Property="FontSize" Value="{Binding ContentTextFontSize, Source={x:Static properties:Settings.Default}}"/>
-                    <Setter Property="Foreground" Value="{Binding ExplanationTextColour, Source={x:Static properties:Settings.Default}}"/>
-                    <Setter Property="Padding" Value="0,5,0,0"/>
-                    <Setter Property="TextWrapping" Value="Wrap"/>
-                </Style>
-
-                <Style x:Key="TextBlockMainTitleStyle"
-                       BasedOn="{StaticResource TextBlockGeneralStyle}"
-                       TargetType="TextBlock">
-                    <Setter Property="FontSize" Value="{Binding TitleTextFontSize, Source={x:Static properties:Settings.Default}}"/>
-                    <Setter Property="FontWeight" Value="Bold"/>
-                    <Setter Property="Padding" Value="0,15,0,0"/>
-                </Style>
-
-                <Style x:Key="TextBlockSecondaryTitleStyle"
-                       BasedOn="{StaticResource TextBlockMainTitleStyle}"
-                       TargetType="TextBlock">
-                    <Setter Property="FontSize" Value="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"/>
-                </Style>
-            </ScrollViewer.Resources>
 
             <StackPanel Margin="15,0,15,15">
                 <StackPanel x:Name="StackPanelGeneral">
@@ -188,26 +156,15 @@
                                             FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
                                             FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
                                             HorizontalAlignment="Left"
+                                            ItemContainerStyle="{StaticResource ComboBoxItemStyle}"
                                             Margin="0,5,0,0"
                                             SelectionChanged="ComboBoxDateDisplayFormat_OnSelectionChanged">
-                        <syncfusion:ComboBoxItemAdv x:Name="ComboBoxItem2Y1M1DHyphen"
-                                                    Content="{x:Static properties:Resources.ComboBoxItem2Y1M1DHyphen_Content}"
-                                                    FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"/>
-                        <syncfusion:ComboBoxItemAdv x:Name="ComboBoxItem2Y2M2DHyphen"
-                                                    Content="{x:Static properties:Resources.ComboBoxItem2Y2M2DHyphen_Content}"
-                                                    FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"/>
-                        <syncfusion:ComboBoxItemAdv x:Name="ComboBoxItem4Y1M1DHyphen"
-                                                    Content="{x:Static properties:Resources.ComboBoxItem4Y1M1DHyphen_Content}"
-                                                    FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"/>
-                        <syncfusion:ComboBoxItemAdv x:Name="ComboBoxItem4Y2M2DHyphen"
-                                                    Content="{x:Static properties:Resources.ComboBoxItem4Y2M2DHyphen_Content}"
-                                                    FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"/>
-                        <syncfusion:ComboBoxItemAdv x:Name="ComboBoxItem2Y1M1DCn"
-                                                    Content="{x:Static properties:Resources.ComboBoxItem2Y1M1DCn_Content}"
-                                                    FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"/>
-                        <syncfusion:ComboBoxItemAdv x:Name="ComboBoxItem4Y1M1DCn"
-                                                    Content="{x:Static properties:Resources.ComboBoxItem4Y1M1DCn_Content}"
-                                                    FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"/>
+                        <syncfusion:ComboBoxItemAdv x:Name="ComboBoxItem2Y1M1DHyphen" Content="{x:Static properties:Resources.ComboBoxItem2Y1M1DHyphen_Content}"/>
+                        <syncfusion:ComboBoxItemAdv x:Name="ComboBoxItem2Y2M2DHyphen" Content="{x:Static properties:Resources.ComboBoxItem2Y2M2DHyphen_Content}"/>
+                        <syncfusion:ComboBoxItemAdv x:Name="ComboBoxItem4Y1M1DHyphen" Content="{x:Static properties:Resources.ComboBoxItem4Y1M1DHyphen_Content}"/>
+                        <syncfusion:ComboBoxItemAdv x:Name="ComboBoxItem4Y2M2DHyphen" Content="{x:Static properties:Resources.ComboBoxItem4Y2M2DHyphen_Content}"/>
+                        <syncfusion:ComboBoxItemAdv x:Name="ComboBoxItem2Y1M1DCn" Content="{x:Static properties:Resources.ComboBoxItem2Y1M1DCn_Content}"/>
+                        <syncfusion:ComboBoxItemAdv x:Name="ComboBoxItem4Y1M1DCn" Content="{x:Static properties:Resources.ComboBoxItem4Y1M1DCn_Content}"/>
                     </syncfusion:ComboBoxAdv>
                 </StackPanel>
 
@@ -410,14 +367,11 @@
                                             FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
                                             FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
                                             HorizontalAlignment="Left"
+                                            ItemContainerStyle="{StaticResource ComboBoxItemStyle}"
                                             Margin="0,5,0,0"
                                             SelectionChanged="ComboBoxExcelFileFormat_OnSelectionChanged">
-                        <syncfusion:ComboBoxItemAdv x:Name="ComboBoxItemXls"
-                                                    Content="{x:Static properties:Resources.ComboBoxItemXls_Content}"
-                                                    FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"/>
-                        <syncfusion:ComboBoxItemAdv x:Name="ComboBoxItemXlsx"
-                                                    Content="{x:Static properties:Resources.ComboBoxItemXlsx_Content}"
-                                                    FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"/>
+                        <syncfusion:ComboBoxItemAdv x:Name="ComboBoxItemXls" Content="{x:Static properties:Resources.ComboBoxItemXls_Content}"/>
+                        <syncfusion:ComboBoxItemAdv x:Name="ComboBoxItemXlsx" Content="{x:Static properties:Resources.ComboBoxItemXlsx_Content}"/>
                     </syncfusion:ComboBoxAdv>
                 </StackPanel>
 

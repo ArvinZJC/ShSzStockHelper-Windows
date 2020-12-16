@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="A4" xml:space="preserve">
+    <value>A4</value>
+  </data>
+  <data name="A4Size" xml:space="preserve">
+    <value>21 厘米 × 29.7 厘米</value>
+  </data>
   <data name="About" xml:space="preserve">
     <value>关于</value>
   </data>
@@ -214,7 +220,37 @@
     <value>显示字体</value>
   </data>
   <data name="DisplayFontFamilyNameSetting_Explanation" xml:space="preserve">
-    <value>界面上的文字字体。部分界面元素暂不支持此设置。</value>
+    <value>界面上的文字字体，少部分界面元素不应用此设置。您对此设置的修改可能造成布局异常，若出现此问题，请您换用其他字体。</value>
+  </data>
+  <data name="Envelope10" xml:space="preserve">
+    <value>COM10信封</value>
+  </data>
+  <data name="Envelope10Size" xml:space="preserve">
+    <value>10.48 厘米 × 24.13 厘米</value>
+  </data>
+  <data name="EnvelopeB5" xml:space="preserve">
+    <value>B5信封</value>
+  </data>
+  <data name="EnvelopeB5Size" xml:space="preserve">
+    <value>17.6 厘米 × 25 厘米</value>
+  </data>
+  <data name="EnvelopeC5" xml:space="preserve">
+    <value>C5信封</value>
+  </data>
+  <data name="EnvelopeC5Size" xml:space="preserve">
+    <value>16.2 厘米 × 22.9 厘米</value>
+  </data>
+  <data name="EnvelopeDl" xml:space="preserve">
+    <value>DL信封</value>
+  </data>
+  <data name="EnvelopeDlSize" xml:space="preserve">
+    <value>11 厘米 × 22 厘米</value>
+  </data>
+  <data name="EnvelopeMonarch" xml:space="preserve">
+    <value>Monarch信封</value>
+  </data>
+  <data name="EnvelopeMonarchSize" xml:space="preserve">
+    <value>9.84 厘米 × 19.05 厘米</value>
   </data>
   <data name="ExcelCellFontFamilyNameSetting" xml:space="preserve">
     <value>单元格字体</value>
@@ -232,7 +268,13 @@
     <value>文件格式</value>
   </data>
   <data name="ExcelFileFormatSetting_Explanation" xml:space="preserve">
-    <value>导出的Excel文件格式。XLS格式兼容性较好，如果安装的Excel编辑软件版本较低，建议选择此格式。您对此设置的修改在已弹出的保存Excel文件对话框中不会生效，关闭对话框后再次导出到Excel可使之生效。</value>
+    <value>XLS格式兼容性较好，若安装的Excel编辑软件版本较低，建议保存成此格式。此设置仅表示在保存Excel文件对话框中默认选择的文件格式，您依然能在对话框中更改文件格式。您对此设置的修改在已弹出的对话框中不会生效，关闭对话框后再次导出到Excel可使之生效。</value>
+  </data>
+  <data name="Executive" xml:space="preserve">
+    <value>Executive</value>
+  </data>
+  <data name="ExecutiveSize" xml:space="preserve">
+    <value>18.41 厘米 × 26.67 厘米</value>
   </data>
   <data name="ExportToExcel" xml:space="preserve">
     <value>导出到Excel</value>
@@ -243,14 +285,32 @@
   <data name="FilteringSetting_Explanation" xml:space="preserve">
     <value>列的筛选功能的开关。启用该功能允许您设定条件来显示符合的数据。您对此设置中关于</value>
   </data>
+  <data name="FirstPage" xml:space="preserve">
+    <value>首页</value>
+  </data>
   <data name="Fri" xml:space="preserve">
     <value>五</value>
   </data>
   <data name="GeneralSettings" xml:space="preserve">
     <value>通用</value>
   </data>
+  <data name="LastPage" xml:space="preserve">
+    <value>末页</value>
+  </data>
   <data name="LeftBracket" xml:space="preserve">
     <value>（</value>
+  </data>
+  <data name="Legal" xml:space="preserve">
+    <value>法律专用纸</value>
+  </data>
+  <data name="LegalSize" xml:space="preserve">
+    <value>21.59 厘米 × 35.56 厘米</value>
+  </data>
+  <data name="Letter" xml:space="preserve">
+    <value>信纸</value>
+  </data>
+  <data name="LetterSize" xml:space="preserve">
+    <value>21.59 厘米 × 27.94 厘米</value>
   </data>
   <data name="Menu_ToolTip" xml:space="preserve">
     <value>菜单</value>
@@ -261,8 +321,23 @@
   <data name="MinDateSetting_Explanation" xml:space="preserve">
     <value>日期选择框中允许选择的最早日期。上海证券交易所在1990年12月19日开始正式营业，深圳证券交易所则在1990年12月1日开始营业。由于数据提供方并不是从营业开始记录数据，您可通过点击日历图标或直接在输入框中编辑来适当修改此项设置。</value>
   </data>
+  <data name="ModerateMarginLR" xml:space="preserve">
+    <value> 1.91 厘米</value>
+  </data>
+  <data name="ModerateMarginTB" xml:space="preserve">
+    <value> 2.54 厘米</value>
+  </data>
   <data name="Mon" xml:space="preserve">
     <value>一</value>
+  </data>
+  <data name="NarrowMargin" xml:space="preserve">
+    <value> 1.27 厘米</value>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>下一页</value>
+  </data>
+  <data name="NormalMargin" xml:space="preserve">
+    <value> 2.5 厘米</value>
   </data>
   <data name="NullProductCopyrightError" xml:space="preserve">
     <value>（未知版权声明）</value>
@@ -273,8 +348,14 @@
   <data name="NullProductVersionError" xml:space="preserve">
     <value>（未知版本号）</value>
   </data>
+  <data name="PreviousPage" xml:space="preserve">
+    <value>上一页</value>
+  </data>
   <data name="PriceUnit" xml:space="preserve">
     <value>元</value>
+  </data>
+  <data name="PrintPreview" xml:space="preserve">
+    <value>打印预览</value>
   </data>
   <data name="QuestionMark" xml:space="preserve">
     <value>？</value>
@@ -370,7 +451,7 @@
     <value>成交量小数位数</value>
   </data>
   <data name="VolumeDecimalDigitsSetting_Explanation" xml:space="preserve">
-    <value>总成交量和每日成交量保留的小数位数。若需要显示准确值，数据在不同单位需要保留的小数位数不同，这由手和股的换算关系决定。由于列的类型的设计原因，总成交量的小数部分在必要时会用0补齐，每日成交量的小数部分则暂不支持。您对此设置中关于</value>
+    <value>总成交量和每日成交量保留的小数位数。若需要显示准确值，数据在不同单位需要保留的小数位数不同，这由手和股的换算关系决定。数据的小数部分在必要时会用0补齐。您对此设置的修改在已显示的表格中不会生效，再次搜索可使之生效。</value>
   </data>
   <data name="VolumeUnitSetting" xml:space="preserve">
     <value>成交量单位</value>
@@ -395,5 +476,11 @@
   </data>
   <data name="Wed" xml:space="preserve">
     <value>三</value>
+  </data>
+  <data name="WideMarginLR" xml:space="preserve">
+    <value> 5.08 厘米</value>
+  </data>
+  <data name="WideMarginTB" xml:space="preserve">
+    <value> 2.54 厘米</value>
   </data>
 </root>

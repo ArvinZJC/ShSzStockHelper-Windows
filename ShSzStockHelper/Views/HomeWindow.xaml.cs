@@ -1,18 +1,16 @@
 ﻿/*
  * @Description: the back-end code of the home window
- * @Version: 1.1.6.20200916
+ * @Version: 1.1.8.20201130
  * @Author: Arvin Zhao
  * @Date: 2020-07-08 10:17:48
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2020-09-16 14:12:09
+ * @LastEditTime: 2020-11-30 14:12:09
  */
 
 using ShSzStockHelper.ViewModels;
 using Syncfusion.Windows.Tools.Controls;
 using System;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Reflection;
 using System.Windows;
 
 namespace ShSzStockHelper.Views
@@ -24,7 +22,6 @@ namespace ShSzStockHelper.Views
     {
         private readonly StockSymbolNameViewModel _stockSymbolNameViewModel;
         private readonly SystemFontFamilyNameViewModel _systemFontFamilyNameViewModel;
-        private readonly string _productName, _productVersion, _productCopyright;
 
         /// <summary>
         /// Initialise a new instance of the <see cref="HomeWindow"/> class.
@@ -35,34 +32,17 @@ namespace ShSzStockHelper.Views
 
             _stockSymbolNameViewModel = new StockSymbolNameViewModel();
             _systemFontFamilyNameViewModel = new SystemFontFamilyNameViewModel();
-            _productName = Properties.Resources.NullProductNameError;
-            _productVersion = Properties.Resources.NullProductVersionError;
-            _productCopyright = Properties.Resources.NullProductCopyrightError;
 
-            var assembly = Assembly.GetEntryAssembly();
+            var productName = App.GetProductName();
 
-            if (assembly != null)
-            {
-                _productName = FileVersionInfo.GetVersionInfo(assembly.Location).ProductName;
-
-                var assemblyVersionAttribute = assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>();
-                var assemblyCopyrightAttribute = assembly.GetCustomAttribute<AssemblyCopyrightAttribute>();
-
-                if (assemblyVersionAttribute != null)
-                    _productVersion = assemblyVersionAttribute.InformationalVersion;
-
-                if (assemblyCopyrightAttribute != null)
-                    _productCopyright = assemblyCopyrightAttribute.Copyright;
-            } // end if
-
-            WindowHome.Title = _productName + " " + _productVersion; // Display the app name and the package version defined in "Properties\Package\Package version".
-            MenuItemAbout.Header = Properties.Resources.About + _productName;
+            WindowHome.Title = productName + " " + App.GetProductVersion(); // Display the app name and the package version defined in "Properties\Package\Package version".
+            MenuItemAbout.Header = Properties.Resources.About + productName;
         } // end constructor HomeWindow
 
         #region Control Events
         private void MenuItemAbout_OnClick(object sender, RoutedEventArgs e)
         {
-            new AboutWindow(_productName, _productVersion, _productCopyright) {Owner = this}.ShowDialog();
+            new AboutWindow() {Owner = this}.ShowDialog();
         } // end method MenuItemAbout_OnClick
 
         private void MenuItemSettings_OnClick(object sender, RoutedEventArgs e)
@@ -82,7 +62,6 @@ namespace ShSzStockHelper.Views
         private void TabControlStrikePriceVolume_NewButtonClick(object sender, EventArgs e)
         {
             TextBlockNewTabHint.Visibility = Visibility.Hidden;
-
             AddNewTab();
         } // end method TabControlStrikePriceVolume_NewButtonClick
 
@@ -119,6 +98,7 @@ namespace ShSzStockHelper.Views
         #endregion Control Events
 
         #region Private Methods
+        // Add a new tab to the specified tab control.
         private void AddNewTab()
         {
             var tabItemStrikePriceVolume = new TabItemExt

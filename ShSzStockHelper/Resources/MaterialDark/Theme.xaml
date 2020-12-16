@@ -11,8 +11,8 @@
         <ResourceDictionary Source="/Syncfusion.Themes.MaterialDark.WPF;component/MSControl/Tooltip.xaml" />
         <ResourceDictionary Source="/Syncfusion.Themes.MaterialDark.WPF;component/SfTreeNavigator/SfTreeNavigator.xaml" />
         <ResourceDictionary Source="DateTimeEdit.xaml" />
+        <ResourceDictionary Source="GridPrintPreviewControl.xaml" />
         <ResourceDictionary Source="SfDataGrid.xaml" />
-        <ResourceDictionary Source="TabControlExt.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <helpers:IconUriConverter x:Key="IconUriConverter"/>
@@ -39,6 +39,7 @@
                 FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
                 FontSize="{Binding ContentTextFontSize, Source={x:Static properties:Settings.Default}}"
                 FontWeight="Bold"
+                Foreground="Black"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center">
                 <TextBlock.Text>
@@ -145,6 +146,18 @@
     </ControlTemplate>
     <!-- ReSharper restore Xaml.MissingGridIndex, Xaml.StaticResourceNotResolved -->
 
+    <Style TargetType="syncfusion:PrintGridCell">
+        <Setter Property="Foreground" Value="Black"/>            
+    </Style>
+
+    <Style TargetType="syncfusion:PrintHeaderCell">
+        <Setter Property="Foreground" Value="Black"/>            
+    </Style>
+
+    <Style x:Key="CheckboxFilterControlStyle"
+           BasedOn="{StaticResource SyncfusionCheckboxFilterControlStyle}"
+           TargetType="syncfusion:CheckboxFilterControl"/>
+
     <Style x:Key="ComboBoxItemStyle"
            BasedOn="{StaticResource SyncfusionComboBoxItemAdvStyle}"
            TargetType="syncfusion:ComboBoxItemAdv">
@@ -178,6 +191,12 @@
                 Value="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}" />
     </Style>
 
+    <Style x:Key="GridStackedHeaderCellControlStyle"
+           BasedOn="{StaticResource SyncfusionGridStackedHeaderCellControlStyle}"
+           TargetType="syncfusion:GridStackedHeaderCellControl">
+        <Setter Property="FontSize" Value="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}" />
+    </Style>
+
     <Style x:Key="IconTextButtonStyle"
            BasedOn="{StaticResource SyncfusionButtonAdvStyle}"
            TargetType="syncfusion:ButtonAdv">
@@ -195,9 +214,42 @@
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
 
-    <Style x:Key="TabControlStyle"
-           BasedOn="{StaticResource SyncfusionTabControlExtStyle}"
-           TargetType="syncfusion:TabControlExt"/>
+    <Style x:Key="PrintPreviewWindowStyle"
+           BasedOn="{StaticResource SyncfusionChromelessWindowStyle}"
+           TargetType="{x:Type syncfusion:ChromelessWindow}">
+        <Setter Property="FontFamily" Value="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}" />
+        <Setter Property="Icon" Value="../../AppIcon.ico" />
+        <Setter Property="ShowMinimizeButton" Value="False" />
+        <Setter Property="Title" Value="{x:Static properties:Resources.PrintPreview}" />
+    </Style>
+
+    <Style x:Key="TextBlockGeneralStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"/>
+        <Setter Property="FontSize" Value="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"/>
+    </Style>
+
+    <Style x:Key="TextBlockExplanationStyle"
+           BasedOn="{StaticResource TextBlockGeneralStyle}"
+           TargetType="TextBlock">
+        <Setter Property="FontSize" Value="{Binding ContentTextFontSize, Source={x:Static properties:Settings.Default}}"/>
+        <Setter Property="Foreground" Value="{Binding ExplanationTextColour, Source={x:Static properties:Settings.Default}}"/>
+        <Setter Property="Padding" Value="0,5,0,0"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+
+    <Style x:Key="TextBlockMainTitleStyle"
+           BasedOn="{StaticResource TextBlockGeneralStyle}"
+           TargetType="TextBlock">
+        <Setter Property="FontSize" Value="{Binding TitleTextFontSize, Source={x:Static properties:Settings.Default}}"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Padding" Value="0,15,0,0"/>
+    </Style>
+
+    <Style x:Key="TextBlockSecondaryTitleStyle"
+           BasedOn="{StaticResource TextBlockMainTitleStyle}"
+           TargetType="TextBlock">
+        <Setter Property="FontSize" Value="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"/>
+    </Style>
 
     <Style x:Key="TextButtonStyle"
            BasedOn="{StaticResource SyncfusionButtonAdvStyle}"
@@ -206,13 +258,17 @@
                 Value="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}" />
         <Setter Property="FontSize"
                 Value="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}" />
-        <Setter Property="IconHeight"
-                Value="0" />
-        <Setter Property="IconWidth"
-                Value="0" />
         <Setter Property="Margin" Value="0,0,15,0" />
-        <Setter Property="Padding" Value="15,5,16,5" />
+        <Setter Property="Padding" Value="5" />
+        <Setter Property="SmallIcon" Value="{x:Null}" />
         <Setter Property="SizeMode" Value="Normal" />
+    </Style>
+
+    <Style x:Key="ToolTipStyle"
+           BasedOn="{StaticResource WPFToolTipStyle}"
+           TargetType="ToolTip">
+        <Setter Property="FontFamily" Value="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}" />
+        <Setter Property="FontSize" Value="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}" />
     </Style>
 
     <Style x:Key="TreeNavigatorItemStyle"

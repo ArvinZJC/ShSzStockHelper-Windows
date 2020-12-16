@@ -22,10 +22,7 @@
                              WindowStartupLocation="CenterScreen"
                              WindowState="Maximized">
     <syncfusion:ChromelessWindow.Resources>
-        <Style BasedOn="{StaticResource WPFToolTipStyle}" TargetType="ToolTip">
-            <Setter Property="FontFamily" Value="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}" />
-            <Setter Property="FontSize" Value="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}" />
-        </Style>
+        <Style BasedOn="{StaticResource ToolTipStyle}" TargetType="ToolTip" />
     </syncfusion:ChromelessWindow.Resources>
 
     <syncfusion:ChromelessWindow.RightHeaderItemsSource>
@@ -73,21 +70,17 @@
         </syncfusionNotification:SfBusyIndicator.HeaderTemplate>
 
         <Grid>
-            <Grid.Resources>
-                <Style BasedOn="{StaticResource SyncfusionTabItemExtStyle}" TargetType="syncfusion:TabItemExt"/>
-            </Grid.Resources>
-
             <syncfusion:TabControlExt x:Name="TabControlStrikePriceVolume"
                                       CloseButtonType="Individual"
                                       CloseMode="Delete"
                                       EnableLabelEdit="False"
+                                      FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
                                       IsDisableUnloadTabItemExtContent="True"
                                       IsNewButtonClosedonNoChild="False"
                                       IsNewButtonEnabled="True"
                                       NewButtonAlignment="First"
                                       NewButtonClick="TabControlStrikePriceVolume_NewButtonClick"
                                       OnCloseAllTabs="TabControlStrikePriceVolume_OnCloseAllTabs"
-                                      Style="{StaticResource TabControlStyle}"
                                       TabClosed="TabControlStrikePriceVolume_TabClosed"/>
 
             <TextBlock x:Name="TextBlockNewTabHint"

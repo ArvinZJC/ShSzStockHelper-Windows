@@ -6,10 +6,10 @@
 
 ## 注意
 
-1. 截至2020年10月15日，使用Anaconda中的Jupyter Notebook 6.1.1开发表现良好。此文件夹的IPYNB格式的文件也可以使用Visual Studio Code（需版本支持）配合Anaconda打开并编辑。此外，我想感谢[TuShare Pro](https://tushare.pro/)提供的宝贵数据。开发用到的主要的包参见下面的表格。
+1. 截至2020年12月16日，使用Anaconda中的Jupyter Notebook 6.1.4开发表现良好。此文件夹的IPYNB格式的文件也可以使用Visual Studio Code（需版本支持）配合Anaconda打开并编辑。此外，我想感谢[TuShare Pro](https://tushare.pro/)提供的宝贵数据。开发用到的主要的包参见下面的表格。
 
     | 名称 | 版本 |
     | :-- | :--: |
-    | python | 3.7.7 |
-    | tushare | 1.2.60 |
-    | pandas | 1.1.0 |
+    | python | 3.8.5 |
+    | tushare | 1.2.62 |
+    | pandas | 1.1.3 |

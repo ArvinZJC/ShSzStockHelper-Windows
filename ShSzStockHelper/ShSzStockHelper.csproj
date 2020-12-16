@@ -5,27 +5,37 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>AppIcon.ico</ApplicationIcon>
-    <Version>0.7.0</Version>
+    <Version>0.8.0</Version>
     <Authors>Arvin Zhao</Authors>
-    <Company></Company>
-    <Product>沪深小助手</Product>
+    <Company>ArvinZJC</Company>
+    <Product>神户座</Product>
     <Copyright>© 2020 Arvin Zhao</Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <Description>This is the package of the Windows version of the application SH/SZ Stock Helper. The application can mainly search strike prices and volumes for the user.</Description>
+    <Description>This is the package of SH/SZ Stock Helper which is a Windows application that can mainly search strike prices and volumes for the users.</Description>
     <PackageIcon>AppIcon.ico</PackageIcon>
-    <RepositoryUrl>https://github.com/ArvinZJC/ShSzStockHelper_Windows</RepositoryUrl>
-    <PackageReleaseNotes>TODO</PackageReleaseNotes>
+    <RepositoryUrl>https://github.com/ArvinZJC/ShSzStockHelper-Windows</RepositoryUrl>
+    <PackageReleaseNotes>The application is mainly designed for a specified part of Chinese users, and contents are displayed in simplified Chinese.</PackageReleaseNotes>
     <NeutralLanguage>zh-Hans</NeutralLanguage>
     <AssemblyName>ShSzStockHelper</AssemblyName>
     <PackageId>ShSzStockHelper</PackageId>
     <RepositoryType>Public</RepositoryType>
-    <AssemblyVersion>0.7.0.0</AssemblyVersion>
-    <FileVersion>0.7.0.0</FileVersion>
+    <AssemblyVersion>0.8.0.0</AssemblyVersion>
+    <FileVersion>0.8.0.0</FileVersion>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="HtmlAgilityPack" Version="1.11.24" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.28" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="PortableSettingsProvider" Version="0.2.4" />
+    <PackageReference Include="Syncfusion.DataGridExcelExport.Wpf" Version="18.3.0.53" />
+    <PackageReference Include="Syncfusion.SfBusyIndicator.WPF" Version="18.3.0.53" />
+    <PackageReference Include="Syncfusion.SfGrid.WPF" Version="18.3.0.53" />
+    <PackageReference Include="Syncfusion.SfInput.WPF" Version="18.3.0.53" />
+    <PackageReference Include="Syncfusion.SfTreeNavigator.WPF" Version="18.3.0.53" />
+    <PackageReference Include="Syncfusion.Themes.MaterialDark.WPF" Version="18.3.0.53" />
+    <PackageReference Include="Syncfusion.Themes.MaterialLight.WPF" Version="18.3.0.53" />
+    <PackageReference Include="Syncfusion.Tools.WPF" Version="18.3.0.53" />
   </ItemGroup>
 
   <ItemGroup>
@@ -48,48 +58,6 @@
     <Resource Include="Images\MaterialLight\Settings.png" />
     <Resource Include="Images\MaterialDark\Settings.png" />
     <Resource Include="Resources\StockSymbolNameData.json" />
-    <Reference Include="Syncfusion.Data.WPF">
-      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.Data.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Licensing">
-      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.Licensing.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfBusyIndicator.WPF">
-      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.SfBusyIndicator.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfGrid.WPF">
-      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.SfGrid.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfGridConverter.WPF">
-      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.SfGridConverter.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfInput.WPF">
-      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.SfInput.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfShared.WPF">
-      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.SfShared.Wpf.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfSkinManager.WPF">
-      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.SfSkinManager.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfTreeNavigator.WPF">
-      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.SfTreeNavigator.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Shared.WPF">
-      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.Shared.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Themes.MaterialDark.WPF">
-      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.Themes.MaterialDark.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Themes.MaterialLight.WPF">
-      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.Themes.MaterialLight.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Tools.WPF">
-      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.Tools.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.XlsIO.Base">
-      <HintPath>..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.2.0.44\precompiledassemblies\netcoreapp3.1\Syncfusion.XlsIO.Base.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
   <ItemGroup>

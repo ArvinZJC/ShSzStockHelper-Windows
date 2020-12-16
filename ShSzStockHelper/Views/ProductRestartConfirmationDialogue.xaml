@@ -20,11 +20,7 @@
                              Width="{Binding SmallWindowWidth, Source={x:Static properties:Settings.Default}}"
                              WindowStartupLocation="CenterOwner">
     <syncfusion:ChromelessWindow.Resources>
-        <Style BasedOn="{StaticResource WPFToolTipStyle}" TargetType="ToolTip">
-            <Setter Property="FontFamily" Value="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}" />
-            <Setter Property="FontSize" Value="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}" />
-            <Setter Property="MaxWidth" Value="300" />
-        </Style>
+        <Style BasedOn="{StaticResource ToolTipStyle}" TargetType="ToolTip" />
     </syncfusion:ChromelessWindow.Resources>
 
     <StackPanel Margin="15" VerticalAlignment="Center">

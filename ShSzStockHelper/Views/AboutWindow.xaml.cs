@@ -1,10 +1,10 @@
 ﻿/*
  * @Description: the back-end code of the window for showing the info about the product
- * @Version: 1.0.1.20200831
+ * @Version: 1.0.2.20201130
  * @Author: Arvin Zhao
  * @Date: 2020-08-30 19:26:31
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2020-08-31 19:36:43
+ * @LastEditTime: 2020-11-30 19:36:43
  */
 
 using System.Diagnostics;
@@ -20,17 +20,16 @@ namespace ShSzStockHelper.Views
         /// <summary>
         /// Initialise a new instance of the <see cref="AboutWindow"/> class.
         /// </summary>
-        /// <param name="productName">The name of the product.</param>
-        /// <param name="productVersion">The version of the product.</param>
-        /// <param name="productCopyright">The copyright of the product.</param>
-        public AboutWindow(string productName, string productVersion, string productCopyright)
+        public AboutWindow()
         {
             InitializeComponent();
 
+            var productName = App.GetProductName();
+
             WindowAbout.Title = Properties.Resources.About + productName;
             TextBlockProductName.Text = productName;
-            TextBlockProductVersion.Text = productVersion;
-            TextBlockProductCopyright.Text = productCopyright;
+            TextBlockProductVersion.Text = App.GetProductVersion();
+            TextBlockProductCopyright.Text = App.GetProductCopyright();
         } // end constructor AboutWindow
 
         #region Control Events
