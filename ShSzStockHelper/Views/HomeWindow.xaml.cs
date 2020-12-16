@@ -1,10 +1,10 @@
 ﻿/*
  * @Description: the back-end code of the home window
- * @Version: 1.1.8.20201130
+ * @Version: 1.1.9.20201216
  * @Author: Arvin Zhao
  * @Date: 2020-07-08 10:17:48
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2020-11-30 14:12:09
+ * @LastEditTime: 2020-12-16 14:12:09
  */
 
 using ShSzStockHelper.ViewModels;
@@ -42,7 +42,7 @@ namespace ShSzStockHelper.Views
         #region Control Events
         private void MenuItemAbout_OnClick(object sender, RoutedEventArgs e)
         {
-            new AboutWindow() {Owner = this}.ShowDialog();
+            new AboutWindow {Owner = this}.ShowDialog();
         } // end method MenuItemAbout_OnClick
 
         private void MenuItemSettings_OnClick(object sender, RoutedEventArgs e)

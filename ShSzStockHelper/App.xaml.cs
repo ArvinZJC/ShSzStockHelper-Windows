@@ -1,10 +1,10 @@
 ﻿/*
  * @Description: the back-end code of initialising the app
- * @Version: 1.0.8.20201130
+ * @Version: 1.0.9.20201216
  * @Author: Arvin Zhao
  * @Date: 2020-07-08 10:17:48
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2020-11-30 14:14:55
+ * @LastEditTime: 2020-12-16 14:14:55
  */
 
 using Bluegrams.Application;
@@ -25,7 +25,10 @@ namespace ShSzStockHelper
     /// </summary>
     public partial class App
     {
-        private static string _productId, _productName, _productVersion, _productCopyright;
+        private readonly string _productId = Assembly.GetExecutingAssembly().GetName().Name;
+        private static string _productName = ShSzStockHelper.Properties.Resources.NullProductNameError;
+        private static string _productVersion = ShSzStockHelper.Properties.Resources.NullProductVersionError;
+        private static string _productCopyright = ShSzStockHelper.Properties.Resources.NullProductCopyrightError;
         private Mutex _mutex; // It is important to declare the mutex here. Otherwise, it may have no effect.
 
         /// <summary>
@@ -35,14 +38,10 @@ namespace ShSzStockHelper
         {
             SyncfusionLicenseProvider.RegisterLicense("MzI2OTM0QDMxMzgyZTMzMmUzMGFyTEY5ai9VTGlKRXcrdlpLSjU5VUlHR1ZZZzkxeDlBYzdkMHMvY0d0LzA9"); // Register a Syncfusion license.
 
-            _productId = Assembly.GetExecutingAssembly().GetName().Name;
-            _productName = ShSzStockHelper.Properties.Resources.NullProductNameError;
-            _productVersion = ShSzStockHelper.Properties.Resources.NullProductVersionError;
-            _productCopyright = ShSzStockHelper.Properties.Resources.NullProductCopyrightError;
-
             string productCompany = null;
             var assembly = Assembly.GetEntryAssembly();
 
+            // Assigning a value to a static field in a constructor could cause unreliable behaviour at runtime since it will change the value for all instances of the class. However, the constructor for initialising the app could be considered as a special circumstance.
             if (assembly != null)
             {
                 var fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
