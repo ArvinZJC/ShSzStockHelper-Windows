@@ -110,12 +110,6 @@
     <Setting Name="SearchIconUri_MaterialDark" Type="System.String" Scope="Application">
       <Value Profile="(Default)">../Images/MaterialDark/Search.png</Value>
     </Setting>
-    <Setting Name="SettingsIconUri_MaterialLight" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">../Images/MaterialLight/Settings.png</Value>
-    </Setting>
-    <Setting Name="SettingsIconUri_MaterialDark" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">../Images/MaterialDark/Settings.png</Value>
-    </Setting>
     <Setting Name="PrimaryTextColour_MaterialLight" Type="System.Windows.Media.SolidColorBrush" Scope="Application">
       <Value Profile="(Default)">#DD000000</Value>
     </Setting>

@@ -367,7 +367,7 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 界面上的文字字体，少部分界面元素不应用此设置。您对此设置的修改可能造成布局异常，若出现此问题，请您换用其他字体。.
+        ///   Looks up a localized string similar to 界面上的文字字体。您对此设置的修改可能造成布局异常，若出现此问题，请您换用其他字体。.
         /// </summary>
         public static string DisplayFontFamilyNameSetting_Explanation {
             get {

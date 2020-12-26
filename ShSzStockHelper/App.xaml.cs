@@ -41,7 +41,6 @@ namespace ShSzStockHelper
             string productCompany = null;
             var assembly = Assembly.GetEntryAssembly();
 
-            // Assigning a value to a static field in a constructor could cause unreliable behaviour at runtime since it will change the value for all instances of the class. However, the constructor for initialising the app could be considered as a special circumstance.
             if (assembly != null)
             {
                 var fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);

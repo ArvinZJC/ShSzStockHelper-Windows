@@ -146,14 +146,14 @@
     <Setting Name="SearchIconUri" Type="System.String" Scope="User">
       <Value Profile="(Default)">../Images/MaterialLight/Search.png</Value>
     </Setting>
-    <Setting Name="SettingsIconUri" Type="System.String" Scope="User">
-      <Value Profile="(Default)">../Images/MaterialLight/Settings.png</Value>
-    </Setting>
     <Setting Name="PrimaryTextColour" Type="System.Windows.Media.SolidColorBrush" Scope="User">
       <Value Profile="(Default)">#DD000000</Value>
     </Setting>
     <Setting Name="MediumIconSideLength" Type="System.Double" Scope="User">
       <Value Profile="(Default)">50</Value>
+    </Setting>
+    <Setting Name="TitleBarButtonSideLength" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">24</Value>
     </Setting>
   </Settings>
 </SettingsFile>

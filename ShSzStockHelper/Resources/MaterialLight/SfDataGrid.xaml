@@ -1,4 +1,4 @@
-<!-- A resource dictionary for a data syncfusionSfGrid with the Material Light theme. -->
+<!-- A resource dictionary for a data grid with the Material Light theme. -->
 <!-- ReSharper disable Xaml.IndexOutOfGridDefinition, Xaml.MissingGridIndex, Xaml.BindingWithContextNotResolved, InconsistentNaming -->
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:helpers="clr-namespace:ShSzStockHelper.Helpers"

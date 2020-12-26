@@ -538,18 +538,6 @@ namespace ShSzStockHelper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("../Images/MaterialLight/Settings.png")]
-        public string SettingsIconUri {
-            get {
-                return ((string)(this["SettingsIconUri"]));
-            }
-            set {
-                this["SettingsIconUri"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#DD000000")]
         public global::System.Windows.Media.SolidColorBrush PrimaryTextColour {
             get {
@@ -569,6 +557,15 @@ namespace ShSzStockHelper.Properties {
             }
             set {
                 this["MediumIconSideLength"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("24")]
+        public double TitleBarButtonSideLength {
+            get {
+                return ((double)(this["TitleBarButtonSideLength"]));
             }
         }
     }

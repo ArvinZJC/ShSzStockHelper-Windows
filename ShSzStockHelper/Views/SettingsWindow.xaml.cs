@@ -1,10 +1,10 @@
 ﻿/*
  * @Description: the back-end code of the settings window
- * @Version: 1.1.6.20201129
+ * @Version: 1.2.0.20201224
  * @Author: Arvin Zhao
  * @Date: 2020-08-31 12:22:18
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2020-11-29 12:38:34
+ * @LastEditTime: 2020-12-24 12:38:34
  */
 
 using ShSzStockHelper.Models;
@@ -23,6 +23,7 @@ using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Navigation;
 
 namespace ShSzStockHelper.Views
 {
@@ -179,6 +180,11 @@ namespace ShSzStockHelper.Views
             ComboBoxExcelFileFormat.SelectedItem = Properties.Settings.Default.ExcelFileFormat == 1
                 ? ComboBoxItemXls
                 : ComboBoxItemXlsx;
+            
+            // About.
+            TextBlockProductName.Text = App.GetProductName();
+            TextBlockProductVersion.Text = App.GetProductVersion();
+            TextBlockProductCopyright.Text = App.GetProductCopyright();
         } // end constructor SettingsWindow
 
         #region Control Events
@@ -356,7 +362,6 @@ namespace ShSzStockHelper.Views
                 Properties.Settings.Default.PrimaryTextColour = Properties.DefaultUserSettings.Default.PrimaryTextColour_MaterialDark;
                 Properties.Settings.Default.ContentTextColour = Properties.DefaultUserSettings.Default.ContentTextColour_MaterialDark;
                 Properties.Settings.Default.MenuIconUri = Properties.DefaultUserSettings.Default.MenuIconUri_MaterialDark;
-                Properties.Settings.Default.SettingsIconUri = Properties.DefaultUserSettings.Default.SettingsIconUri_MaterialDark;
                 Properties.Settings.Default.AboutIconUri = Properties.DefaultUserSettings.Default.AboutIconUri_MaterialDark;
                 Properties.Settings.Default.SearchIconUri = Properties.DefaultUserSettings.Default.SearchIconUri_MaterialDark;
                 Properties.Settings.Default.ClearSelectionIconUri = Properties.DefaultUserSettings.Default.ClearSelectionIconUri_MaterialDark;
@@ -370,7 +375,6 @@ namespace ShSzStockHelper.Views
                 Properties.Settings.Default.PrimaryTextColour = Properties.DefaultUserSettings.Default.PrimaryTextColour_MaterialLight;
                 Properties.Settings.Default.ContentTextColour = Properties.DefaultUserSettings.Default.ContentTextColour_MaterialLight;
                 Properties.Settings.Default.MenuIconUri = Properties.DefaultUserSettings.Default.MenuIconUri_MaterialLight;
-                Properties.Settings.Default.SettingsIconUri = Properties.DefaultUserSettings.Default.SettingsIconUri_MaterialLight;
                 Properties.Settings.Default.AboutIconUri = Properties.DefaultUserSettings.Default.AboutIconUri_MaterialLight;
                 Properties.Settings.Default.SearchIconUri = Properties.DefaultUserSettings.Default.SearchIconUri_MaterialLight;
                 Properties.Settings.Default.ClearSelectionIconUri = Properties.DefaultUserSettings.Default.ClearSelectionIconUri_MaterialLight;
@@ -423,6 +427,12 @@ namespace ShSzStockHelper.Views
             Properties.Settings.Default.MinDate = new DateTime(selectedDateTime.Year, selectedDateTime.Month, selectedDateTime.Day);
         } // end method DatePickerMinDate_DateTimeChanged
 
+        private void HyperlinkOpenSource_OnRequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start("explorer.exe", e.Uri.AbsoluteUri);
+            e.Handled = true;
+        } // end method HyperlinkOpenSource_OnRequestNavigate
+        
         private void ScrollViewerSettings_OnScrollChanged(object sender, ScrollChangedEventArgs e)
         {
             // Change the selected item of the specified tree navigator programmatically, only if the user scrolls the specified scroll viewer.
@@ -441,6 +451,7 @@ namespace ShSzStockHelper.Views
             var heightExportToExcel = heightVolumeDecimalDigits + StackPanelExportToExcel.ActualHeight;
             var heightExcelCellFontFamilyName = heightExportToExcel + StackPanelExcelCellFontFamilyName.ActualHeight;
             var heightExcelCellFontSize = heightExcelCellFontFamilyName + StackPanelExcelCellFontSize.ActualHeight;
+            var heightExcelFileFormat = heightExcelCellFontSize + StackPanelExcelFileFormat.ActualHeight;
 
 
             if (ScrollViewerSettings.VerticalOffset < StackPanelGeneral.ActualHeight)
@@ -469,8 +480,10 @@ namespace ShSzStockHelper.Views
                 TreeNavigatorSettings.SelectedItem = TreeNavigatorItemExcelCellFontFamilyName;
             else if (ScrollViewerSettings.VerticalOffset < heightExcelCellFontSize)
                 TreeNavigatorSettings.SelectedItem = TreeNavigatorItemExcelCellFontSize;
-            else
+            else if (ScrollViewerSettings.VerticalOffset < heightExcelFileFormat)
                 TreeNavigatorSettings.SelectedItem = TreeNavigatorItemExcelFileFormat;
+            else
+                TreeNavigatorSettings.SelectedItem = TreeNavigatorItemAbout;
         } // end method ScrollViewerSettings_OnScrollChanged
 
         private void SettingsWindow_OnClosing(object sender, CancelEventArgs e)
@@ -539,6 +552,9 @@ namespace ShSzStockHelper.Views
 
             if (((SfTreeNavigatorItem) TreeNavigatorSettings.SelectedItem).Header.Equals(Properties.Resources.ExcelFileFormatSetting))
                 targetControl = StackPanelExcelFileFormat;
+            
+            if (((SfTreeNavigatorItem) TreeNavigatorSettings.SelectedItem).Header.Equals(Properties.Resources.About))
+                targetControl = StackPanelAbout;
 
             ScrollViewerSettings.ScrollToVerticalOffset(targetControl.TransformToVisual(ScrollViewerSettings).Transform(new Point(0, ScrollViewerSettings.VerticalOffset)).Y);
         } // end method TreeNavigatorSettings_OnSelectionChanged

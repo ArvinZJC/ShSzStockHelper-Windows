@@ -36,11 +36,11 @@
     <ROW Property="Caphyon" Value="Caphyon"/>
     <ROW Property="Manufacturer" Value="ArvinZJC"/>
     <ROW Property="OldDataFolderName" Value="Arvin_Zhao"/>
-    <ROW Property="ProductCode" Value="2052:{ED0D993F-BAC3-4909-AA49-111CD90667AA} " Type="16"/>
+    <ROW Property="ProductCode" Value="2052:{0AC94382-E4BF-4AF6-BDA7-D2E8136ECC9F} " Type="16"/>
     <ROW Property="ProductLanguage" Value="2052"/>
     <ROW Property="ProductName" Value="神户座"/>
     <ROW Property="ProductNameCode" Value="ShSzStockHelper"/>
-    <ROW Property="ProductVersion" Value="0.8.0" Type="32"/>
+    <ROW Property="ProductVersion" Value="0.8.3" Type="32"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
     <ROW Property="SetupExeDir" Value="[|Caphyon]\[|AdvancedInstaller]\[|ProductCode]\"/>
     <ROW Property="SetupFileName" Value="[|ProductNameCode]_Setup_V[|ProductVersion]"/>
@@ -74,7 +74,7 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
     <ROW Component="AIShRegAnswer" ComponentId="{48BA8E3B-2824-45DD-8339-464AB17D69C3}" Directory_="APPDIR" Attributes="4" KeyPath="AIShRegAnswer"/>
-    <ROW Component="AI_CustomARPName" ComponentId="{09C0F49A-972A-442A-921C-A374CF4DE710}" Directory_="APPDIR" Attributes="4" KeyPath="DisplayName" Options="1"/>
+    <ROW Component="AI_CustomARPName" ComponentId="{700DD557-4FE9-4B12-AAAB-EEA97BDCCFE0}" Directory_="APPDIR" Attributes="4" KeyPath="DisplayName" Options="1"/>
     <ROW Component="AI_ExePath" ComponentId="{F53F50AD-6DCA-4C10-94C0-19CDBBDC6C6E}" Directory_="APPDIR" Attributes="4" KeyPath="AI_ExePath"/>
     <ROW Component="APPDIR" ComponentId="{10D3588F-0A61-4867-B26F-06F70CACF64E}" Directory_="APPDIR" Attributes="0"/>
     <ROW Component="C__0725C656528846388FDCE9D0E3124DB8" ComponentId="{A28471DB-E16F-4EB1-B61C-F9492F924B34}" Directory_="APPDIR" Attributes="0" Condition="VersionNT64" KeyPath="_0725C656528846388FDCE9D0E3124DB8"/>

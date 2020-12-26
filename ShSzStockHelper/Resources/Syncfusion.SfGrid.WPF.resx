@@ -133,6 +133,10 @@
     <value>清除筛选</value>
     <comment>Text for Clear filters</comment>
   </data>
+  <data name="CurrentPage" xml:space="preserve">
+    <value>当前页面</value>
+    <comment>Current Page</comment>
+  </data>
   <data name="CustomMargin" xml:space="preserve">
     <value>自定义页边距...</value>
     <comment>Text for PrintDialog CustomMargin</comment>
@@ -241,9 +245,25 @@
     <value>纵向</value>
     <comment>Text for Portrait Orientation of PrintDialog</comment>
   </data>
+  <data name="PostivePageNumberValidationMessage" xml:space="preserve">
+    <value>此条目必须为正数</value>
+    <comment>Text for Page Text Box Entry must be positive value in PrintDialog</comment>
+  </data>
   <data name="Print" xml:space="preserve">
     <value>打印</value>
     <comment>Text for Print option in PrintDialog</comment>
+  </data>
+  <data name="PrintPageMaxValidationMessage" xml:space="preserve">
+    <value>此条目必须大于或等于1</value>
+    <comment>Text for Page Text Box Entry Greater Than Or Equal To One in PrintDialog</comment>
+  </data>
+  <data name="PrintPageMinValidationMessage" xml:space="preserve">
+    <value>此条目必须小于或等于</value>
+    <comment>Text for Page Text Box Entry Less Than Or Equal To Page Count in PrintDialog</comment>
+  </data>
+  <data name="PrintPageNumberValidationMessage" xml:space="preserve">
+    <value>此条目必须为数字</value>
+    <comment>Text for Page Text Box Entry must be a Number in PrintDialog</comment>
   </data>
   <data name="PrintPreview" xml:space="preserve">
     <value>打印预览</value>

@@ -1222,24 +1222,32 @@
                                                 Width="24"
                                                 Height="24"
                                                 Command="{Binding FirstCommand}"
-                                                ToolTip="{x:Static properties:Resources.FirstPage}"
                                                 Style="{StaticResource WPFGlyphButtonStyle}">
                                             <Path Data="M9.5280266,0.0090068526 L11.000011,1.3629964 6.718029,6.0179985 10.98402,10.656002 9.5120354,12.010007 4.0000115,6.0179985 z M0,0 L2,0 2,12 0,12 z"
                                                   Width="11"
                                                   Height="12.01"
                                                   Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}"/>
+                                            <ToolTipService.ToolTip>
+                                                <TextBlock FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
+                                                           FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
+                                                           Text="{x:Static properties:Resources.FirstPage}"/>
+                                            </ToolTipService.ToolTip>
                                         </Button>
                                         <Button x:Name="PerviousPageButton"
                                                 Margin="5,0"
                                                 Width="24"
                                                 Height="24"
                                                 Command="{Binding PreviousCommand}"
-                                                ToolTip="{x:Static properties:Resources.PreviousPage}"
                                                 Style="{StaticResource WPFGlyphButtonStyle}">
                                             <Path Data="M7.7109926,0 L9.0010002,1.529007 3.1009803,6.5099945 8.97799,11.472 7.6879824,13 0,6.5099945 z"
                                                   Width="9.001"
                                                   Height="13"
                                                   Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}"/>
+                                            <ToolTipService.ToolTip>
+                                                <TextBlock FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
+                                                           FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
+                                                           Text="{x:Static properties:Resources.PreviousPage}"/>
+                                            </ToolTipService.ToolTip>
                                         </Button>
                                         <TextBox x:Name="PART_TextBox"
                                                  Width="25"
@@ -1260,24 +1268,32 @@
                                                 Width="24"
                                                 Height="24"
                                                 Command="{Binding NextCommand}"
-                                                ToolTip="{x:Static properties:Resources.NextPage}"
                                                 Style="{StaticResource WPFGlyphButtonStyle}">
                                             <Path Data="M1.2899816,0 L9.0010002,6.5099945 1.3129919,13 0.022979841,11.472 5.9000094,6.5099945 0,1.529007 z"
                                                   Width="9.001"
                                                   Height="13"
                                                   Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}"/>
+                                            <ToolTipService.ToolTip>
+                                                <TextBlock FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
+                                                           FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
+                                                           Text="{x:Static properties:Resources.NextPage}"/>
+                                            </ToolTipService.ToolTip>
                                         </Button>
                                         <Button x:Name="LastPageButton"
                                                 Margin="0,0,15,0"
                                                 Width="24"
                                                 Height="24"
                                                 Command="{Binding LastCommand}"
-                                                ToolTip="{x:Static properties:Resources.LastPage}"
                                                 Style="{StaticResource WPFGlyphButtonStyle}">
                                             <Path Data="M1.4710002,0.0089941425 L7.0000001,6.0179982 1.4880004,12.010002 0.015999794,10.656001 4.2820001,6.0179982 0,1.3629951 z M8.9989967,0 L10.998997,0 10.998997,12 8.9989967,12 z"
                                                   Width="11"
                                                   Height="12.01"
                                                   Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}"/>
+                                            <ToolTipService.ToolTip>
+                                                <TextBlock FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
+                                                           FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
+                                                           Text="{x:Static properties:Resources.LastPage}"/>
+                                            </ToolTipService.ToolTip>
                                         </Button>
                                     </StackPanel>
                                     <Grid HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="0,0,8,0">

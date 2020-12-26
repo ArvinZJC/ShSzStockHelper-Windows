@@ -105,17 +105,17 @@
                                      VerticalAlignment="Center"/>
 
              <syncfusion:ButtonAdv x:Name="ButtonSearch"
-                                  Grid.Column="3"
-                                  Click="ButtonSearch_ClickAsync"
-                                  HorizontalAlignment="Right"
-                                  IconHeight="{Binding SmallIconSideLength, Source={x:Static properties:Settings.Default}}"
-                                  IconWidth="{Binding SmallIconSideLength, Source={x:Static properties:Settings.Default}}"
-                                  IsEnabled="False"
-                                  Padding="15,5,15,5"
-                                  SizeMode="Small"
-                                  SmallIcon="{Binding SearchIconUri, Converter={StaticResource IconUriConverter}, Source={x:Static properties:Settings.Default}}"
-                                  ToolTip="{x:Static properties:Resources.ButtonSearch_ToolTip}"
-                                  VerticalAlignment="Center"/>
+                                   Grid.Column="3"
+                                   Click="ButtonSearch_ClickAsync"
+                                   HorizontalAlignment="Right"
+                                   IconHeight="{Binding SmallIconSideLength, Source={x:Static properties:Settings.Default}}"
+                                   IconWidth="{Binding SmallIconSideLength, Source={x:Static properties:Settings.Default}}"
+                                   IsEnabled="False"
+                                   Padding="15,5,15,5"
+                                   SizeMode="Small"
+                                   SmallIcon="{Binding SearchIconUri, Converter={StaticResource IconUriConverter}, Source={x:Static properties:Settings.Default}}"
+                                   ToolTip="{x:Static properties:Resources.ButtonSearch_ToolTip}"
+                                   VerticalAlignment="Center"/>
         </Grid>
 
         <syncfusionNotification:SfBusyIndicator x:Name="BusyIndicatorSearchResultArea"

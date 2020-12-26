@@ -8,10 +8,12 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/Syncfusion.Themes.MaterialLight.WPF;component/ButtonAdv/ButtonAdv.xaml" />
         <ResourceDictionary Source="/Syncfusion.Themes.MaterialLight.WPF;component/ComboBoxAdv/ComboBoxAdv.xaml" />
+        <ResourceDictionary Source="/Syncfusion.Themes.MaterialLight.WPF;component/MSControl/FlatButton.xaml" />
         <ResourceDictionary Source="/Syncfusion.Themes.MaterialLight.WPF;component/MSControl/Tooltip.xaml" />
         <ResourceDictionary Source="/Syncfusion.Themes.MaterialLight.WPF;component/SfTreeNavigator/SfTreeNavigator.xaml" />
         <ResourceDictionary Source="DateTimeEdit.xaml" />
         <ResourceDictionary Source="GridPrintPreviewControl.xaml" />
+        <ResourceDictionary Source="PrintPreviewWindow.xaml" />
         <ResourceDictionary Source="SfDataGrid.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
@@ -178,7 +180,9 @@
 
     <Style x:Key="GridFilterControlStyle"
            BasedOn="{StaticResource SyncfusionGridFilterControlStyle}"
-           TargetType="syncfusion:GridFilterControl"/>
+           TargetType="syncfusion:GridFilterControl">
+        <Setter Property="AdvancedFilterStyle" Value="{StaticResource SyncfusionAdvancedFilterControlStyle}" />
+    </Style>
 
     <Style x:Key="GridHeaderStyle"
            BasedOn="{StaticResource SyncfusionGridHeaderCellControlStyle}"
@@ -211,9 +215,8 @@
     </Style>
 
     <Style x:Key="PrintPreviewWindowStyle"
-           BasedOn="{StaticResource SyncfusionChromelessWindowStyle}"
+           BasedOn="{StaticResource SyncfusionPrintPreviewWindowStyle}"
            TargetType="{x:Type syncfusion:ChromelessWindow}">
-        <Setter Property="FontFamily" Value="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}" />
         <Setter Property="Icon" Value="../../AppIcon.ico" />
         <Setter Property="ShowMinimizeButton" Value="False" />
         <Setter Property="Title" Value="{x:Static properties:Resources.PrintPreview}" />

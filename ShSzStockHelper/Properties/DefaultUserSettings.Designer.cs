@@ -12,7 +12,7 @@ namespace ShSzStockHelper.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.7.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
     internal sealed partial class DefaultUserSettings : global::System.Configuration.ApplicationSettingsBase {
         
         private static DefaultUserSettings defaultInstance = ((DefaultUserSettings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new DefaultUserSettings())));
@@ -344,24 +344,6 @@ namespace ShSzStockHelper.Properties {
         public string SearchIconUri_MaterialDark {
             get {
                 return ((string)(this["SearchIconUri_MaterialDark"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("../Images/MaterialLight/Settings.png")]
-        public string SettingsIconUri_MaterialLight {
-            get {
-                return ((string)(this["SettingsIconUri_MaterialLight"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("../Images/MaterialDark/Settings.png")]
-        public string SettingsIconUri_MaterialDark {
-            get {
-                return ((string)(this["SettingsIconUri_MaterialDark"]));
             }
         }
         

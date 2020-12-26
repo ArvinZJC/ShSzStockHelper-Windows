@@ -1,10 +1,10 @@
 ﻿/*
  * @Description: the back-end code of the home window
- * @Version: 1.1.9.20201216
+ * @Version: 1.2.0.20201224
  * @Author: Arvin Zhao
  * @Date: 2020-07-08 10:17:48
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2020-12-16 14:12:09
+ * @LastEditTime: 2020-12-24 14:12:09
  */
 
 using ShSzStockHelper.ViewModels;
@@ -36,16 +36,11 @@ namespace ShSzStockHelper.Views
             var productName = App.GetProductName();
 
             WindowHome.Title = productName + " " + App.GetProductVersion(); // Display the app name and the package version defined in "Properties\Package\Package version".
-            MenuItemAbout.Header = Properties.Resources.About + productName;
+            //MenuItemAbout.Header = Properties.Resources.About + productName;
         } // end constructor HomeWindow
 
         #region Control Events
-        private void MenuItemAbout_OnClick(object sender, RoutedEventArgs e)
-        {
-            new AboutWindow {Owner = this}.ShowDialog();
-        } // end method MenuItemAbout_OnClick
-
-        private void MenuItemSettings_OnClick(object sender, RoutedEventArgs e)
+        private void ButtonSettings_OnClick(object sender, RoutedEventArgs e)
         {
             // Allow opening only 1 settings window.
             foreach(Window window in Application.Current.Windows)
@@ -56,7 +51,7 @@ namespace ShSzStockHelper.Views
                 } // end if
 
             new SettingsWindow(_systemFontFamilyNameViewModel).Show();
-        } // end method MenuItemSettings_OnClick
+        } // end method ButtonSettings_OnClick
 
         // Add a new tab with the specified content when the new button of the specified tab control is clicked.
         private void TabControlStrikePriceVolume_NewButtonClick(object sender, EventArgs e)

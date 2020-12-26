@@ -29,20 +29,20 @@ UI 4:
 
 ## ATTENTION
 
-1. By 16 December 2020, everything looks good with Visual Studio 2019 + WPF with .NET Core 3.1. Additionally, I would like to thankfully acknowledge Syncfusion for [its powerful WPF UI controls and libraries](https://www.syncfusion.com/wpf-ui-controls), which save much development time.
+1. By 27 December 2020, everything looks good with Visual Studio 2019 + WPF with .NET Core 3.1. Additionally, I would like to thankfully acknowledge Syncfusion for [its powerful WPF UI controls and libraries](https://www.syncfusion.com/wpf-ui-controls), which save much development time.
 2. Icon images except the icon of the application are from [Material Design Icons](https://material.io/resources/icons/?style=baseline) and [Flaticon](https://www.flaticon.com/).
 3. The main NuGet packages used in the application are listed in the following table.
 
     | Name | Version |
     | :-- | :--: |
-    | [HtmlAgilityPack](https://html-agility-pack.net/) | 1.11.28 |
+    | [HtmlAgilityPack](https://html-agility-pack.net/) | 1.11.29 |
     | [Newtonsoft.Json](https://www.newtonsoft.com/json) | 12.0.3 |
     | [PortableSettingsProvider](https://github.com/Bluegrams/SettingsProviders) | 0.2.4 |
-    | Syncfusion.DataGridExcelExport.Wpf | 18.3.0.53 |
-    | Syncfusion.SfBusyIndicator.WPF | 18.3.0.53 |
-    | Syncfusion.SfGrid.WPF | 18.3.0.53 |
-    | Syncfusion.SfInput.WPF | 18.3.0.53 |
-    | Syncfusion.SfTreeNavigator.WPF | 18.3.0.53 |
-    | Syncfusion.Themes.MaterialDark.WPF | 18.3.0.53 |
-    | Syncfusion.Themes.MaterialLight.WPF | 18.3.0.53 |
-    | Syncfusion.Tools.WPF | 18.3.0.53 |
+    | Syncfusion.DataGridExcelExport.Wpf | 18.4.0.31 |
+    | Syncfusion.SfBusyIndicator.WPF | 18.4.0.31 |
+    | Syncfusion.SfGrid.WPF | 18.4.0.31 |
+    | Syncfusion.SfInput.WPF | 18.4.0.31 |
+    | Syncfusion.SfTreeNavigator.WPF | 18.4.0.31 |
+    | Syncfusion.Themes.MaterialDark.WPF | 18.4.0.31 |
+    | Syncfusion.Themes.MaterialLight.WPF | 18.4.0.31 |
+    | Syncfusion.Tools.WPF | 18.4.0.31 |

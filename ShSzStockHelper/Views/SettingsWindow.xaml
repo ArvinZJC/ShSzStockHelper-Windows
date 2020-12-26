@@ -95,6 +95,10 @@
             <syncfusion:SfTreeNavigatorItem x:Name="TreeNavigatorItemExcelFileFormat"
                                             Header="{x:Static properties:Resources.ExcelFileFormatSetting}"
                                             Style="{StaticResource TreeNavigatorSubItemStyle}" />
+
+            <syncfusion:SfTreeNavigatorItem x:Name="TreeNavigatorItemAbout"
+                                            Header="{x:Static properties:Resources.About}"
+                                            Style="{StaticResource TreeNavigatorItemStyle}" />
         </syncfusion:SfTreeNavigator>
 
         <ScrollViewer x:Name="ScrollViewerSettings"
@@ -373,6 +377,45 @@
                         <syncfusion:ComboBoxItemAdv x:Name="ComboBoxItemXls" Content="{x:Static properties:Resources.ComboBoxItemXls_Content}"/>
                         <syncfusion:ComboBoxItemAdv x:Name="ComboBoxItemXlsx" Content="{x:Static properties:Resources.ComboBoxItemXlsx_Content}"/>
                     </syncfusion:ComboBoxAdv>
+                </StackPanel>
+
+                <StackPanel x:Name="StackPanelAbout" VerticalAlignment="Center">
+                    <TextBlock Style="{StaticResource TextBlockMainTitleStyle}" Text="{x:Static properties:Resources.About}"/>
+
+                    <Image Height="{Binding HugeIconSideLength, Source={x:Static properties:Settings.Default}}"
+                           Margin="0,0,0,10"
+                           Source="../AppIcon.ico"
+                           Width="{Binding HugeIconSideLength, Source={x:Static properties:Settings.Default}}"/>
+
+                    <TextBlock x:Name="TextBlockProductName"
+                               FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
+                               FontSize="{Binding HugeTextFontSize, Source={x:Static properties:Settings.Default}}"
+                               FontWeight="Bold"
+                               HorizontalAlignment="Center"/>
+
+                    <TextBlock x:Name="TextBlockProductVersion"
+                               FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
+                               FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
+                               HorizontalAlignment="Center"
+                               Margin="0,0,0,10"/>
+
+                    <TextBlock FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
+                               FontSize="{Binding ContentTextFontSize, Source={x:Static properties:Settings.Default}}"
+                               Foreground="{Binding ContentTextColour, Source={x:Static properties:Settings.Default}}"
+                               HorizontalAlignment="Center"
+                               Margin="0,0,0,10">
+                        <Run Text="{x:Static properties:Resources.TextBlockOpenSource_Text_Part1}"/>
+                        <Hyperlink NavigateUri="https://github.com/ArvinZJC/ShSzStockHelper-Windows" RequestNavigate="HyperlinkOpenSource_OnRequestNavigate">
+                            <Run Text="{x:Static properties:Resources.TextBlockOpenSource_Text_Part2}"></Run>
+                        </Hyperlink>
+                        <Run Text="{x:Static properties:Resources.TextBlockOpenSource_Text_Part3}"/>
+                    </TextBlock>
+
+                    <TextBlock x:Name="TextBlockProductCopyright"
+                               FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
+                               FontSize="{Binding ExplanationTextFontSize, Source={x:Static properties:Settings.Default}}"
+                               Foreground="{Binding ExplanationTextColour, Source={x:Static properties:Settings.Default}}"
+                               HorizontalAlignment="Center"/>
                 </StackPanel>
 
                 <StackPanel x:Name="StackPanelSpace"/>
