@@ -13,19 +13,27 @@
 
 示例1:
 
-![UI1.jpg](./Images_README/UI1.jpg)
+![UI1.png](./Images_README/UI1.png)
 
 示例2:
 
-![UI2.jpg](./Images_README/UI2.jpg)
+![UI2.png](./Images_README/UI2.png)
 
 示例3:
 
-![UI3.jpg](./Images_README/UI3.jpg)
+![UI3.png](./Images_README/UI3.png)
 
 示例4:
 
-![UI4.jpg](./Images_README/UI4.jpg)
+![UI4.png](./Images_README/UI4.png)
+
+示例5:
+
+![UI5.png](./Images_README/UI5.png)
+
+示例6:
+
+![UI6.png](./Images_README/UI6.png)
 
 ## 注意
 

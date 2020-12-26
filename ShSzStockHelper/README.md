@@ -9,23 +9,31 @@ This is the Visual Studio solution folder of the application. It contains code a
 3. The data retrieved can be exported to an Excel file (.xls/.xlsx), and it is also available to be printed. A Print Preview window with printing settings will be displayed.
 4. The preferences for themes, fonts, functionality, etc. can be changed by the user.
 
-## Partial UI
+## Partial UI (For Reference Only)
 
 UI 1:
 
-![UI1.jpg](./Images_README/UI1.jpg)
+![UI1.png](./Images_README/UI1.png)
 
 UI 2:
 
-![UI2.jpg](./Images_README/UI2.jpg)
+![UI2.png](./Images_README/UI2.png)
 
 UI 3:
 
-![UI3.jpg](./Images_README/UI3.jpg)
+![UI3.png](./Images_README/UI3.png)
 
 UI 4:
 
-![UI4.jpg](./Images_README/UI4.jpg)
+![UI4.png](./Images_README/UI4.png)
+
+UI 5:
+
+![UI5.png](./Images_README/UI5.png)
+
+UI 6:
+
+![UI6.png](./Images_README/UI6.png)
 
 ## ATTENTION
 

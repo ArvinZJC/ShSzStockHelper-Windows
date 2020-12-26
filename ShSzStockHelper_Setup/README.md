@@ -4,15 +4,15 @@
 
 This is the Advanced Installer project folder of the application setup file. The files in the folder are mainly used to build the latest application setup file (.exe) with user-friendly UI. The setup file can install/modify/uninstall the application on the computer.
 
-## Partial UI
+## Partial UI (For Reference Only)
 
 UI 1:
 
-![UI1.jpg](./Images_README/UI1.jpg)
+![UI1.png](./Images_README/UI1.png)
 
 UI 2:
 
-![UI2.jpg](./Images_README/UI2.jpg)
+![UI2.png](./Images_README/UI2.png)
 
 ## ATTENTION
 

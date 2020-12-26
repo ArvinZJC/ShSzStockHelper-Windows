@@ -8,11 +8,11 @@
 
 示例1:
 
-![UI1.jpg](./Images_README/UI1.jpg)
+![UI1.png](./Images_README/UI1.png)
 
 示例2:
 
-![UI2.jpg](./Images_README/UI2.jpg)
+![UI2.png](./Images_README/UI2.png)
 
 ## 注意
 
