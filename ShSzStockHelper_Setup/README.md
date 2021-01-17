@@ -6,7 +6,7 @@ This is the Advanced Installer project folder of the application setup file. The
 
 ## ATTENTION
 
-1. By 27 December 2020, everything looks good with Advanced Installer 17.3. I would greatly show my appreciation of this handful setup tool which improves the performance of the application setup file.
+1. By 17 January 2021, everything looks good with Advanced Installer 17.3. I would greatly show my appreciation of this handful setup tool which improves the performance of the application setup file.
 2. The type of this installer project is **Architect**.
 
 ## Partial UI (For Reference Only)

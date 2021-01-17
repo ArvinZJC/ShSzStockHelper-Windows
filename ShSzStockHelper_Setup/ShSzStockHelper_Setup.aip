@@ -36,11 +36,11 @@
     <ROW Property="Caphyon" Value="Caphyon"/>
     <ROW Property="Manufacturer" Value="ArvinZJC"/>
     <ROW Property="OldDataFolderName" Value="Arvin_Zhao"/>
-    <ROW Property="ProductCode" Value="2052:{0AC94382-E4BF-4AF6-BDA7-D2E8136ECC9F} " Type="16"/>
+    <ROW Property="ProductCode" Value="2052:{9DCE245B-2F01-4BC9-B172-6D060B450613} " Type="16"/>
     <ROW Property="ProductLanguage" Value="2052"/>
     <ROW Property="ProductName" Value="神户座"/>
     <ROW Property="ProductNameCode" Value="ShSzStockHelper"/>
-    <ROW Property="ProductVersion" Value="0.8.3" Type="32"/>
+    <ROW Property="ProductVersion" Value="0.8.4" Type="32"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
     <ROW Property="SetupExeDir" Value="[|Caphyon]\[|AdvancedInstaller]\[|ProductCode]\"/>
     <ROW Property="SetupFileName" Value="[|ProductNameCode]_Setup_V[|ProductVersion]"/>
@@ -74,7 +74,7 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
     <ROW Component="AIShRegAnswer" ComponentId="{48BA8E3B-2824-45DD-8339-464AB17D69C3}" Directory_="APPDIR" Attributes="4" KeyPath="AIShRegAnswer"/>
-    <ROW Component="AI_CustomARPName" ComponentId="{700DD557-4FE9-4B12-AAAB-EEA97BDCCFE0}" Directory_="APPDIR" Attributes="4" KeyPath="DisplayName" Options="1"/>
+    <ROW Component="AI_CustomARPName" ComponentId="{6AB93F4E-4E1A-461C-95D4-2C969566A6B7}" Directory_="APPDIR" Attributes="4" KeyPath="DisplayName" Options="1"/>
     <ROW Component="AI_ExePath" ComponentId="{F53F50AD-6DCA-4C10-94C0-19CDBBDC6C6E}" Directory_="APPDIR" Attributes="4" KeyPath="AI_ExePath"/>
     <ROW Component="APPDIR" ComponentId="{10D3588F-0A61-4867-B26F-06F70CACF64E}" Directory_="APPDIR" Attributes="0"/>
     <ROW Component="C__0725C656528846388FDCE9D0E3124DB8" ComponentId="{A28471DB-E16F-4EB1-B61C-F9492F924B34}" Directory_="APPDIR" Attributes="0" Condition="VersionNT64" KeyPath="_0725C656528846388FDCE9D0E3124DB8"/>
@@ -323,7 +323,7 @@
     <ROW Dialog_="ShortcutsDlg" Control="StartmenuShortcutsCheckBox" Type="CheckBox" X="35" Y="195" Width="268" Height="15" Attributes="3" Property="AI_STARTMENU_SH" Text="开始菜单程序文件夹（推荐）" Order="900" MsiKey="ShortcutsDlg#StartmenuShortcutsCheckBox"/>
     <ROW Dialog_="ShortcutsDlg" Control="StartupShorcutsCheckBox" Type="CheckBox" X="35" Y="240" Width="162" Height="15" Attributes="3" Property="AI_STARTUP_SH" Text="启动文件夹" Order="1000" TextLocId="Control.Text.ShortcutsDlg#StartupShorcutsCheckBox" MsiKey="ShortcutsDlg#StartupShorcutsCheckBox"/>
     <ROW Dialog_="ShortcutsDlg" Control="ProductLogo" Type="Bitmap" X="17" Y="10" Width="55" Height="55" Attributes="1" Text="[AppLogoIcon]" Order="1100" MsiKey="ShortcutsDlg#ProductLogo"/>
-    <ROW Dialog_="ShortcutsDlg" Control="QuickLaunchShorcutsCheckBox" Type="CheckBox" X="35" Y="218" Width="162" Height="15" Attributes="3" Property="AI_QUICKLAUNCH_SH" Text="快速启动工具栏" Help="受部分系统限制，就算勾选子项，快捷方式仍可能无法在快速启动工具栏上创建|" Order="1200" TextLocId="Control.Text.ShortcutsDlg#QuickLaunchShorcutsCheckBox" MsiKey="ShortcutsDlg#QuickLaunchShorcutsCheckBox"/>
+    <ROW Dialog_="ShortcutsDlg" Control="QuickLaunchShorcutsCheckBox" Type="CheckBox" X="35" Y="218" Width="162" Height="15" Attributes="3" Property="AI_QUICKLAUNCH_SH" Text="快速启动工具栏" Help="|" Order="1200" TextLocId="Control.Text.ShortcutsDlg#QuickLaunchShorcutsCheckBox" MsiKey="ShortcutsDlg#QuickLaunchShorcutsCheckBox"/>
     <ROW Dialog_="UserExit" Control="Bitmap" Type="Bitmap" X="0" Y="0" Width="345" Height="400" Attributes="1" Text="[Background]" Order="300" MsiKey="UserExit#Bitmap"/>
     <ROW Dialog_="UserExit" Control="SubTitle" Type="Text" X="19" Y="105" Width="303" Height="17" Attributes="196611" Text="[ProductName] [ProductVersion] [Wizard]已被中断" TextStyle="[SubTitleStyle]" Order="400" MsiKey="UserExit#SubTitle"/>
     <ROW Dialog_="UserExit" Control="Description1" Type="Text" X="17" Y="139" Width="291" Height="69" Attributes="196611" Text="您已选择退出此[Wizard]。您的系统没有被修改。要稍后配置 [ProductName] [ProductVersion] ，请再运行此[Wizard]。" Order="500" MsiKey="UserExit#Description1"/>
@@ -361,7 +361,8 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiControlConditionComponent">
     <ROW Dialog_="ShortcutsDlg" Control_="StartupShorcutsCheckBox" Action="Hide" Condition="(Not Installed)"/>
-    <ATTRIBUTE name="DeletedRows" value="LicenseAgreementDlg#AgreeInstall#Hide#(Text_Next &lt;&gt; Text_Install) AND (LicenseAgreementDlg)@MaintenanceTypeDlg#RemoveLabel#Show#NOT AIEXTERNALUI@ShortcutsDlg#StartupShorcutsCheckBox#Show#(Not Installed)"/>
+    <ROW Dialog_="ShortcutsDlg" Control_="QuickLaunchShorcutsCheckBox" Action="Hide" Condition="(Not Installed) AND (VersionNT&lt;&quot;601&quot;)"/>
+    <ATTRIBUTE name="DeletedRows" value="LicenseAgreementDlg#AgreeInstall#Hide#(Text_Next &lt;&gt; Text_Install) AND (LicenseAgreementDlg)@MaintenanceTypeDlg#RemoveLabel#Show#NOT AIEXTERNALUI@ShortcutsDlg#QuickLaunchShorcutsCheckBox#Show#(Not Installed) AND (VersionNT&lt;&quot;601&quot;)@ShortcutsDlg#StartupShorcutsCheckBox#Show#(Not Installed)"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
     <ROW Dialog_="InstallDlg" Control_="Next" Event="NewDialog" Argument="ReadmeDlg" Condition="AI_INSTALL" Ordering="301"/>

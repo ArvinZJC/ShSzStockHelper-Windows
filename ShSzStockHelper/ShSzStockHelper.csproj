@@ -5,11 +5,11 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>AppIcon.ico</ApplicationIcon>
-    <Version>0.8.3</Version>
+    <Version>0.8.4</Version>
     <Authors>Arvin Zhao</Authors>
     <Company>ArvinZJC</Company>
     <Product>神户座</Product>
-    <Copyright>© 2020 Arvin Zhao</Copyright>
+    <Copyright>© 2021 Arvin Zhao</Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Description>This is the package of SH/SZ Stock Helper which is a Windows application that can mainly search strike prices and volumes for the users.</Description>
     <PackageIcon>AppIcon.ico</PackageIcon>
@@ -19,8 +19,8 @@
     <AssemblyName>ShSzStockHelper</AssemblyName>
     <PackageId>ShSzStockHelper</PackageId>
     <RepositoryType>Public</RepositoryType>
-    <AssemblyVersion>0.8.3.0</AssemblyVersion>
-    <FileVersion>0.8.3.0</FileVersion>
+    <AssemblyVersion>0.8.4.0</AssemblyVersion>
+    <FileVersion>0.8.4.0</FileVersion>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
@@ -28,14 +28,14 @@
     <PackageReference Include="HtmlAgilityPack" Version="1.11.29" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="PortableSettingsProvider" Version="0.2.4" />
-    <PackageReference Include="Syncfusion.DataGridExcelExport.Wpf" Version="18.4.0.31" />
-    <PackageReference Include="Syncfusion.SfBusyIndicator.WPF" Version="18.4.0.31" />
-    <PackageReference Include="Syncfusion.SfGrid.WPF" Version="18.4.0.31" />
-    <PackageReference Include="Syncfusion.SfInput.WPF" Version="18.4.0.31" />
-    <PackageReference Include="Syncfusion.SfTreeNavigator.WPF" Version="18.4.0.31" />
-    <PackageReference Include="Syncfusion.Themes.MaterialDark.WPF" Version="18.4.0.31" />
-    <PackageReference Include="Syncfusion.Themes.MaterialLight.WPF" Version="18.4.0.31" />
-    <PackageReference Include="Syncfusion.Tools.WPF" Version="18.4.0.31" />
+    <PackageReference Include="Syncfusion.DataGridExcelExport.Wpf" Version="18.4.0.34" />
+    <PackageReference Include="Syncfusion.SfBusyIndicator.WPF" Version="18.4.0.34" />
+    <PackageReference Include="Syncfusion.SfGrid.WPF" Version="18.4.0.34" />
+    <PackageReference Include="Syncfusion.SfInput.WPF" Version="18.4.0.34" />
+    <PackageReference Include="Syncfusion.SfTreeNavigator.WPF" Version="18.4.0.34" />
+    <PackageReference Include="Syncfusion.Themes.MaterialDark.WPF" Version="18.4.0.34" />
+    <PackageReference Include="Syncfusion.Themes.MaterialLight.WPF" Version="18.4.0.34" />
+    <PackageReference Include="Syncfusion.Tools.WPF" Version="18.4.0.34" />
   </ItemGroup>
 
   <ItemGroup>

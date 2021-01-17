@@ -11,8 +11,8 @@
 
 ## 注意
 
-1. 截至2020年12月27日，使用Visual Studio 2019和.NET Core 3.1开发表现良好。此外，我要特别感谢Syncfusion提供的[强大的WPF的UI组件库](https://www.syncfusion.com/wpf-ui-controls)，这节省了许多开发时间。
-2. 图标资源（除应用程序图标）均来自[Material Design图标库](https://material.io/resources/icons/?style=baseline)和[Flaticon](https://www.flaticon.com/)。
+1. 截至2021年1月17日，使用Visual Studio 2019（版本：16.8.4）和Windows呈现基础（WPF，.NET Core 3.1）开发表现良好。此外，我要特别感谢Syncfusion提供的[强大的WPF的UI组件库](https://www.syncfusion.com/wpf-ui-controls)，这节省了许多开发时间。
+2. 应用用到的图标资源主要来自[Material Design图标库](https://material.io/resources/icons/?style=baseline)和[Flaticon](https://www.flaticon.com/)。
 3. 应用用到的主要的NuGet包参见下面的表格。
 
     | 名称 | 版本 |
@@ -20,14 +20,14 @@
     | [HtmlAgilityPack](https://html-agility-pack.net/) | 1.11.29 |
     | [Newtonsoft.Json](https://www.newtonsoft.com/json) | 12.0.3 |
     | [PortableSettingsProvider](https://github.com/Bluegrams/SettingsProviders) | 0.2.4 |
-    | Syncfusion.DataGridExcelExport.Wpf | 18.4.0.31 |
-    | Syncfusion.SfBusyIndicator.WPF | 18.4.0.31 |
-    | Syncfusion.SfGrid.WPF | 18.4.0.31 |
-    | Syncfusion.SfInput.WPF | 18.4.0.31 |
-    | Syncfusion.SfTreeNavigator.WPF | 18.4.0.31 |
-    | Syncfusion.Themes.MaterialDark.WPF | 18.4.0.31 |
-    | Syncfusion.Themes.MaterialLight.WPF | 18.4.0.31 |
-    | Syncfusion.Tools.WPF | 18.4.0.31 |
+    | Syncfusion.DataGridExcelExport.Wpf | 18.4.0.34 |
+    | Syncfusion.SfBusyIndicator.WPF | 18.4.0.34 |
+    | Syncfusion.SfGrid.WPF | 18.4.0.34 |
+    | Syncfusion.SfInput.WPF | 18.4.0.34 |
+    | Syncfusion.SfTreeNavigator.WPF | 18.4.0.34 |
+    | Syncfusion.Themes.MaterialDark.WPF | 18.4.0.34 |
+    | Syncfusion.Themes.MaterialLight.WPF | 18.4.0.34 |
+    | Syncfusion.Tools.WPF | 18.4.0.34 |
 
 ## 用户界面示例
 

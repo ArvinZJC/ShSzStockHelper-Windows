@@ -1,10 +1,10 @@
 ﻿/*
  * @Description: the back-end code of the tab of searching for data of strike prices and volumes
- * @Version: 1.4.2.20201125
+ * @Version: 1.4.3.20210117
  * @Author: Arvin Zhao
  * @Date: 2020-08-10 13:37:27
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2020-11-25 13:38:24
+ * @LastEditTime: 2021-01-17 13:38:24
  */
 
 using Microsoft.Win32;
@@ -442,7 +442,7 @@ namespace ShSzStockHelper.Views
         } // end method TextBoxSymbol_LostFocus
 
         // Perform actions when necessary if the selected item in the auto-complete suggestion list is changed.
-        private void TextBoxSymbol_SelectedItemChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private void TextBoxSymbol_SelectedItemChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
             if (TextBoxSymbol.SelectedItem != null && Regex.IsMatch(TextBoxSymbol.Text.Trim(), RegularExpressionHasChinese))
                 TextBoxSymbol.Text = ((StockSymbolNameData) TextBoxSymbol.SelectedItem).Symbol;

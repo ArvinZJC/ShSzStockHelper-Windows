@@ -18,14 +18,14 @@
         <Style BasedOn="{StaticResource ToolTipStyle}" TargetType="ToolTip" />
     </UserControl.Resources>
 
-    <Grid>
+    <Grid Margin="15">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="8*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="45"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Margin="15,0,15,0">
+        <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -42,6 +42,7 @@
                                      LostFocus="TextBoxSymbol_LostFocus"
                                      MaxDropDownHeight="{Binding MaxDropDownHeight, Source={x:Static properties:Settings.Default}}"
                                      MaxLength="{Binding MaxInputLength, Source={x:Static properties:Settings.Default}}"
+                                     Margin="0,7,0,0"
                                      SearchItemPath="Name"
                                      SelectedItemChanged="TextBoxSymbol_SelectedItemChanged"
                                      ShowSuggestionsOnFocus="True"
@@ -49,7 +50,7 @@
                                      TextChanged="TextBoxSymbol_TextChanged"
                                      TextHighlightMode="MultipleOccurrence"
                                      ToolTip="{x:Static properties:Resources.TextBoxSymbol_ToolTip}"
-                                     VerticalAlignment="Center"
+                                     VerticalAlignment="Top"
                                      Watermark="{x:Static properties:Resources.TextBoxSymbol_WaterMark}"
                                      WatermarkTemplate="{StaticResource TextBoxWatermarkTemplate}">
                 <syncfusion:SfTextBoxExt.AutoCompleteItemTemplate>
@@ -77,7 +78,7 @@
                                      CustomPattern="{Binding DateDisplayFormat, Source={x:Static properties:Settings.Default}}"
                                      DateTimeChanged="DatePickerStartDate_DateTimeChanged"
                                      IsEmptyDateEnabled="True"
-                                     Margin="15,0,0,0"
+                                     Margin="15,8,0,0"
                                      MaxDateTime="{x:Static system:DateTime.Now}"
                                      MinDateTime="{Binding MinDate, Source={x:Static properties:Settings.Default}}"
                                      NoneDateText="{x:Static properties:Resources.DatePickerStartDate_WaterMark}"
@@ -86,14 +87,14 @@
                                      ShowMaskOnNullValue="False"
                                      Style="{StaticResource DatePickerStyle}"
                                      ToolTip="{x:Static properties:Resources.DatePickerStartDate_ToolTip}"
-                                     VerticalAlignment="Center" />
+                                     VerticalAlignment="Top" />
 
             <syncfusion:DateTimeEdit x:Name="DatePickerEndDate"
                                      Grid.Column="2"
                                      CustomPattern="{Binding DateDisplayFormat, Source={x:Static properties:Settings.Default}}"
                                      DateTimeChanged="DatePickerEndDate_DateTimeChanged"
                                      IsEmptyDateEnabled="True"
-                                     Margin="15,0,0,0"
+                                     Margin="15,8,0,0"
                                      MaxDateTime="{x:Static system:DateTime.Now}"
                                      MinDateTime="{Binding MinDate, Source={x:Static properties:Settings.Default}}"
                                      NoneDateText="{x:Static properties:Resources.DatePickerEndDate_WaterMark}"
@@ -102,7 +103,7 @@
                                      ShowMaskOnNullValue="False"
                                      Style="{StaticResource DatePickerStyle}"
                                      ToolTip="{x:Static properties:Resources.DatePickerEndDate_ToolTip}"
-                                     VerticalAlignment="Center"/>
+                                     VerticalAlignment="Top"/>
 
              <syncfusion:ButtonAdv x:Name="ButtonSearch"
                                    Grid.Column="3"
@@ -115,7 +116,7 @@
                                    SizeMode="Small"
                                    SmallIcon="{Binding SearchIconUri, Converter={StaticResource IconUriConverter}, Source={x:Static properties:Settings.Default}}"
                                    ToolTip="{x:Static properties:Resources.ButtonSearch_ToolTip}"
-                                   VerticalAlignment="Center"/>
+                                   VerticalAlignment="Top"/>
         </Grid>
 
         <syncfusionNotification:SfBusyIndicator x:Name="BusyIndicatorSearchResultArea"
@@ -124,8 +125,7 @@
                                                 Background="Transparent"
                                                 BorderBrush="LightGray"
                                                 BorderThickness="0.5"
-                                                IsBusy="False"
-                                                Margin="15,0,15,0">
+                                                IsBusy="False">
             <syncfusionNotification:SfBusyIndicator.HeaderTemplate>
                 <DataTemplate>
                     <TextBlock FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
@@ -195,7 +195,7 @@
             </Grid>
         </syncfusionNotification:SfBusyIndicator>
 
-        <Grid Grid.Row="2" Margin="15,0,15,0">
+        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>

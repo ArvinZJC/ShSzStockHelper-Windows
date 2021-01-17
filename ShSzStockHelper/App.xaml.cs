@@ -1,10 +1,10 @@
 ﻿/*
  * @Description: the back-end code of initialising the app
- * @Version: 1.0.9.20201216
+ * @Version: 1.0.10.20210117
  * @Author: Arvin Zhao
  * @Date: 2020-07-08 10:17:48
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2020-12-16 14:14:55
+ * @LastEditTime: 2021-01-17 14:14:55
  */
 
 using Bluegrams.Application;
@@ -36,7 +36,7 @@ namespace ShSzStockHelper
         /// </summary>
         public App()
         {
-            SyncfusionLicenseProvider.RegisterLicense("MzI2OTM0QDMxMzgyZTMzMmUzMGFyTEY5ai9VTGlKRXcrdlpLSjU5VUlHR1ZZZzkxeDlBYzdkMHMvY0d0LzA9"); // Register a Syncfusion license.
+            SyncfusionLicenseProvider.RegisterLicense("Mzg0NzMzQDMxMzgyZTM0MmUzMEJhOGxxaFdrMUh0VEt1eDVQaUVCU05SKy9yS0k2ZERESmZnRXNkZkEwWXc9"); // Register a Syncfusion license.
 
             string productCompany = null;
             var assembly = Assembly.GetEntryAssembly();
