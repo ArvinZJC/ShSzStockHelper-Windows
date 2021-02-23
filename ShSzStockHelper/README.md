@@ -1,6 +1,6 @@
-# [ShSzStockHelper-Windows](https://github.com/ArvinZJC/ShSzStockHelper-Windows)/ShSzStockHelper
+# [ShSzStockHelper-Windows](../../..)/ShSzStockHelper
 
-**English** | [简体中文](https://github.com/ArvinZJC/ShSzStockHelper-Windows/blob/master/ShSzStockHelper/README-zhCN.md)
+**English** | [简体中文](./README-zhCN.md)
 
 This is the Visual Studio solution folder of the application. It contains code and resources for the application to run. The major features of the application are listed as follows.
 
@@ -11,7 +11,7 @@ This is the Visual Studio solution folder of the application. It contains code a
 
 ## ATTENTION
 
-1. By 17 January 2021, everything looks good with Visual Studio 2019 (Version: 16.8.4) + Windows Presentation Foundation (WPF) with .NET Core 3.1. Additionally, I would like to thankfully acknowledge Syncfusion for [its powerful WPF UI controls and libraries](https://www.syncfusion.com/wpf-ui-controls), which save much development time.
+1. By 23 February 2021, everything looks good with Visual Studio 2019 (Version: 16.8.4) + Windows Presentation Foundation (WPF) with .NET Core 3.1. Additionally, I would like to thankfully acknowledge Syncfusion for [its powerful WPF UI controls and libraries](https://www.syncfusion.com/wpf-ui-controls), which save much development time.
 2. Most of icon images used by the application are from [Material Design Icons](https://material.io/resources/icons/?style=baseline) and [Flaticon](https://www.flaticon.com/).
 3. The main NuGet packages used in the application are listed in the following table.
 
