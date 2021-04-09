@@ -1,10 +1,10 @@
 ﻿/*
  * @Description: the back-end code of initialising the app
- * @Version: 1.1.0.20210409
+ * @Version: 1.1.1.20210410
  * @Author: Arvin Zhao
  * @Date: 2020-07-08 10:17:48
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-04-09 14:14:55
+ * @LastEditTime: 2021-04-10 00:02:55
  */
 
 using Bluegrams.Application;
@@ -28,11 +28,11 @@ namespace ShSzStockHelper
     /// </summary>
     public partial class App : IDisposable
     {
+        private readonly string _productId;
         private static string _productCompany;
         private static string _productCopyright = ShSzStockHelper.Properties.Resources.NullProductCopyrightError;
         private static string _productName = ShSzStockHelper.Properties.Resources.NullProductNameError;
         private static string _productVersion = ShSzStockHelper.Properties.Resources.NullProductVersionError;
-        private string _productId = Assembly.GetExecutingAssembly().GetName().Name;
         private Mutex _mutex; // It is important to declare the mutex here. Otherwise, it may have no effect to control running only 1 app instance.
 
         /// <summary>
@@ -40,17 +40,17 @@ namespace ShSzStockHelper
         /// </summary>
         public App()
         {
+#if DEBUG
+            _productId = Assembly.GetExecutingAssembly().GetName().Name + "_debug";
+#else
+            _productId = Assembly.GetExecutingAssembly().GetName().Name;
+#endif
             SyncfusionLicenseProvider.RegisterLicense("NDI2NzY5QDMxMzkyZTMxMmUzMFY3Z3hHcE9WR1JzVWRoUVZldVVOYXNkL3JJTzBmQXV2ajh5b295bXRtT1k9"); // Register a Syncfusion (V19.1.0.55) license.
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(ShSzStockHelper.Properties.Settings.Default.CultureInfo); // It is necessary to specify the culture info here and in the name of the resource file "Syncfusion.Tools.Wpf" to avoid the issue that some text of the tab control is not displayed in simplified Chinese.
             LoadProductInfo();
             ConfigSettingsProvider();
             ApplyTheme();
         } // end constructor App
-
-        ~App()
-        {
-            _mutex.Dispose();
-        } // end destructor App
 
         public void Dispose()
         {
@@ -108,7 +108,7 @@ namespace ShSzStockHelper
         {
             if (ShSzStockHelper.Properties.Settings.Default.AppTheme == (int) VisualStyles.MaterialDark)
             {
-                var darkThemeSettings = new MaterialDarkThemeSettings()
+                var darkThemeSettings = new MaterialDarkThemeSettings
                 {
                     BodyAltFontSize = ShSzStockHelper.Properties.Settings.Default.ContentTextFontSize,
                     BodyFontSize = ShSzStockHelper.Properties.Settings.Default.PrimaryTextFontSize,
@@ -121,7 +121,7 @@ namespace ShSzStockHelper
             }
             else
             {
-                var lightThemeSettings = new MaterialLightThemeSettings()
+                var lightThemeSettings = new MaterialLightThemeSettings
                 {
                     BodyAltFontSize = ShSzStockHelper.Properties.Settings.Default.ContentTextFontSize,
                     BodyFontSize = ShSzStockHelper.Properties.Settings.Default.PrimaryTextFontSize,
@@ -143,13 +143,7 @@ namespace ShSzStockHelper
 
             if (_productId != null && _productCompany != null)
             {
-                // ReSharper disable once RedundantAssignment
                 var customisedSettingsDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), _productCompany, _productId);
-
-#if DEBUG
-                _productId += "_debug";
-                customisedSettingsDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), _productCompany, _productId);
-#endif
 
                 if (!Directory.Exists(customisedSettingsDirectory))
                     Directory.CreateDirectory(customisedSettingsDirectory);
