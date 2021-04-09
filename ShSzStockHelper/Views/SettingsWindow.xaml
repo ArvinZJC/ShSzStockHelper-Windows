@@ -5,15 +5,12 @@
                              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                              xmlns:properties="clr-namespace:ShSzStockHelper.Properties"
                              xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-                             xmlns:syncfusionSkin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
                              xmlns:system="clr-namespace:System;assembly=mscorlib"
                              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                              mc:Ignorable="d"
-                             syncfusionSkin:SfSkinManager.VisualStyle="{Binding ProductTheme, Converter={StaticResource ProductThemeConverter}, Source={x:Static properties:Settings.Default}}"
+                             syncfusion:SfSkinManager.VisualStyle="{Binding AppTheme, Converter={StaticResource AppThemeConverter}, Source={x:Static properties:Settings.Default}}"
                              x:Class="ShSzStockHelper.Views.SettingsWindow"
-                             x:Name="WindowSettings"
                              Closing="SettingsWindow_OnClosing"
-                             FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
                              Height="{Binding DefaultWindowHeight, Source={x:Static properties:Settings.Default}}"
                              Icon="../AppIcon.ico"
                              Loaded="SettingsWindow_OnLoaded"
@@ -21,10 +18,6 @@
                              Title="{x:Static properties:Resources.Settings}"
                              Width="{Binding DefaultWindowWidth, Source={x:Static properties:Settings.Default}}"
                              WindowStartupLocation="CenterScreen">
-    <syncfusion:ChromelessWindow.Resources>
-        <Style BasedOn="{StaticResource ToolTipStyle}" TargetType="ToolTip" />
-    </syncfusion:ChromelessWindow.Resources>
-
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
@@ -34,11 +27,10 @@
         <syncfusion:SfTreeNavigator x:Name="TreeNavigatorSettings"
                                     Grid.Column="0"
                                     BorderThickness="0,0,1,0"
-                                    IsTabStop="False"
+                                    Margin="0, -36, 0, 0"
                                     MouseEnter="TreeNavigatorSettings_OnMouseEnter"
                                     MouseLeave="TreeNavigatorSettings_OnMouseLeave"
-                                    SelectionChanged="TreeNavigatorSettings_OnSelectionChanged"
-                                    Template="{StaticResource TreeNavigatorTemplate}">
+                                    SelectionChanged="TreeNavigatorSettings_OnSelectionChanged">
             <syncfusion:SfTreeNavigatorItem x:Name="TreeNavigatorItemGeneral"
                                             Header="{x:Static properties:Resources.GeneralSettings}"
                                             IsSelected="True"
@@ -46,19 +38,19 @@
 
             <syncfusion:SfTreeNavigatorItem x:Name="TreeNavigatorItemTheme"
                                             Header="{x:Static properties:Resources.ThemeSetting}"
-                                            Style="{StaticResource TreeNavigatorSubItemStyle}" />
+                                            Padding="25,0,0,0" />
 
             <syncfusion:SfTreeNavigatorItem x:Name="TreeNavigatorItemDisplayFontFamily"
                                             Header="{x:Static properties:Resources.DisplayFontFamilyNameSetting}"
-                                            Style="{StaticResource TreeNavigatorSubItemStyle}" />
+                                            Padding="25,0,0,0" />
 
             <syncfusion:SfTreeNavigatorItem x:Name="TreeNavigatorItemDateDisplayFormat"
                                             Header="{x:Static properties:Resources.DateDisplayFormatSetting}"
-                                            Style="{StaticResource TreeNavigatorSubItemStyle}" />
+                                            Padding="25,0,0,0" />
 
             <syncfusion:SfTreeNavigatorItem x:Name="TreeNavigatorItemMinDate"
                                             Header="{x:Static properties:Resources.MinDateSetting}"
-                                            Style="{StaticResource TreeNavigatorSubItemStyle}" />
+                                            Padding="25,0,0,0" />
 
             <syncfusion:SfTreeNavigatorItem x:Name="TreeNavigatorItemTable"
                                             Header="{x:Static properties:Resources.TableSettings}"
@@ -66,19 +58,19 @@
 
             <syncfusion:SfTreeNavigatorItem x:Name="TreeNavigatorItemSorting"
                                             Header="{x:Static properties:Resources.SortingSetting}"
-                                            Style="{StaticResource TreeNavigatorSubItemStyle}" />
+                                            Padding="25,0,0,0" />
 
             <syncfusion:SfTreeNavigatorItem x:Name="TreeNavigatorItemFiltering"
                                             Header="{x:Static properties:Resources.FilteringSetting}"
-                                            Style="{StaticResource TreeNavigatorSubItemStyle}" />
+                                            Padding="25,0,0,0" />
 
             <syncfusion:SfTreeNavigatorItem x:Name="TreeNavigatorItemVolumeUnit"
                                             Header="{x:Static properties:Resources.VolumeUnitSetting}"
-                                            Style="{StaticResource TreeNavigatorSubItemStyle}" />
+                                            Padding="25,0,0,0" />
 
             <syncfusion:SfTreeNavigatorItem x:Name="TreeNavigatorItemVolumeDecimalDigits"
                                             Header="{x:Static properties:Resources.VolumeDecimalDigitsSetting}"
-                                            Style="{StaticResource TreeNavigatorSubItemStyle}" />
+                                            Padding="25,0,0,0" />
 
             <syncfusion:SfTreeNavigatorItem x:Name="TreeNavigatorItemExportToExcel"
                                             Header="{x:Static properties:Resources.ExportToExcel}"
@@ -86,15 +78,15 @@
 
             <syncfusion:SfTreeNavigatorItem x:Name="TreeNavigatorItemExcelCellFontFamilyName"
                                             Header="{x:Static properties:Resources.ExcelCellFontFamilyNameSetting}"
-                                            Style="{StaticResource TreeNavigatorSubItemStyle}" />
+                                            Padding="25,0,0,0" />
 
             <syncfusion:SfTreeNavigatorItem x:Name="TreeNavigatorItemExcelCellFontSize"
                                             Header="{x:Static properties:Resources.ExcelCellFontSizeSetting}"
-                                            Style="{StaticResource TreeNavigatorSubItemStyle}" />
+                                            Padding="25,0,0,0" />
 
             <syncfusion:SfTreeNavigatorItem x:Name="TreeNavigatorItemExcelFileFormat"
                                             Header="{x:Static properties:Resources.ExcelFileFormatSetting}"
-                                            Style="{StaticResource TreeNavigatorSubItemStyle}" />
+                                            Padding="25,0,0,0" />
 
             <syncfusion:SfTreeNavigatorItem x:Name="TreeNavigatorItemAbout"
                                             Header="{x:Static properties:Resources.About}"
@@ -103,9 +95,9 @@
 
         <ScrollViewer x:Name="ScrollViewerSettings"
                       Grid.Column="1"
+                      KeyboardNavigation.TabNavigation="None"
                       ScrollChanged="ScrollViewerSettings_OnScrollChanged"
                       VerticalScrollBarVisibility="Auto">
-
             <StackPanel Margin="15,0,15,15">
                 <StackPanel x:Name="StackPanelGeneral">
                     <TextBlock Style="{StaticResource TextBlockMainTitleStyle}" Text="{x:Static properties:Resources.GeneralSettings}"/>
@@ -119,17 +111,13 @@
                                Text="{x:Static properties:Resources.ThemeSetting_Explanation}"/>
 
                     <syncfusion:ComboBoxAdv x:Name="ComboBoxTheme"
-                                            FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
-                                            FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
                                             HorizontalAlignment="Left"
                                             Margin="0,5,0,0"
                                             SelectionChanged="ComboBoxTheme_OnSelectionChanged">
                         <syncfusion:ComboBoxItemAdv x:Name="ComboBoxItemMaterialLight"
-                                                    Content="{x:Static properties:Resources.ComboBoxItemMaterialLight_Content}"
-                                                    FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"/>
+                                                    Content="{x:Static properties:Resources.ComboBoxItemMaterialLight_Content}"/>
                         <syncfusion:ComboBoxItemAdv x:Name="ComboBoxItemMaterialDark"
-                                                    Content="{x:Static properties:Resources.ComboBoxItemMaterialDark_Content}"
-                                                    FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"/>
+                                                    Content="{x:Static properties:Resources.ComboBoxItemMaterialDark_Content}"/>
                     </syncfusion:ComboBoxAdv>
                 </StackPanel>
                 
@@ -141,10 +129,7 @@
                                Text="{x:Static properties:Resources.DisplayFontFamilyNameSetting_Explanation}"/>
 
                     <syncfusion:ComboBoxAdv x:Name="ComboBoxDisplayFontFamilyName"
-                                            FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
-                                            FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
                                             HorizontalAlignment="Left"
-                                            ItemContainerStyle="{StaticResource ComboBoxItemStyle}"
                                             Margin="0,5,0,0"
                                             SelectionChanged="ComboBoxDisplayFontFamilyName_OnSelectionChanged"/>
                 </StackPanel>
@@ -157,10 +142,7 @@
                                Text="{x:Static properties:Resources.DateDisplayFormatSetting_Explanation}"/>
 
                     <syncfusion:ComboBoxAdv x:Name="ComboBoxDateDisplayFormat"
-                                            FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
-                                            FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
                                             HorizontalAlignment="Left"
-                                            ItemContainerStyle="{StaticResource ComboBoxItemStyle}"
                                             Margin="0,5,0,0"
                                             SelectionChanged="ComboBoxDateDisplayFormat_OnSelectionChanged">
                         <syncfusion:ComboBoxItemAdv x:Name="ComboBoxItem2Y1M1DHyphen" Content="{x:Static properties:Resources.ComboBoxItem2Y1M1DHyphen_Content}"/>
@@ -185,8 +167,7 @@
                                              Margin="0,5,0,0"
                                              MaxDateTime="{x:Static system:DateTime.Now}"
                                              MinDateTime="{Binding MinDate, Mode=OneWay, Source={x:Static properties:DefaultUserSettings.Default}}"
-                                             Pattern="CustomPattern"
-                                             Style="{StaticResource DatePickerStyle}"/>
+                                             Pattern="CustomPattern"/>
                 </StackPanel>
 
                 <StackPanel x:Name="StackPanelTable">
@@ -207,18 +188,12 @@
                                              Margin="0,5,0,0">
                         <syncfusion:CheckListBoxItem x:Name="CheckListBoxItemStrikePriceSorting"
                                                      Content="{x:Static properties:Resources.StrikePrice}"
-                                                     FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
-                                                     FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
                                                      IsChecked="{Binding StrikePriceSorting, Source={x:Static properties:Settings.Default}}"/>
                         <syncfusion:CheckListBoxItem x:Name="CheckListBoxItemTotalVolumeSorting"
                                                      Content="{x:Static properties:Resources.TotalVolume}"
-                                                     FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
-                                                     FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
                                                      IsChecked="{Binding TotalVolumeSorting, Source={x:Static properties:Settings.Default}}"/>
                         <syncfusion:CheckListBoxItem x:Name="CheckListBoxItemDayVolumeSorting"
                                                      Content="{x:Static properties:Resources.DayVolume}"
-                                                     FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
-                                                     FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
                                                      IsChecked="{Binding DayVolumeSorting, Source={x:Static properties:Settings.Default}}"/>
                     </syncfusion:CheckListBox>
                 </StackPanel>
@@ -237,18 +212,12 @@
                                              Margin="0,5,0,0">
                         <syncfusion:CheckListBoxItem x:Name="CheckListBoxItemStrikePriceFiltering"
                                                      Content="{x:Static properties:Resources.StrikePrice}"
-                                                     FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
-                                                     FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
                                                      IsChecked="{Binding StrikePriceFiltering, Source={x:Static properties:Settings.Default}}"/>
                         <syncfusion:CheckListBoxItem x:Name="CheckListBoxItemTotalVolumeFiltering"
                                                      Content="{x:Static properties:Resources.TotalVolume}"
-                                                     FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
-                                                     FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
                                                      IsChecked="{Binding TotalVolumeFiltering, Source={x:Static properties:Settings.Default}}"/>
                         <syncfusion:CheckListBoxItem x:Name="CheckListBoxItemDayVolumeFiltering"
                                                      Content="{x:Static properties:Resources.DayVolume}"
-                                                     FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
-                                                     FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
                                                      IsChecked="{Binding DayVolumeFiltering, Source={x:Static properties:Settings.Default}}"/>
                     </syncfusion:CheckListBox>
                 </StackPanel>
@@ -261,30 +230,22 @@
                     <StackPanel Margin="0,5,0,0" Orientation="Horizontal">
                         <TextBlock x:Name="TextBlockTotalVolumeUnit"
                                    Margin="0,5,0,0"
-                                   Style="{StaticResource TextBlockGeneralStyle}"
                                    Text="{x:Static properties:Resources.TotalVolume}"/>
 
                         <syncfusion:ComboBoxAdv x:Name="ComboBoxTotalVolumeUnit"
                                                 DisplayMemberPath="Name"
-                                                FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
-                                                FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
                                                 HorizontalAlignment="Left"
-                                                ItemContainerStyle="{StaticResource ComboBoxItemStyle}"
                                                 SelectionChanged="ComboBoxTotalVolumeUnit_OnSelectionChanged"/>
                     </StackPanel>
 
                     <StackPanel Margin="0,5,0,0" Orientation="Horizontal">
                         <TextBlock x:Name="TextBlockDayVolumeUnit"
                                    Margin="0,5,0,0"
-                                   Style="{StaticResource TextBlockGeneralStyle}"
                                    Text="{x:Static properties:Resources.DayVolume}"/>
 
                         <syncfusion:ComboBoxAdv x:Name="ComboBoxDayVolumeUnit"
                                                 DisplayMemberPath="Name"
-                                                FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
-                                                FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
                                                 HorizontalAlignment="Left"
-                                                ItemContainerStyle="{StaticResource ComboBoxItemStyle}"
                                                 SelectionChanged="ComboBoxDayVolumeUnit_OnSelectionChanged"/>
                     </StackPanel>
                 </StackPanel>
@@ -299,28 +260,20 @@
                     <StackPanel Margin="0,5,0,0" Orientation="Horizontal">
                         <TextBlock x:Name="TextBlockTotalVolumeDecimalDigits"
                                    Margin="0,5,0,0"
-                                   Style="{StaticResource TextBlockGeneralStyle}"
                                    Text="{x:Static properties:Resources.TotalVolume}"/>
 
                         <syncfusion:ComboBoxAdv x:Name="ComboBoxTotalVolumeDecimalDigits"
-                                                FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
-                                                FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
                                                 HorizontalAlignment="Left"
-                                                ItemContainerStyle="{StaticResource ComboBoxItemStyle}"
                                                 SelectionChanged="ComboBoxTotalVolumeDecimalDigits_OnSelectionChanged"/>
                     </StackPanel>
 
                     <StackPanel Margin="0,5,0,0" Orientation="Horizontal">
                         <TextBlock x:Name="TextBlockDayVolumeDecimalDigits"
                                    Margin="0,5,0,0"
-                                   Style="{StaticResource TextBlockGeneralStyle}"
                                    Text="{x:Static properties:Resources.DayVolume}"/>
 
                         <syncfusion:ComboBoxAdv x:Name="ComboBoxDayVolumeDecimalDigits"
-                                                FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
-                                                FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
                                                 HorizontalAlignment="Left"
-                                                ItemContainerStyle="{StaticResource ComboBoxItemStyle}"
                                                 SelectionChanged="ComboBoxDayVolumeDecimalDigits_OnSelectionChanged"/>
                     </StackPanel>
                 </StackPanel>
@@ -337,10 +290,7 @@
                                Text="{x:Static properties:Resources.ExcelCellFontFamilyNameSetting_Explanation}"/>
 
                     <syncfusion:ComboBoxAdv x:Name="ComboBoxExcelCellFontFamilyName"
-                                            FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
-                                            FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
                                             HorizontalAlignment="Left"
-                                            ItemContainerStyle="{StaticResource ComboBoxItemStyle}"
                                             Margin="0,5,0,0"
                                             SelectionChanged="ComboBoxExcelCellFontFamilyName_OnSelectionChanged"/>
                 </StackPanel>
@@ -353,10 +303,7 @@
                                Text="{x:Static properties:Resources.ExcelCellFontSizeSetting_Explanation}"/>
 
                     <syncfusion:ComboBoxAdv x:Name="ComboBoxExcelCellFontSize"
-                                            FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
-                                            FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
                                             HorizontalAlignment="Left"
-                                            ItemContainerStyle="{StaticResource ComboBoxItemStyle}"
                                             SelectionChanged="ComboBoxExcelCellFontSize_OnSelectionChanged"/>
                 </StackPanel>
 
@@ -368,10 +315,7 @@
                                Text="{x:Static properties:Resources.ExcelFileFormatSetting_Explanation}"/>
                     
                     <syncfusion:ComboBoxAdv x:Name="ComboBoxExcelFileFormat"
-                                            FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
-                                            FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
                                             HorizontalAlignment="Left"
-                                            ItemContainerStyle="{StaticResource ComboBoxItemStyle}"
                                             Margin="0,5,0,0"
                                             SelectionChanged="ComboBoxExcelFileFormat_OnSelectionChanged">
                         <syncfusion:ComboBoxItemAdv x:Name="ComboBoxItemXls" Content="{x:Static properties:Resources.ComboBoxItemXls_Content}"/>
@@ -388,19 +332,15 @@
                            Width="{Binding HugeIconSideLength, Source={x:Static properties:Settings.Default}}"/>
 
                     <TextBlock x:Name="TextBlockProductName"
-                               FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
                                FontSize="{Binding HugeTextFontSize, Source={x:Static properties:Settings.Default}}"
                                FontWeight="Bold"
                                HorizontalAlignment="Center"/>
 
                     <TextBlock x:Name="TextBlockProductVersion"
-                               FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
-                               FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
                                HorizontalAlignment="Center"
                                Margin="0,0,0,10"/>
 
-                    <TextBlock FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
-                               FontSize="{Binding ContentTextFontSize, Source={x:Static properties:Settings.Default}}"
+                    <TextBlock FontSize="{Binding ContentTextFontSize, Source={x:Static properties:Settings.Default}}"
                                Foreground="{Binding ContentTextColour, Source={x:Static properties:Settings.Default}}"
                                HorizontalAlignment="Center"
                                Margin="0,0,0,10">
@@ -412,7 +352,6 @@
                     </TextBlock>
 
                     <TextBlock x:Name="TextBlockProductCopyright"
-                               FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
                                FontSize="{Binding ExplanationTextFontSize, Source={x:Static properties:Settings.Default}}"
                                Foreground="{Binding ExplanationTextColour, Source={x:Static properties:Settings.Default}}"
                                HorizontalAlignment="Center"/>

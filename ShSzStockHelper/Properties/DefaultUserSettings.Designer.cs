@@ -26,9 +26,9 @@ namespace ShSzStockHelper.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("18")]
-        public int ProductTheme {
+        public int AppTheme {
             get {
-                return ((int)(this["ProductTheme"]));
+                return ((int)(this["AppTheme"]));
             }
         }
         
@@ -218,24 +218,6 @@ namespace ShSzStockHelper.Properties {
         public global::System.Windows.Media.SolidColorBrush ContentTextColour_MaterialDark {
             get {
                 return ((global::System.Windows.Media.SolidColorBrush)(this["ContentTextColour_MaterialDark"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("../../Images/MaterialLight/Menu.png")]
-        public string MenuIconUri_MaterialLight {
-            get {
-                return ((string)(this["MenuIconUri_MaterialLight"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("../../Images/MaterialDark/Menu.png")]
-        public string MenuIconUri_MaterialDark {
-            get {
-                return ((string)(this["MenuIconUri_MaterialDark"]));
             }
         }
         

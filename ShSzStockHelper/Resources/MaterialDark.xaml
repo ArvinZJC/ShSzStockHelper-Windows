@@ -1,0 +1,109 @@
+﻿<!-- A resource dictionary for the Material Dark theme. -->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:helpers="clr-namespace:ShSzStockHelper.Helpers"
+                    xmlns:properties="clr-namespace:ShSzStockHelper.Properties"
+                    xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <!-- Only this part should be different from the resource dictionary for the Material Light theme. -->
+        <ResourceDictionary Source="/Syncfusion.Themes.MaterialDark.WPF;component/ButtonAdv/ButtonAdv.xaml" />
+        <ResourceDictionary Source="/Syncfusion.Themes.MaterialDark.WPF;component/GridPrintPreviewControl/GridPrintPreviewControl.xaml" />
+        <ResourceDictionary Source="/Syncfusion.Themes.MaterialDark.WPF;component/SfDataGrid/SfDataGrid.xaml" />
+        <ResourceDictionary Source="/Syncfusion.Themes.MaterialDark.WPF;component/SfTreeNavigator/SfTreeNavigator.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!-- The 2 helpers are declared here to avoid repetition in other XAML files. -->
+    <helpers:AppThemeConverter x:Key="AppThemeConverter"/>
+    <helpers:IconUriConverter x:Key="IconUriConverter"/>
+
+    <DataTemplate x:Key="PrintedPageFooterTemplate">
+        <Grid>
+            <TextBlock FontSize="{Binding ContentTextFontSize, Source={x:Static properties:Settings.Default}}"
+                       FontWeight="Bold"
+                       Foreground="Black"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center">
+                <TextBlock.Text>
+                    <Binding Path="PageIndex"
+                             RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type syncfusion:PrintPageControl}}"
+                             StringFormat=" {0}" />
+                </TextBlock.Text>
+            </TextBlock>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="TextBoxWatermarkTemplate">
+        <!-- ReSharper disable once Xaml.StaticResourceNotResolved -->
+        <TextBlock Foreground="{StaticResource PlaceholderForeground}"
+                   Margin="0,3,0,2"
+                   Text="{Binding}" />
+    </DataTemplate>
+
+    <Style TargetType="syncfusion:PrintGridCell">
+        <Setter Property="Foreground" Value="Black"/>            
+    </Style>
+
+    <Style TargetType="syncfusion:PrintHeaderCell">
+        <Setter Property="Foreground" Value="Black"/>            
+    </Style>
+
+    <Style x:Key="GridFilterControlStyle"
+           BasedOn="{StaticResource SyncfusionGridFilterControlStyle}"
+           TargetType="syncfusion:GridFilterControl">
+        <Setter Property="AdvancedFilterStyle" Value="{StaticResource SyncfusionAdvancedFilterControlStyle}" />
+    </Style>
+
+    <Style x:Key="IconTextButtonStyle"
+           BasedOn="{StaticResource SyncfusionButtonAdvStyle}"
+           TargetType="syncfusion:ButtonAdv">
+        <Setter Property="IconHeight" Value="{Binding SmallIconSideLength, Source={x:Static properties:Settings.Default}}" />
+        <Setter Property="IconWidth" Value="{Binding SmallIconSideLength, Source={x:Static properties:Settings.Default}}" />
+        <Setter Property="IsEnabled" Value="False" />
+        <Setter Property="Padding" Value="5" />
+        <Setter Property="SizeMode" Value="Normal" />
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+    </Style>
+
+    <!-- ReSharper disable once Xaml.StaticResourceNotResolved -->
+    <Style x:Key="PrintPreviewWindowStyle"
+           BasedOn="{StaticResource SyncfusionChromelessWindowStyle}"
+           TargetType="{x:Type syncfusion:ChromelessWindow}">
+        <Setter Property="Icon" Value="../../AppIcon.ico" />
+        <Setter Property="ShowMinimizeButton" Value="False" />
+        <Setter Property="Title" Value="{x:Static properties:Resources.PrintPreview}" />
+    </Style>
+
+    <Style x:Key="TextBlockExplanationStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="{Binding ContentTextFontSize, Source={x:Static properties:Settings.Default}}"/>
+        <Setter Property="Foreground" Value="{Binding ExplanationTextColour, Source={x:Static properties:Settings.Default}}"/>
+        <Setter Property="Padding" Value="0,5,0,0"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+
+    <Style x:Key="TextBlockSecondaryTitleStyle" TargetType="TextBlock">
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Padding" Value="0,15,0,0"/>
+    </Style>
+
+    <Style x:Key="TextBlockMainTitleStyle"
+           BasedOn="{StaticResource TextBlockSecondaryTitleStyle}"
+           TargetType="TextBlock">
+        <Setter Property="FontSize" Value="{Binding TitleTextFontSize, Source={x:Static properties:Settings.Default}}"/>
+    </Style>
+
+    <Style x:Key="TextButtonStyle"
+           BasedOn="{StaticResource SyncfusionButtonAdvStyle}"
+           TargetType="syncfusion:ButtonAdv">
+        <Setter Property="Margin" Value="0,0,15,0" />
+        <Setter Property="Padding" Value="5" />
+        <Setter Property="SmallIcon" Value="{x:Null}" />
+        <Setter Property="SizeMode" Value="Normal" />
+    </Style>
+
+    <Style x:Key="TreeNavigatorItemStyle"
+           BasedOn="{StaticResource SyncfusionSfTreeNavigatorItemStyle}"
+           TargetType="syncfusion:SfTreeNavigatorItem">
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Padding" Value="15,0,0,0" />
+    </Style>
+</ResourceDictionary>

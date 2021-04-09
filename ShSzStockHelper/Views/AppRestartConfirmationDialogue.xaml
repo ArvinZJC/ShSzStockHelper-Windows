@@ -1,17 +1,14 @@
-﻿<!-- UI definition of the window for showing the info about the product. -->
+﻿<!-- UI definition of the dialogue for confirming the app restart. -->
 <!-- ReSharper disable Xaml.StaticResourceNotResolved -->
 <syncfusion:ChromelessWindow xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                              xmlns:properties="clr-namespace:ShSzStockHelper.Properties"
                              xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-                             xmlns:syncfusionSkin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
                              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                              mc:Ignorable="d"
-                             syncfusionSkin:SfSkinManager.VisualStyle="{Binding ProductTheme, Converter={StaticResource ProductThemeConverter}, Source={x:Static properties:Settings.Default}}"
-                             x:Class="ShSzStockHelper.Views.ProductRestartConfirmationDialogue"
-                             x:Name="DialogueProductRestartConfirmation"
-                             FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
+                             syncfusion:SfSkinManager.VisualStyle="{Binding AppTheme, Converter={StaticResource AppThemeConverter}, Source={x:Static properties:Settings.Default}}"
+                             x:Class="ShSzStockHelper.Views.AppRestartConfirmationDialogue"
                              Height="220"
                              Icon="../AppIcon.ico"
                              ResizeMode="NoResize"
@@ -19,10 +16,6 @@
                              Title="{x:Static properties:Resources.AlertDialogue_Title}"
                              Width="{Binding SmallWindowWidth, Source={x:Static properties:Settings.Default}}"
                              WindowStartupLocation="CenterOwner">
-    <syncfusion:ChromelessWindow.Resources>
-        <Style BasedOn="{StaticResource ToolTipStyle}" TargetType="ToolTip" />
-    </syncfusion:ChromelessWindow.Resources>
-
     <StackPanel Margin="15" VerticalAlignment="Center">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -36,11 +29,9 @@
                    Source="../Images/Alert.png"
                    Width="{Binding MediumIconSideLength, Source={x:Static properties:Settings.Default}}"/>
 
-            <TextBlock Grid.Column="1"
-                       FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
-                       FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
+            <TextBlock x:Name="TextBlockAppRestartAlert"
+                       Grid.Column="1"
                        Margin="15,0,15,15"
-                       Text="{x:Static properties:Resources.TextBlockProductRestartAlert_Text}"
                        TextWrapping="Wrap"/>
         </Grid>
 

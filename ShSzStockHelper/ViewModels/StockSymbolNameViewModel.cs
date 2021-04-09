@@ -1,10 +1,10 @@
 ﻿/*
  * @Description: a view model corresponding to the data model of stocks' symbols and corresponding names
- * @Version: 1.0.9.20200916
+ * @Version: 1.0.10.20210407
  * @Author: Arvin Zhao
  * @Date: 2020-08-13 18:34:25
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2020-09-16 18:38:01
+ * @LastEditTime: 2021-04-07 18:38:01
  */
 
 using Newtonsoft.Json;
@@ -71,6 +71,6 @@ namespace ShSzStockHelper.ViewModels
                         );
                 } // end foreach
             });
-        } // end method LoadData
+        } // end method LoadDataAsync
     } // end class StockSymbolNameViewModel
 } // end namespace ShSzStockHelper.ViewModels

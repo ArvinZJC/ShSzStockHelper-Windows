@@ -5,19 +5,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:properties="clr-namespace:ShSzStockHelper.Properties"
              xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-             xmlns:syncfusionNotification="clr-namespace:Syncfusion.Windows.Controls.Notification;assembly=Syncfusion.SfBusyIndicator.WPF"
-             xmlns:syncfusionSkin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              d:DesignHeight="{Binding DefaultWindowHeight, Source={x:Static properties:Settings.Default}}"
              d:DesignWidth="{Binding DefaultWindowWidth, Source={x:Static properties:Settings.Default}}"
              mc:Ignorable="d"
-             syncfusionSkin:SfSkinManager.VisualStyle="{Binding ProductTheme, Converter={StaticResource ProductThemeConverter}, Source={x:Static properties:Settings.Default}}"
+             syncfusion:SfSkinManager.VisualStyle="{Binding AppTheme, Converter={StaticResource AppThemeConverter}, Source={x:Static properties:Settings.Default}}"
              x:Class="ShSzStockHelper.Views.StrikePriceVolumeTab">
-    <UserControl.Resources>
-        <Style BasedOn="{StaticResource ToolTipStyle}" TargetType="ToolTip" />
-    </UserControl.Resources>
-
     <Grid Margin="15">
         <Grid.RowDefinitions>
             <RowDefinition Height="45"/>
@@ -36,13 +30,11 @@
             <syncfusion:SfTextBoxExt x:Name="TextBoxSymbol"
                                      Grid.Column="0"
                                      AutoCompleteMode="Suggest"
-                                     FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
-                                     FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
                                      HighlightedTextColor="{Binding ThemeColour, Source={x:Static properties:Settings.Default}}"
                                      LostFocus="TextBoxSymbol_LostFocus"
                                      MaxDropDownHeight="{Binding MaxDropDownHeight, Source={x:Static properties:Settings.Default}}"
                                      MaxLength="{Binding MaxInputLength, Source={x:Static properties:Settings.Default}}"
-                                     Margin="0,7,0,0"
+                                     Margin="0,8,0,0"
                                      SearchItemPath="Name"
                                      SelectedItemChanged="TextBoxSymbol_SelectedItemChanged"
                                      ShowSuggestionsOnFocus="True"
@@ -57,14 +49,10 @@
                     <DataTemplate>
                         <StackPanel Orientation="Vertical">
                             <!-- ReSharper disable Xaml.BindingWithContextNotResolved -->
-                            <TextBlock FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
-                                       FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
-                                       Margin="4,2,4,0"
-                                       Text="{Binding Symbol}" />
+                            <TextBlock Margin="4,2,4,0" Text="{Binding Symbol}" />
 
-                            <TextBlock FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
-                                       FontSize="{Binding ContentTextFontSize, Source={x:Static properties:Settings.Default}}"
-                                       Foreground="Gray"
+                            <TextBlock FontSize="{Binding ContentTextFontSize, Source={x:Static properties:Settings.Default}}"
+                                       Foreground="DarkGray"
                                        Margin="4,1,4,2"
                                        Text="{Binding Name}" />
                             <!-- ReSharper restore Xaml.BindingWithContextNotResolved -->
@@ -78,14 +66,13 @@
                                      CustomPattern="{Binding DateDisplayFormat, Source={x:Static properties:Settings.Default}}"
                                      DateTimeChanged="DatePickerStartDate_DateTimeChanged"
                                      IsEmptyDateEnabled="True"
-                                     Margin="15,8,0,0"
+                                     Margin="15,5,0,0"
                                      MaxDateTime="{x:Static system:DateTime.Now}"
                                      MinDateTime="{Binding MinDate, Source={x:Static properties:Settings.Default}}"
                                      NoneDateText="{x:Static properties:Resources.DatePickerStartDate_WaterMark}"
                                      NullValue="{x:Null}"
                                      Pattern="CustomPattern"
                                      ShowMaskOnNullValue="False"
-                                     Style="{StaticResource DatePickerStyle}"
                                      ToolTip="{x:Static properties:Resources.DatePickerStartDate_ToolTip}"
                                      VerticalAlignment="Top" />
 
@@ -94,14 +81,13 @@
                                      CustomPattern="{Binding DateDisplayFormat, Source={x:Static properties:Settings.Default}}"
                                      DateTimeChanged="DatePickerEndDate_DateTimeChanged"
                                      IsEmptyDateEnabled="True"
-                                     Margin="15,8,0,0"
+                                     Margin="15,5,0,0"
                                      MaxDateTime="{x:Static system:DateTime.Now}"
                                      MinDateTime="{Binding MinDate, Source={x:Static properties:Settings.Default}}"
                                      NoneDateText="{x:Static properties:Resources.DatePickerEndDate_WaterMark}"
                                      NullValue="{x:Null}"
                                      Pattern="CustomPattern"
                                      ShowMaskOnNullValue="False"
-                                     Style="{StaticResource DatePickerStyle}"
                                      ToolTip="{x:Static properties:Resources.DatePickerEndDate_ToolTip}"
                                      VerticalAlignment="Top"/>
 
@@ -119,42 +105,33 @@
                                    VerticalAlignment="Top"/>
         </Grid>
 
-        <syncfusionNotification:SfBusyIndicator x:Name="BusyIndicatorSearchResultArea"
-                                                Grid.Row="1"
-                                                AnimationType="DoubleRing"
-                                                Background="Transparent"
-                                                BorderBrush="LightGray"
-                                                BorderThickness="0.5"
-                                                IsBusy="False">
-            <syncfusionNotification:SfBusyIndicator.HeaderTemplate>
+        <syncfusion:SfBusyIndicator x:Name="BusyIndicatorSearchResultArea"
+                                    Grid.Row="1"
+                                    AnimationType="DoubleRing"
+                                    Background="Transparent"
+                                    BorderBrush="LightGray"
+                                    BorderThickness="0.5"
+                                    IsBusy="False"
+                                    IsTabStop="False">
+            <syncfusion:SfBusyIndicator.HeaderTemplate>
                 <DataTemplate>
-                    <TextBlock FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
-                               FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
-                               Foreground="DarkGray"
-                               Margin="6,10,0,0"
+                    <TextBlock Margin="6,10,0,0"
                                Text="{x:Static properties:Resources.BusyIndicatorSearchResultArea_Header}"
                                TextAlignment="Center"/>
                 </DataTemplate>
-            </syncfusionNotification:SfBusyIndicator.HeaderTemplate>
+            </syncfusion:SfBusyIndicator.HeaderTemplate>
 
             <Grid>
-                <Grid.Resources>
-                    <Style BasedOn="{StaticResource CheckboxFilterControlStyle}" TargetType="syncfusion:CheckboxFilterControl"/>
-
-                    <Style BasedOn="{StaticResource GridStackedHeaderCellControlStyle}" TargetType="syncfusion:GridStackedHeaderCellControl"/>
-                </Grid.Resources>
-
                 <syncfusion:SfDataGrid x:Name="DataGridStrikePriceVolumeTable"
                                        AllowResizingColumns="True"
                                        AllowTriStateSorting="True"
                                        AutoGenerateColumns="False"
-                                       CellStyle="{StaticResource GridCellStyle}"
                                        ColumnSizer="Auto"
                                        EnableDataVirtualization="True"
                                        FilterPopupStyle="{StaticResource GridFilterControlStyle}"
                                        FrozenColumnCount="2"
                                        HeaderRowHeight="{Binding DataGridHeaderRowHeight, Source={x:Static properties:Settings.Default}}"
-                                       HeaderStyle="{StaticResource GridHeaderStyle}"
+                                       IsTabStop="False"
                                        ResizingColumns="DataGridStrikePriceVolumeTable_OnResizingColumns"
                                        ScrollMode="Async"
                                        SelectionChanged="DataGridStrikePriceVolumeTable_SelectionChanged"
@@ -183,8 +160,6 @@
                 </syncfusion:SfDataGrid>
 
                 <TextBlock x:Name="TextBlockNullData"
-                           FontFamily="{Binding DisplayFontFamilyName, Converter={StaticResource FontFamilyNameConverter}, Source={x:Static properties:Settings.Default}}"
-                           FontSize="{Binding PrimaryTextFontSize, Source={x:Static properties:Settings.Default}}"
                            Foreground="{Binding ColourDanger, Source={x:Static properties:Settings.Default}}"
                            HorizontalAlignment="Center"
                            Margin="15"
@@ -193,7 +168,7 @@
                            VerticalAlignment="Center"
                            Visibility="Hidden"/>
             </Grid>
-        </syncfusionNotification:SfBusyIndicator>
+        </syncfusion:SfBusyIndicator>
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>

@@ -2,7 +2,7 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ShSzStockHelper.Properties" GeneratedClassName="DefaultUserSettings">
   <Profiles />
   <Settings>
-    <Setting Name="ProductTheme" Type="System.Int32" Scope="Application">
+    <Setting Name="AppTheme" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">18</Value>
     </Setting>
     <Setting Name="ExcelCellFontSize" Type="System.Double" Scope="Application">
@@ -67,12 +67,6 @@
     </Setting>
     <Setting Name="ContentTextColour_MaterialDark" Type="System.Windows.Media.SolidColorBrush" Scope="Application">
       <Value Profile="(Default)">#FF979797</Value>
-    </Setting>
-    <Setting Name="MenuIconUri_MaterialLight" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">../../Images/MaterialLight/Menu.png</Value>
-    </Setting>
-    <Setting Name="MenuIconUri_MaterialDark" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">../../Images/MaterialDark/Menu.png</Value>
     </Setting>
     <Setting Name="AboutIconUri_MaterialLight" Type="System.String" Scope="Application">
       <Value Profile="(Default)">../Images/MaterialLight/About.png</Value>

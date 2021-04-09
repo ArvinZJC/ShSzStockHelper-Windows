@@ -220,7 +220,7 @@
     <value>显示字体</value>
   </data>
   <data name="DisplayFontFamilyNameSetting_Explanation" xml:space="preserve">
-    <value>界面上的文字字体。您对此设置的修改可能造成布局异常，若出现此问题，请您换用其他字体。</value>
+    <value>界面上的文字字体。只有您在弹出的应用重启确认对话框中确定重启此应用时，您对此设置的修改才会被保存，并在应用重启后生效。您对此设置的修改可能造成布局异常，若出现此问题，请您换用其他字体。</value>
   </data>
   <data name="Envelope10" xml:space="preserve">
     <value>COM10信封</value>
@@ -285,17 +285,11 @@
   <data name="FilteringSetting_Explanation" xml:space="preserve">
     <value>列的筛选功能的开关。启用该功能允许您设定条件来显示符合的数据。您对此设置中关于</value>
   </data>
-  <data name="FirstPage" xml:space="preserve">
-    <value>首页</value>
-  </data>
   <data name="Fri" xml:space="preserve">
     <value>五</value>
   </data>
   <data name="GeneralSettings" xml:space="preserve">
     <value>通用</value>
-  </data>
-  <data name="LastPage" xml:space="preserve">
-    <value>末页</value>
   </data>
   <data name="LeftBracket" xml:space="preserve">
     <value>（</value>
@@ -333,9 +327,6 @@
   <data name="NarrowMargin" xml:space="preserve">
     <value> 1.27 厘米</value>
   </data>
-  <data name="NextPage" xml:space="preserve">
-    <value>下一页</value>
-  </data>
   <data name="NormalMargin" xml:space="preserve">
     <value> 2.5 厘米</value>
   </data>
@@ -347,9 +338,6 @@
   </data>
   <data name="NullProductVersionError" xml:space="preserve">
     <value>（未知版本号）</value>
-  </data>
-  <data name="PreviousPage" xml:space="preserve">
-    <value>上一页</value>
   </data>
   <data name="PriceUnit" xml:space="preserve">
     <value>元</value>
@@ -393,6 +381,9 @@
   <data name="TableSettings" xml:space="preserve">
     <value>表格</value>
   </data>
+  <data name="TextBlockAppRestartAlert_Text" xml:space="preserve">
+    <value>的修改需要重启此应用，已创建的标签页会被关闭。若您确定重启此应用，您对此设置的修改将会被保存，并在应用重启后生效。您确定重启此应用吗？</value>
+  </data>
   <data name="TextBlockNewTabHint_Text" xml:space="preserve">
     <value>点击左上方的“+”按钮新建标签页，开始搜索吧！</value>
   </data>
@@ -419,9 +410,6 @@
   </data>
   <data name="TextBlockOpenSource_Text_Part3" xml:space="preserve">
     <value>时，请遵守相关许可协议。</value>
-  </data>
-  <data name="TextBlockProductRestartAlert_Text" xml:space="preserve">
-    <value>修改界面主题风格需要重启此应用，已创建的标签页会被关闭。若您确定重启此应用，您对主题设置的修改将会被保存，并在应用重启后生效。您确定重启此应用吗？</value>
   </data>
   <data name="TextBoxSymbol_ToolTip" xml:space="preserve">
     <value>股票代码应以上市交易所代码开头（支持SH和SZ，大小写不限）接6位数字。股票名称在输入框失去焦点后会自动转换成对应的代码（如果有）</value>

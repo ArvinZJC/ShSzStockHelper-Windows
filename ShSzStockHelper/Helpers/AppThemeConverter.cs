@@ -17,7 +17,7 @@ namespace ShSzStockHelper.Helpers
     /// <summary>
     /// A converter to convert a theme ID to a corresponding <see cref="VisualStyles"/> type.
     /// </summary>
-    internal class ProductThemeConverter : IValueConverter
+    internal class AppThemeConverter : IValueConverter
     {
         /// <summary>
         /// Convert a theme ID to a corresponding <see cref="VisualStyles"/> type.
@@ -38,5 +38,5 @@ namespace ShSzStockHelper.Helpers
         {
             throw new NotImplementedException();
         } // end method ConvertBack
-    } // end class ProductThemeConverter
+    } // end class AppThemeConverter
 } // end namespace ShSzStockHelper.Helpers

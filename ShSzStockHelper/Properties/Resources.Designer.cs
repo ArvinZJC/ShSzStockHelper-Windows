@@ -367,7 +367,7 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 界面上的文字字体。您对此设置的修改可能造成布局异常，若出现此问题，请您换用其他字体。.
+        ///   Looks up a localized string similar to 界面上的文字字体。只有您在弹出的应用重启确认对话框中确定重启此应用时，您对此设置的修改才会被保存，并在应用重启后生效。您对此设置的修改可能造成布局异常，若出现此问题，请您换用其他字体。.
         /// </summary>
         public static string DisplayFontFamilyNameSetting_Explanation {
             get {
@@ -565,15 +565,6 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 首页.
-        /// </summary>
-        public static string FirstPage {
-            get {
-                return ResourceManager.GetString("FirstPage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to 五.
         /// </summary>
         public static string Fri {
@@ -588,15 +579,6 @@ namespace ShSzStockHelper.Properties {
         public static string GeneralSettings {
             get {
                 return ResourceManager.GetString("GeneralSettings", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 末页.
-        /// </summary>
-        public static string LastPage {
-            get {
-                return ResourceManager.GetString("LastPage", resourceCulture);
             }
         }
         
@@ -709,15 +691,6 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 下一页.
-        /// </summary>
-        public static string NextPage {
-            get {
-                return ResourceManager.GetString("NextPage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to  2.5 厘米.
         /// </summary>
         public static string NormalMargin {
@@ -750,15 +723,6 @@ namespace ShSzStockHelper.Properties {
         public static string NullProductVersionError {
             get {
                 return ResourceManager.GetString("NullProductVersionError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 上一页.
-        /// </summary>
-        public static string PreviousPage {
-            get {
-                return ResourceManager.GetString("PreviousPage", resourceCulture);
             }
         }
         
@@ -889,6 +853,15 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 的修改需要重启此应用，已创建的标签页会被关闭。若您确定重启此应用，您对此设置的修改将会被保存，并在应用重启后生效。您确定重启此应用吗？.
+        /// </summary>
+        public static string TextBlockAppRestartAlert_Text {
+            get {
+                return ResourceManager.GetString("TextBlockAppRestartAlert_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 点击左上方的“+”按钮新建标签页，开始搜索吧！.
         /// </summary>
         public static string TextBlockNewTabHint_Text {
@@ -966,15 +939,6 @@ namespace ShSzStockHelper.Properties {
         public static string TextBlockOpenSource_Text_Part3 {
             get {
                 return ResourceManager.GetString("TextBlockOpenSource_Text_Part3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 修改界面主题风格需要重启此应用，已创建的标签页会被关闭。若您确定重启此应用，您对主题设置的修改将会被保存，并在应用重启后生效。您确定重启此应用吗？.
-        /// </summary>
-        public static string TextBlockProductRestartAlert_Text {
-            get {
-                return ResourceManager.GetString("TextBlockProductRestartAlert_Text", resourceCulture);
             }
         }
         

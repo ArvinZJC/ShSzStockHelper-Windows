@@ -215,12 +215,12 @@ namespace ShSzStockHelper.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("18")]
-        public int ProductTheme {
+        public int AppTheme {
             get {
-                return ((int)(this["ProductTheme"]));
+                return ((int)(this["AppTheme"]));
             }
             set {
-                this["ProductTheme"] = value;
+                this["AppTheme"] = value;
             }
         }
         
@@ -454,18 +454,6 @@ namespace ShSzStockHelper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("../../Images/MaterialLight/Menu.png")]
-        public string MenuIconUri {
-            get {
-                return ((string)(this["MenuIconUri"]));
-            }
-            set {
-                this["MenuIconUri"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("../Images/MaterialLight/About.png")]
         public string AboutIconUri {
             get {
@@ -562,10 +550,19 @@ namespace ShSzStockHelper.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("24")]
-        public double TitleBarButtonSideLength {
+        [global::System.Configuration.DefaultSettingValueAttribute("32")]
+        public double TitleBarButtonWidth {
             get {
-                return ((double)(this["TitleBarButtonSideLength"]));
+                return ((double)(this["TitleBarButtonWidth"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("24")]
+        public double TitleBarButtonHeight {
+            get {
+                return ((double)(this["TitleBarButtonHeight"]));
             }
         }
     }

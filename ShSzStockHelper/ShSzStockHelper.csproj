@@ -5,7 +5,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>AppIcon.ico</ApplicationIcon>
-    <Version>0.8.4</Version>
+    <Version>0.9.0</Version>
     <Authors>Arvin Zhao</Authors>
     <Company>ArvinZJC</Company>
     <Product>神户座</Product>
@@ -19,23 +19,23 @@
     <AssemblyName>ShSzStockHelper</AssemblyName>
     <PackageId>ShSzStockHelper</PackageId>
     <RepositoryType>Public</RepositoryType>
-    <AssemblyVersion>0.8.4.0</AssemblyVersion>
-    <FileVersion>0.8.4.0</FileVersion>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+    <FileVersion>0.9.0.0</FileVersion>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="HtmlAgilityPack" Version="1.11.29" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.32" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="PortableSettingsProvider" Version="0.2.4" />
-    <PackageReference Include="Syncfusion.DataGridExcelExport.Wpf" Version="18.4.0.34" />
-    <PackageReference Include="Syncfusion.SfBusyIndicator.WPF" Version="18.4.0.34" />
-    <PackageReference Include="Syncfusion.SfGrid.WPF" Version="18.4.0.34" />
-    <PackageReference Include="Syncfusion.SfInput.WPF" Version="18.4.0.34" />
-    <PackageReference Include="Syncfusion.SfTreeNavigator.WPF" Version="18.4.0.34" />
-    <PackageReference Include="Syncfusion.Themes.MaterialDark.WPF" Version="18.4.0.34" />
-    <PackageReference Include="Syncfusion.Themes.MaterialLight.WPF" Version="18.4.0.34" />
-    <PackageReference Include="Syncfusion.Tools.WPF" Version="18.4.0.34" />
+    <PackageReference Include="Syncfusion.DataGridExcelExport.Wpf" Version="19.1.0.55" />
+    <PackageReference Include="Syncfusion.SfBusyIndicator.WPF" Version="19.1.0.55" />
+    <PackageReference Include="Syncfusion.SfGrid.WPF" Version="19.1.0.55" />
+    <PackageReference Include="Syncfusion.SfInput.WPF" Version="19.1.0.55" />
+    <PackageReference Include="Syncfusion.SfTreeNavigator.WPF" Version="19.1.0.55" />
+    <PackageReference Include="Syncfusion.Themes.MaterialDark.WPF" Version="19.1.0.55" />
+    <PackageReference Include="Syncfusion.Themes.MaterialLight.WPF" Version="19.1.0.55" />
+    <PackageReference Include="Syncfusion.Tools.WPF" Version="19.1.0.55" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,8 +47,6 @@
     <Resource Include="Images\MaterialDark\ClearSelection.png" />
     <Resource Include="Images\MaterialLight\ExportToExcel.png" />
     <Resource Include="Images\MaterialDark\ExportToExcel.png" />
-    <Resource Include="Images\MaterialLight\Menu.png" />
-    <Resource Include="Images\MaterialDark\Menu.png" />
     <Resource Include="Images\MaterialLight\Print.png" />
     <Resource Include="Images\MaterialDark\Print.png" />
     <Resource Include="Images\MaterialLight\RestoreColumnWidth.png" />

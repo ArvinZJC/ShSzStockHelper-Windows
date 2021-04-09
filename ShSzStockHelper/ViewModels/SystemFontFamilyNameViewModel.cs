@@ -1,15 +1,14 @@
 ﻿/*
  * @Description: a view model to load data of the system's font family names
- * @Version: 1.0.0.20200904
+ * @Version: 1.0.1.20210407
  * @Author: Arvin Zhao
  * @Date: 2020-09-04 00:26:31
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2020-09-04 01:19:34
+ * @LastEditTime: 2021-04-07 01:19:34
  */
 
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Markup;
 using System.Windows.Media;

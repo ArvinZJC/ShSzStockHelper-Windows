@@ -1,27 +1,15 @@
-﻿namespace ShSzStockHelper.Properties {
-    
-    
-    // This class allows you to handle specific events on the settings class:
-    //  The SettingChanging event is raised before a setting's value is changed.
-    //  The PropertyChanged event is raised after a setting's value is changed.
-    //  The SettingsLoaded event is raised after the setting values are loaded.
-    //  The SettingsSaving event is raised before the setting values are saved.
-    internal sealed partial class Settings {
-        private Settings() {
-            // // To add event handlers for saving and changing settings, uncomment the lines below:
-            //
-            // this.SettingChanging += this.SettingChangingEventHandler;
-            //
-            // this.SettingsSaving += this.SettingsSavingEventHandler;
-            //
-        }
-        
-        private void SettingChangingEventHandler(object sender, System.Configuration.SettingChangingEventArgs e) {
-            // Add code to handle the SettingChangingEvent event here.
-        }
-        
-        private void SettingsSavingEventHandler(object sender, System.ComponentModel.CancelEventArgs e) {
-            // Add code to handle the SettingsSaving event here.
-        }
-    }
-}
+﻿/*
+ * @Description: a handler to handle specific settings events
+ * @Version: 1.0.1.20210407
+ * @Author: Arvin Zhao
+ * @Date: 2020-11-23 12:47:46
+ * @Last Editors: Arvin Zhao
+ * @LastEditTime: 2021-04-07 16:42:41
+ */
+namespace ShSzStockHelper.Properties
+{
+    /// <summary>
+    /// A handler to handle specific events on the <see cref="Settings"/> class.
+    /// </summary>
+    internal sealed partial class Settings {} // end class Settings
+} // end namespace ShSzStockHelper.Properties

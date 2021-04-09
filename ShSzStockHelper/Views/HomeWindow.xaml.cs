@@ -1,10 +1,10 @@
 ﻿/*
  * @Description: the back-end code of the home window
- * @Version: 1.2.0.20201224
+ * @Version: 1.2.1.20210409
  * @Author: Arvin Zhao
  * @Date: 2020-07-08 10:17:48
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2020-12-24 14:12:09
+ * @LastEditTime: 2021-04-09 14:12:09
  */
 
 using ShSzStockHelper.ViewModels;
@@ -30,18 +30,18 @@ namespace ShSzStockHelper.Views
         {
             InitializeComponent(); // Do essential tasks before invoking this method.
 
+            var productName = App.GetProductName();
+            WindowHome.Title = productName + " " + App.GetProductVersion();
             _stockSymbolNameViewModel = new StockSymbolNameViewModel();
             _systemFontFamilyNameViewModel = new SystemFontFamilyNameViewModel();
-
-            var productName = App.GetProductName();
-
-            WindowHome.Title = productName + " " + App.GetProductVersion(); // Display the app name and the package version defined in "Properties\Package\Package version".
-            //MenuItemAbout.Header = Properties.Resources.About + productName;
         } // end constructor HomeWindow
 
         #region Control Events
+        // Show settings window.
         private void ButtonSettings_OnClick(object sender, RoutedEventArgs e)
         {
+            TabControlStrikePriceVolume.Focus(); // Make the settings button lose focus.
+
             // Allow opening only 1 settings window.
             foreach(Window window in Application.Current.Windows)
                 if (window.GetType() == typeof(SettingsWindow))
@@ -60,21 +60,24 @@ namespace ShSzStockHelper.Views
             AddNewTab();
         } // end method TabControlStrikePriceVolume_NewButtonClick
 
+        // Show the hint for adding a new tab after closing all tabs.
         private void TabControlStrikePriceVolume_OnCloseAllTabs(object sender, CloseTabEventArgs e)
         {
             TextBlockNewTabHint.Visibility = Visibility.Visible;
         } // end method TabControlStrikePriceVolume_OnCloseAllTabs
 
+        // Show the hint for adding a new tab if applicable.
         private void TabControlStrikePriceVolume_TabClosed(object sender, CloseTabEventArgs e)
         {
             if (TabControlStrikePriceVolume.SelectedItem == null)
                 TextBlockNewTabHint.Visibility = Visibility.Visible;
         } // end method TabControlStrikePriceVolume_TabClosed
 
+        // Load initial content on the home window when it is loaded.
         private async void WindowHome_LoadedAsync(object sender, RoutedEventArgs e)
         {
             BusyIndicatorHomeWindowLoading.IsBusy = true;
-
+            
             await _stockSymbolNameViewModel.LoadDataAsync();
             await _systemFontFamilyNameViewModel.LoadDataAsync();
 
@@ -83,9 +86,9 @@ namespace ShSzStockHelper.Views
             BusyIndicatorHomeWindowLoading.IsBusy = false;
         } // end method WindowHome_LoadedAsync
 
+        // Close the settings window (if exists) when the home window is closed.
         private void WindowHome_OnClosing(object sender, CancelEventArgs e)
         {
-            // Close the settings window (if exists) when the home window is closed.
             foreach(Window window in Application.Current.Windows)
                 if (window.GetType() == typeof(SettingsWindow))
                     window.Close();
@@ -93,17 +96,18 @@ namespace ShSzStockHelper.Views
         #endregion Control Events
 
         #region Private Methods
-        // Add a new tab to the specified tab control.
+        /// <summary>
+        /// Add a new tab to the specified tab control.
+        /// </summary>
         private void AddNewTab()
         {
             var tabItemStrikePriceVolume = new TabItemExt
             {
                 Header = Properties.Resources.TabItemStrikePriceVolume_Header_NewTab,
-                HeaderTemplate = Application.Current.Resources["TabItemHeaderTemplate"] as DataTemplate,
+                IsTabStop = false,
                 ItemToolTip = Properties.Resources.TabItemStrikePriceVolume_Header_NewTab,
                 MaxWidth = Properties.Settings.Default.MaxTabItemWidth
             };
-
             tabItemStrikePriceVolume.Content = new StrikePriceVolumeTab(tabItemStrikePriceVolume, _stockSymbolNameViewModel);
             TabControlStrikePriceVolume.Items.Add(tabItemStrikePriceVolume);
         } // end method AddNewTab

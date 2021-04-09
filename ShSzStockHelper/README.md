@@ -11,23 +11,23 @@ This is the Visual Studio solution folder of the application. It contains code a
 
 ## ATTENTION
 
-1. By 23 February 2021, everything looks good with Visual Studio 2019 (Version: 16.8.4) + Windows Presentation Foundation (WPF) with .NET Core 3.1. Additionally, I would like to thankfully acknowledge Syncfusion for [its powerful WPF UI controls and libraries](https://www.syncfusion.com/wpf-ui-controls), which save much development time.
+1. By 9 April 2021, everything looks good with Visual Studio 2019 (Version: 16.9.3) + Windows Presentation Foundation (WPF) with .NET Core 3.1. Additionally, I would like to thankfully acknowledge Syncfusion for [its powerful WPF UI controls and libraries](https://www.syncfusion.com/wpf-ui-controls), which save much development time.
 2. Most of icon images used by the application are from [Material Design Icons](https://material.io/resources/icons/?style=baseline) and [Flaticon](https://www.flaticon.com/).
 3. The primary NuGet packages used in the application are listed in the following table.
 
     | Name | Version |
     | :-- | :--: |
-    | [HtmlAgilityPack](https://html-agility-pack.net/) | 1.11.29 |
-    | [Newtonsoft.Json](https://www.newtonsoft.com/json) | 12.0.3 |
+    | [HtmlAgilityPack](https://html-agility-pack.net/) | 1.11.32 |
+    | [Newtonsoft.Json](https://www.newtonsoft.com/json) | 13.0.1 |
     | [PortableSettingsProvider](https://github.com/Bluegrams/SettingsProviders) | 0.2.4 |
-    | Syncfusion.DataGridExcelExport.Wpf | 18.4.0.34 |
-    | Syncfusion.SfBusyIndicator.WPF | 18.4.0.34 |
-    | Syncfusion.SfGrid.WPF | 18.4.0.34 |
-    | Syncfusion.SfInput.WPF | 18.4.0.34 |
-    | Syncfusion.SfTreeNavigator.WPF | 18.4.0.34 |
-    | Syncfusion.Themes.MaterialDark.WPF | 18.4.0.34 |
-    | Syncfusion.Themes.MaterialLight.WPF | 18.4.0.34 |
-    | Syncfusion.Tools.WPF | 18.4.0.34 |
+    | Syncfusion.DataGridExcelExport.Wpf | 19.1.0.55 |
+    | Syncfusion.SfBusyIndicator.WPF | 19.1.0.55 |
+    | Syncfusion.SfGrid.WPF | 19.1.0.55 |
+    | Syncfusion.SfInput.WPF | 19.1.0.55 |
+    | Syncfusion.SfTreeNavigator.WPF | 19.1.0.55 |
+    | Syncfusion.Themes.MaterialDark.WPF | 19.1.0.55 |
+    | Syncfusion.Themes.MaterialLight.WPF | 19.1.0.55 |
+    | Syncfusion.Tools.WPF | 19.1.0.55 |
 
 ## Partial UI (For Reference Only)
 

@@ -66,19 +66,18 @@ namespace ShSzStockHelper.Helpers
             try
             {
                 /*
-                 * Avoid throwing the exception "System.InvalidOperationException: 'The character set provided in ContentType is invalid. Cannot read content as string using an invalid character set.'".
+                 * The code is to avoid throwing the exception "System.InvalidOperationException: 'The character set provided in ContentType is invalid. Cannot read content as string using an invalid character set.'".
                  * The inner exception is "ArgumentException: 'GB18030' is not a supported encoding name.".
                  */
                 Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
                 /*
-                 * Sample returned values:
-                 * 1. sh601006: "大秦铁路,6.640,2020-08-17,13:07:28,00,";
-                 * 2. sh6010065: "";
+                 * You can refer to the following websites for sample original text.
+                 * http://hq.sinajs.cn/list=sh601006
+                 * http://hq.sinajs.cn/list=sh6010065
                  */
                 var originalText = (await _htmlWeb.LoadFromWebAsync(@"http://hq.sinajs.cn/list=" + Symbol.ToLower(CultureInfo.InvariantCulture))).DocumentNode.InnerText;
-                var originalData = originalText.Substring(originalText.IndexOf("\"", StringComparison.Ordinal) + 1);
-
+                var originalData = originalText.Substring(originalText.IndexOf("\"", StringComparison.Ordinal) + 1); // TODO
                 return originalData.Equals("\";") ? null : originalData.Split(",")[0];
             }
             catch (HttpRequestException)
@@ -113,7 +112,7 @@ namespace ShSzStockHelper.Helpers
 
                 // The date range is too long, or access is denied by the specified data source.
                 if (rootNode.SelectNodes("//body/div") == null)
-                    return rootNode.SelectNodes("//body/h1") == null ? new[] {new decimal?[2]} : new[] {new decimal?[1]};
+                    return rootNode.SelectNodes("//body/h1") == null ? new[] { new decimal?[2] } : new[] { new decimal?[1] };
 
                 var strikePriceTotalVolumeNodes = rootNode.SelectNodes(CellNodePath);
 
