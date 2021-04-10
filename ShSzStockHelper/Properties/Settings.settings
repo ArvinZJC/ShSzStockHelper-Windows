@@ -11,10 +11,7 @@
     <Setting Name="ContentTextFontSize" Type="System.Double" Scope="Application">
       <Value Profile="(Default)">12</Value>
     </Setting>
-    <Setting Name="ColourDanger" Type="System.Windows.Media.SolidColorBrush" Scope="Application">
-      <Value Profile="(Default)">#FFFF0000</Value>
-    </Setting>
-    <Setting Name="ExcelHeaderBackground" Type="System.Windows.Media.SolidColorBrush" Scope="User">
+    <Setting Name="ExcelHeaderBackground" Type="System.Windows.Media.SolidColorBrush" Scope="Application">
       <Value Profile="(Default)">#FFD3D3D3</Value>
     </Setting>
     <Setting Name="MaxCellWidth" Type="System.Double" Scope="Application">
@@ -62,9 +59,6 @@
     <Setting Name="AppTheme" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">18</Value>
     </Setting>
-    <Setting Name="ContentTextColour" Type="System.Windows.Media.SolidColorBrush" Scope="User">
-      <Value Profile="(Default)">#FF666666</Value>
-    </Setting>
     <Setting Name="ExplanationTextColour" Type="System.Windows.Media.SolidColorBrush" Scope="Application">
       <Value Profile="(Default)">#FF999999</Value>
     </Setting>
@@ -85,9 +79,6 @@
     </Setting>
     <Setting Name="TitleTextFontSize" Type="System.Double" Scope="Application">
       <Value Profile="(Default)">21</Value>
-    </Setting>
-    <Setting Name="ThemeColour" Type="System.Windows.Media.SolidColorBrush" Scope="User">
-      <Value Profile="(Default)">#FF0179FF</Value>
     </Setting>
     <Setting Name="CultureInfo" Type="System.String" Scope="Application">
       <Value Profile="(Default)">zh-CN</Value>
@@ -142,9 +133,6 @@
     </Setting>
     <Setting Name="SearchIconUri" Type="System.String" Scope="User">
       <Value Profile="(Default)">../Images/MaterialLight/Search.png</Value>
-    </Setting>
-    <Setting Name="PrimaryTextColour" Type="System.Windows.Media.SolidColorBrush" Scope="User">
-      <Value Profile="(Default)">#DD000000</Value>
     </Setting>
     <Setting Name="MediumIconSideLength" Type="System.Double" Scope="User">
       <Value Profile="(Default)">50</Value>

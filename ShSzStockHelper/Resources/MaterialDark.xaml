@@ -35,7 +35,7 @@
     <DataTemplate x:Key="TextBoxWatermarkTemplate">
         <!-- ReSharper disable once Xaml.StaticResourceNotResolved -->
         <TextBlock Foreground="{StaticResource PlaceholderForeground}"
-                   Margin="0,3,0,2"
+                   Margin="0,0,0,2"
                    Text="{Binding}" />
     </DataTemplate>
 

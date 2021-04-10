@@ -1,10 +1,10 @@
 ﻿/*
  * @Description: the back-end code of the tab of searching for data of strike prices and volumes
- * @Version: 1.4.5.20210409
+ * @Version: 1.4.8.20210410
  * @Author: Arvin Zhao
  * @Date: 2020-08-10 13:37:27
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-04-09 13:38:24
+ * @LastEditTime: 2021-04-10 04:07:15
  */
 
 using Microsoft.Win32;
@@ -24,6 +24,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Media;
 
 namespace ShSzStockHelper.Views
 {
@@ -32,13 +33,13 @@ namespace ShSzStockHelper.Views
     /// </summary>
     public partial class StrikePriceVolumeTab
     {
-        private readonly StockSymbolNameViewModel _stockSymbolNameViewModel;
-        private readonly TabItemExt _tabItemStrikePriceVolume;
-
         /// <summary>
         /// A regular expression for validating if a string contains Chinese characters.
         /// </summary>
         private const string RegularExpressionHasChinese = @"[\u4e00-\u9fa5]";
+
+        private readonly StockSymbolNameViewModel _stockSymbolNameViewModel;
+        private readonly TabItemExt _tabItemStrikePriceVolume;
 
         /// <summary>
         /// A flag indicating if the format of the symbol input is standard. Initial value is false.
@@ -59,11 +60,6 @@ namespace ShSzStockHelper.Views
         /// The title of the data grid containing data of strike prices and volumes.
         /// </summary>
         private string _dataTableTitle;
-
-        /// <summary>
-        /// A stock's name. Symbol is displayed if no corresponding name is found.
-        /// </summary>
-        private string _stockName;
 
         private ExcelExportingOptions _excelExportingOptions;
         private StrikePriceVolumeDataProcessor _strikePriceVolumeDataProcessor;
@@ -147,27 +143,32 @@ namespace ShSzStockHelper.Views
         private async void ButtonSearch_ClickAsync(object sender, RoutedEventArgs e)
         {
             var input = TextBoxSymbol.Text.Trim().ToUpper();
+            string stockName;
 
-            // Decide the stock name to display.
+            // Display the stock name or symbol (if no corresponding name is found) in the tab title.
             if (TextBoxSymbol.SelectedItem != null && input.Equals(((StockSymbolNameData) TextBoxSymbol.SelectedItem).Symbol))
-                _stockName = ((StockSymbolNameData) TextBoxSymbol.SelectedItem).Name;
+                stockName = ((StockSymbolNameData) TextBoxSymbol.SelectedItem).Name;
             else
                 try
                 {
                     var satisfiedRecord = _stockSymbolNameViewModel.StockSymbolNameRecords.First(record => input.Equals(record.Symbol));
-                    _stockName = satisfiedRecord.Name;
+                    stockName = satisfiedRecord.Name;
                 }
                 // No matching record is found from local data.
                 catch (InvalidOperationException)
                 {
-                    _stockName = await _strikePriceVolumeDataProcessor.GetStockNameFromWebAsync() ?? input;
+                    stockName = await _strikePriceVolumeDataProcessor.GetStockNameFromWebAsync() ?? input;
                 } // end try...catch
 
-            _dataTableTitle = _stockName + Properties.Resources.LeftBracket + _strikePriceVolumeDataProcessor.StartDate.ToString(Properties.Settings.Default.DateDisplayFormat) + "~" + _strikePriceVolumeDataProcessor.EndDate.ToString(Properties.Settings.Default.DateDisplayFormat) + Properties.Resources.RightBracket;
+            _dataTableTitle = stockName + Properties.Resources.LeftBracket + _strikePriceVolumeDataProcessor.StartDate.ToString(Properties.Settings.Default.DateDisplayFormat) + "~" + _strikePriceVolumeDataProcessor.EndDate.ToString(Properties.Settings.Default.DateDisplayFormat) + Properties.Resources.RightBracket;
 
             // Ensure that the specified controls are in the initial/suitable status.
             _tabItemStrikePriceVolume.Header = _dataTableTitle;
             _tabItemStrikePriceVolume.ItemToolTip = _dataTableTitle;
+            TextBoxSymbol.BorderBrush = Application.Current.Resources["BorderAlt"] as SolidColorBrush;
+            TextBoxSymbol.IsEnabled = false;
+            DatePickerStartDate.IsEnabled = false;
+            DatePickerEndDate.IsEnabled = false;
             ButtonSearch.IsEnabled = false;
             BusyIndicatorSearchResultArea.IsBusy = true;
             DataGridStrikePriceVolumeTable.Visibility = Visibility.Hidden;
@@ -182,6 +183,10 @@ namespace ShSzStockHelper.Views
             ShowSearchResults();
 
             // Modify the specified controls' properties after showing search results.
+            TextBoxSymbol.BorderBrush = Application.Current.Resources["Border"] as SolidColorBrush;
+            TextBoxSymbol.IsEnabled = true;
+            DatePickerStartDate.IsEnabled = true;
+            DatePickerEndDate.IsEnabled = true;
             ButtonSearch.IsEnabled = true;
             BusyIndicatorSearchResultArea.IsBusy = false;
         } // end method ButtonSearch_ClickAsync
@@ -318,7 +323,7 @@ namespace ShSzStockHelper.Views
             if (Regex.IsMatch(input, RegularExpressionHasChinese))
             {
                 _isStandardSymbol = false;
-                TextBoxSymbol.Foreground = Properties.Settings.Default.ColourDanger;
+                TextBoxSymbol.Foreground = Application.Current.Resources["ErrorForeground"] as SolidColorBrush;
                 TextBoxSymbol.SearchItemPath = "Name";
 
                 if (TextBoxSymbol.SelectedItem != null && input.Equals(((StockSymbolNameData) TextBoxSymbol.SelectedItem).Name))
@@ -332,11 +337,11 @@ namespace ShSzStockHelper.Views
                 // Change the foreground colour of the specified text box to red if the format of the input for the symbol is not satisfied.
                 if (_isStandardSymbol)
                 {
-                    TextBoxSymbol.Foreground = Properties.Settings.Default.PrimaryTextColour;
+                    TextBoxSymbol.Foreground = Application.Current.Resources["ContentForeground"] as SolidColorBrush;
                     _strikePriceVolumeDataProcessor.Symbol = input;
                 }
                 else
-                    TextBoxSymbol.Foreground = Properties.Settings.Default.ColourDanger;
+                    TextBoxSymbol.Foreground = Application.Current.Resources["ErrorForeground"] as SolidColorBrush;
             } // end if...else
 
             ChangeButtonSearchStatus();
@@ -353,13 +358,13 @@ namespace ShSzStockHelper.Views
                 && DatePickerEndDate.DateTime != null
                 && DatePickerStartDate.DateTime.ToDateTime().CompareTo(DatePickerEndDate.DateTime.ToDateTime()) > 0)
             {
-                DatePickerStartDate.Foreground = Properties.Settings.Default.ColourDanger;
-                DatePickerEndDate.Foreground = Properties.Settings.Default.ColourDanger;
+                DatePickerStartDate.Foreground = Application.Current.Resources["ErrorForeground"] as SolidColorBrush;
+                DatePickerEndDate.Foreground = Application.Current.Resources["ErrorForeground"] as SolidColorBrush;
                 return;
             } // end if
             
-            DatePickerStartDate.Foreground = Properties.Settings.Default.PrimaryTextColour;
-            DatePickerEndDate.Foreground = Properties.Settings.Default.PrimaryTextColour;
+            DatePickerStartDate.Foreground = Application.Current.Resources["ContentForeground"] as SolidColorBrush;
+            DatePickerEndDate.Foreground = Application.Current.Resources["ContentForeground"] as SolidColorBrush;
         } // end method ChangeDatePickerForeground
 
         /// <summary>
@@ -378,6 +383,34 @@ namespace ShSzStockHelper.Views
             
             ButtonSearch.IsEnabled = false;
         } // end method ChangeButtonSearchStatus
+
+        /// <summary>
+        /// Initialise the data grid to show search results.
+        /// </summary>
+        private void InitialiseDataGrid()
+        {
+            DataGridStrikePriceVolumeTable.SortColumnDescriptions.Clear(); // Clear sorting.
+            ColumnTotalVolume.HeaderText = Properties.Resources.TotalVolume
+                                           + "\n"
+                                           + Properties.Resources.LeftBracket
+                                           + _volumeUnitViewModel.VolumeUnitRecords.First(item => item.Coefficient == Properties.Settings.Default.TotalVolumeUnit).Name
+                                           + Properties.Resources.RightBracket; // Update the total volume column header.
+
+            if (DataGridStrikePriceVolumeTable.StackedHeaderRows.Count > 0)
+            {
+                /*
+                 * Clear unbound columns containing each day's volumes.
+                 * A string split option is specified to drop the last entry which should be the only empty entry because each stack column name is followed by a comma (refer to the place preparing day volume data to show).
+                 */
+                foreach (var mappingName in DataGridStrikePriceVolumeTable.StackedHeaderRows[0].StackedColumns[0].ChildColumns.Split(',', StringSplitOptions.RemoveEmptyEntries))
+                    DataGridStrikePriceVolumeTable.Columns.Remove(DataGridStrikePriceVolumeTable.Columns[mappingName]);
+
+                DataGridStrikePriceVolumeTable.StackedHeaderRows.Clear(); // Clear stacked headers after clearing unbound columns.
+            } // end if
+
+            RestoreColumnWidth();
+            _strikePriceTotalVolumeViewModel.StrikePriceTotalVolumeRecords.Clear();
+        } // end method InitialiseDataGrid
 
         /// <summary>
         /// Initialise component properties.
@@ -422,6 +455,95 @@ namespace ShSzStockHelper.Views
         } // end method InitialiseTab
 
         /// <summary>
+        /// Prepare day volume data to show.
+        /// </summary>
+        /// <returns>A <see cref="StackedHeaderRow"/> object representing a stacked header row containing a collection of stacked columns.</returns>
+        private StackedHeaderRow PrepareDayVolume()
+        {
+            var stackedHeaderRowDayVolumeChildColumns = new StringBuilder(); // Use StringBuilder here to improve string concatenating performance because of the potentially large number of strings.
+
+            for (var dayVolumeColumnCount = 0; dayVolumeColumnCount < _strikePriceVolumeRowCollection[0].Length - 2; dayVolumeColumnCount++)
+            {
+                var dayVolumeColumnDate = _strikePriceVolumeDataProcessor.StartDate.AddDays(dayVolumeColumnCount);
+                var dayVolumeColumnMappingName = dayVolumeColumnCount.ToString();
+                var dayVolumeColumnWeekday = dayVolumeColumnDate.DayOfWeek switch
+                {
+                    DayOfWeek.Monday => Properties.Resources.Mon,
+                    DayOfWeek.Tuesday => Properties.Resources.Tue,
+                    DayOfWeek.Wednesday => Properties.Resources.Wed,
+                    DayOfWeek.Thursday => Properties.Resources.Thu,
+                    DayOfWeek.Friday => Properties.Resources.Fri,
+                    DayOfWeek.Saturday => Properties.Resources.Sat,
+                    DayOfWeek.Sunday => Properties.Resources.Sun,
+                    _ => Properties.Resources.QuestionMark,
+                };
+                stackedHeaderRowDayVolumeChildColumns.Append(dayVolumeColumnMappingName + ",");
+
+                // Hide weekends' unbound columns.
+                if (dayVolumeColumnWeekday.Equals(Properties.Resources.Sat) || dayVolumeColumnWeekday.Equals(Properties.Resources.Sun))
+                {
+                    DataGridStrikePriceVolumeTable.Columns.Add(new GridUnBoundColumn
+                    {
+                        MappingName = dayVolumeColumnMappingName,
+                        MaximumWidth = 0,
+                        MinimumWidth = 0,
+                        Width = 0
+                    });
+                    continue;
+                } // end if
+
+                DataGridStrikePriceVolumeTable.Columns.Add(new GridUnBoundColumn
+                {
+                    AllowFiltering = Properties.Settings.Default.DayVolumeFiltering,
+                    AllowSorting = Properties.Settings.Default.DayVolumeSorting,
+                    HeaderText = dayVolumeColumnDate.ToString(Properties.Settings.Default.DateDisplayFormat
+                                                              + "\n"
+                                                              + Properties.Resources.LeftBracket + dayVolumeColumnWeekday
+                                                              + Properties.Resources.RightBracket),
+                    MappingName = dayVolumeColumnMappingName,
+                    MaximumWidth = Properties.Settings.Default.MaxCellWidth,
+                    MinimumWidth = Properties.Settings.Default.MinCellWidth,
+                    ShowHeaderToolTip = true,
+                    TextAlignment = TextAlignment.Right
+                });
+            } // end for
+
+            var stackedHeaderRowDayVolume = new StackedHeaderRow();
+
+            stackedHeaderRowDayVolume.StackedColumns.Add(new StackedColumn
+            {
+                ChildColumns = stackedHeaderRowDayVolumeChildColumns.ToString(),
+                HeaderText = Properties.Resources.DayVolume
+                             + Properties.Resources.LeftBracket
+                             + _volumeUnitViewModel.VolumeUnitRecords.First(item => item.Coefficient == Properties.Settings.Default.DayVolumeUnit).Name
+                             + Properties.Resources.RightBracket,
+                MappingName = "DayVolume"
+            });
+            return stackedHeaderRowDayVolume;
+        } // end method PrepareDayVolume
+
+        /// <summary>
+        /// Prepare strike price and total volume data to show.
+        /// </summary>
+        private void PrepareStrikePriceTotalVolume()
+        {
+            _nodeTotalCount = _strikePriceVolumeRowCollection.Length;
+
+            for (var nodeCount = 0; nodeCount < _nodeTotalCount; nodeCount++)
+                if (_strikePriceVolumeRowCollection[nodeCount][0] != null && _strikePriceVolumeRowCollection[nodeCount][1] != null)
+                    _strikePriceTotalVolumeViewModel.StrikePriceTotalVolumeRecords.Add(new StrikePriceTotalVolumeData
+                    {
+                        StrikePrice = (decimal) _strikePriceVolumeRowCollection[nodeCount][0],
+                        /*
+                         * 总成交量（1手 = 100股）。
+                         * First, round the day volume. Second, convert it to a string representation in a specified format. Then, convert it back to a decimal value. These steps are necessary to keep the specified number of decimal digits without dropping 0.
+                         */
+                        TotalVolume = Convert.ToDecimal(decimal.Round((decimal) _strikePriceVolumeRowCollection[nodeCount][1] / (Properties.Settings.Default.TotalVolumeUnit * 100m), Properties.Settings.Default.TotalVolumeDecimalDigits)
+                            .ToString("N" + Properties.Settings.Default.TotalVolumeDecimalDigits))
+                    });
+        } // end method PrepareStrikePriceTotalVolume
+
+        /// <summary>
         /// Restore column width by resetting it to apply autosize calculation.
         /// </summary>
         private void RestoreColumnWidth()
@@ -437,146 +559,57 @@ namespace ShSzStockHelper.Views
         /// </summary>
         private void ShowSearchResults()
         {
-            if (_strikePriceVolumeRowCollection != null)
-            {
-                if (_strikePriceVolumeRowCollection[0] != null)
-                {
-                    if (_strikePriceVolumeRowCollection[0].Length >= 3)
-                    {
-                        DataGridStrikePriceVolumeTable.Columns.Suspend(); // Suspend all the UI updates of the specified data grid to improve performance.
-                        DataGridStrikePriceVolumeTable.SortColumnDescriptions.Clear(); // Clear sorting.
-
-                        ColumnTotalVolume.HeaderText = Properties.Resources.TotalVolume
-                                                       + "\n"
-                                                       + Properties.Resources.LeftBracket
-                                                       + _volumeUnitViewModel.VolumeUnitRecords.First(item => item.Coefficient == Properties.Settings.Default.TotalVolumeUnit).Name
-                                                       + Properties.Resources.RightBracket;
-
-                        if (DataGridStrikePriceVolumeTable.StackedHeaderRows.Count > 0)
-                        {
-                            var childColumns = DataGridStrikePriceVolumeTable.StackedHeaderRows[0].StackedColumns[0].ChildColumns.Split(",");
-
-                            // Clear unbound columns containing each day's volumes.
-                            foreach (var mappingName in childColumns)
-                            {
-                                var column = DataGridStrikePriceVolumeTable.Columns[mappingName];
-
-                                if (column == null)
-                                    continue;
-
-                                DataGridStrikePriceVolumeTable.Columns.Remove(column);
-                            } // end foreach
-
-                            DataGridStrikePriceVolumeTable.StackedHeaderRows.Clear(); // Clear stacked headers after clearing unbound columns.
-                        } // end if
-
-                        RestoreColumnWidth();
-                        DataGridStrikePriceVolumeTable.GridColumnSizer.Refresh();
-                        _strikePriceTotalVolumeViewModel.StrikePriceTotalVolumeRecords.Clear();
-
-                        _nodeTotalCount = _strikePriceVolumeRowCollection.Length;
-
-                        for (var nodeCount = 0; nodeCount < _nodeTotalCount; nodeCount++)
-                            if (_strikePriceVolumeRowCollection[nodeCount][0] != null && _strikePriceVolumeRowCollection[nodeCount][1] != null)
-                                _strikePriceTotalVolumeViewModel.StrikePriceTotalVolumeRecords.Add(new StrikePriceTotalVolumeData
-                                {
-                                    StrikePrice = (decimal) _strikePriceVolumeRowCollection[nodeCount][0],
-                                    /*
-                                     * 总成交量（1手 = 100股）。
-                                     * First, round the day volume. Second, convert it to a string representation in a specified format. Then, convert it back to a decimal value. These steps are necessary to keep the specified number of decimal digits without dropping 0.
-                                     */
-                                    TotalVolume = Convert.ToDecimal(decimal.Round((decimal) _strikePriceVolumeRowCollection[nodeCount][1] / (Properties.Settings.Default.TotalVolumeUnit * 100m), Properties.Settings.Default.TotalVolumeDecimalDigits).ToString("N" + Properties.Settings.Default.TotalVolumeDecimalDigits))
-                                });
-
-                        var stackedHeaderRowDayVolumeChildColumns = new StringBuilder();
-
-                        for (var dayVolumeColumnCount = 0; dayVolumeColumnCount < _strikePriceVolumeRowCollection[0].Length - 2; dayVolumeColumnCount++)
-                        {
-                            var dayVolumeColumnMappingName = dayVolumeColumnCount.ToString();
-                            var dayVolumeColumnDate = _strikePriceVolumeDataProcessor.StartDate.AddDays(dayVolumeColumnCount);
-                            var dayVolumeColumnWeekday = dayVolumeColumnDate.DayOfWeek switch
-                            {
-                                DayOfWeek.Monday => Properties.Resources.Mon,
-                                DayOfWeek.Tuesday => Properties.Resources.Tue,
-                                DayOfWeek.Wednesday => Properties.Resources.Wed,
-                                DayOfWeek.Thursday => Properties.Resources.Thu,
-                                DayOfWeek.Friday => Properties.Resources.Fri,
-                                DayOfWeek.Saturday => Properties.Resources.Sat,
-                                DayOfWeek.Sunday => Properties.Resources.Sun,
-                                _ => Properties.Resources.QuestionMark,
-                            };
-
-                            if (dayVolumeColumnWeekday.Equals(Properties.Resources.Sat) || dayVolumeColumnWeekday.Equals(Properties.Resources.Sun))
-                                DataGridStrikePriceVolumeTable.Columns.Add(new GridUnBoundColumn
-                                {
-                                    MappingName = dayVolumeColumnMappingName,
-                                    MaximumWidth = 0,
-                                    MinimumWidth = 0,
-                                    Width = 0
-                                });
-                            else
-                                DataGridStrikePriceVolumeTable.Columns.Add(new GridUnBoundColumn
-                                {
-                                    AllowFiltering = Properties.Settings.Default.DayVolumeFiltering,
-                                    AllowSorting = Properties.Settings.Default.DayVolumeSorting,
-                                    HeaderText = dayVolumeColumnDate.ToString(Properties.Settings.Default.DateDisplayFormat + "\n" + Properties.Resources.LeftBracket + dayVolumeColumnWeekday + Properties.Resources.RightBracket),
-                                    MappingName = dayVolumeColumnMappingName,
-                                    MaximumWidth = Properties.Settings.Default.MaxCellWidth,
-                                    MinimumWidth = Properties.Settings.Default.MinCellWidth,
-                                    ShowHeaderToolTip = true,
-                                    TextAlignment = TextAlignment.Right
-                                });
-
-                            stackedHeaderRowDayVolumeChildColumns.Append(dayVolumeColumnMappingName + ",");
-                        } // end for
-
-                        var stackedHeaderRowDayVolume = new StackedHeaderRow();
-
-                        stackedHeaderRowDayVolume.StackedColumns.Add(new StackedColumn
-                        {
-                            ChildColumns = stackedHeaderRowDayVolumeChildColumns.ToString(),
-                            HeaderText = Properties.Resources.DayVolume
-                                         + Properties.Resources.LeftBracket
-                                         + _volumeUnitViewModel.VolumeUnitRecords.First(item => item.Coefficient == Properties.Settings.Default.DayVolumeUnit).Name
-                                         + Properties.Resources.RightBracket,
-                            MappingName = "DayVolume"
-                        });
-                        
-                        DataGridStrikePriceVolumeTable.ItemsSource = _strikePriceTotalVolumeViewModel.StrikePriceTotalVolumeRecords; // Bind data to the specified data grid. It can also clear data in the first and second columns (strike price and total volume).
-                        DataGridStrikePriceVolumeTable.StackedHeaderRows.Add(stackedHeaderRowDayVolume);
-                        DataGridStrikePriceVolumeTable.Columns.Resume();
-                        DataGridStrikePriceVolumeTable.RefreshColumns();
-                        DataGridStrikePriceVolumeTable.Visibility = Visibility.Visible;
-                        ButtonExportToExcel.IsEnabled = true;
-                        ButtonPrint.IsEnabled = true;
-                    }
-                    // Access is denied by the specified data source.
-                    else if (_strikePriceVolumeRowCollection[0].Length == 1)
-                    {
-                        TextBlockNullData.Text = Properties.Resources.TextBlockNullData_Text_AccessDenied;
-                        TextBlockNullData.Visibility = Visibility.Visible;
-                    }
-                    // The date range is too long.
-                    else
-                    {
-                        TextBlockNullData.Text = Properties.Resources.TextBlockNullData_Text_ImproperDateRange;
-                        TextBlockNullData.Visibility = Visibility.Visible;
-                    } // end if...else
-                }
-                // Wrong filters (symbol/start date/end date).
-                else
-                {
-                    TextBlockNullData.Text = Properties.Resources.TextBlockNullData_Text_WrongFilters;
-                    TextBlockNullData.Visibility = Visibility.Visible;
-                } // end if...else
-            }
             // It seems to be no internet connection.
-            else
+            if (_strikePriceVolumeRowCollection == null)
             {
                 TextBlockNullData.Text = Properties.Resources.TextBlockNullData_Text_NetworkError;
                 TextBlockNullData.Visibility = Visibility.Visible;
-            } // end if...else
+                return;
+            } // end if
+
+            // Wrong filters (symbol/start date/end date).
+            if (_strikePriceVolumeRowCollection[0] == null)
+            {
+                TextBlockNullData.Text = Properties.Resources.TextBlockNullData_Text_WrongFilters;
+                TextBlockNullData.Visibility = Visibility.Visible;
+                return;
+            } // end if
+
+            switch (_strikePriceVolumeRowCollection[0].Length)
+            {
+                // Access is denied by the specified data source.
+                case 1:
+                    TextBlockNullData.Text = Properties.Resources.TextBlockNullData_Text_AccessDenied;
+                    TextBlockNullData.Visibility = Visibility.Visible;
+                    return;
+
+                // The date range is too long.
+                case 2:
+                    TextBlockNullData.Text = Properties.Resources.TextBlockNullData_Text_ImproperDateRange;
+                    TextBlockNullData.Visibility = Visibility.Visible;
+                    return;
+            } // end switch-case
+
+            DataGridStrikePriceVolumeTable.Columns.Suspend(); // For improving performance.
+            InitialiseDataGrid();
+            UpdateDataGrid();
+            DataGridStrikePriceVolumeTable.Columns.Resume();
+            DataGridStrikePriceVolumeTable.RefreshColumns();
+            DataGridStrikePriceVolumeTable.Visibility = Visibility.Visible;
+            ButtonExportToExcel.IsEnabled = true;
+            ButtonPrint.IsEnabled = true;
         } // end method ShowSearchResults
+
+        /// <summary>
+        /// Update the data grid to show search results.
+        /// </summary>
+        private void UpdateDataGrid()
+        {
+            PrepareStrikePriceTotalVolume();
+            var stackedHeaderRowDayVolume = PrepareDayVolume();
+            DataGridStrikePriceVolumeTable.ItemsSource = _strikePriceTotalVolumeViewModel.StrikePriceTotalVolumeRecords; // Bind data to the specified data grid. It can also clear data in the 1st and 2nd columns (strike price and total volume).
+            DataGridStrikePriceVolumeTable.StackedHeaderRows.Add(stackedHeaderRowDayVolume);
+        } // end method UpdateDataGrid
         #endregion Private Methods
     } // end class StrikePriceVolumeTab
 } // end namespace ShSzStockHelper.Views

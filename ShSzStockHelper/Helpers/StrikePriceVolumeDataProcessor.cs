@@ -1,10 +1,10 @@
 ﻿/*
  * @Description: a data processor to process data of strike prices and volumes collected
- * @Version: 1.1.5.20200916
+ * @Version: 1.1.6.20210410
  * @Author: Arvin Zhao
  * @Date: 2020-07-15 18:25:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2020-09-16 19:25:42
+ * @LastEditTime: 2021-04-10 09:25:42
  */
 
 using HtmlAgilityPack;
@@ -21,9 +21,6 @@ namespace ShSzStockHelper.Helpers
     /// </summary>
     internal class StrikePriceVolumeDataProcessor
     {
-        private readonly HtmlWeb _htmlWeb;
-        private const string CellNodePath = "//tbody/tr";
-
         /// <summary>
         /// The symbol of a stock.
         /// </summary>
@@ -39,13 +36,23 @@ namespace ShSzStockHelper.Helpers
         /// </summary>
         public DateTime EndDate { get; set; }
 
+        /// <summary>
+        /// The root XPath expression for selecting nodes.
+        /// </summary>
+        private const string CellNodePath = "//tbody/tr";
+
+        private readonly HtmlWeb _htmlWeb;
+
+        /// <summary>
+        /// Initialise a new instance of the <see cref="StrikePriceVolumeDataProcessor"/> class.
+        /// </summary>
         public StrikePriceVolumeDataProcessor()
         {
             _htmlWeb = new HtmlWeb();
         } // end constructor StrikePriceVolumeDataProcessor
 
         /// <summary>
-        /// Get the root node of the HTML document from the specified source providing data of strike prices and volumes.
+        /// Get the root node of the HTML document from the specified data source.
         /// </summary>
         /// <param name="startDate">The start date of the query.</param>
         /// <param name="endDate">The end date of the query.</param>
@@ -77,7 +84,7 @@ namespace ShSzStockHelper.Helpers
                  * http://hq.sinajs.cn/list=sh6010065
                  */
                 var originalText = (await _htmlWeb.LoadFromWebAsync(@"http://hq.sinajs.cn/list=" + Symbol.ToLower(CultureInfo.InvariantCulture))).DocumentNode.InnerText;
-                var originalData = originalText.Substring(originalText.IndexOf("\"", StringComparison.Ordinal) + 1); // TODO
+                var originalData = originalText[(originalText.IndexOf("\"", StringComparison.Ordinal) + 1)..];
                 return originalData.Equals("\";") ? null : originalData.Split(",")[0];
             }
             catch (HttpRequestException)
@@ -90,17 +97,19 @@ namespace ShSzStockHelper.Helpers
         /// Retrieve data of strike prices and volumes from the web.
         /// </summary>
         /// <returns>
-        /// A jagged array of type "decimal?" which has 1 or more array elements, and each one has at least 3 elements containing the required data;<br />
-        /// OR a jagged array of type "decimal?" which has only 1 array element:<br />
-        ///     * 2 elements in the array element if the date range is too long,<br />
-        ///     * OR 1 element in the array element if access is denied by the specified source providing data of strike prices and volumes;<br />
-        ///     * OR <c>null</c> as the array element if the filters are wrong.<br />
-        /// OR <c>null</c> if it seems to be no internet connection.
-        /// <br /><br />
-        /// For the jagged array with at least 1 array element, each array element contains the data for the rows of a table.
-        /// These array elements are in the same size. The reason for not using a rectangular 2D array is to make the sorting simpler.
+        /// A jagged array of type "decimal?" which has 1 or more array elements, and each array element has at least 3 elements containing the required data;<br /><br />
+        /// 
+        /// OR a jagged array of type "decimal?" which has only 1 array element, and this array element has/is:<br />
+        /// * <c>null</c> if the filters are wrong;<br /><br />
+        /// * 1 element if access is denied by the specified data source;<br />
+        /// * 2 elements if the date range is too long;<br />
+        /// 
+        /// OR <c>null</c> if it seems to be no internet connection.<br /><br />
+        ///
+        /// NOTE: For the jagged array with at least 1 array element, each array element contains the data for the rows of a table.
+        /// These array elements are in the same size. The reason for NOT using a rectangular 2D array is to make the sorting simpler.
         /// Each element in an array element is the data for 1 column of a table.
-        /// For columns, Index 0 represents strike prices, while Index 1 represents total volumes. These two columns should not have <c>null</c> data.
+        /// For columns, Index 0 represents strike prices, while Index 1 represents total volumes. These two columns should NOT have <c>null</c> data.
         /// The other indexes represent each day's volumes.
         /// The array elements is sorted by strike prices in descending order.
         /// </returns>
@@ -118,7 +127,7 @@ namespace ShSzStockHelper.Helpers
 
                 // Wrong filters (symbol/start date/end date).
                 if (strikePriceTotalVolumeNodes == null)
-                    return new decimal?[][] {null};
+                    return new decimal?[][] { null };
 
                 var dayTotalCount = EndDate.Subtract(StartDate).Days + 1; // Calculate the number of days (>= 1) from the start date to the end date.
                 var strikePriceVolumeRowCollection = new decimal?[strikePriceTotalVolumeNodes.Count][]; // The table of strike prices and volumes should have at least 3 columns (strike price, total volume, and each day's volume).
@@ -134,7 +143,7 @@ namespace ShSzStockHelper.Helpers
 
                     foreach (var element in node.Elements("td"))
                     {
-                        // Index 0 represents strike prices, while Index 1 represents total volumes. (Determined by the specified data source.)
+                        // Index 0 represents strike prices, while Index 1 represents total volumes (determined by the specified data source).
                         if (elementIndex < 2)
                         {
                             var elementValue = Convert.ToDecimal(element.InnerText);

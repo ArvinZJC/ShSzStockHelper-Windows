@@ -55,22 +55,10 @@ namespace ShSzStockHelper.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#FFFF0000")]
-        public global::System.Windows.Media.SolidColorBrush ColourDanger {
-            get {
-                return ((global::System.Windows.Media.SolidColorBrush)(this["ColourDanger"]));
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FFD3D3D3")]
         public global::System.Windows.Media.SolidColorBrush ExcelHeaderBackground {
             get {
                 return ((global::System.Windows.Media.SolidColorBrush)(this["ExcelHeaderBackground"]));
-            }
-            set {
-                this["ExcelHeaderBackground"] = value;
             }
         }
         
@@ -224,18 +212,6 @@ namespace ShSzStockHelper.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#FF666666")]
-        public global::System.Windows.Media.SolidColorBrush ContentTextColour {
-            get {
-                return ((global::System.Windows.Media.SolidColorBrush)(this["ContentTextColour"]));
-            }
-            set {
-                this["ContentTextColour"] = value;
-            }
-        }
-        
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FF999999")]
@@ -296,18 +272,6 @@ namespace ShSzStockHelper.Properties {
         public double TitleTextFontSize {
             get {
                 return ((double)(this["TitleTextFontSize"]));
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#FF0179FF")]
-        public global::System.Windows.Media.SolidColorBrush ThemeColour {
-            get {
-                return ((global::System.Windows.Media.SolidColorBrush)(this["ThemeColour"]));
-            }
-            set {
-                this["ThemeColour"] = value;
             }
         }
         
@@ -521,18 +485,6 @@ namespace ShSzStockHelper.Properties {
             }
             set {
                 this["SearchIconUri"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#DD000000")]
-        public global::System.Windows.Media.SolidColorBrush PrimaryTextColour {
-            get {
-                return ((global::System.Windows.Media.SolidColorBrush)(this["PrimaryTextColour"]));
-            }
-            set {
-                this["PrimaryTextColour"] = value;
             }
         }
         

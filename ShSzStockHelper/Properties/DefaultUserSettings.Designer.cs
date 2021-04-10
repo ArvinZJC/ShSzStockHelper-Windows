@@ -43,15 +43,6 @@ namespace ShSzStockHelper.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#FFD3D3D3")]
-        public global::System.Windows.Media.SolidColorBrush ExcelHeaderBackground {
-            get {
-                return ((global::System.Windows.Media.SolidColorBrush)(this["ExcelHeaderBackground"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Microsoft YaHei UI")]
         public string ExcelCellFontFamilyName {
             get {
@@ -187,42 +178,6 @@ namespace ShSzStockHelper.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#FF0179FF")]
-        public global::System.Windows.Media.SolidColorBrush ThemeColour_MaterialLight {
-            get {
-                return ((global::System.Windows.Media.SolidColorBrush)(this["ThemeColour_MaterialLight"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#FF05DAC5")]
-        public global::System.Windows.Media.SolidColorBrush ThemeColour_MaterialDark {
-            get {
-                return ((global::System.Windows.Media.SolidColorBrush)(this["ThemeColour_MaterialDark"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#FF666666")]
-        public global::System.Windows.Media.SolidColorBrush ContentTextColour_MaterialLight {
-            get {
-                return ((global::System.Windows.Media.SolidColorBrush)(this["ContentTextColour_MaterialLight"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#FF979797")]
-        public global::System.Windows.Media.SolidColorBrush ContentTextColour_MaterialDark {
-            get {
-                return ((global::System.Windows.Media.SolidColorBrush)(this["ContentTextColour_MaterialDark"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("../Images/MaterialLight/About.png")]
         public string AboutIconUri_MaterialLight {
             get {
@@ -326,24 +281,6 @@ namespace ShSzStockHelper.Properties {
         public string SearchIconUri_MaterialDark {
             get {
                 return ((string)(this["SearchIconUri_MaterialDark"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#DD000000")]
-        public global::System.Windows.Media.SolidColorBrush PrimaryTextColour_MaterialLight {
-            get {
-                return ((global::System.Windows.Media.SolidColorBrush)(this["PrimaryTextColour_MaterialLight"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#DDFFFFFF")]
-        public global::System.Windows.Media.SolidColorBrush PrimaryTextColour_MaterialDark {
-            get {
-                return ((global::System.Windows.Media.SolidColorBrush)(this["PrimaryTextColour_MaterialDark"]));
             }
         }
     }

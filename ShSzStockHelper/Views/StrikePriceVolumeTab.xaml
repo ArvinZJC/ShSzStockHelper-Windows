@@ -30,7 +30,7 @@
             <syncfusion:SfTextBoxExt x:Name="TextBoxSymbol"
                                      Grid.Column="0"
                                      AutoCompleteMode="Suggest"
-                                     HighlightedTextColor="{Binding ThemeColour, Source={x:Static properties:Settings.Default}}"
+                                     HighlightedTextColor="{StaticResource PrimaryBackground}"
                                      LostFocus="TextBoxSymbol_LostFocus"
                                      MaxDropDownHeight="{Binding MaxDropDownHeight, Source={x:Static properties:Settings.Default}}"
                                      MaxLength="{Binding MaxInputLength, Source={x:Static properties:Settings.Default}}"
@@ -160,7 +160,7 @@
                 </syncfusion:SfDataGrid>
 
                 <TextBlock x:Name="TextBlockNullData"
-                           Foreground="{Binding ColourDanger, Source={x:Static properties:Settings.Default}}"
+                           Foreground="{StaticResource ErrorForeground}"
                            HorizontalAlignment="Center"
                            Margin="15"
                            Text="{x:Static properties:Resources.TextBlockNullData_Text_UnknownError}"

@@ -11,7 +11,7 @@
 
 ## 注意
 
-1. 截至2021年4月9日，使用Visual Studio 2019（版本：16.9.3）和Windows呈现基础（WPF，.NET Core 3.1）开发表现良好。此外，我要特别感谢Syncfusion提供的[强大的WPF的UI组件库](https://www.syncfusion.com/wpf-ui-controls)，这节省了许多开发时间。
+1. 截至2021年4月10日，使用Visual Studio 2019（版本：16.9.3）和Windows呈现基础（WPF，.NET Core 3.1）开发表现良好。此外，我要特别感谢Syncfusion提供的[强大的WPF的UI组件库](https://www.syncfusion.com/wpf-ui-controls)，这节省了许多开发时间。
 2. 应用用到的图标资源主要来自[Material Design图标库](https://material.io/resources/icons/?style=baseline)和[Flaticon](https://www.flaticon.com/)。
 3. 应用用到的主要的NuGet包参见下面的表格。
 

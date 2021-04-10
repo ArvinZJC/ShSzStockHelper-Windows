@@ -341,7 +341,7 @@
                                Margin="0,0,0,10"/>
 
                     <TextBlock FontSize="{Binding ContentTextFontSize, Source={x:Static properties:Settings.Default}}"
-                               Foreground="{Binding ContentTextColour, Source={x:Static properties:Settings.Default}}"
+                               Foreground="{StaticResource SecondaryForeground}"
                                HorizontalAlignment="Center"
                                Margin="0,0,0,10">
                         <Run Text="{x:Static properties:Resources.TextBlockOpenSource_Text_Part1}"/>

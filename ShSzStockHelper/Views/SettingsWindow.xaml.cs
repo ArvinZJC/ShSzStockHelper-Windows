@@ -245,9 +245,6 @@ namespace ShSzStockHelper.Views
 
             if (Properties.Settings.Default.AppTheme == (int) VisualStyles.MaterialDark)
             {
-                Properties.Settings.Default.ThemeColour = Properties.DefaultUserSettings.Default.ThemeColour_MaterialDark;
-                Properties.Settings.Default.PrimaryTextColour = Properties.DefaultUserSettings.Default.PrimaryTextColour_MaterialDark;
-                Properties.Settings.Default.ContentTextColour = Properties.DefaultUserSettings.Default.ContentTextColour_MaterialDark;
                 Properties.Settings.Default.AboutIconUri = Properties.DefaultUserSettings.Default.AboutIconUri_MaterialDark;
                 Properties.Settings.Default.SearchIconUri = Properties.DefaultUserSettings.Default.SearchIconUri_MaterialDark;
                 Properties.Settings.Default.ClearSelectionIconUri = Properties.DefaultUserSettings.Default.ClearSelectionIconUri_MaterialDark;
@@ -257,9 +254,6 @@ namespace ShSzStockHelper.Views
             }
             else
             {
-                Properties.Settings.Default.ThemeColour = Properties.DefaultUserSettings.Default.ThemeColour_MaterialLight;
-                Properties.Settings.Default.PrimaryTextColour = Properties.DefaultUserSettings.Default.PrimaryTextColour_MaterialLight;
-                Properties.Settings.Default.ContentTextColour = Properties.DefaultUserSettings.Default.ContentTextColour_MaterialLight;
                 Properties.Settings.Default.AboutIconUri = Properties.DefaultUserSettings.Default.AboutIconUri_MaterialLight;
                 Properties.Settings.Default.SearchIconUri = Properties.DefaultUserSettings.Default.SearchIconUri_MaterialLight;
                 Properties.Settings.Default.ClearSelectionIconUri = Properties.DefaultUserSettings.Default.ClearSelectionIconUri_MaterialLight;
