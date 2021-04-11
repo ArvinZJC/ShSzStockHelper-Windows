@@ -61,24 +61,6 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A4.
-        /// </summary>
-        public static string A4 {
-            get {
-                return ResourceManager.GetString("A4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 21 厘米 × 29.7 厘米.
-        /// </summary>
-        public static string A4Size {
-            get {
-                return ResourceManager.GetString("A4Size", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to 关于.
         /// </summary>
         public static string About {
@@ -376,96 +358,6 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to COM10信封.
-        /// </summary>
-        public static string Envelope10 {
-            get {
-                return ResourceManager.GetString("Envelope10", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 10.48 厘米 × 24.13 厘米.
-        /// </summary>
-        public static string Envelope10Size {
-            get {
-                return ResourceManager.GetString("Envelope10Size", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to B5信封.
-        /// </summary>
-        public static string EnvelopeB5 {
-            get {
-                return ResourceManager.GetString("EnvelopeB5", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 17.6 厘米 × 25 厘米.
-        /// </summary>
-        public static string EnvelopeB5Size {
-            get {
-                return ResourceManager.GetString("EnvelopeB5Size", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to C5信封.
-        /// </summary>
-        public static string EnvelopeC5 {
-            get {
-                return ResourceManager.GetString("EnvelopeC5", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 16.2 厘米 × 22.9 厘米.
-        /// </summary>
-        public static string EnvelopeC5Size {
-            get {
-                return ResourceManager.GetString("EnvelopeC5Size", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to DL信封.
-        /// </summary>
-        public static string EnvelopeDl {
-            get {
-                return ResourceManager.GetString("EnvelopeDl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 11 厘米 × 22 厘米.
-        /// </summary>
-        public static string EnvelopeDlSize {
-            get {
-                return ResourceManager.GetString("EnvelopeDlSize", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Monarch信封.
-        /// </summary>
-        public static string EnvelopeMonarch {
-            get {
-                return ResourceManager.GetString("EnvelopeMonarch", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 9.84 厘米 × 19.05 厘米.
-        /// </summary>
-        public static string EnvelopeMonarchSize {
-            get {
-                return ResourceManager.GetString("EnvelopeMonarchSize", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to 单元格字体.
         /// </summary>
         public static string ExcelCellFontFamilyNameSetting {
@@ -516,24 +408,6 @@ namespace ShSzStockHelper.Properties {
         public static string ExcelFileFormatSetting_Explanation {
             get {
                 return ResourceManager.GetString("ExcelFileFormatSetting_Explanation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Executive.
-        /// </summary>
-        public static string Executive {
-            get {
-                return ResourceManager.GetString("Executive", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 18.41 厘米 × 26.67 厘米.
-        /// </summary>
-        public static string ExecutiveSize {
-            get {
-                return ResourceManager.GetString("ExecutiveSize", resourceCulture);
             }
         }
         
@@ -592,51 +466,6 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 法律专用纸.
-        /// </summary>
-        public static string Legal {
-            get {
-                return ResourceManager.GetString("Legal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 21.59 厘米 × 35.56 厘米.
-        /// </summary>
-        public static string LegalSize {
-            get {
-                return ResourceManager.GetString("LegalSize", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 信纸.
-        /// </summary>
-        public static string Letter {
-            get {
-                return ResourceManager.GetString("Letter", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 21.59 厘米 × 27.94 厘米.
-        /// </summary>
-        public static string LetterSize {
-            get {
-                return ResourceManager.GetString("LetterSize", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 菜单.
-        /// </summary>
-        public static string Menu_ToolTip {
-            get {
-                return ResourceManager.GetString("Menu_ToolTip", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to 最早日期.
         /// </summary>
         public static string MinDateSetting {
@@ -655,47 +484,11 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  1.91 厘米.
-        /// </summary>
-        public static string ModerateMarginLR {
-            get {
-                return ResourceManager.GetString("ModerateMarginLR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to  2.54 厘米.
-        /// </summary>
-        public static string ModerateMarginTB {
-            get {
-                return ResourceManager.GetString("ModerateMarginTB", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to 一.
         /// </summary>
         public static string Mon {
             get {
                 return ResourceManager.GetString("Mon", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to  1.27 厘米.
-        /// </summary>
-        public static string NarrowMargin {
-            get {
-                return ResourceManager.GetString("NarrowMargin", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to  2.5 厘米.
-        /// </summary>
-        public static string NormalMargin {
-            get {
-                return ResourceManager.GetString("NormalMargin", resourceCulture);
             }
         }
         
@@ -871,11 +664,20 @@ namespace ShSzStockHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 未查询到数据！数据提供方拒绝了您的访问，解封一般需要您等待5~60分钟。这可能是因为您搜索频率过高。请您降低搜索频率，并建议您起止日期的间隔时长不超过1个月。.
+        ///   Looks up a localized string similar to 未查询到数据！数据提供方拒绝访问，解封一般需要5~60分钟。因数据提供方限制，请您降低搜索频率，并建议您起止日期的间隔时长不超过1个月。.
         /// </summary>
         public static string TextBlockNullData_Text_AccessDenied {
             get {
                 return ResourceManager.GetString("TextBlockNullData_Text_AccessDenied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 查询未全部完成！数据提供方拒绝了部分访问，解封一般需要5~60分钟。因数据提供方限制，请您降低搜索频率，并建议您起止日期的间隔时长不超过1个月。.
+        /// </summary>
+        public static string TextBlockNullData_Text_AccessDeniedPartially {
+            get {
+                return ResourceManager.GetString("TextBlockNullData_Text_AccessDeniedPartially", resourceCulture);
             }
         }
         
@@ -1101,24 +903,6 @@ namespace ShSzStockHelper.Properties {
         public static string Wed {
             get {
                 return ResourceManager.GetString("Wed", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to  5.08 厘米.
-        /// </summary>
-        public static string WideMarginLR {
-            get {
-                return ResourceManager.GetString("WideMarginLR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to  2.54 厘米.
-        /// </summary>
-        public static string WideMarginTB {
-            get {
-                return ResourceManager.GetString("WideMarginTB", resourceCulture);
             }
         }
     }

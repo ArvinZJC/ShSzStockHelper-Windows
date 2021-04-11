@@ -1,10 +1,10 @@
 ﻿/*
  * @Description: the back-end code of the tab of searching for data of strike prices and volumes
- * @Version: 1.4.8.20210410
+ * @Version: 1.5.0.20210411
  * @Author: Arvin Zhao
  * @Date: 2020-08-10 13:37:27
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-04-10 04:07:15
+ * @LastEditTime: 2021-04-11 04:07:15
  */
 
 using Microsoft.Win32;
@@ -181,14 +181,6 @@ namespace ShSzStockHelper.Views
 
             _strikePriceVolumeRowCollection = await _strikePriceVolumeDataProcessor.GetStrikePriceVolumeDataFromWebAsync();
             ShowSearchResults();
-
-            // Modify the specified controls' properties after showing search results.
-            TextBoxSymbol.BorderBrush = Application.Current.Resources["Border"] as SolidColorBrush;
-            TextBoxSymbol.IsEnabled = true;
-            DatePickerStartDate.IsEnabled = true;
-            DatePickerEndDate.IsEnabled = true;
-            ButtonSearch.IsEnabled = true;
-            BusyIndicatorSearchResultArea.IsBusy = false;
         } // end method ButtonSearch_ClickAsync
 
         // Set advanced filter type for unbound columns.
@@ -206,13 +198,11 @@ namespace ShSzStockHelper.Views
         // Populate data of each day's volume for unbound columns.
         private void DataGridStrikePriceVolumeTable_QueryUnboundColumnValue(object sender, GridUnboundColumnEventsArgs e)
         {
-            if (e.UnBoundAction != UnBoundActions.QueryData
-                || _strikePriceVolumeRowCollection == null
-                || _strikePriceVolumeRowCollection[0].Length == 1)
+            if (e.UnBoundAction != UnBoundActions.QueryData)
                 return;
-
+            
             var strikePrice = Convert.ToDecimal(e.Record.GetType().GetProperty("StrikePrice")?.GetValue(e.Record));
-
+            
             // Round each volume value which is not null.
             for (var nodeCount = 0; nodeCount < _nodeTotalCount; nodeCount++)
                 if (_strikePriceVolumeRowCollection[nodeCount][0] == strikePrice)
@@ -577,7 +567,7 @@ namespace ShSzStockHelper.Views
 
             switch (_strikePriceVolumeRowCollection[0].Length)
             {
-                // Access is denied by the specified data source.
+                // The specified data source denies access.
                 case 1:
                     TextBlockNullData.Text = Properties.Resources.TextBlockNullData_Text_AccessDenied;
                     TextBlockNullData.Visibility = Visibility.Visible;
@@ -590,11 +580,27 @@ namespace ShSzStockHelper.Views
                     return;
             } // end switch-case
 
+            // The specified data source partially denies access.
+            if (_strikePriceVolumeRowCollection[0][2] == -1)
+            {
+                TextBlockNullData.Text = Properties.Resources.TextBlockNullData_Text_AccessDeniedPartially;
+                TextBlockNullData.Visibility = Visibility.Visible;
+                return;
+            } // end if
+
             DataGridStrikePriceVolumeTable.Columns.Suspend(); // For improving performance.
             InitialiseDataGrid();
             UpdateDataGrid();
             DataGridStrikePriceVolumeTable.Columns.Resume();
             DataGridStrikePriceVolumeTable.RefreshColumns();
+
+            // Modify the specified controls' properties when search results are ready.
+            TextBoxSymbol.BorderBrush = Application.Current.Resources["Border"] as SolidColorBrush;
+            TextBoxSymbol.IsEnabled = true;
+            DatePickerStartDate.IsEnabled = true;
+            DatePickerEndDate.IsEnabled = true;
+            ButtonSearch.IsEnabled = true;
+            BusyIndicatorSearchResultArea.IsBusy = false;
             DataGridStrikePriceVolumeTable.Visibility = Visibility.Visible;
             ButtonExportToExcel.IsEnabled = true;
             ButtonPrint.IsEnabled = true;
