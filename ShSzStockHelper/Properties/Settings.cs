@@ -6,6 +6,7 @@
  * @Last Editors: Arvin Zhao
  * @LastEditTime: 2021-04-07 16:42:41
  */
+
 namespace ShSzStockHelper.Properties
 {
     /// <summary>

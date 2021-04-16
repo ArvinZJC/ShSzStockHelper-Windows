@@ -1,10 +1,10 @@
 ﻿/*
  * @Description: the back-end code of the tab of searching for data of strike prices and volumes
- * @Version: 1.5.0.20210411
+ * @Version: 1.5.1.20210415
  * @Author: Arvin Zhao
  * @Date: 2020-08-10 13:37:27
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-04-11 04:07:15
+ * @LastEditTime: 2021-04-15 04:07:15
  */
 
 using Microsoft.Win32;
@@ -115,6 +115,7 @@ namespace ShSzStockHelper.Views
                     + (DataGridStrikePriceVolumeTable.StackedHeaderRows.Count + 1)
                     + ":"
                     + workbook.Worksheets[0].UsedRange.End.AddressLocal]; // Enable filters for the exported range in the worksheet.
+                workbook.Worksheets[0].SetRowHeight(2, 40); // Customise Row 2's height to show day volume headers completely.
 
                 // Set borders to cells.
                 workbook.Worksheets[0].UsedRange.BorderAround();
@@ -129,6 +130,7 @@ namespace ShSzStockHelper.Views
         // Show the print preview window.
         private void ButtonPrint_Click(object sender, RoutedEventArgs e)
         {
+            DataGridStrikePriceVolumeTable.PrintSettings.PrintManagerBase = new PrintManager(DataGridStrikePriceVolumeTable);
             DataGridStrikePriceVolumeTable.ShowPrintPreview();
         } // end method ButtonPrint_Click
 
@@ -419,17 +421,15 @@ namespace ShSzStockHelper.Views
 
             // Set the specified property values of the data grid.
             DataGridStrikePriceVolumeTable.FilterItemsPopulating += DataGridStrikePriceVolumeTable_FilterItemsPopulating;
-            DataGridStrikePriceVolumeTable.PrintSettings = new PrintSettings
-            {
-                AllowColumnWidthFitToPrintPage = false,
-                AllowPrintByDrawing = false,
-                AllowPrintStyles = false,
-                AllowRepeatHeaders = true,
-                CanPrintStackedHeaders = true,
-                PrintPageFooterHeight = Properties.Settings.Default.ContentTextFontSize,
-                PrintPageFooterTemplate = Application.Current.Resources["PrintedPageFooterTemplate"] as DataTemplate,
-                PrintPreviewWindowStyle = Application.Current.Resources["PrintPreviewWindowStyle"] as Style
-            };
+            DataGridStrikePriceVolumeTable.PrintSettings.AllowColumnWidthFitToPrintPage = false;
+            DataGridStrikePriceVolumeTable.PrintSettings.AllowPrintByDrawing = false;
+            DataGridStrikePriceVolumeTable.PrintSettings.AllowPrintStyles = false;
+            DataGridStrikePriceVolumeTable.PrintSettings.AllowRepeatHeaders = true;
+            DataGridStrikePriceVolumeTable.PrintSettings.CanPrintStackedHeaders = true;
+            DataGridStrikePriceVolumeTable.PrintSettings.PrintHeaderRowHeight = 40; // Customise header rows' height to show day volume headers completely.
+            DataGridStrikePriceVolumeTable.PrintSettings.PrintPageFooterHeight = Properties.Settings.Default.ContentTextFontSize;
+            DataGridStrikePriceVolumeTable.PrintSettings.PrintPageFooterTemplate = Application.Current.Resources["PrintedPageFooterTemplate"] as DataTemplate;
+            DataGridStrikePriceVolumeTable.PrintSettings.PrintPreviewWindowStyle = Application.Current.Resources["PrintPreviewWindowStyle"] as Style;
             DataGridStrikePriceVolumeTable.QueryUnboundColumnValue += DataGridStrikePriceVolumeTable_QueryUnboundColumnValue;
             ColumnStrikePrice.HeaderText += "\n" + Properties.Resources.LeftBracket + Properties.Resources.PriceUnit + Properties.Resources.RightBracket;
             ColumnStrikePrice.MaximumWidth = Properties.Settings.Default.MaxCellWidth;

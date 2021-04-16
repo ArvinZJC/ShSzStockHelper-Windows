@@ -1,10 +1,10 @@
 ﻿/*
  * @Description: the back-end code of initialising the app
- * @Version: 1.1.1.20210410
+ * @Version: 1.1.2.20210415
  * @Author: Arvin Zhao
  * @Date: 2020-07-08 10:17:48
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-04-10 00:02:55
+ * @LastEditTime: 2021-04-15 00:02:55
  */
 
 using Bluegrams.Application;
@@ -52,11 +52,6 @@ namespace ShSzStockHelper
             ApplyTheme();
         } // end constructor App
 
-        public void Dispose()
-        {
-            _mutex.Dispose();
-        } // end method Dispose
-
         protected override void OnStartup(StartupEventArgs e)
         {
             _mutex = new Mutex(true, _productId);
@@ -69,6 +64,11 @@ namespace ShSzStockHelper
         } // end method OnStartUp
 
         #region Public Methods
+        public void Dispose()
+        {
+            _mutex.Dispose();
+        } // end method Dispose
+
         /// <summary>
         /// Get the product's copyright.<br />
         /// It is feasible to use this method to get a correct value if the app runs properly because the app component starts first and ends last.

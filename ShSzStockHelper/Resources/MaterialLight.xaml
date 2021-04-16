@@ -39,14 +39,6 @@
                    Text="{Binding}" />
     </DataTemplate>
 
-    <Style TargetType="syncfusion:PrintGridCell">
-        <Setter Property="Foreground" Value="Black"/>            
-    </Style>
-
-    <Style TargetType="syncfusion:PrintHeaderCell">
-        <Setter Property="Foreground" Value="Black"/>            
-    </Style>
-
     <Style x:Key="GridFilterControlStyle"
            BasedOn="{StaticResource SyncfusionGridFilterControlStyle}"
            TargetType="syncfusion:GridFilterControl">
