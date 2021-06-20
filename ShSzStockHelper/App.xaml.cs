@@ -1,10 +1,10 @@
 ﻿/*
  * @Description: the back-end code of initialising the app
- * @Version: 1.1.2.20210415
+ * @Version: 1.1.3.20210620
  * @Author: Arvin Zhao
  * @Date: 2020-07-08 10:17:48
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-04-15 00:02:55
+ * @LastEditTime: 2021-06-20 00:02:55
  */
 
 using Bluegrams.Application;
@@ -45,7 +45,7 @@ namespace ShSzStockHelper
 #else
             _productId = Assembly.GetExecutingAssembly().GetName().Name;
 #endif
-            SyncfusionLicenseProvider.RegisterLicense("NDI2NzY5QDMxMzkyZTMxMmUzMFY3Z3hHcE9WR1JzVWRoUVZldVVOYXNkL3JJTzBmQXV2ajh5b295bXRtT1k9"); // Register a Syncfusion (V19.1.0.55) license.
+            SyncfusionLicenseProvider.RegisterLicense("NDYxMzY4QDMxMzkyZTMxMmUzMFBkSlRUS1dxeGRBZFlYcTlRaG5VM21zdERZZXp0NEJtMFhkTUNRclYwbHM9"); // Register a Syncfusion (V19.1.0.69) license.
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(ShSzStockHelper.Properties.Settings.Default.CultureInfo); // It is necessary to specify the culture info here and in the name of the resource file "Syncfusion.Tools.Wpf" to avoid the issue that some text of the tab control is not displayed in simplified Chinese.
             LoadProductInfo();
             ConfigSettingsProvider();
