@@ -7,7 +7,7 @@
 
 **English** | [简体中文](./README-zhCN.md)
 
-SH/SZ Stock Helper is a Windows app which can mainly search strike prices and volumes for the users. Here SH represents Shanghai Stock Exchange, while SZ means Shenzhen Stock Exchange. The app is primarily designed for a specified part of Chinese users, and contents are displayed in simplified Chinese. Please note that the code is licensed under [the GPL-3.0 License](./LICENSE).
+SH/SZ Stock Helper is a Windows app that can mainly search strike prices and volumes for users. Here SH represents Shanghai Stock Exchange, while SZ means Shenzhen Stock Exchange. The app is primarily designed for a specified part of Chinese users, and contents are displayed in simplified Chinese. Please note that the code is licensed under [the GPL-3.0 License](./LICENSE).
 
 ## ATTENTION
 
