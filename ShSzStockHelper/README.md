@@ -2,7 +2,7 @@
 
 **English** | [简体中文](./README-zhCN.md)
 
-This is the Visual Studio solution folder of the application. It contains code and resources for the application to run. The major features of the application are listed as follows.
+This is the Visual Studio solution folder of the app. It contains code and resources for the app to run. The major features of the app are listed as follows.
 
 1. Enable searching strike prices and volumes by the symbol of an SH/SZ stock, the start date, and the end date. (Data is retrieved by implementing a basic web crawler.)
 2. Allow sorting and filtering on the columns of the table containing data of strike prices and volumes.
@@ -12,8 +12,8 @@ This is the Visual Studio solution folder of the application. It contains code a
 ## ATTENTION
 
 1. By 20 June 2021, everything looks good with Visual Studio 2019 (Version: 16.10.2) + Windows Presentation Foundation (WPF) with .NET Core 3.1. Additionally, I would like to thankfully acknowledge Syncfusion for [its powerful WPF UI controls and libraries](https://www.syncfusion.com/wpf-ui-controls), which save much development time.
-2. Most of icon images used by the application are from [Material Design Icons](https://material.io/resources/icons/?style=baseline) and [Flaticon](https://www.flaticon.com/).
-3. The primary NuGet packages used in the application are listed in the following table.
+2. Most of icon images used by the app are from [Material Design Icons](https://material.io/resources/icons/?style=baseline) and [Flaticon](https://www.flaticon.com/).
+3. The primary NuGet packages used in the app are listed in the following table.
 
     | Name | Version |
     | :-- | :--: |
