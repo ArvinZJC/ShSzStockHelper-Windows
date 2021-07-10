@@ -6,7 +6,7 @@
 
 ## 注意
 
-1. IPYNB格式的文件可以使用Visual Studio Code（需版本支持）打开并编辑。截至2021年6月30日，使用此代码编辑器（版本：1.57.1）开发表现良好。你也可以使用Anaconda中的Jupyter Notebook。此外，我想感谢[TuShare Pro](https://tushare.pro/)提供的宝贵数据。开发用到的主要的包参见下面的表格。
+1. IPYNB格式的文件可以使用Visual Studio Code（需版本支持）打开并编辑。截至2021年7月8日，使用此代码编辑器（版本：1.58.0）开发表现良好。你也可以使用Anaconda中的Jupyter Notebook。此外，我想感谢[TuShare Pro](https://tushare.pro/)提供的宝贵数据。开发用到的主要的包参见下面的表格。
 
     | 名称 | 版本 |
     | :--: | :--: |
