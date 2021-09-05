@@ -1,3 +1,5 @@
+![banner.png](./banner.png)
+
 # 神户座
 
 [![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ArvinZJC/ShSzStockHelper-Windows?include_prereleases)](../../releases)

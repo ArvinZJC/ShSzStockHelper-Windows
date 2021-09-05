@@ -1,3 +1,5 @@
+![banner.png](./banner.png)
+
 # SH/SZ Stock Helper
 
 [![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ArvinZJC/ShSzStockHelper-Windows?include_prereleases)](../../releases)
