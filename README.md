@@ -14,7 +14,7 @@ SH/SZ Stock Helper is a Windows app that can mainly search strike prices and vol
 ## ATTENTION
 
 1. The setup EXE files and the corresponding changelogs can be found in the [Releases](../../releases) section. From [V0.3.0](../../releases/tag/v0.3.0), a totally new solution to build the setup file is applied to make it more powerful (but with a smaller size) and **any version older than V0.3.0 should be manually uninstalled**.
-2. The app supports **Windows 7/8/8.1/10**.
+2. The app supports **Windows 7/8/8.1/10/11**, although the performance on Windows 11 is still under improvement and validation.
 
 ## Folder Instructions
 
