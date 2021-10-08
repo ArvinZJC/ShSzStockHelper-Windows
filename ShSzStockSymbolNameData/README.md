@@ -6,10 +6,10 @@ This folder contains a Jupyter Notebook file with Python code to retrieve and st
 
 ## ATTENTION
 
-1. The IPYNB file can be opened and edited in Visual Studio Code (if supported). By 8 July 2021, everything looks good with the code editor (Version: 1.58.0). As an option, you can also use Jupyter Notebook in Anaconda. In addition, I would like to thank [TuShare Pro](https://tushare.pro/) for its valuabale data. The primary packages used in the development are listed in the following table.
+1. The IPYNB file can be opened and edited in Visual Studio Code (if supported). By 7 October 2021, everything looks good with the code editor (Version: 1.61.0). As an option, you can also use Jupyter Notebook in Anaconda. In addition, I would like to thank [TuShare Pro](https://tushare.pro/) for its valuabale data. The primary packages used in the development are listed in the following table.
 
     | Name | Version |
     | :--: | :--: |
-    | python | 3.8.10 |
-    | tushare | 1.2.64 |
-    | pandas | 1.2.5 |
+    | python | 3.8.11 |
+    | tushare | 1.2.67 |
+    | pandas | 1.3.3 |
