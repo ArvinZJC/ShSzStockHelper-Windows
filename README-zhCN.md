@@ -4,10 +4,12 @@
 
 [![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ArvinZJC/ShSzStockHelper-Windows?include_prereleases)](../../releases)
 [![GitHub All Releases](https://img.shields.io/github/downloads/ArvinZJC/ShSzStockHelper-Windows/total)](../../releases)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/980d1c6c75754cdf9900139f5c5eb66f)](https://www.codacy.com/gh/ArvinZJC/ShSzStockHelper-Windows/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ArvinZJC/ShSzStockHelper-Windows&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/980d1c6c75754cdf9900139f5c5eb66f)](https://www.codacy.com/gh/ArvinZJC/ShSzStockHelper-Windows/dashboard?utm_source=github.com&utm_medium=referral&utm_content=ArvinZJC/ShSzStockHelper-Windows&utm_campaign=Badge_Grade)
 ![GitHub](https://img.shields.io/github/license/ArvinZJC/ShSzStockHelper-Windows)
 
 [English](./README.md) | **简体中文**
+
+**_（此仓库已归档。建议移步[这里](https://github.com/ArvinZJC/Kobe)体验全新的神户座。）_**
 
 神户座是一个 Windows 应用程序，它主要用来帮助用户搜索成交价和成交量，可看作是对分价表的组合加工。“神户”玩儿的是谐音梗，指代“沪深”。“沪深”的意思就不多说了，懂的都懂。这款应用程序实现的功能算不上太复杂，设计的目的主要是为了满足一些中国大陆用户的需求（包括家人），因而此应用程序支持的语言仅有简体中文。请注意此项目使用 [GPL-3.0 协议](./LICENSE)。
 

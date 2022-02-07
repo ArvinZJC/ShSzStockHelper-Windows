@@ -4,10 +4,12 @@
 
 [![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ArvinZJC/ShSzStockHelper-Windows?include_prereleases)](../../releases)
 [![GitHub All Releases](https://img.shields.io/github/downloads/ArvinZJC/ShSzStockHelper-Windows/total)](../../releases)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/980d1c6c75754cdf9900139f5c5eb66f)](https://www.codacy.com/gh/ArvinZJC/ShSzStockHelper-Windows/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ArvinZJC/ShSzStockHelper-Windows&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/980d1c6c75754cdf9900139f5c5eb66f)](https://www.codacy.com/gh/ArvinZJC/ShSzStockHelper-Windows/dashboard?utm_source=github.com&utm_medium=referral&utm_content=ArvinZJC/ShSzStockHelper-Windows&utm_campaign=Badge_Grade)
 ![GitHub](https://img.shields.io/github/license/ArvinZJC/ShSzStockHelper-Windows)
 
 **English** | [简体中文](./README-zhCN.md)
+
+**_(This repository has been archived. You are suggest to move [here](https://github.com/ArvinZJC/Kobe) for the brand-new Kobe.)_**
 
 SH/SZ Stock Helper is a Windows app that can mainly search strike prices and volumes for users. Here SH represents Shanghai Stock Exchange, while SZ means Shenzhen Stock Exchange. The app is primarily designed for a specified part of Chinese users, and contents are displayed in simplified Chinese. Please note that the code is licensed under [the GPL-3.0 License](./LICENSE).
 
